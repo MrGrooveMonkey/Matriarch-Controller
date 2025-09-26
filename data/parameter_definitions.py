@@ -231,20 +231,15 @@ PARAMETERS = {
     29: Parameter(29, "Arp MIDI Output", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
                  1, "Send MIDI notes from arp/sequencer"),
                  
-    30: Parameter(30, "Send MIDI Clock", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
-                 0, "MIDI clock transmission mode",
-                 choices={0: "Off", 1: "Only When Playing", 2: "Always"}),
+    30: Parameter(30, "MIDI Clock Input", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
+                 0, "MIDI clock and start/stop input behavior",
+                 choices={0: "Follow Clock + Start/Stop", 1: "Follow Clock Only", 2: "Ignore All"}),
                  
-    31: Parameter(31, "Send MIDI Start/Stop", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 0, "Send MIDI start/stop commands"),
+    31: Parameter(31, "MIDI Clock Output", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
+                 0, "MIDI clock and start/stop output behavior", 
+                 choices={0: "Send Clock + Start/Stop", 1: "Send Clock Only", 2: "Send Nothing"}),
                  
-    32: Parameter(32, "Follow MIDI Clock", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Sync to incoming MIDI clock"),
-                 
-    33: Parameter(33, "Follow MIDI Start/Stop", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Respond to MIDI start/stop commands"),
-                 
-    34: Parameter(34, "Follow Song Position Pointer", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
+    32: Parameter(32, "Follow Song Position Pointer", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
                  1, "Respond to MIDI song position"),
                  
     # Remove the old separate parameters and keep the combined ones

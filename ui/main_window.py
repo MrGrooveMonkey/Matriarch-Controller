@@ -80,6 +80,8 @@ class MatriarchMainWindow(QMainWindow):
         self.init_ui()
         self.setup_midi_callbacks()
         self.load_settings()
+        # Auto-reconnect if enabled and ports are available
+        self.attempt_auto_reconnect()
         self.setup_periodic_updates()
         
     def init_ui(self):
@@ -283,8 +285,8 @@ class MatriarchMainWindow(QMainWindow):
                 padding: 8px 16px;
                 margin: 2px;
                 border: 1px solid #666666;
-                min-width: 120px;
-                max-width: 200px;
+                min-width: 160px;
+                max-width: 300px;
             }
             QTabBar::tab:selected {
                 background-color: #ff6b35;

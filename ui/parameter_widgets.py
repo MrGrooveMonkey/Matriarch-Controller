@@ -490,94 +490,95 @@ class ParameterGroupWidget(QWidget):
     def get_parameter_widget(self, param_id: int) -> Optional[ParameterWidget]:
         """Get widget for specific parameter"""
         return self.widgets.get(param_id)
-    """Apply consistent theming to parameter widgets"""
-    widget.setStyleSheet("""
-        ParameterWidget {
-            background-color: #3c3c3c;
-            border: 1px solid #555555;
-            border-radius: 3px;
-            padding: 3px;
-            margin: 1px;
-        }
-        ParameterWidget:hover {
-            border-color: #777777;
-        }
-        QLabel {
-            color: #ffffff;
-            font-size: 11px;
-        }
-        QSlider::groove:horizontal {
-            border: 1px solid #666666;
-            background: #4a4a4a;
-            height: 6px;
-            border-radius: 3px;
-        }
-        QSlider::handle:horizontal {
-            background: #ff6b35;
-            border: 1px solid #ff6b35;
-            width: 16px;
-            margin: -5px 0;
-            border-radius: 8px;
-        }
-        QSlider::handle:horizontal:hover {
-            background: #ff8c5a;
-        }
-        QComboBox {
-            background-color: #4a4a4a;
-            border: 1px solid #666666;
-            padding: 2px 5px;
-            border-radius: 3px;
-            color: #ffffff;
-        }
-        QComboBox::drop-down {
-            border: none;
-        }
-        QComboBox::down-arrow {
-            image: none;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid #ffffff;
-            margin-right: 5px;
-        }
-        QComboBox QAbstractItemView {
-            background-color: #3c3c3c;
-            border: 1px solid #666666;
-            selection-background-color: #ff6b35;
-            color: #ffffff;
-        }
-        QSpinBox {
-            background-color: #4a4a4a;
-            border: 1px solid #666666;
-            padding: 2px;
-            border-radius: 3px;
-            color: #ffffff;
-        }
-        QSpinBox::up-button, QSpinBox::down-button {
-            background-color: #5a5a5a;
-            border: 1px solid #666666;
-        }
-        QSpinBox::up-button:hover, QSpinBox::down-button:hover {
-            background-color: #6a6a6a;
-        }
-        QPushButton {
-            background-color: #4a4a4a;
-            border: 1px solid #666666;
-            padding: 4px 12px;
-            border-radius: 3px;
-            color: #ffffff;
-            font-weight: normal;
-        }
-        QPushButton:hover {
-            background-color: #5a5a5a;
-            border-color: #777777;
-        }
-        QPushButton:checked {
-            background-color: #ff6b35;
-            border-color: #ff6b35;
-            color: #ffffff;
-            font-weight: bold;
-        }
-        QPushButton:pressed {
-            background-color: #e55a2b;
-        }
-    """)
+    def apply_widget_theme(widget):
+        """Apply consistent theming to parameter widgets"""
+        widget.setStyleSheet("""
+            ParameterWidget {
+                background-color: #3c3c3c;
+                border: 1px solid #555555;
+                border-radius: 3px;
+                padding: 3px;
+                margin: 1px;
+            }
+            ParameterWidget:hover {
+                border-color: #777777;
+            }
+            QLabel {
+                color: #ffffff;
+                font-size: 11px;
+            }
+            QSlider::groove:horizontal {
+                border: 1px solid #666666;
+                background: #4a4a4a;
+                height: 6px;
+                border-radius: 3px;
+            }
+            QSlider::handle:horizontal {
+                background: #ff6b35;
+                border: 1px solid #ff6b35;
+                width: 16px;
+                margin: -5px 0;
+                border-radius: 8px;
+            }
+            QSlider::handle:horizontal:hover {
+                background: #ff8c5a;
+            }
+            QComboBox {
+                background-color: #4a4a4a;
+                border: 1px solid #666666;
+                padding: 2px 5px;
+                border-radius: 3px;
+                color: #ffffff;
+            }
+            QComboBox::drop-down {
+                border: none;
+            }
+            QComboBox::down-arrow {
+                image: none;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-top: 4px solid #ffffff;
+                margin-right: 5px;
+            }
+            QComboBox QAbstractItemView {
+                background-color: #3c3c3c;
+                border: 1px solid #666666;
+                selection-background-color: #ff6b35;
+                color: #ffffff;
+            }
+            QSpinBox {
+                background-color: #4a4a4a;
+                border: 1px solid #666666;
+                padding: 2px;
+                border-radius: 3px;
+                color: #ffffff;
+            }
+            QSpinBox::up-button, QSpinBox::down-button {
+                background-color: #5a5a5a;
+                border: 1px solid #666666;
+            }
+            QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+                background-color: #6a6a6a;
+            }
+            QPushButton {
+                background-color: #4a4a4a;
+                border: 1px solid #666666;
+                padding: 4px 12px;
+                border-radius: 3px;
+                color: #ffffff;
+                font-weight: normal;
+            }
+            QPushButton:hover {
+                background-color: #5a5a5a;
+                border-color: #777777;
+            }
+            QPushButton:checked {
+                background-color: #ff6b35;
+                border-color: #ff6b35;
+                color: #ffffff;
+                font-weight: bold;
+            }
+            QPushButton:pressed {
+                background-color: #e55a2b;
+            }
+        """)
