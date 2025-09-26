@@ -88,8 +88,9 @@ class Parameter:
 
 # Helper functions for human-readable conversions
 def swing_percentage(value: int) -> str:
-    """Convert swing value 0-16383 to percentage"""
-    percent = (value / 16383.0) * 100
+    """Convert swing value 0-16383 to percentage (22% to 78% range)"""
+    # Map 0-16383 to 22-78% range
+    percent = 22 + (value / 16383.0) * (78 - 22)
     return f"{percent:.1f}%"
 
 def semitones_display(value: int) -> str:
@@ -209,7 +210,7 @@ PARAMETERS = {
     23: Parameter(23, "Arp/Seq Swing", ParameterCategory.ARP_SEQUENCER, ParameterType.RANGE,
                  8192, "Rhythmic swing amount for arp/sequencer",
                  min_value=0, max_value=16383, human_readable_func=swing_percentage,
-                 tooltip="Swing timing: 50% = straight, <50% = early, >50% = late"),
+                 tooltip="Swing timing: 22% = earliest, 50% = straight, 78% = latest"),
                  
     24: Parameter(24, "Sequence Keyboard Control", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
                  1, "Keyboard controls sequence playback"),
@@ -400,6 +401,11 @@ PARAMETERS = {
     75: Parameter(75, "MIDI Velocity Curves", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
                  0, "Keyboard velocity response curve",
                  choices={0: "Base", 1: "Linear", 2: "Hard", 3: "Soft"}),
+                 
+    # Group 10 - Factory Reset Functions (Manual page 70)
+    76: Parameter(76, "Load Default Settings", ParameterCategory.ADVANCED, ParameterType.TOGGLE,
+                 0, "Reset all global parameters to factory default values",
+                 tooltip="WARNING: This will reset ALL global parameters to their factory default values. This action cannot be undone."),
 }
 
 # Organize parameters by category for UI tabs

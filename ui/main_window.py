@@ -123,7 +123,6 @@ class MatriarchMainWindow(QMainWindow):
         file_menu = menubar.addMenu('&File')
         
         query_action = QAction('&Query All Parameters', self)
-        query_action.setShortcut('Ctrl+Q')
         query_action.setStatusTip('Query all parameters from Matriarch')
         query_action.triggered.connect(self.query_all_parameters)
         file_menu.addAction(query_action)
@@ -148,12 +147,6 @@ class MatriarchMainWindow(QMainWindow):
         load_preset_action.setShortcut('Ctrl+L')
         load_preset_action.triggered.connect(self.load_preset)
         preset_menu.addAction(load_preset_action)
-        
-        preset_menu.addSeparator()
-        
-        reset_defaults_action = QAction('&Reset to Defaults', self)
-        reset_defaults_action.triggered.connect(self.reset_to_defaults)
-        preset_menu.addAction(reset_defaults_action)
         
         file_menu.addSeparator()
         
@@ -347,6 +340,46 @@ class MatriarchMainWindow(QMainWindow):
             }
         """)
     
+    def attempt_auto_reconnect(self):
+            """Attempt to auto-reconnect using saved MIDI settings if enabled"""
+            auto_reconnect = self.settings.value('midi/auto_reconnect', False, type=bool)
+        
+            if not auto_reconnect:
+                logger.debug("Auto-reconnect disabled")
+                return
+            
+            input_port = self.settings.value('midi/input_port')
+            output_port = self.settings.value('midi/output_port')
+        
+            if not input_port or not output_port:
+                logger.debug("No saved MIDI ports for auto-reconnect")
+                return
+            
+            # Check if the saved ports are still available
+            try:
+                import mido
+                available_inputs = mido.get_input_names()
+                available_outputs = mido.get_output_names()
+            
+                if input_port in available_inputs and output_port in available_outputs:
+                    logger.info(f"Attempting auto-reconnect to {input_port} ↔ {output_port}")
+                    if self.midi_manager.connect(input_port, output_port):
+                        self.update_connection_status()
+                        self.status_bar.showMessage(f"Auto-reconnected to {input_port} ↔ {output_port}", 3000)
+                    
+                        # Optionally auto-query parameters
+                        auto_query = self.settings.value('midi/auto_query_on_connect', True, type=bool)
+                        if auto_query:
+                            QTimer.singleShot(1000, self.query_all_parameters)  # Delay slightly to ensure connection is stable
+                    else:
+                        logger.warning("Auto-reconnect failed - could not establish connection")
+                else:
+                    logger.info(f"Auto-reconnect skipped - saved ports not available")
+                    logger.debug(f"Looking for: {input_port} in {available_inputs}")
+                    logger.debug(f"Looking for: {output_port} in {available_outputs}")
+            except Exception as e:
+                logger.error(f"Auto-reconnect failed: {e}")
+    
     def setup_midi_callbacks(self):
         """Setup MIDI event callbacks"""
         self.midi_manager.set_callbacks(
@@ -375,7 +408,28 @@ class MatriarchMainWindow(QMainWindow):
     
     def on_parameter_changed(self, param_id: int, value: int):
         """Handle parameter changes from UI"""
-        # Validate parameter
+        # Check if this is the Load Default Settings parameter (ID 76)
+        if param_id == 76 and value == 1:
+            # Show confirmation dialog
+            reply = QMessageBox.question(
+                self, "Load Default Settings", 
+                "This will reset ALL global parameters to their factory default values.\n\n"
+                "This action cannot be undone. Are you sure you want to continue?",
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No
+            )
+            
+            if reply == QMessageBox.Yes:
+                # Trigger the factory reset
+                self.load_factory_defaults()
+            
+            # Always reset the toggle back to off
+            widget = self.parameter_widgets.get(param_id)
+            if widget:
+                widget.set_value_silently(0)
+            return
+        
+        # Regular parameter handling
         param = get_parameter_by_id(param_id)
         if param:
             validated_value = param.validate_value(value)
@@ -390,6 +444,31 @@ class MatriarchMainWindow(QMainWindow):
                 if param_id in self.current_values:
                     widget = self.parameter_widgets[param_id]
                     widget.set_value_silently(self.current_values[param_id])
+    
+    def load_factory_defaults(self):
+        """Load factory default settings using SysEx command"""
+        if not self.midi_manager.is_connected:
+            QMessageBox.warning(self, "Not Connected", 
+                              "Please connect to Matriarch first.")
+            return
+        
+        try:
+            # Use the reset_to_defaults functionality but with different messaging
+            defaults = get_all_parameter_defaults()
+            
+            successful_count = 0
+            for param_id, default_value in defaults.items():
+                if param_id != 76:  # Skip the Load Default Settings parameter itself
+                    if self.midi_manager.set_parameter(param_id, default_value):
+                        self.on_parameter_received(param_id, default_value)
+                        successful_count += 1
+            
+            self.status_bar.showMessage(f"Factory defaults loaded: {successful_count} parameters reset", 3000)
+            
+        except Exception as e:
+            logger.exception("Error loading factory defaults")
+            QMessageBox.critical(self, "Reset Error", 
+                               f"Error loading factory defaults:\n{e}")
     
     def on_midi_error(self, error_message: str):
         """Handle MIDI errors"""
@@ -411,7 +490,7 @@ class MatriarchMainWindow(QMainWindow):
         
         # Get all parameter IDs
         from data.parameter_definitions import PARAMETERS
-        parameter_ids = list(PARAMETERS.keys())
+        parameter_ids = [pid for pid in PARAMETERS.keys() if pid != 76]
         
         # Show progress
         self.progress_bar.setVisible(True)
@@ -623,7 +702,10 @@ class MatriarchMainWindow(QMainWindow):
             if input_port and output_port:
                 if self.midi_manager.connect(input_port, output_port):
                     self.update_connection_status()
-                    self.query_all_parameters()  # Auto-query on connect
+                    # Auto-query if enabled
+                    auto_query = self.settings.value('midi/auto_query_on_connect', True, type=bool)
+                    if auto_query:
+                        self.query_all_parameters()
             else:
                 self.show_midi_settings()
     

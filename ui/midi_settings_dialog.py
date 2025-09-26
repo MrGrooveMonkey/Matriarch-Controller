@@ -7,7 +7,7 @@ from typing import Dict, List, Optional
 from PyQt5.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QFormLayout, QLabel, 
     QComboBox, QSpinBox, QPushButton, QGroupBox, QMessageBox,
-    QDialogButtonBox, QProgressBar, QTextEdit
+    QDialogButtonBox, QProgressBar, QTextEdit, QCheckBox
 )
 from PyQt5.QtCore import Qt, QSettings, QTimer, pyqtSignal
 from PyQt5.QtGui import QFont
@@ -104,6 +104,19 @@ class MIDISettingsDialog(QDialog):
         query_layout.addStretch()
         
         config_layout.addRow("Query Delay:", query_layout)
+        
+        # Auto-reconnect options
+        auto_reconnect_layout = QHBoxLayout()
+        self.auto_reconnect_check = QCheckBox("Auto-reconnect on startup")
+        self.auto_reconnect_check.setToolTip("Automatically reconnect to these MIDI ports when the application starts")
+        auto_reconnect_layout.addWidget(self.auto_reconnect_check)
+        
+        self.auto_query_check = QCheckBox("Auto-query parameters on connect")
+        self.auto_query_check.setToolTip("Automatically query all parameters when connection is established")
+        auto_reconnect_layout.addWidget(self.auto_query_check)
+        auto_reconnect_layout.addStretch()
+        
+        config_layout.addRow("Startup:", auto_reconnect_layout)
         
         layout.addWidget(config_group)
         
@@ -400,6 +413,10 @@ class MIDISettingsDialog(QDialog):
         self.unit_id_spin.setValue(self.settings.value('midi/unit_id', 0, type=int))
         self.midi_channel_spin.setValue(self.settings.value('midi/midi_channel', 1, type=int))
         self.query_delay_spin.setValue(self.settings.value('midi/query_delay', 400, type=int))
+        
+        # Auto-reconnect options
+        self.auto_reconnect_check.setChecked(self.settings.value('midi/auto_reconnect', False, type=bool))
+        self.auto_query_check.setChecked(self.settings.value('midi/auto_query_on_connect', True, type=bool))
     
     def _restore_port_selections(self, input_port: str, output_port: str):
         """Restore port selections after combo boxes are populated"""
@@ -428,6 +445,10 @@ class MIDISettingsDialog(QDialog):
         self.settings.setValue('midi/unit_id', self.unit_id_spin.value())
         self.settings.setValue('midi/midi_channel', self.midi_channel_spin.value())
         self.settings.setValue('midi/query_delay', self.query_delay_spin.value())
+        
+        # Auto-reconnect options
+        self.settings.setValue('midi/auto_reconnect', self.auto_reconnect_check.isChecked())
+        self.settings.setValue('midi/auto_query_on_connect', self.auto_query_check.isChecked())
     
     def accept(self):
         """Handle OK button click"""

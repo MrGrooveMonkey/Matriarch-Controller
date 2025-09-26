@@ -357,6 +357,180 @@ class MIDIChannelParameterWidget(ParameterWidget):
         # Set initial state
         self.update_display()
     
+class SwingParameterWidget(ParameterWidget):
+    """Special widget for swing parameter with triplet button"""
+    
+    def init_ui(self):
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(5, 2, 5, 2)
+        
+        # Top row: name and current value
+        top_layout = QHBoxLayout()
+        
+        self.name_label = QLabel(self.parameter.name)
+        self.name_label.setMinimumWidth(200)
+        top_layout.addWidget(self.name_label)
+        
+        top_layout.addStretch()
+        
+        # Current value display
+        self.value_label = QLabel()
+        self.value_label.setStyleSheet("font-weight: bold; color: #ff6b35;")
+        top_layout.addWidget(self.value_label)
+        
+        # Raw value in parentheses
+        self.raw_value_label = QLabel()
+        self.raw_value_label.setStyleSheet("color: #888888; font-size: 10px;")
+        top_layout.addWidget(self.raw_value_label)
+        
+        layout.addLayout(top_layout)
+        
+        # Middle row: slider and spinbox
+        middle_layout = QHBoxLayout()
+        
+        # Slider
+        self.slider = QSlider(Qt.Horizontal)
+        self.slider.setMinimum(self.parameter.min_value or 0)
+        self.slider.setMaximum(self.parameter.max_value or 16383)
+        self.slider.valueChanged.connect(self.on_slider_changed)
+        middle_layout.addWidget(self.slider, stretch=3)
+        
+        # Spinbox for precise control
+        self.spinbox = QSpinBox()
+        self.spinbox.setMinimum(self.parameter.min_value or 0)
+        self.spinbox.setMaximum(self.parameter.max_value or 16383)
+        self.spinbox.setMinimumWidth(80)
+        self.spinbox.valueChanged.connect(self.on_spinbox_changed)
+        middle_layout.addWidget(self.spinbox)
+        
+        layout.addLayout(middle_layout)
+        
+        # Triplet button row
+        triplet_layout = QHBoxLayout()
+        triplet_layout.addStretch()
+        
+        self.triplet_button = QPushButton("Triplet (66%)")
+        self.triplet_button.setToolTip("Set swing to 66% for triplet feel")
+        self.triplet_button.setMaximumWidth(120)
+        self.triplet_button.clicked.connect(self.set_triplet_swing)
+        triplet_layout.addWidget(self.triplet_button)
+        
+        triplet_layout.addStretch()
+        layout.addLayout(triplet_layout)
+        
+        # Default value indicator
+        default_readable = self.parameter.get_human_readable(self.parameter.default_value)
+        self.default_label = QLabel(f"Default: {default_readable} ({self.parameter.default_value})")
+        self.default_label.setStyleSheet("color: #888888; font-size: 10px;")
+        layout.addWidget(self.default_label)
+        
+        # Set initial state
+        self.update_display()
+    
+    def set_triplet_swing(self):
+        """Set swing to 66% (triplet feel)"""
+        # Calculate the raw value for 66%
+        # 66% maps to position (66-22)/(78-22) = 44/56 ≈ 0.786 of the range
+        # So raw value = 0.786 * 16383 ≈ 12877
+        triplet_value = int(((66 - 22) / (78 - 22)) * 16383)
+        self.emit_value_changed(triplet_value)
+    
+    def update_display(self):
+        """Update slider and spinbox values"""
+        # Update controls without triggering signals
+        self.slider.blockSignals(True)
+        self.spinbox.blockSignals(True)
+        
+        self.slider.setValue(self.current_value)
+        self.spinbox.setValue(self.current_value)
+        
+        self.slider.blockSignals(False)
+        self.spinbox.blockSignals(False)
+        
+        # Update value displays
+        human_readable = self.parameter.get_human_readable(self.current_value)
+        self.value_label.setText(human_readable)
+        self.raw_value_label.setText(f"({self.current_value})")
+        
+        # Highlight if different from default
+        is_default = self.current_value == self.parameter.default_value
+        if not is_default:
+            self.slider.setStyleSheet("""
+                QSlider::groove:horizontal {
+                    border: 1px solid #ff6b35;
+                    background: #4a4a4a;
+                    height: 8px;
+                }
+                QSlider::handle:horizontal {
+                    background: #ff6b35;
+                    border: 1px solid #ff6b35;
+                    width: 18px;
+                    margin: -5px 0;
+                    border-radius: 9px;
+                }
+            """)
+            self.spinbox.setStyleSheet("""
+                QSpinBox {
+                    background-color: #5a4a2a;
+                    border: 2px solid #ff6b35;
+                }
+            """)
+        else:
+            self.slider.setStyleSheet("")
+            self.spinbox.setStyleSheet("")
+        
+        # Highlight triplet button if at 66%
+        current_percent = 22 + (self.current_value / 16383.0) * (78 - 22)
+        if abs(current_percent - 66) < 1:  # Within 1% of 66%
+            self.triplet_button.setStyleSheet("""
+                QPushButton {
+                    background-color: #ff6b35;
+                    border: 2px solid #ff6b35;
+                    color: #ffffff;
+                    font-weight: bold;
+                }
+            """)
+        else:
+            self.triplet_button.setStyleSheet("")
+    
+    def on_slider_changed(self, value: int):
+        """Handle slider value change"""
+        # Update spinbox to match
+        self.spinbox.blockSignals(True)
+        self.spinbox.setValue(value)
+        self.spinbox.blockSignals(False)
+        
+        # Update display and emit signal
+        self.emit_value_changed(value)
+        
+        # Update display immediately for responsiveness
+        human_readable = self.parameter.get_human_readable(value)
+        self.value_label.setText(human_readable)
+        self.raw_value_label.setText(f"({value})")
+        
+        # Update triplet button highlighting
+        current_percent = 22 + (value / 16383.0) * (78 - 22)
+        if abs(current_percent - 66) < 1:
+            self.triplet_button.setStyleSheet("""
+                QPushButton {
+                    background-color: #ff6b35;
+                    border: 2px solid #ff6b35;
+                    color: #ffffff;
+                    font-weight: bold;
+                }
+            """)
+        else:
+            self.triplet_button.setStyleSheet("")
+    
+    def on_spinbox_changed(self, value: int):
+        """Handle spinbox value change"""
+        # Update slider to match
+        self.slider.blockSignals(True)
+        self.slider.setValue(value)
+        self.slider.blockSignals(False)
+        
+        self.emit_value_changed(value)
+    
     def update_display(self):
         """Update channel combo selection"""
         self.channel_combo.setCurrentIndex(self.current_value)
@@ -387,7 +561,10 @@ class ParameterWidgetFactory:
     @staticmethod
     def create_widget(parameter: Parameter) -> ParameterWidget:
         """Create appropriate widget for parameter type"""
-        if parameter.param_type == ParameterType.TOGGLE:
+        # Special case for ARP/SEQ Swing parameter
+        if parameter.param_id == 23:  # ARP/SEQ Swing
+            return SwingParameterWidget(parameter)
+        elif parameter.param_type == ParameterType.TOGGLE:
             return ToggleParameterWidget(parameter)
         elif parameter.param_type == ParameterType.CHOICE:
             return ChoiceParameterWidget(parameter)
