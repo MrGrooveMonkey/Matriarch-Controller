@@ -339,6 +339,13 @@ class MIDIChannelParameterWidget(ParameterWidget):
             self.channel_combo.addItem(f"Channel {i + 1}", i)
         
         self.channel_combo.currentIndexChanged.connect(self.on_channel_changed)
+        
+    def on_channel_changed(self, index):
+        """Handle MIDI channel selection change"""
+        if hasattr(self, 'parameter') and self.parameter:
+            self.parameter.value = index
+            self.value_changed.emit(self.parameter.id, index)
+        
         layout.addWidget(self.channel_combo)
         
         # Raw value display
@@ -543,9 +550,29 @@ class SwingParameterWidget(ParameterWidget):
         self.emit_value_changed(value)
     
     def update_display(self):
-        """Update channel combo selection"""
-        self.channel_combo.setCurrentIndex(self.current_value)
-        self.raw_value_label.setText(f"(Raw: {self.current_value})")
+        """Update the parameter display"""
+        if not hasattr(self, 'parameter') or not self.parameter:
+            return
+            
+        # Only update channel combo if this widget has one (MIDIChannelParameterWidget)
+        if hasattr(self, 'channel_combo'):
+            self.channel_combo.setCurrentIndex(self.parameter.value)
+        
+        # Only update checkbox if this widget has one (BooleanParameterWidget)  
+        if hasattr(self, 'checkbox'):
+            self.checkbox.setChecked(bool(self.parameter.value))
+            
+        # Only update slider if this widget has one (KnobParameterWidget)
+        if hasattr(self, 'slider'):
+            self.slider.setValue(self.parameter.value)
+            
+        # Only update swing slider if this widget has one (SwingParameterWidget)
+        if hasattr(self, 'swing_slider'):
+            self.swing_slider.setValue(self.parameter.value)
+        if hasattr(self, 'percentage_label'):
+            # Convert swing value to percentage display
+            percentage = 22 + (self.parameter.value / 16383.0) * 56
+            self.percentage_label.setText(f"{percentage:.1f}%")
         
         # Highlight if different from default
         is_default = self.current_value == self.parameter.default_value
