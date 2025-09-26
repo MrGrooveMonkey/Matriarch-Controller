@@ -357,6 +357,17 @@ class MIDIChannelParameterWidget(ParameterWidget):
         # Set initial state
         self.update_display()
     
+    def on_channel_changed(self, index):
+        """Handle MIDI channel selection change"""
+        if hasattr(self, 'parameter') and self.parameter:
+            # Convert combo box index to MIDI channel (1-16)
+            channel = index + 1
+            # Update the parameter value
+            self.parameter.value = index + 1  # Store 0-based index as parameter value
+            # Emit value changed signal if needed
+            if hasattr(self, 'value_changed'):
+                self.value_changed.emit(self.parameter.id, index)
+    
 class SwingParameterWidget(ParameterWidget):
     """Special widget for swing parameter with triplet button"""
     

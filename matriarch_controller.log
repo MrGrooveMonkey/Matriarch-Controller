@@ -4384,3 +4384,29 @@ Traceback (most recent call last):
     self.channel_combo.currentIndexChanged.connect(self.on_channel_changed)
                                                    ^^^^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'MIDIChannelParameterWidget' object has no attribute 'on_channel_changed'
+2025-09-26 16:32:06,030 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-26 16:32:06,222 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-26 16:32:06,518 - __main__ - ERROR - Unexpected error in main application
+Traceback (most recent call last):
+  File "/Users/mini4/matriarch_controller/main.py", line 125, in main
+    main_window = MatriarchMainWindow()
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 80, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 110, in init_ui
+    self.create_parameter_tabs()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 220, in create_parameter_tabs
+    param_widget = widget_factory.create_widget(param)
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 577, in create_widget
+    return SwingParameterWidget(parameter)
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 30, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 439, in init_ui
+    self.update_display()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 547, in update_display
+    self.channel_combo.setCurrentIndex(self.current_value)
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'SwingParameterWidget' object has no attribute 'channel_combo'
