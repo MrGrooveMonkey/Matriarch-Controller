@@ -13,10 +13,10 @@ class ParameterType(Enum):
     MIDI_CHANNEL = "midi_channel"  # Special case for MIDI channels 1-16
 
 class ParameterCategory(Enum):
-    MIDI_COMMUNICATION = "MIDI & Communication"
-    PERFORMANCE_KEYBOARD = "Performance & Keyboard" 
-    ARP_SEQUENCER = "Arp/Sequencer"
-    AUDIO_CV = "Audio & CV"
+    PERFORMANCE = "Performance"
+    ARP_SEQ = "Arp/Seq"
+    MIDI_CONFIG = "MIDI/Config"
+    CV = "CV"
     ADVANCED = "Advanced"
 
 class Parameter:
@@ -127,285 +127,739 @@ def pitch_variance_cents(value: int) -> str:
     return f"±{cents:.1f} cents"
 
 # Parameter definitions based on Matriarch manual
+# Parameter definitions based on Matriarch manual
 PARAMETERS = {
-    # Group 0 - Default Parameters (pages 62-63)
-    0: Parameter(0, "Unit ID", ParameterCategory.ADVANCED, ParameterType.RANGE,
-                0, "MIDI Unit ID for SysEx communication", 
-                min_value=0, max_value=15, tooltip="Unit ID for MIDI SysEx (usually 0)"),
-                
-    1: Parameter(1, "Tuning Scale", ParameterCategory.ADVANCED, ParameterType.RANGE,
-                0, "Active tuning scale (0=12-TET)", 
-                min_value=0, max_value=31, tooltip="Tuning table selection (0=12-tone equal temperament)"),
-                
-    2: Parameter(2, "Knob Mode", ParameterCategory.ADVANCED, ParameterType.CHOICE,
-                2, "How panel knobs respond to value changes",
-                choices={0: "Snap", 1: "Pass-Thru", 2: "Relative"}),
-                
-    3: Parameter(3, "Note Priority", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.CHOICE,
-                2, "Which note takes priority in monophonic mode",
-                choices={0: "Low", 1: "High", 2: "Last Note"}),
-                
-    4: Parameter(4, "Send Program Change", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                0, "Send MIDI Program Change when selecting sequences"),
-                
-    5: Parameter(5, "Receive Program Change", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                1, "Respond to MIDI Program Change messages"),
-                
-    6: Parameter(6, "MIDI Input Ports", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
-                3, "Which MIDI input ports to use",
-                choices={0: "None", 1: "DIN Only", 2: "USB Only", 3: "Both DIN and USB"}),
-                
-    7: Parameter(7, "MIDI Output Ports", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
-                3, "Which MIDI output ports to use",
-                choices={0: "None", 1: "DIN Only", 2: "USB Only", 3: "Both DIN and USB"}),
-                
-    8: Parameter(8, "MIDI Echo USB In", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
-                0, "Echo USB MIDI input to outputs",
-                choices={0: "Off", 1: "Echo to DIN Out", 2: "Echo to USB Out", 3: "Echo to Both"}),
-                
-    9: Parameter(9, "MIDI Echo DIN In", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
-                0, "Echo DIN MIDI input to outputs", 
-                choices={0: "Off", 1: "Echo to DIN Out", 2: "Echo to USB Out", 3: "Echo to Both"}),
-                
-    10: Parameter(10, "MIDI Input Channel", ParameterCategory.MIDI_COMMUNICATION, ParameterType.MIDI_CHANNEL,
-                 0, "MIDI input channel (1-16)"),
-                 
-    11: Parameter(11, "MIDI Output Channel", ParameterCategory.MIDI_COMMUNICATION, ParameterType.MIDI_CHANNEL,
-                 0, "MIDI output channel (1-16)"),
-                 
-    12: Parameter(12, "MIDI Out Filter - Keys", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Send MIDI note messages from keyboard"),
-                 
-    13: Parameter(13, "MIDI Out Filter - Wheels", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Send MIDI CC from pitch/mod wheels"),
-                 
-    14: Parameter(14, "MIDI Out Filter - Panel", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Send MIDI CC from panel controls"),
-                 
-    15: Parameter(15, "Output 14-bit MIDI CCs", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 0, "Use 14-bit resolution for MIDI CC output"),
-                 
-    16: Parameter(16, "Local Control: Keys", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Keyboard controls internal synth engine"),
-                 
-    17: Parameter(17, "Local Control: Wheels", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Pitch/Mod wheels control internal synth engine"),
-                 
-    18: Parameter(18, "Local Control: Panel", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Panel controls affect internal synth engine"),
-                 
-    19: Parameter(19, "Local Control: Arp/Seq", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Arp/Sequencer controls internal synth engine"),
-                 
-    20: Parameter(20, "Sequence Transpose Mode", ParameterCategory.ARP_SEQUENCER, ParameterType.CHOICE,
-                 0, "How sequences transpose with keyboard input",
-                 choices={0: "Relative to First Note", 1: "Relative to Middle C"}),
-                 
-    21: Parameter(21, "Arp/Seq Keyed Timing Reset", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
-                 0, "Reset master clock when key is pressed"),
-                 
-    22: Parameter(22, "Arp FW/BW Repeats", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
-                 1, "Repeat end notes when direction changes"),
-                 
-    23: Parameter(23, "Arp/Seq Swing", ParameterCategory.ARP_SEQUENCER, ParameterType.RANGE,
-                 8192, "Rhythmic swing amount for arp/sequencer",
-                 min_value=0, max_value=16383, human_readable_func=swing_percentage,
-                 tooltip="Swing timing: 22% = earliest, 50% = straight, 78% = latest"),
-                 
-    24: Parameter(24, "Sequence Keyboard Control", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
-                 1, "Keyboard controls sequence playback"),
-                 
-    25: Parameter(25, "Delay Sequence Change", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
-                 0, "Wait for sequence end before changing"),
-                 
-    26: Parameter(26, "Sequence Keyed Restart", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
-                 0, "Restart sequence when keyboard control changes"),
-                 
-    27: Parameter(27, "Arp/Seq Clock Input Mode", ParameterCategory.ARP_SEQUENCER, ParameterType.CHOICE,
-                 0, "How external clock input works",
-                 choices={0: "Clock", 1: "Step-Advance Trigger"}),
-                 
-    28: Parameter(28, "Arp/Seq Clock Output", ParameterCategory.ARP_SEQUENCER, ParameterType.CHOICE,
-                 1, "When to send clock output",
-                 choices={0: "Always", 1: "Only When Playing"}),
-                 
-    29: Parameter(29, "Arp MIDI Output", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
-                 1, "Send MIDI notes from arp/sequencer"),
-                 
-    30: Parameter(30, "MIDI Clock Input", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
-                 0, "MIDI clock and start/stop input behavior",
-                 choices={0: "Follow Clock + Start/Stop", 1: "Follow Clock Only", 2: "Ignore All"}),
-                 
-    31: Parameter(31, "MIDI Clock Output", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
-                 0, "MIDI clock and start/stop output behavior", 
-                 choices={0: "Send Clock + Start/Stop", 1: "Send Clock Only", 2: "Send Nothing"}),
-                 
-    32: Parameter(32, "Follow Song Position Pointer", ParameterCategory.MIDI_COMMUNICATION, ParameterType.TOGGLE,
-                 1, "Respond to MIDI song position"),
-                 
-    # Remove the old separate parameters and keep the combined ones
-    # Parameters 31, 33, 34 are now handled by the combined parameters 30 and 32
-    # Skip these parameter IDs to maintain SysEx compatibility
-    
-    35: Parameter(35, "Clock Input PPQN", ParameterCategory.ARP_SEQUENCER, ParameterType.CHOICE,
-                 3, "Clock input resolution",
-                 choices={0: "1 PPQN", 1: "2 PPQN", 2: "3 PPQN", 3: "4 PPQN", 4: "5 PPQN",
-                         5: "6 PPQN", 6: "7 PPQN", 7: "8 PPQN", 8: "9 PPQN", 9: "10 PPQN",
-                         10: "11 PPQN", 11: "12 PPQN", 12: "24 PPQN", 13: "48 PPQN"},
-                 human_readable_func=ppqn_display),
-                 
-    36: Parameter(36, "Clock Output PPQN", ParameterCategory.ARP_SEQUENCER, ParameterType.CHOICE,
-                 3, "Clock output resolution", 
-                 choices={0: "1 PPQN", 1: "2 PPQN", 2: "3 PPQN", 3: "4 PPQN", 4: "5 PPQN",
-                         5: "6 PPQN", 6: "7 PPQN", 7: "8 PPQN", 8: "9 PPQN", 9: "10 PPQN",
-                         10: "11 PPQN", 11: "12 PPQN", 12: "24 PPQN", 13: "48 PPQN"},
-                 human_readable_func=ppqn_display),
-                 
-    37: Parameter(37, "Pitch Bend Range", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.RANGE,
-                 2, "Pitch wheel bend range in semitones",
-                 min_value=0, max_value=12, human_readable_func=semitones_display),
-                 
-    38: Parameter(38, "Keyboard Octave Transpose", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.CHOICE,
-                 2, "Keyboard octave transpose setting",
-                 choices={0: "-2 Octaves", 1: "-1 Octave", 2: "Normal", 3: "+1 Octave", 4: "+2 Octaves"}),
-                 
-    39: Parameter(39, "Delayed Keyboard Octave Shift", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.TOGGLE,
-                 1, "Delay octave shifts until new notes"),
-                 
-    40: Parameter(40, "Glide Type", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.CHOICE,
-                 0, "Portamento/glide behavior type",
-                 choices={0: "Linear Constant Rate", 1: "Linear Constant Time", 2: "Exponential"}),
-                 
-    41: Parameter(41, "Gated Glide", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.TOGGLE,
-                 1, "Glide only occurs while keys are held"),
-                 
-    42: Parameter(42, "Legato Glide", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.TOGGLE,
-                 1, "Glide only when playing legato"),
-                 
-    43: Parameter(43, "Osc 2 Freq Knob Range", ParameterCategory.AUDIO_CV, ParameterType.RANGE,
-                 7, "Oscillator 2 frequency knob range in semitones",
-                 min_value=0, max_value=24, human_readable_func=semitones_display),
-                 
-    44: Parameter(44, "Osc 3 Freq Knob Range", ParameterCategory.AUDIO_CV, ParameterType.RANGE,
-                 7, "Oscillator 3 frequency knob range in semitones", 
-                 min_value=0, max_value=24, human_readable_func=semitones_display),
-                 
-    45: Parameter(45, "Osc 4 Freq Knob Range", ParameterCategory.AUDIO_CV, ParameterType.RANGE,
-                 7, "Oscillator 4 frequency knob range in semitones",
-                 min_value=0, max_value=24, human_readable_func=semitones_display),
-                 
-    46: Parameter(46, "Hard Sync Enable", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Enable hard sync functionality"),
-                 
-    47: Parameter(47, "Osc 2 Hard Sync", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Sync Oscillator 2 to Oscillator 1"),
-                 
-    48: Parameter(48, "Osc 3 Hard Sync", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Sync Oscillator 3 to Oscillator 2"),
-                 
-    49: Parameter(49, "Osc 4 Hard Sync", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Sync Oscillator 4 to Oscillator 3"),
-                 
-    50: Parameter(50, "Delay Ping Pong", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Enable ping pong delay mode"),
-                 
-    51: Parameter(51, "Delay Sync", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Sync delay to clock"),
-                 
-    52: Parameter(52, "Delay Filter Brightness", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 1, "Delay output filtering",
-                 choices={0: "Dark", 1: "Bright"}),
-                 
-    53: Parameter(53, "Delay CV Sync-Bend", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Allow CV to bend sync'd delay time"),
-                 
-    54: Parameter(54, "Tap-Tempo Clock Division Persistence", ParameterCategory.ARP_SEQUENCER, ParameterType.TOGGLE,
-                 0, "Maintain clock divisions when using tap tempo"),
-                 
-    55: Parameter(55, "Paraphony Mode", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.CHOICE,
-                 0, "Voice assignment mode",
-                 choices={0: "Mono (1 Voice)", 1: "Duo (2 Voice)", 2: "Quad (4 Voice)"}),
-                 
-    56: Parameter(56, "Paraphonic Unison", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.TOGGLE,
-                 0, "All oscillators sound even in paraphonic modes"),
-                 
-    57: Parameter(57, "Multi Trig", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.TOGGLE,
-                 0, "Envelope retriggering behavior"),
-                 
-    58: Parameter(58, "Pitch Variance", ParameterCategory.ADVANCED, ParameterType.RANGE,
-                 0, "Random pitch variation per note",
-                 min_value=0, max_value=400, human_readable_func=pitch_variance_cents),
-                 
-    # CV Output Ranges (Group 3)
-    59: Parameter(59, "KB CV OUT Range", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 0, "Keyboard CV output voltage range",
-                 choices={0: "-5V to +5V", 1: "0V to +10V"}),
-                 
-    60: Parameter(60, "Arp/Seq CV OUT Range", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 0, "Arpeggiator/Sequencer CV output range",
-                 choices={0: "-5V to +5V", 1: "0V to +10V"}),
-                 
-    61: Parameter(61, "KB VEL OUT Range", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 0, "Keyboard velocity CV output range", 
-                 choices={0: "0V to +5V", 1: "0V to +10V"}),
-                 
-    62: Parameter(62, "Arp/Seq VEL OUT Range", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 0, "Arp/Seq velocity CV output range",
-                 choices={0: "0V to +5V", 1: "0V to +10V"}),
-                 
-    63: Parameter(63, "KB AT OUT Range", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 0, "Keyboard aftertouch CV output range",
-                 choices={0: "0V to +5V", 1: "0V to +10V"}),
-                 
-    64: Parameter(64, "MOD WHL OUT Range", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 0, "Modulation wheel CV output range",
-                 choices={0: "0V to +5V", 1: "0V to +10V"}),
-                 
-    65: Parameter(65, "KB GATE OUT Range", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 0, "Keyboard gate CV output voltage",
-                 choices={0: "+5V", 1: "+10V"}),
-                 
-    66: Parameter(66, "Arp/Seq GATE OUT Range", ParameterCategory.AUDIO_CV, ParameterType.CHOICE,
-                 0, "Arp/Seq gate CV output voltage",
-                 choices={0: "+5V", 1: "+10V"}),
-                 
-    67: Parameter(67, "Round-Robin Mode", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.CHOICE,
-                 1, "Voice assignment pattern in paraphonic mode",
-                 choices={0: "Off", 1: "On with Reset", 2: "On"}),
-                 
-    68: Parameter(68, "Restore Stolen Voices", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.TOGGLE,
-                 0, "Resume stolen voices when keys released"),
-                 
-    69: Parameter(69, "Update Unison on Note-Off", ParameterCategory.PERFORMANCE_KEYBOARD, ParameterType.TOGGLE,
-                 0, "Reassign oscillators when notes released",
-                 dependencies=["Paraphonic Unison"]),
-                 
-    70: Parameter(70, "Mod Oscillator Square Wave Polarity", ParameterCategory.ADVANCED, ParameterType.CHOICE,
-                 1, "Modulation LFO square wave behavior",
-                 choices={0: "Unipolar", 1: "Bipolar"}),
-                 
-    71: Parameter(71, "Noise Filter Cutoff", ParameterCategory.AUDIO_CV, ParameterType.RANGE,
-                 16383, "High-pass filter cutoff for noise generator",
-                 min_value=0, max_value=16383),
-                 
-    72: Parameter(72, "Arp/Seq Random Repeats", ParameterCategory.ARP_SEQUENCER, ParameterType.CHOICE,
-                 1, "Allow repeated notes in random mode",
-                 choices={0: "No Repeats", 1: "Allow Repeats"}),
-                 
-    73: Parameter(73, "ARP/SEQ CV OUT Mirrors KB CV", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Arp/Seq outputs mirror keyboard when not running"),
-                 
-    74: Parameter(74, "KB CV OUT Mirrors ARP/SEQ CV", ParameterCategory.AUDIO_CV, ParameterType.TOGGLE,
-                 0, "Keyboard outputs mirror arp/seq when running"),
-                 
-    75: Parameter(75, "MIDI Velocity Curves", ParameterCategory.MIDI_COMMUNICATION, ParameterType.CHOICE,
-                 0, "Keyboard velocity response curve",
-                 choices={0: "Base", 1: "Linear", 2: "Hard", 3: "Soft"}),
-                 
-    # Group 10 - Factory Reset Functions (Manual page 70)
-    76: Parameter(76, "Load Default Settings", ParameterCategory.ADVANCED, ParameterType.TOGGLE,
-                 0, "Reset all global parameters to factory default values",
-                 tooltip="WARNING: This will reset ALL global parameters to their factory default values. This action cannot be undone."),
+    # Advanced Tab
+    0: Parameter(
+        param_id=0,
+        name="Unit ID",
+        description="MIDI Unit ID (0-15)",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=15,
+        default_value=0,
+        category=ParameterCategory.ADVANCED,
+        tooltip="MIDI Unit ID (0-15)"
+    ),
+    1: Parameter(
+        param_id=1,
+        name="Tuning Scale",
+        description="Select tuning scale (0 = 12-TET)",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=31,
+        default_value=0,
+        category=ParameterCategory.ADVANCED,
+        tooltip="Select tuning scale (0 = 12-TET)"
+    ),
+    2: Parameter(
+        param_id=2,
+        name="Knob Mode",
+        description="How knobs respond when values change",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Snap", 1: "Pass-Thru", 2: "Relative"},
+        default_value=2,
+        category=ParameterCategory.ADVANCED,
+        tooltip="How knobs respond when values change"
+    ),
+    76: Parameter(
+        param_id=76,
+        name="Load Default Settings",
+        description="Reset all global parameters to defaults",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.ADVANCED,
+        tooltip="Reset all global parameters to defaults"
+    ),
+
+    # Performance Tab
+    3: Parameter(
+        param_id=3,
+        name="Note Priority",
+        description="Which note takes priority in monophonic mode",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Low", 1: "High", 2: "Last Note"},
+        default_value=2,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Which note takes priority in monophonic mode"
+    ),
+    37: Parameter(
+        param_id=37,
+        name="Pitch Bend Range",
+        description="Pitch bend wheel range in semitones",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=12,
+        default_value=2,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Pitch bend wheel range in semitones"
+    ),
+    38: Parameter(
+        param_id=38,
+        name="Keyboard Octave Transpose",
+        description="Transpose keyboard by octaves",
+        param_type=ParameterType.CHOICE,
+        choices={0: "-2", 1: "-1", 2: "0", 3: "+1", 4: "+2"},
+        default_value=2,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Transpose keyboard by octaves"
+    ),
+    39: Parameter(
+        param_id=39,
+        name="Delayed Keyboard Octave Shift",
+        description="Delay octave shift until new notes are played",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Delay octave shift until new notes are played"
+    ),
+    40: Parameter(
+        param_id=40,
+        name="Glide Type",
+        description="How glide transitions between notes",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Linear Constant Rate", 1: "Linear Constant Time", 2: "Exponential"},
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="How glide transitions between notes"
+    ),
+    41: Parameter(
+        param_id=41,
+        name="Gated Glide",
+        description="Glide only while keys are held",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Glide only while keys are held"
+    ),
+    42: Parameter(
+        param_id=42,
+        name="Legato Glide",
+        description="Glide only between overlapping notes",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Glide only between overlapping notes"
+    ),
+    43: Parameter(
+        param_id=43,
+        name="Osc 2 Freq Knob Range",
+        description="Range of Oscillator 2 frequency knob in semitones",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=24,
+        default_value=7,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Range of Oscillator 2 frequency knob in semitones"
+    ),
+    44: Parameter(
+        param_id=44,
+        name="Osc 3 Freq Knob Range",
+        description="Range of Oscillator 3 frequency knob in semitones",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=24,
+        default_value=7,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Range of Oscillator 3 frequency knob in semitones"
+    ),
+    45: Parameter(
+        param_id=45,
+        name="Osc 4 Freq Knob Range",
+        description="Range of Oscillator 4 frequency knob in semitones",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=24,
+        default_value=7,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Range of Oscillator 4 frequency knob in semitones"
+    ),
+    46: Parameter(
+        param_id=46,
+        name="Hard Sync Enable",
+        description="Enable hard sync for oscillators",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Enable hard sync for oscillators"
+    ),
+    47: Parameter(
+        param_id=47,
+        name="Osc 2 Hard Sync",
+        description="Hard sync Oscillator 2 to Oscillator 1",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Hard sync Oscillator 2 to Oscillator 1"
+    ),
+    48: Parameter(
+        param_id=48,
+        name="Osc 3 Hard Sync",
+        description="Hard sync Oscillator 3 to Oscillator 2",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Hard sync Oscillator 3 to Oscillator 2"
+    ),
+    49: Parameter(
+        param_id=49,
+        name="Osc 4 Hard Sync",
+        description="Hard sync Oscillator 4 to Oscillator 3",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Hard sync Oscillator 4 to Oscillator 3"
+    ),
+    50: Parameter(
+        param_id=50,
+        name="Delay Ping Pong",
+        description="Enable ping pong delay effect",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Enable ping pong delay effect"
+    ),
+    51: Parameter(
+        param_id=51,
+        name="Delay Sync",
+        description="Sync delay to tempo",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Sync delay to tempo"
+    ),
+    52: Parameter(
+        param_id=52,
+        name="Delay Filter Brightness",
+        description="Delay output filter tone",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Dark", 1: "Bright"},
+        default_value=1,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Delay output filter tone"
+    ),
+    53: Parameter(
+        param_id=53,
+        name="Delay CV Sync-Bend",
+        description="Allow CV to bend synced delay time",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Allow CV to bend synced delay time"
+    ),
+    54: Parameter(
+        param_id=54,
+        name="Tap-Tempo Clock Division Persistence",
+        description="Remember clock division when using tap tempo",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Remember clock division when using tap tempo"
+    ),
+    55: Parameter(
+        param_id=55,
+        name="Paraphony Mode",
+        description="Number of voices available",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Mono", 1: "Duo", 2: "Quad"},
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Number of voices available"
+    ),
+    56: Parameter(
+        param_id=56,
+        name="Paraphonic Unison",
+        description="All oscillators play in paraphonic modes",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="All oscillators play in paraphonic modes"
+    ),
+    57: Parameter(
+        param_id=57,
+        name="Multi Trig",
+        description="Retrigger envelopes on each new note",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Retrigger envelopes on each new note"
+    ),
+    58: Parameter(
+        param_id=58,
+        name="Pitch Variance",
+        description="Random pitch variation per note (0.1 cent units)",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=400,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Random pitch variation per note (0.1 cent units)"
+    ),
+    70: Parameter(
+        param_id=70,
+        name="Mod Oscillator Square Wave Polarity",
+        description="Modulation oscillator square wave output type",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Unipolar", 1: "Bipolar"},
+        default_value=1,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Modulation oscillator square wave output type"
+    ),
+    71: Parameter(
+        param_id=71,
+        name="Noise Filter Cutoff",
+        description="High-pass filter cutoff for noise generator",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=16383,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="High-pass filter cutoff for noise generator"
+    ),
+
+    # Arp/Seq Tab
+    20: Parameter(
+        param_id=20,
+        name="Sequence Transpose Mode",
+        description="How sequences are transposed",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Relative to First Note", 1: "Relative to Middle C"},
+        default_value=0,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="How sequences are transposed"
+    ),
+    21: Parameter(
+        param_id=21,
+        name="Arp/Seq Keyed Timing Reset",
+        description="Reset timing when new notes are played",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Reset timing when new notes are played"
+    ),
+    22: Parameter(
+        param_id=22,
+        name="Arp FW/BW Repeats",
+        description="Repeat end notes in forward/backward arpeggio",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Repeat end notes in forward/backward arpeggio"
+    ),
+    23: Parameter(
+        param_id=23,
+        name="Arp/Seq Swing",
+        description="Swing amount for arpeggiator and sequencer",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Swing amount for arpeggiator and sequencer",
+        human_readable_func=lambda value: f"{22 + (value / 16383.0) * 56:.1f}%"
+    ),
+    24: Parameter(
+        param_id=24,
+        name="Sequence Keyboard Control",
+        description="Keyboard controls sequence playback",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Keyboard controls sequence playback"
+    ),
+    25: Parameter(
+        param_id=25,
+        name="Delay Sequence Change",
+        description="Wait for sequence to finish before changing",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Wait for sequence to finish before changing"
+    ),
+    26: Parameter(
+        param_id=26,
+        name="Sequence Keyed Restart",
+        description="Restart sequence when latch is used",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Restart sequence when latch is used"
+    ),
+    27: Parameter(
+        param_id=27,
+        name="Arp/Seq Clock Input Mode",
+        description="How external clock input is interpreted",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Clock", 1: "Step-Advance"},
+        default_value=0,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="How external clock input is interpreted"
+    ),
+    28: Parameter(
+        param_id=28,
+        name="Arp/Seq Clock Output",
+        description="When to output clock signals",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Always", 1: "Only When Playing"},
+        default_value=1,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="When to output clock signals"
+    ),
+    29: Parameter(
+        param_id=29,
+        name="Arp MIDI Output",
+        description="Send arpeggiator notes via MIDI",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Send arpeggiator notes via MIDI"
+    ),
+    72: Parameter(
+        param_id=72,
+        name="Arp/Seq Random Repeats",
+        description="Allow note repeats in random mode",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Allow note repeats in random mode"
+    ),
+    73: Parameter(
+        param_id=73,
+        name="ARP/SEQ CV OUT Mirrors KB CV",
+        description="Arp/Seq CV outputs follow keyboard when not running",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Arp/Seq CV outputs follow keyboard when not running"
+    ),
+    74: Parameter(
+        param_id=74,
+        name="KB CV OUT Mirrors ARP/SEQ CV",
+        description="Keyboard CV outputs follow Arp/Seq when running",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.ARP_SEQ,
+        tooltip="Keyboard CV outputs follow Arp/Seq when running"
+    ),
+
+    # MIDI/Config Tab
+    4: Parameter(
+        param_id=4,
+        name="Send Program Change",
+        description="Send MIDI program change messages",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Send MIDI program change messages"
+    ),
+    5: Parameter(
+        param_id=5,
+        name="Receive Program Change",
+        description="Respond to MIDI program change messages",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Respond to MIDI program change messages"
+    ),
+    6: Parameter(
+        param_id=6,
+        name="MIDI Input Ports",
+        description="Which MIDI inputs to use",
+        param_type=ParameterType.CHOICE,
+        choices={0: "None", 1: "DIN Only", 2: "USB Only", 3: "Both"},
+        default_value=3,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Which MIDI inputs to use"
+    ),
+    7: Parameter(
+        param_id=7,
+        name="MIDI Output Ports",
+        description="Which MIDI outputs to use",
+        param_type=ParameterType.CHOICE,
+        choices={0: "None", 1: "DIN Only", 2: "USB Only", 3: "Both"},
+        default_value=3,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Which MIDI outputs to use"
+    ),
+    8: Parameter(
+        param_id=8,
+        name="MIDI Echo USB In",
+        description="Echo USB MIDI input to outputs",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Off", 1: "Echo to DIN", 2: "Echo to USB", 3: "Echo to Both"},
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Echo USB MIDI input to outputs"
+    ),
+    9: Parameter(
+        param_id=9,
+        name="MIDI Echo DIN In",
+        description="Echo DIN MIDI input to outputs",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Off", 1: "Echo to DIN", 2: "Echo to USB", 3: "Echo to Both"},
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Echo DIN MIDI input to outputs"
+    ),
+    10: Parameter(
+        param_id=10,
+        name="MIDI Input Channel",
+        description="MIDI input channel (1-16)",
+        param_type=ParameterType.MIDI_CHANNEL,
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="MIDI input channel (1-16)"
+    ),
+    11: Parameter(
+        param_id=11,
+        name="MIDI Output Channel",
+        description="MIDI output channel (1-16)",
+        param_type=ParameterType.MIDI_CHANNEL,
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="MIDI output channel (1-16)"
+    ),
+    12: Parameter(
+        param_id=12,
+        name="MIDI Out Filter - Keys",
+        description="Send keyboard MIDI note messages",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Send keyboard MIDI note messages"
+    ),
+    13: Parameter(
+        param_id=13,
+        name="MIDI Out Filter - Wheels",
+        description="Send pitch and mod wheel MIDI messages",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Send pitch and mod wheel MIDI messages"
+    ),
+    14: Parameter(
+        param_id=14,
+        name="MIDI Out Filter - Panel",
+        description="Send panel control MIDI messages",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Send panel control MIDI messages"
+    ),
+    15: Parameter(
+        param_id=15,
+        name="Output 14-bit MIDI CCs",
+        description="Use 14-bit MIDI CC resolution",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Use 14-bit MIDI CC resolution"
+    ),
+    16: Parameter(
+        param_id=16,
+        name="Local Control: Keys",
+        description="Keyboard controls internal sound engine",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Keyboard controls internal sound engine"
+    ),
+    17: Parameter(
+        param_id=17,
+        name="Local Control: Wheels",
+        description="Wheels control internal sound engine",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Wheels control internal sound engine"
+    ),
+    18: Parameter(
+        param_id=18,
+        name="Local Control: Panel",
+        description="Panel controls internal sound engine",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Panel controls internal sound engine"
+    ),
+    19: Parameter(
+        param_id=19,
+        name="Local Control: Arp/Seq",
+        description="Arp/Seq controls internal sound engine",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Arp/Seq controls internal sound engine"
+    ),
+    30: Parameter(
+        param_id=30,
+        name="MIDI Clock Input",
+        description="How to respond to MIDI clock",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Follow Clock + Start/Stop", 1: "Follow Clock Only", 2: "Ignore All"},
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="How to respond to MIDI clock"
+    ),
+    31: Parameter(
+        param_id=31,
+        name="MIDI Clock Output",
+        description="What MIDI clock data to send",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Send Clock + Start/Stop", 1: "Send Clock Only", 2: "Send Nothing"},
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="What MIDI clock data to send"
+    ),
+    32: Parameter(
+        param_id=32,
+        name="Follow Song Position Pointer",
+        description="Respond to MIDI song position messages",
+        param_type=ParameterType.TOGGLE,
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Respond to MIDI song position messages"
+    ),
+    35: Parameter(
+        param_id=35,
+        name="Clock Input PPQN",
+        description="Pulses per quarter note for clock input",
+        param_type=ParameterType.CHOICE,
+        choices={0: "1", 1: "2", 2: "3", 3: "4", 4: "5", 5: "6", 6: "7", 7: "8", 8: "9", 9: "10", 10: "11", 11: "12", 12: "24", 13: "48"},
+        default_value=3,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Pulses per quarter note for clock input"
+    ),
+    36: Parameter(
+        param_id=36,
+        name="Clock Output PPQN",
+        description="Pulses per quarter note for clock output",
+        param_type=ParameterType.CHOICE,
+        choices={0: "1", 1: "2", 2: "3", 3: "4", 4: "5", 5: "6", 6: "7", 7: "8", 8: "9", 9: "10", 10: "11", 11: "12", 12: "24", 13: "48"},
+        default_value=3,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Pulses per quarter note for clock output"
+    ),
+    67: Parameter(
+        param_id=67,
+        name="Round-Robin Mode",
+        description="How voices are assigned in paraphonic mode",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Off", 1: "On with Reset", 2: "On"},
+        default_value=1,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="How voices are assigned in paraphonic mode"
+    ),
+    68: Parameter(
+        param_id=68,
+        name="Restore Stolen Voices",
+        description="Restore notes when voices become available",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Restore notes when voices become available"
+    ),
+    69: Parameter(
+        param_id=69,
+        name="Update Unison on Note-Off",
+        description="Reassign oscillators when notes are released",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Reassign oscillators when notes are released"
+    ),
+    75: Parameter(
+        param_id=75,
+        name="MIDI Velocity Curves",
+        description="Keyboard velocity response curve",
+        param_type=ParameterType.CHOICE,
+        choices={0: "Base", 1: "Linear", 2: "Hard", 3: "Soft"},
+        default_value=0,
+        category=ParameterCategory.MIDI_CONFIG,
+        tooltip="Keyboard velocity response curve"
+    ),
+
+    # CV Tab
+    59: Parameter(
+        param_id=59,
+        name="KB CV OUT Range",
+        description="Keyboard CV output voltage range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "-5V to +5V", 1: "0V to +10V"},
+        default_value=0,
+        category=ParameterCategory.CV,
+        tooltip="Keyboard CV output voltage range"
+    ),
+    60: Parameter(
+        param_id=60,
+        name="Arp/Seq CV OUT Range",
+        description="Arpeggiator/Sequencer CV output voltage range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "-5V to +5V", 1: "0V to +10V"},
+        default_value=0,
+        category=ParameterCategory.CV,
+        tooltip="Arpeggiator/Sequencer CV output voltage range"
+    ),
+    61: Parameter(
+        param_id=61,
+        name="KB VEL OUT Range",
+        description="Keyboard velocity CV output voltage range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "0V to +5V", 1: "0V to +10V"},
+        default_value=0,
+        category=ParameterCategory.CV,
+        tooltip="Keyboard velocity CV output voltage range"
+    ),
+    62: Parameter(
+        param_id=62,
+        name="Arp/Seq VEL OUT Range",
+        description="Arpeggiator/Sequencer velocity CV output voltage range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "0V to +5V", 1: "0V to +10V"},
+        default_value=0,
+        category=ParameterCategory.CV,
+        tooltip="Arpeggiator/Sequencer velocity CV output voltage range"
+    ),
+    63: Parameter(
+        param_id=63,
+        name="KB AT OUT Range",
+        description="Keyboard aftertouch CV output voltage range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "0V to +5V", 1: "0V to +10V"},
+        default_value=0,
+        category=ParameterCategory.CV,
+        tooltip="Keyboard aftertouch CV output voltage range"
+    ),
+    64: Parameter(
+        param_id=64,
+        name="MOD WHL OUT Range",
+        description="Modulation wheel CV output voltage range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "0V to +5V", 1: "0V to +10V"},
+        default_value=0,
+        category=ParameterCategory.CV,
+        tooltip="Modulation wheel CV output voltage range"
+    ),
+    65: Parameter(
+        param_id=65,
+        name="KB GATE OUT Range",
+        description="Keyboard gate output voltage level",
+        param_type=ParameterType.CHOICE,
+        choices={0: "+5V", 1: "+10V"},
+        default_value=0,
+        category=ParameterCategory.CV,
+        tooltip="Keyboard gate output voltage level"
+    ),
+    66: Parameter(
+        param_id=66,
+        name="Arp/Seq GATE OUT Range",
+        description="Arpeggiator/Sequencer gate output voltage level",
+        param_type=ParameterType.CHOICE,
+        choices={0: "+5V", 1: "+10V"},
+        default_value=0,
+        category=ParameterCategory.CV,
+        tooltip="Arpeggiator/Sequencer gate output voltage level"
+    ),
 }
 
 # Organize parameters by category for UI tabs
@@ -421,7 +875,21 @@ def get_parameters_by_category() -> Dict[ParameterCategory, List[Parameter]]:
     for category in categories:
         categories[category].sort(key=lambda p: p.name)
     
-    return categories
+    # Return ordered dictionary with categories in the desired order
+    ordered_categories = {}
+    desired_order = [
+        ParameterCategory.PERFORMANCE,
+        ParameterCategory.ARP_SEQ,
+        ParameterCategory.MIDI_CONFIG,
+        ParameterCategory.CV,
+        ParameterCategory.ADVANCED
+    ]
+    
+    for category in desired_order:
+        if category in categories:
+            ordered_categories[category] = categories[category]
+    
+    return ordered_categories
 
 def get_parameter_by_id(param_id: int) -> Optional[Parameter]:
     """Get parameter by ID"""

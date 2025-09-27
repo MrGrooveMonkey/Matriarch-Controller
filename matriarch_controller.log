@@ -5511,3 +5511,104 @@ AttributeError: 'SwingParameterWidget' object has no attribute 'channel_combo'
 2025-09-26 17:10:19,706 - ui.main_window - DEBUG - Sent parameter 23 = 8157
 2025-09-26 17:10:20,356 - ui.main_window - DEBUG - Sent parameter 23 = 8174
 2025-09-26 17:10:20,890 - ui.main_window - DEBUG - Sent parameter 23 = 8192
+2025-09-26 23:35:55,314 - midi.connection - DEBUG - MIDI listen thread stopped
+2025-09-26 23:35:55,326 - midi.connection - INFO - Disconnected from MIDI ports
+2025-09-26 23:36:05,693 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-26 23:36:05,825 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-26 23:36:05,987 - __main__ - ERROR - Unexpected error in main application
+Traceback (most recent call last):
+  File "/Users/mini4/matriarch_controller/main.py", line 123, in main
+    from ui.main_window import MatriarchMainWindow
+  File "/Users/mini4/matriarch_controller/ui/__init__.py", line 7, in <module>
+    from .main_window import MatriarchMainWindow
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 18, in <module>
+    from data.parameter_definitions import (
+    ...<2 lines>...
+    )
+  File "/Users/mini4/matriarch_controller/data/__init__.py", line 7, in <module>
+    from .parameter_definitions import (
+    ...<7 lines>...
+    )
+  File "/Users/mini4/matriarch_controller/data/parameter_definitions.py", line 132, in <module>
+    Parameter(
+    ~~~~~~~~~^
+        param_id=0,
+        ^^^^^^^^^^^
+    ...<6 lines>...
+        tooltip="MIDI Unit ID (0-15)"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+TypeError: Parameter.__init__() got an unexpected keyword argument 'tab'
+2025-09-26 23:39:53,065 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-26 23:39:53,222 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-26 23:39:53,384 - __main__ - ERROR - Unexpected error in main application
+Traceback (most recent call last):
+  File "/Users/mini4/matriarch_controller/main.py", line 123, in main
+    from ui.main_window import MatriarchMainWindow
+  File "/Users/mini4/matriarch_controller/ui/__init__.py", line 7, in <module>
+    from .main_window import MatriarchMainWindow
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 18, in <module>
+    from data.parameter_definitions import (
+    ...<2 lines>...
+    )
+  File "/Users/mini4/matriarch_controller/data/__init__.py", line 7, in <module>
+    from .parameter_definitions import (
+    ...<7 lines>...
+    )
+  File "/Users/mini4/matriarch_controller/data/parameter_definitions.py", line 132, in <module>
+    Parameter(
+    ~~~~~~~~~^
+        param_id=0,
+        ^^^^^^^^^^^
+    ...<6 lines>...
+        tooltip="MIDI Unit ID (0-15)"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+TypeError: Parameter.__init__() missing 1 required positional argument: 'description'
+2025-09-26 23:42:37,695 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-26 23:42:37,843 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-26 23:42:37,964 - __main__ - ERROR - Import error: cannot import name 'PARAMETERS' from 'data.parameter_definitions' (/Users/mini4/matriarch_controller/data/parameter_definitions.py)
+2025-09-26 23:49:57,575 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-26 23:49:57,733 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-26 23:49:57,992 - __main__ - ERROR - Unexpected error in main application
+Traceback (most recent call last):
+  File "/Users/mini4/matriarch_controller/main.py", line 125, in main
+    main_window = MatriarchMainWindow()
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 80, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 110, in init_ui
+    self.create_parameter_tabs()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 193, in create_parameter_tabs
+    categories = get_parameters_by_category()
+  File "/Users/mini4/matriarch_controller/data/parameter_definitions.py", line 868, in get_parameters_by_category
+    for param in PARAMETERS.values():
+                 ^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'values'
+2025-09-26 23:54:59,562 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-26 23:54:59,701 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-26 23:54:59,857 - __main__ - ERROR - Unexpected error in main application
+Traceback (most recent call last):
+  File "/Users/mini4/matriarch_controller/main.py", line 125, in main
+    main_window = MatriarchMainWindow()
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 80, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 110, in init_ui
+    self.create_parameter_tabs()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 199, in create_parameter_tabs
+    self.tab_widget.addTab(tab_widget, category.value)
+                                       ^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'value'
+2025-09-27 00:01:11,651 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 00:01:11,847 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 00:01:12,194 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 00:01:12,199 - __main__ - INFO - Main window created and shown
+2025-09-27 00:08:40,034 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 00:08:40,150 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 00:08:40,308 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 00:08:40,316 - __main__ - INFO - Main window created and shown
