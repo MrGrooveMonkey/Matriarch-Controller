@@ -1,0 +1,76 @@
+Parameter ,Name,Tab
+0,Unit ID,Advanced
+1,Tuning Scale,Advanced
+2,Knob Mode,Advanced
+3,Note Priority,Performance
+4,Send Program Change,MIDI/Config
+5,Receive Program Change,MIDI/Config
+6,MIDI Input Ports,MIDI/Config
+7,MIDI Output Ports,MIDI/Config
+8,MIDI Echo USB In,MIDI/Config
+9,MIDI Echo DIN In,MIDI/Config
+10,MIDI Input Channel,MIDI/Config
+11,MIDI Output Channel,MIDI/Config
+12,MIDI Out Filter - Keys,MIDI/Config
+13,MIDI Out Filter - Wheels,MIDI/Config
+14,MIDI Out Filter - Panel,MIDI/Config
+15,Output 14-bit MIDI CCs,MIDI/Config
+16,Local Control: Keys,MIDI/Config
+17,Local Control: Wheels,MIDI/Config
+18,Local Control: Panel,MIDI/Config
+19,Local Control: Arp/Seq,MIDI/Config
+20,Sequence Transpose Mode,Arp/Seq
+21,Arp/Seq Keyed Timing Reset,Arp/Seq
+22,Arp FW/BW Repeats,Arp/Seq
+23,Arp/Seq Swing,Arp/Seq
+24,Sequence Keyboard Control,Arp/Seq
+25,Delay Sequence Change,Arp/Seq
+26,Sequence Keyed Restart,Arp/Seq
+27,Arp/Seq Clock Input Mode,Arp/Seq
+28,Arp/Seq Clock Output,Arp/Seq
+29,Arp MIDI Output,Arp/Seq
+30,MIDI Clock Input,MIDI/Config
+31,MIDI Clock Output,MIDI/Config
+32,Follow Song Position Pointer,MIDI/Config
+35,Clock Input PPQN,MIDI/Config
+36,Clock Output PPQN,MIDI/Config
+37,Pitch Bend Range,Performance
+38,Keyboard Octave Transpose,Performance
+39,Delayed Keyboard Octave Shift,Performance
+40,Glide Type,Performance
+41,Gated Glide,Performance
+42,Legato Glide,Performance
+43,Osc 2 Freq Knob Range,Performance
+44,Osc 3 Freq Knob Range,Performance
+45,Osc 4 Freq Knob Range,Performance
+46,Hard Sync Enable,Performance
+47,Osc 2 Hard Sync,Performance
+48,Osc 3 Hard Sync,Performance
+49,Osc 4 Hard Sync,Performance
+50,Delay Ping Pong,Performance
+51,Delay Sync,Performance
+52,Delay Filter Brightness,Performance
+53,Delay CV Sync-Bend,Performance
+54,Tap-Tempo Clock Division Persistence,Performance
+55,Paraphony Mode,Performance
+56,Paraphonic Unison,Performance
+57,Multi Trig,Performance
+58,Pitch Variance,Performance
+59,KB CV OUT Range,CV
+60,Arp/Seq CV OUT Range,CV
+61,KB VEL OUT Range,CV
+62,Arp/Seq VEL OUT Range,CV
+63,KB AT OUT Range,CV
+64,MOD WHL OUT Range,CV
+65,KB GATE OUT Range,CV
+66,Arp/Seq GATE OUT Range,CV
+67,Round-Robin Mode,MIDI/Config
+68,Restore Stolen Voices,MIDI/Config
+69,Update Unison on Note-Off,MIDI/Config
+70,Mod Oscillator Square Wave Polarity,Performance
+71,Noise Filter Cutoff,Performance
+72,Arp/Seq Random Repeats,Arp/Seq
+73,ARP/SEQ CV OUT Mirrors KB CV,Arp/Seq
+74,KB CV OUT Mirrors ARP/SEQ CV,Arp/Seq
+75,MIDI Velocity Curves,MIDI/Config
+76,Load Default Settings,Advanced

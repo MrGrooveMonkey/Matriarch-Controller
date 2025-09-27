@@ -339,13 +339,6 @@ class MIDIChannelParameterWidget(ParameterWidget):
             self.channel_combo.addItem(f"Channel {i + 1}", i)
         
         self.channel_combo.currentIndexChanged.connect(self.on_channel_changed)
-        
-    def on_channel_changed(self, index):
-        """Handle MIDI channel selection change"""
-        if hasattr(self, 'parameter') and self.parameter:
-            self.parameter.value = index
-            self.value_changed.emit(self.parameter.id, index)
-        
         layout.addWidget(self.channel_combo)
         
         # Raw value display
@@ -364,16 +357,32 @@ class MIDIChannelParameterWidget(ParameterWidget):
         # Set initial state
         self.update_display()
     
+    def update_display(self):
+        """Update combo box selection"""
+        # Set combo box to current value
+        self.channel_combo.setCurrentIndex(self.current_value)
+        
+        # Update raw value display
+        self.raw_value_label.setText(f"({self.current_value})")
+        
+        # Highlight if different from default
+        is_default = self.current_value == self.parameter.default_value
+        if not is_default:
+            self.channel_combo.setStyleSheet("""
+                QComboBox {
+                    background-color: #5a4a2a;
+                    border: 2px solid #ff6b35;
+                }
+            """)
+        else:
+            self.channel_combo.setStyleSheet("")
+    
     def on_channel_changed(self, index):
         """Handle MIDI channel selection change"""
-        if hasattr(self, 'parameter') and self.parameter:
-            # Convert combo box index to MIDI channel (1-16)
-            channel = index + 1
-            # Update the parameter value
-            self.parameter.value = index + 1  # Store 0-based index as parameter value
-            # Emit value changed signal if needed
-            if hasattr(self, 'value_changed'):
-                self.value_changed.emit(self.parameter.id, index)
+        if index >= 0:
+            value = self.channel_combo.itemData(index)
+            if value is not None:
+                self.emit_value_changed(value)
     
 class SwingParameterWidget(ParameterWidget):
     """Special widget for swing parameter with triplet button"""
@@ -451,6 +460,14 @@ class SwingParameterWidget(ParameterWidget):
         # 66% maps to position (66-22)/(78-22) = 44/56 ≈ 0.786 of the range
         # So raw value = 0.786 * 16383 ≈ 12877
         triplet_value = int(((66 - 22) / (78 - 22)) * 16383)
+    
+        # Update the current value
+        self.current_value = triplet_value
+    
+        # Update all UI controls to reflect the new value
+        self.update_display()
+    
+        # Emit the change signal
         self.emit_value_changed(triplet_value)
     
     def update_display(self):
@@ -458,19 +475,23 @@ class SwingParameterWidget(ParameterWidget):
         # Update controls without triggering signals
         self.slider.blockSignals(True)
         self.spinbox.blockSignals(True)
-        
+    
         self.slider.setValue(self.current_value)
         self.spinbox.setValue(self.current_value)
-        
+    
         self.slider.blockSignals(False)
         self.spinbox.blockSignals(False)
-        
+    
         # Update value displays
         human_readable = self.parameter.get_human_readable(self.current_value)
         self.value_label.setText(human_readable)
         self.raw_value_label.setText(f"({self.current_value})")
-        
-        # Highlight if different from default
+    
+        # Check if we're at triplet value (66%) and highlight button accordingly
+        current_percent = 22 + (self.current_value / 16383.0) * (78 - 22)
+        is_triplet = abs(current_percent - 66) < 1  # Within 1% of 66%
+    
+        # Highlight slider/spinbox if different from default
         is_default = self.current_value == self.parameter.default_value
         if not is_default:
             self.slider.setStyleSheet("""
@@ -496,10 +517,9 @@ class SwingParameterWidget(ParameterWidget):
         else:
             self.slider.setStyleSheet("")
             self.spinbox.setStyleSheet("")
-        
+    
         # Highlight triplet button if at 66%
-        current_percent = 22 + (self.current_value / 16383.0) * (78 - 22)
-        if abs(current_percent - 66) < 1:  # Within 1% of 66%
+        if is_triplet:
             self.triplet_button.setStyleSheet("""
                 QPushButton {
                     background-color: #ff6b35;
@@ -517,16 +537,16 @@ class SwingParameterWidget(ParameterWidget):
         self.spinbox.blockSignals(True)
         self.spinbox.setValue(value)
         self.spinbox.blockSignals(False)
-        
+    
         # Update display and emit signal
         self.emit_value_changed(value)
-        
+    
         # Update display immediately for responsiveness
         human_readable = self.parameter.get_human_readable(value)
         self.value_label.setText(human_readable)
         self.raw_value_label.setText(f"({value})")
-        
-        # Update triplet button highlighting
+    
+        # Update triplet button highlighting - turn off if not at 66%
         current_percent = 22 + (value / 16383.0) * (78 - 22)
         if abs(current_percent - 66) < 1:
             self.triplet_button.setStyleSheet("""
@@ -549,49 +569,6 @@ class SwingParameterWidget(ParameterWidget):
         
         self.emit_value_changed(value)
     
-    def update_display(self):
-        """Update the parameter display"""
-        if not hasattr(self, 'parameter') or not self.parameter:
-            return
-            
-        # Only update channel combo if this widget has one (MIDIChannelParameterWidget)
-        if hasattr(self, 'channel_combo'):
-            self.channel_combo.setCurrentIndex(self.parameter.value)
-        
-        # Only update checkbox if this widget has one (BooleanParameterWidget)  
-        if hasattr(self, 'checkbox'):
-            self.checkbox.setChecked(bool(self.parameter.value))
-            
-        # Only update slider if this widget has one (KnobParameterWidget)
-        if hasattr(self, 'slider'):
-            self.slider.setValue(self.parameter.value)
-            
-        # Only update swing slider if this widget has one (SwingParameterWidget)
-        if hasattr(self, 'swing_slider'):
-            self.swing_slider.setValue(self.parameter.value)
-        if hasattr(self, 'percentage_label'):
-            # Convert swing value to percentage display
-            percentage = 22 + (self.parameter.value / 16383.0) * 56
-            self.percentage_label.setText(f"{percentage:.1f}%")
-        
-        # Highlight if different from default
-        is_default = self.current_value == self.parameter.default_value
-        if not is_default:
-            self.channel_combo.setStyleSheet("""
-                QComboBox {
-                    background-color: #5a4a2a;
-                    border: 2px solid #ff6b35;
-                }
-            """)
-        else:
-            self.channel_combo.setStyleSheet("")
-    
-    def on_channel_changed(self, index: int):
-        """Handle channel selection change"""
-        if index >= 0:
-            value = self.channel_combo.itemData(index)
-            if value is not None:
-                self.emit_value_changed(value)
 
 class ParameterWidgetFactory:
     """Factory for creating appropriate parameter widgets"""
@@ -705,95 +682,96 @@ class ParameterGroupWidget(QWidget):
     def get_parameter_widget(self, param_id: int) -> Optional[ParameterWidget]:
         """Get widget for specific parameter"""
         return self.widgets.get(param_id)
-    def apply_widget_theme(widget):
-        """Apply consistent theming to parameter widgets"""
-        widget.setStyleSheet("""
-            ParameterWidget {
-                background-color: #3c3c3c;
-                border: 1px solid #555555;
-                border-radius: 3px;
-                padding: 3px;
-                margin: 1px;
-            }
-            ParameterWidget:hover {
-                border-color: #777777;
-            }
-            QLabel {
-                color: #ffffff;
-                font-size: 11px;
-            }
-            QSlider::groove:horizontal {
-                border: 1px solid #666666;
-                background: #4a4a4a;
-                height: 6px;
-                border-radius: 3px;
-            }
-            QSlider::handle:horizontal {
-                background: #ff6b35;
-                border: 1px solid #ff6b35;
-                width: 16px;
-                margin: -5px 0;
-                border-radius: 8px;
-            }
-            QSlider::handle:horizontal:hover {
-                background: #ff8c5a;
-            }
-            QComboBox {
-                background-color: #4a4a4a;
-                border: 1px solid #666666;
-                padding: 2px 5px;
-                border-radius: 3px;
-                color: #ffffff;
-            }
-            QComboBox::drop-down {
-                border: none;
-            }
-            QComboBox::down-arrow {
-                image: none;
-                border-left: 4px solid transparent;
-                border-right: 4px solid transparent;
-                border-top: 4px solid #ffffff;
-                margin-right: 5px;
-            }
-            QComboBox QAbstractItemView {
-                background-color: #3c3c3c;
-                border: 1px solid #666666;
-                selection-background-color: #ff6b35;
-                color: #ffffff;
-            }
-            QSpinBox {
-                background-color: #4a4a4a;
-                border: 1px solid #666666;
-                padding: 2px;
-                border-radius: 3px;
-                color: #ffffff;
-            }
-            QSpinBox::up-button, QSpinBox::down-button {
-                background-color: #5a5a5a;
-                border: 1px solid #666666;
-            }
-            QSpinBox::up-button:hover, QSpinBox::down-button:hover {
-                background-color: #6a6a6a;
-            }
-            QPushButton {
-                background-color: #4a4a4a;
-                border: 1px solid #666666;
-                padding: 4px 12px;
-                border-radius: 3px;
-                color: #ffffff;
-                font-weight: normal;
-            }
-            QPushButton:hover {
-                background-color: #5a5a5a;
-                border-color: #777777;
-            }
-            QPushButton:checked {
-                background-color: #ff6b35;
-                border-color: #ff6b35;
-                color: #ffffff;
-                font-weight: bold;
-            }
-            QPushButton:pressed {
-                background-color: #e55a2b;
-            }
-        """)
+
+def apply_widget_theme(widget):
+    """Apply consistent theming to parameter widgets"""
+    widget.setStyleSheet("""
+        ParameterWidget {
+            background-color: #3c3c3c;
+            border: 1px solid #555555;
+            border-radius: 3px;
+            padding: 3px;
+            margin: 1px;
+        }
+        ParameterWidget:hover {
+            border-color: #777777;
+        }
+        QLabel {
+            color: #ffffff;
+            font-size: 11px;
+        }
+        QSlider::groove:horizontal {
+            border: 1px solid #666666;
+            background: #4a4a4a;
+            height: 6px;
+            border-radius: 3px;
+        }
+        QSlider::handle:horizontal {
+            background: #ff6b35;
+            border: 1px solid #ff6b35;
+            width: 16px;
+            margin: -5px 0;
+            border-radius: 8px;
+        }
+        QSlider::handle:horizontal:hover {
+            background: #ff8c5a;
+        }
+        QComboBox {
+            background-color: #4a4a4a;
+            border: 1px solid #666666;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #ffffff;
+        }
+        QComboBox::drop-down {
+            border: none;
+        }
+        QComboBox::down-arrow {
+            image: none;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #ffffff;
+            margin-right: 5px;
+        }
+        QComboBox QAbstractItemView {
+            background-color: #3c3c3c;
+            border: 1px solid #666666;
+            selection-background-color: #ff6b35;
+            color: #ffffff;
+        }
+        QSpinBox {
+            background-color: #4a4a4a;
+            border: 1px solid #666666;
+            padding: 2px;
+            border-radius: 3px;
+            color: #ffffff;
+        }
+        QSpinBox::up-button, QSpinBox::down-button {
+            background-color: #5a5a5a;
+            border: 1px solid #666666;
+        }
+        QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+            background-color: #6a6a6a;
+        }
+        QPushButton {
+            background-color: #4a4a4a;
+            border: 1px solid #666666;
+            padding: 4px 12px;
+            border-radius: 3px;
+            color: #ffffff;
+            font-weight: normal;
+        }
+        QPushButton:hover {
+            background-color: #5a5a5a;
+            border-color: #777777;
+        }
+        QPushButton:checked {
+            background-color: #ff6b35;
+            border-color: #ff6b35;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        QPushButton:pressed {
+            background-color: #e55a2b;
+        }
+    """)
