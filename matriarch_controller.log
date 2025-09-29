@@ -5612,3 +5612,115 @@ AttributeError: 'str' object has no attribute 'value'
 2025-09-27 00:08:40,150 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
 2025-09-27 00:08:40,308 - ui.main_window - DEBUG - Auto-reconnect disabled
 2025-09-27 00:08:40,316 - __main__ - INFO - Main window created and shown
+2025-09-27 00:46:41,075 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 00:46:41,206 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 00:46:41,460 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 00:46:41,464 - __main__ - INFO - Main window created and shown
+2025-09-27 00:52:19,659 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 00:52:19,816 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 00:52:20,168 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 00:52:20,174 - __main__ - INFO - Main window created and shown
+2025-09-27 00:58:39,438 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 00:58:39,614 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 00:58:39,890 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 00:58:39,896 - __main__ - INFO - Main window created and shown
+2025-09-27 01:16:06,603 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 01:16:06,756 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 01:16:07,057 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 01:16:07,064 - __main__ - INFO - Main window created and shown
+2025-09-27 01:30:26,850 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 01:30:27,007 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 01:30:27,370 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 01:30:27,378 - __main__ - INFO - Main window created and shown
+2025-09-27 01:36:13,631 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 01:36:13,783 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 01:36:14,057 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 01:36:14,065 - __main__ - INFO - Main window created and shown
+2025-09-27 01:45:46,657 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 01:45:46,810 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 01:45:47,134 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 01:45:47,141 - __main__ - INFO - Main window created and shown
+2025-09-27 01:48:48,870 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-27 01:48:48,984 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-27 01:48:49,144 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-27 01:48:49,149 - __main__ - INFO - Main window created and shown
+2025-09-27 01:50:51,455 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:50:51,456 - ui.main_window - WARNING - Failed to send parameter 23 = 12872
+2025-09-27 01:51:08,851 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:08,852 - ui.main_window - WARNING - Failed to send parameter 23 = 12963
+2025-09-27 01:51:08,955 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:08,956 - ui.main_window - WARNING - Failed to send parameter 23 = 12946
+2025-09-27 01:51:08,989 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:08,990 - ui.main_window - WARNING - Failed to send parameter 23 = 12894
+2025-09-27 01:51:09,008 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,008 - ui.main_window - WARNING - Failed to send parameter 23 = 12775
+2025-09-27 01:51:09,023 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,023 - ui.main_window - WARNING - Failed to send parameter 23 = 12552
+2025-09-27 01:51:09,040 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,040 - ui.main_window - WARNING - Failed to send parameter 23 = 12210
+2025-09-27 01:51:09,056 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,056 - ui.main_window - WARNING - Failed to send parameter 23 = 11800
+2025-09-27 01:51:09,073 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,073 - ui.main_window - WARNING - Failed to send parameter 23 = 11321
+2025-09-27 01:51:09,090 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,090 - ui.main_window - WARNING - Failed to send parameter 23 = 10928
+2025-09-27 01:51:09,106 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,106 - ui.main_window - WARNING - Failed to send parameter 23 = 10551
+2025-09-27 01:51:09,122 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,122 - ui.main_window - WARNING - Failed to send parameter 23 = 10141
+2025-09-27 01:51:09,139 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,139 - ui.main_window - WARNING - Failed to send parameter 23 = 9765
+2025-09-27 01:51:09,156 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,156 - ui.main_window - WARNING - Failed to send parameter 23 = 9406
+2025-09-27 01:51:09,173 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,173 - ui.main_window - WARNING - Failed to send parameter 23 = 9064
+2025-09-27 01:51:09,190 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,190 - ui.main_window - WARNING - Failed to send parameter 23 = 8756
+2025-09-27 01:51:09,209 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,210 - ui.main_window - WARNING - Failed to send parameter 23 = 8534
+2025-09-27 01:51:09,225 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,226 - ui.main_window - WARNING - Failed to send parameter 23 = 8328
+2025-09-27 01:51:09,240 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,240 - ui.main_window - WARNING - Failed to send parameter 23 = 8174
+2025-09-27 01:51:09,257 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,257 - ui.main_window - WARNING - Failed to send parameter 23 = 8072
+2025-09-27 01:51:09,274 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,274 - ui.main_window - WARNING - Failed to send parameter 23 = 7986
+2025-09-27 01:51:09,293 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,293 - ui.main_window - WARNING - Failed to send parameter 23 = 7952
+2025-09-27 01:51:09,307 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,308 - ui.main_window - WARNING - Failed to send parameter 23 = 7935
+2025-09-27 01:51:09,325 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,325 - ui.main_window - WARNING - Failed to send parameter 23 = 7918
+2025-09-27 01:51:09,706 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,706 - ui.main_window - WARNING - Failed to send parameter 23 = 7935
+2025-09-27 01:51:09,922 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,922 - ui.main_window - WARNING - Failed to send parameter 23 = 7952
+2025-09-27 01:51:09,955 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,956 - ui.main_window - WARNING - Failed to send parameter 23 = 7969
+2025-09-27 01:51:09,979 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,979 - ui.main_window - WARNING - Failed to send parameter 23 = 7986
+2025-09-27 01:51:09,990 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:09,990 - ui.main_window - WARNING - Failed to send parameter 23 = 8003
+2025-09-27 01:51:10,005 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,006 - ui.main_window - WARNING - Failed to send parameter 23 = 8020
+2025-09-27 01:51:10,022 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,022 - ui.main_window - WARNING - Failed to send parameter 23 = 8038
+2025-09-27 01:51:10,040 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,040 - ui.main_window - WARNING - Failed to send parameter 23 = 8055
+2025-09-27 01:51:10,089 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,089 - ui.main_window - WARNING - Failed to send parameter 23 = 8072
+2025-09-27 01:51:10,323 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,323 - ui.main_window - WARNING - Failed to send parameter 23 = 8089
+2025-09-27 01:51:10,341 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,341 - ui.main_window - WARNING - Failed to send parameter 23 = 8106
+2025-09-27 01:51:10,372 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,373 - ui.main_window - WARNING - Failed to send parameter 23 = 8123
+2025-09-27 01:51:10,406 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,406 - ui.main_window - WARNING - Failed to send parameter 23 = 8140
+2025-09-27 01:51:10,456 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,456 - ui.main_window - WARNING - Failed to send parameter 23 = 8157
+2025-09-27 01:51:10,523 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,523 - ui.main_window - WARNING - Failed to send parameter 23 = 8174
+2025-09-27 01:51:10,623 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-27 01:51:10,623 - ui.main_window - WARNING - Failed to send parameter 23 = 8192

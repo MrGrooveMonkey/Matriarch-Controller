@@ -23,6 +23,9 @@ class ParameterWidget(QWidget):
     def __init__(self, parameter: Parameter, parent=None):
         super().__init__(parent)
         self.parameter = parameter
+        #if self.parameter.param_id == 23:  # Swing parameter
+            #print(f"Creating Swing widget - has human_readable_func: {self.parameter.human_readable_func is not None}")
+            #print(f"Swing tooltip: {self.parameter.tooltip}")
         self.current_value = parameter.default_value
         self.is_updating = False  # Prevent signal loops
         self.is_enabled_by_dependency = True
@@ -67,6 +70,25 @@ class ParameterWidget(QWidget):
         """Update the enabled state of the widget"""
         self.setEnabled(self.is_enabled_by_dependency)
 
+    def setToolTip(self, tooltip_text: str):
+        #if hasattr(self, 'parameter') and self.parameter.param_id == 23:
+            #print(f"setToolTip called for Swing: {tooltip_text}")
+    
+        """Override setToolTip to propagate to all child widgets"""
+        # Set tooltip on the container widget
+        super().setToolTip(tooltip_text)
+
+        # Set tooltip on the name label
+        if hasattr(self, 'name_label'):
+            self.name_label.setToolTip(tooltip_text)
+
+        # Set tooltip on widget-specific interactive elements
+        self._set_child_tooltips(tooltip_text)
+
+    def _set_child_tooltips(self, tooltip_text: str):
+        """Override in subclasses to set tooltips on specific child widgets"""
+        pass
+
 class ToggleParameterWidget(ParameterWidget):
     """Widget for on/off parameters"""
     
@@ -93,6 +115,8 @@ class ToggleParameterWidget(ParameterWidget):
         layout.addWidget(self.default_label)
         
         layout.addStretch()
+        
+        self.setToolTip(self.parameter.tooltip)
         
         # Set initial state
         self.update_display()
@@ -123,6 +147,11 @@ class ToggleParameterWidget(ParameterWidget):
         """Handle toggle button click"""
         value = 1 if checked else 0
         self.emit_value_changed(value)
+        
+    def _set_child_tooltips(self, tooltip_text: str):
+        """Set tooltip on checkbox"""
+        if hasattr(self, 'checkbox'):
+            self.checkbox.setToolTip(tooltip_text)
 
 class ChoiceParameterWidget(ParameterWidget):
     """Widget for multiple choice parameters"""
@@ -160,6 +189,8 @@ class ChoiceParameterWidget(ParameterWidget):
         
         layout.addStretch()
         
+        self.setToolTip(self.parameter.tooltip)
+        
         # Set initial state
         self.update_display()
     
@@ -192,6 +223,11 @@ class ChoiceParameterWidget(ParameterWidget):
             value = self.combo_box.itemData(index)
             if value is not None:
                 self.emit_value_changed(value)
+                
+    def _set_child_tooltips(self, tooltip_text: str):
+        """Set tooltip on combobox"""
+        if hasattr(self, 'combo'):
+            self.combo.setToolTip(tooltip_text)
 
 class RangeParameterWidget(ParameterWidget):
     """Widget for range parameters with slider and spinbox"""
@@ -241,11 +277,16 @@ class RangeParameterWidget(ParameterWidget):
         
         layout.addLayout(bottom_layout)
         
+        #if self.parameter.param_id == 23:
+            #print(f"Swing setup_ui complete. Has slider: {hasattr(self, 'slider')}, spinbox: {hasattr(self, 'spinbox')}, value_label: {hasattr(self, 'value_label')}")
+        
         # Default value indicator
         default_readable = self.parameter.get_human_readable(self.parameter.default_value)
         self.default_label = QLabel(f"Default: {default_readable} ({self.parameter.default_value})")
         self.default_label.setStyleSheet("color: #888888; font-size: 10px;")
         layout.addWidget(self.default_label)
+        
+        self.setToolTip(self.parameter.tooltip)
         
         # Set initial state
         self.update_display()
@@ -317,6 +358,15 @@ class RangeParameterWidget(ParameterWidget):
         self.slider.blockSignals(False)
         
         self.emit_value_changed(value)
+        
+    def _set_child_tooltips(self, tooltip_text: str):
+        """Set tooltips on slider and spinbox"""
+        if hasattr(self, 'slider'):
+            self.slider.setToolTip(tooltip_text)
+        if hasattr(self, 'spinbox'):
+            self.spinbox.setToolTip(tooltip_text)
+        if hasattr(self, 'value_label'):
+            self.value_label.setToolTip(tooltip_text)
 
 class MIDIChannelParameterWidget(ParameterWidget):
     """Special widget for MIDI channel parameters (1-16 display, 0-15 internal)"""
@@ -354,6 +404,8 @@ class MIDIChannelParameterWidget(ParameterWidget):
         
         layout.addStretch()
         
+        self.setToolTip(self.parameter.tooltip)
+        
         # Set initial state
         self.update_display()
     
@@ -383,6 +435,11 @@ class MIDIChannelParameterWidget(ParameterWidget):
             value = self.channel_combo.itemData(index)
             if value is not None:
                 self.emit_value_changed(value)
+                
+    def _set_child_tooltips(self, tooltip_text: str):
+        """Set tooltip on combobox"""
+        if hasattr(self, 'combo'):
+            self.combo.setToolTip(tooltip_text)
     
 class SwingParameterWidget(ParameterWidget):
     """Special widget for swing parameter with triplet button"""
@@ -445,6 +502,8 @@ class SwingParameterWidget(ParameterWidget):
         triplet_layout.addStretch()
         layout.addLayout(triplet_layout)
         
+        self.setToolTip(self.parameter.tooltip)
+        
         # Default value indicator
         default_readable = self.parameter.get_human_readable(self.parameter.default_value)
         self.default_label = QLabel(f"Default: {default_readable} ({self.parameter.default_value})")
@@ -453,6 +512,15 @@ class SwingParameterWidget(ParameterWidget):
         
         # Set initial state
         self.update_display()
+    
+    def _set_child_tooltips(self, tooltip_text: str):
+        """Set tooltips on slider and spinbox"""
+        if hasattr(self, 'slider'):
+            self.slider.setToolTip(tooltip_text)
+        if hasattr(self, 'spinbox'):
+            self.spinbox.setToolTip(tooltip_text)
+        if hasattr(self, 'value_label'):
+            self.value_label.setToolTip(tooltip_text)
     
     def set_triplet_swing(self):
         """Set swing to 66% (triplet feel)"""
