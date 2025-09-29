@@ -30,17 +30,17 @@ pip3 install PyQt5 mido python-rtmidi
 - macOS 10.12 or later
 - No additional setup required - python-rtmidi uses the built-in CoreMIDI
 
-#### Windows
-- Windows 7 or later
+#### Windows (NOTE: NOT YET TESTED BUT MAY WORK)
+- Windows 7 or later (NOTE: NOT YET TESTED BUT MAY WORK)
 - python-rtmidi uses the built-in Windows MIDI API
 
-#### Linux
+#### Linux (NOTE: NOT YET TESTED BUT MAY WORK)
 - ALSA development libraries (usually pre-installed)
 - For Ubuntu/Debian: `sudo apt-get install libasound2-dev`
 
 ### Hardware Requirements
 - Moog Matriarch synthesizer
-- MIDI interface (USB or traditional DIN MIDI)
+- MIDI interface or direct connection to computer (USB or traditional DIN MIDI)
 - Properly configured MIDI connections between computer and Matriarch
 
 ## Installation
@@ -71,17 +71,18 @@ Ensure your Matriarch has:
 ## First Run
 
 1. Launch the application
-2. Go to File → MIDI Settings
+2. Go to Connection → MIDI Settings
 3. Select your MIDI Input and Output ports
 4. Click "Test Connection" to verify communication with Matriarch
-5. The app will automatically query all global parameters on successful connection
+5. Go to Connection → Connect
+6. The app will automatically query all global parameters on successful connection
 
 ## Usage Notes
 
 - Parameter changes are sent to the Matriarch immediately
-- Use File → Query All Parameters to refresh all settings from the Matriarch
+- Use File → Query All Parameters to refresh all settings from the Matriarch if warranted
 - Presets are saved as JSON files and can be shared between users
-- MIDI logging can be enabled via View → MIDI Log Window
+- MIDI logging can be enabled via View → MIDI Log... Window
 
 ## Troubleshooting
 
@@ -94,10 +95,10 @@ Ensure your Matriarch has:
 ### Application Issues
 - Ensure all required Python packages are installed
 - Check Python version is 3.7+
-- Try running from command line to see error messages
+- Try running from command line with --debug to see error messages
 
 ### Performance Issues
-- Increase query delay in Settings → MIDI Timing if communication is unreliable
+- Increase query delay in Settings → MIDI Timing if communication is unreliable (NOT YET IMPLEMENTED - COMING SOON)
 - Close other MIDI applications that might conflict
 
 ## Support
