@@ -5848,3 +5848,1922 @@ IndentationError: unindent does not match any outer indentation level
 2025-09-29 03:06:34,050 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
 2025-09-29 03:06:34,214 - ui.main_window - DEBUG - Auto-reconnect disabled
 2025-09-29 03:06:34,217 - __main__ - INFO - Main window created and shown
+2025-09-29 03:28:20,751 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 03:28:20,755 - ui.main_window - WARNING - Failed to send parameter 50 = 1
+2025-09-29 03:28:23,624 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 03:28:23,625 - ui.main_window - WARNING - Failed to send parameter 50 = 0
+2025-09-29 03:29:35,636 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 03:29:35,637 - ui.main_window - WARNING - Failed to send parameter 52 = 0
+2025-09-29 03:29:36,868 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 03:29:36,868 - ui.main_window - WARNING - Failed to send parameter 52 = 0
+2025-09-29 03:29:39,053 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 03:29:39,053 - ui.main_window - WARNING - Failed to send parameter 52 = 0
+2025-09-29 03:29:40,325 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 03:29:40,325 - ui.main_window - WARNING - Failed to send parameter 52 = 1
+2025-09-29 03:29:48,844 - midi.connection - DEBUG - MIDI listen thread started
+2025-09-29 03:29:48,844 - midi.connection - INFO - Connected to MIDI ports: mioXL MATRIARCH -> mioXL MATRIARCH
+2025-09-29 03:29:48,887 - midi.connection - DEBUG - Sending query for parameter 0: SysEx: F0 04 17 3E 00 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:48,932 - midi.sysex - DEBUG - SysEx parse: param_id=0, value=0, is_response=True, unit_id=1
+2025-09-29 03:29:48,932 - midi.sysex - DEBUG - Received response: param 0 = 0
+2025-09-29 03:29:48,932 - midi.connection - DEBUG - Parameter update: 0 = 0
+2025-09-29 03:29:48,932 - midi.connection - DEBUG - Query successful: param 0 = 0
+2025-09-29 03:29:48,932 - midi.connection - DEBUG - Sending query for parameter 0: SysEx: F0 04 17 3E 00 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:48,968 - midi.sysex - DEBUG - SysEx parse: param_id=0, value=0, is_response=True, unit_id=1
+2025-09-29 03:29:48,968 - midi.sysex - DEBUG - Received response: param 0 = 0
+2025-09-29 03:29:48,968 - midi.connection - DEBUG - Parameter update: 0 = 0
+2025-09-29 03:29:48,968 - midi.connection - DEBUG - Query successful: param 0 = 0
+2025-09-29 03:29:48,968 - midi.connection - DEBUG - Sending query for parameter 10: SysEx: F0 04 17 3E 0A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:48,999 - midi.sysex - DEBUG - SysEx parse: param_id=10, value=0, is_response=True, unit_id=1
+2025-09-29 03:29:48,999 - midi.sysex - DEBUG - Received response: param 10 = 0
+2025-09-29 03:29:48,999 - midi.connection - DEBUG - Parameter update: 10 = 0
+2025-09-29 03:29:48,999 - midi.connection - DEBUG - Query successful: param 10 = 0
+2025-09-29 03:29:49,000 - midi.connection - DEBUG - Sending query for parameter 37: SysEx: F0 04 17 3E 25 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:49,035 - midi.sysex - DEBUG - SysEx parse: param_id=37, value=2, is_response=True, unit_id=1
+2025-09-29 03:29:49,035 - midi.sysex - DEBUG - Received response: param 37 = 2
+2025-09-29 03:29:49,035 - midi.connection - DEBUG - Parameter update: 37 = 2
+2025-09-29 03:29:49,035 - midi.connection - DEBUG - Query successful: param 37 = 2
+2025-09-29 03:29:49,037 - midi.connection - DEBUG - MIDI listen thread stopped
+2025-09-29 03:29:49,037 - midi.connection - INFO - Disconnected from MIDI ports
+2025-09-29 03:29:56,638 - midi.connection - DEBUG - MIDI listen thread started
+2025-09-29 03:29:56,638 - midi.connection - INFO - Connected to MIDI ports: mioXL MATRIARCH -> mioXL MATRIARCH
+2025-09-29 03:29:56,647 - midi.connection - DEBUG - Sending query for parameter 0: SysEx: F0 04 17 3E 00 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:56,683 - midi.sysex - DEBUG - SysEx parse: param_id=0, value=0, is_response=True, unit_id=1
+2025-09-29 03:29:56,684 - midi.sysex - DEBUG - Received response: param 0 = 0
+2025-09-29 03:29:56,684 - midi.connection - DEBUG - Parameter update: 0 = 0
+2025-09-29 03:29:56,684 - midi.connection - DEBUG - Query successful: param 0 = 0
+2025-09-29 03:29:57,089 - midi.connection - DEBUG - Sending query for parameter 1: SysEx: F0 04 17 3E 01 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:57,127 - midi.sysex - DEBUG - SysEx parse: param_id=1, value=0, is_response=True, unit_id=1
+2025-09-29 03:29:57,127 - midi.sysex - DEBUG - Received response: param 1 = 0
+2025-09-29 03:29:57,127 - midi.connection - DEBUG - Parameter update: 1 = 0
+2025-09-29 03:29:57,128 - midi.connection - DEBUG - Query successful: param 1 = 0
+2025-09-29 03:29:57,533 - midi.connection - DEBUG - Sending query for parameter 2: SysEx: F0 04 17 3E 02 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:57,569 - midi.sysex - DEBUG - SysEx parse: param_id=2, value=0, is_response=True, unit_id=1
+2025-09-29 03:29:57,569 - midi.sysex - DEBUG - Received response: param 2 = 0
+2025-09-29 03:29:57,569 - midi.connection - DEBUG - Parameter update: 2 = 0
+2025-09-29 03:29:57,569 - midi.connection - DEBUG - Query successful: param 2 = 0
+2025-09-29 03:29:57,975 - midi.connection - DEBUG - Sending query for parameter 3: SysEx: F0 04 17 3E 03 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:58,012 - midi.sysex - DEBUG - SysEx parse: param_id=3, value=2, is_response=True, unit_id=1
+2025-09-29 03:29:58,012 - midi.sysex - DEBUG - Received response: param 3 = 2
+2025-09-29 03:29:58,012 - midi.connection - DEBUG - Parameter update: 3 = 2
+2025-09-29 03:29:58,012 - midi.connection - DEBUG - Query successful: param 3 = 2
+2025-09-29 03:29:58,414 - midi.connection - DEBUG - Sending query for parameter 37: SysEx: F0 04 17 3E 25 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:58,446 - midi.sysex - DEBUG - SysEx parse: param_id=37, value=2, is_response=True, unit_id=1
+2025-09-29 03:29:58,447 - midi.sysex - DEBUG - Received response: param 37 = 2
+2025-09-29 03:29:58,447 - midi.connection - DEBUG - Parameter update: 37 = 2
+2025-09-29 03:29:58,447 - midi.connection - DEBUG - Query successful: param 37 = 2
+2025-09-29 03:29:58,852 - midi.connection - DEBUG - Sending query for parameter 38: SysEx: F0 04 17 3E 26 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:58,882 - midi.sysex - DEBUG - SysEx parse: param_id=38, value=2, is_response=True, unit_id=1
+2025-09-29 03:29:58,882 - midi.sysex - DEBUG - Received response: param 38 = 2
+2025-09-29 03:29:58,882 - midi.connection - DEBUG - Parameter update: 38 = 2
+2025-09-29 03:29:58,882 - midi.connection - DEBUG - Query successful: param 38 = 2
+2025-09-29 03:29:59,285 - midi.connection - DEBUG - Sending query for parameter 39: SysEx: F0 04 17 3E 27 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:59,321 - midi.sysex - DEBUG - SysEx parse: param_id=39, value=1, is_response=True, unit_id=1
+2025-09-29 03:29:59,321 - midi.sysex - DEBUG - Received response: param 39 = 1
+2025-09-29 03:29:59,322 - midi.connection - DEBUG - Parameter update: 39 = 1
+2025-09-29 03:29:59,322 - midi.connection - DEBUG - Query successful: param 39 = 1
+2025-09-29 03:29:59,727 - midi.connection - DEBUG - Sending query for parameter 40: SysEx: F0 04 17 3E 28 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:29:59,766 - midi.sysex - DEBUG - SysEx parse: param_id=40, value=0, is_response=True, unit_id=1
+2025-09-29 03:29:59,767 - midi.sysex - DEBUG - Received response: param 40 = 0
+2025-09-29 03:29:59,767 - midi.connection - DEBUG - Parameter update: 40 = 0
+2025-09-29 03:29:59,767 - midi.connection - DEBUG - Query successful: param 40 = 0
+2025-09-29 03:30:00,172 - midi.connection - DEBUG - Sending query for parameter 41: SysEx: F0 04 17 3E 29 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:00,206 - midi.sysex - DEBUG - SysEx parse: param_id=41, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:00,206 - midi.sysex - DEBUG - Received response: param 41 = 0
+2025-09-29 03:30:00,206 - midi.connection - DEBUG - Parameter update: 41 = 0
+2025-09-29 03:30:00,207 - midi.connection - DEBUG - Query successful: param 41 = 0
+2025-09-29 03:30:00,610 - midi.connection - DEBUG - Sending query for parameter 42: SysEx: F0 04 17 3E 2A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:00,645 - midi.sysex - DEBUG - SysEx parse: param_id=42, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:00,646 - midi.sysex - DEBUG - Received response: param 42 = 0
+2025-09-29 03:30:00,646 - midi.connection - DEBUG - Parameter update: 42 = 0
+2025-09-29 03:30:00,646 - midi.connection - DEBUG - Query successful: param 42 = 0
+2025-09-29 03:30:01,051 - midi.connection - DEBUG - Sending query for parameter 43: SysEx: F0 04 17 3E 2B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:01,085 - midi.sysex - DEBUG - SysEx parse: param_id=43, value=7, is_response=True, unit_id=1
+2025-09-29 03:30:01,085 - midi.sysex - DEBUG - Received response: param 43 = 7
+2025-09-29 03:30:01,086 - midi.connection - DEBUG - Parameter update: 43 = 7
+2025-09-29 03:30:01,086 - midi.connection - DEBUG - Query successful: param 43 = 7
+2025-09-29 03:30:01,491 - midi.connection - DEBUG - Sending query for parameter 44: SysEx: F0 04 17 3E 2C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:01,528 - midi.sysex - DEBUG - SysEx parse: param_id=44, value=7, is_response=True, unit_id=1
+2025-09-29 03:30:01,529 - midi.sysex - DEBUG - Received response: param 44 = 7
+2025-09-29 03:30:01,529 - midi.connection - DEBUG - Parameter update: 44 = 7
+2025-09-29 03:30:01,529 - midi.connection - DEBUG - Query successful: param 44 = 7
+2025-09-29 03:30:01,934 - midi.connection - DEBUG - Sending query for parameter 45: SysEx: F0 04 17 3E 2D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:01,971 - midi.sysex - DEBUG - SysEx parse: param_id=45, value=7, is_response=True, unit_id=1
+2025-09-29 03:30:01,971 - midi.sysex - DEBUG - Received response: param 45 = 7
+2025-09-29 03:30:01,971 - midi.connection - DEBUG - Parameter update: 45 = 7
+2025-09-29 03:30:01,971 - midi.connection - DEBUG - Query successful: param 45 = 7
+2025-09-29 03:30:02,376 - midi.connection - DEBUG - Sending query for parameter 46: SysEx: F0 04 17 3E 2E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:02,411 - midi.sysex - DEBUG - SysEx parse: param_id=46, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:02,411 - midi.sysex - DEBUG - Received response: param 46 = 0
+2025-09-29 03:30:02,412 - midi.connection - DEBUG - Parameter update: 46 = 0
+2025-09-29 03:30:02,412 - midi.connection - DEBUG - Query successful: param 46 = 0
+2025-09-29 03:30:02,816 - midi.connection - DEBUG - Sending query for parameter 47: SysEx: F0 04 17 3E 2F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:02,855 - midi.sysex - DEBUG - SysEx parse: param_id=47, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:02,856 - midi.sysex - DEBUG - Received response: param 47 = 0
+2025-09-29 03:30:02,856 - midi.connection - DEBUG - Parameter update: 47 = 0
+2025-09-29 03:30:02,856 - midi.connection - DEBUG - Query successful: param 47 = 0
+2025-09-29 03:30:03,261 - midi.connection - DEBUG - Sending query for parameter 48: SysEx: F0 04 17 3E 30 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:03,298 - midi.sysex - DEBUG - SysEx parse: param_id=48, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:03,298 - midi.sysex - DEBUG - Received response: param 48 = 0
+2025-09-29 03:30:03,298 - midi.connection - DEBUG - Parameter update: 48 = 0
+2025-09-29 03:30:03,298 - midi.connection - DEBUG - Query successful: param 48 = 0
+2025-09-29 03:30:03,702 - midi.connection - DEBUG - Sending query for parameter 49: SysEx: F0 04 17 3E 31 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:03,738 - midi.sysex - DEBUG - SysEx parse: param_id=49, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:03,738 - midi.sysex - DEBUG - Received response: param 49 = 0
+2025-09-29 03:30:03,738 - midi.connection - DEBUG - Parameter update: 49 = 0
+2025-09-29 03:30:03,738 - midi.connection - DEBUG - Query successful: param 49 = 0
+2025-09-29 03:30:04,143 - midi.connection - DEBUG - Sending query for parameter 50: SysEx: F0 04 17 3E 32 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:04,181 - midi.sysex - DEBUG - SysEx parse: param_id=50, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:04,181 - midi.sysex - DEBUG - Received response: param 50 = 0
+2025-09-29 03:30:04,181 - midi.connection - DEBUG - Parameter update: 50 = 0
+2025-09-29 03:30:04,181 - midi.connection - DEBUG - Query successful: param 50 = 0
+2025-09-29 03:30:04,587 - midi.connection - DEBUG - Sending query for parameter 51: SysEx: F0 04 17 3E 33 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:04,621 - midi.sysex - DEBUG - SysEx parse: param_id=51, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:04,622 - midi.sysex - DEBUG - Received response: param 51 = 0
+2025-09-29 03:30:04,622 - midi.connection - DEBUG - Parameter update: 51 = 0
+2025-09-29 03:30:04,622 - midi.connection - DEBUG - Query successful: param 51 = 0
+2025-09-29 03:30:05,027 - midi.connection - DEBUG - Sending query for parameter 52: SysEx: F0 04 17 3E 34 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:05,062 - midi.sysex - DEBUG - SysEx parse: param_id=52, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:05,062 - midi.sysex - DEBUG - Received response: param 52 = 1
+2025-09-29 03:30:05,062 - midi.connection - DEBUG - Parameter update: 52 = 1
+2025-09-29 03:30:05,062 - midi.connection - DEBUG - Query successful: param 52 = 1
+2025-09-29 03:30:05,464 - midi.connection - DEBUG - Sending query for parameter 53: SysEx: F0 04 17 3E 35 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:05,502 - midi.sysex - DEBUG - SysEx parse: param_id=53, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:05,502 - midi.sysex - DEBUG - Received response: param 53 = 0
+2025-09-29 03:30:05,502 - midi.connection - DEBUG - Parameter update: 53 = 0
+2025-09-29 03:30:05,502 - midi.connection - DEBUG - Query successful: param 53 = 0
+2025-09-29 03:30:05,908 - midi.connection - DEBUG - Sending query for parameter 54: SysEx: F0 04 17 3E 36 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:05,944 - midi.sysex - DEBUG - SysEx parse: param_id=54, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:05,944 - midi.sysex - DEBUG - Received response: param 54 = 0
+2025-09-29 03:30:05,944 - midi.connection - DEBUG - Parameter update: 54 = 0
+2025-09-29 03:30:05,945 - midi.connection - DEBUG - Query successful: param 54 = 0
+2025-09-29 03:30:06,347 - midi.connection - DEBUG - Sending query for parameter 55: SysEx: F0 04 17 3E 37 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:06,380 - midi.sysex - DEBUG - SysEx parse: param_id=55, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:06,380 - midi.sysex - DEBUG - Received response: param 55 = 0
+2025-09-29 03:30:06,380 - midi.connection - DEBUG - Parameter update: 55 = 0
+2025-09-29 03:30:06,380 - midi.connection - DEBUG - Query successful: param 55 = 0
+2025-09-29 03:30:06,785 - midi.connection - DEBUG - Sending query for parameter 56: SysEx: F0 04 17 3E 38 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:06,822 - midi.sysex - DEBUG - SysEx parse: param_id=56, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:06,822 - midi.sysex - DEBUG - Received response: param 56 = 0
+2025-09-29 03:30:06,823 - midi.connection - DEBUG - Parameter update: 56 = 0
+2025-09-29 03:30:06,823 - midi.connection - DEBUG - Query successful: param 56 = 0
+2025-09-29 03:30:07,228 - midi.connection - DEBUG - Sending query for parameter 57: SysEx: F0 04 17 3E 39 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:07,265 - midi.sysex - DEBUG - SysEx parse: param_id=57, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:07,265 - midi.sysex - DEBUG - Received response: param 57 = 1
+2025-09-29 03:30:07,266 - midi.connection - DEBUG - Parameter update: 57 = 1
+2025-09-29 03:30:07,266 - midi.connection - DEBUG - Query successful: param 57 = 1
+2025-09-29 03:30:07,671 - midi.connection - DEBUG - Sending query for parameter 58: SysEx: F0 04 17 3E 3A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:07,702 - midi.sysex - DEBUG - SysEx parse: param_id=58, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:07,702 - midi.sysex - DEBUG - Received response: param 58 = 0
+2025-09-29 03:30:07,702 - midi.connection - DEBUG - Parameter update: 58 = 0
+2025-09-29 03:30:07,702 - midi.connection - DEBUG - Query successful: param 58 = 0
+2025-09-29 03:30:08,108 - midi.connection - DEBUG - Sending query for parameter 70: SysEx: F0 04 17 3E 46 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:08,150 - midi.sysex - DEBUG - SysEx parse: param_id=70, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:08,155 - midi.sysex - DEBUG - Received response: param 70 = 0
+2025-09-29 03:30:08,155 - midi.connection - DEBUG - Parameter update: 70 = 0
+2025-09-29 03:30:08,155 - midi.connection - DEBUG - Query successful: param 70 = 0
+2025-09-29 03:30:08,559 - midi.connection - DEBUG - Sending query for parameter 71: SysEx: F0 04 17 3E 47 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:08,595 - midi.sysex - DEBUG - SysEx parse: param_id=71, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:08,595 - midi.sysex - DEBUG - Received response: param 71 = 0
+2025-09-29 03:30:08,595 - midi.connection - DEBUG - Parameter update: 71 = 0
+2025-09-29 03:30:08,595 - midi.connection - DEBUG - Query successful: param 71 = 0
+2025-09-29 03:30:09,000 - midi.connection - DEBUG - Sending query for parameter 20: SysEx: F0 04 17 3E 14 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:09,036 - midi.sysex - DEBUG - SysEx parse: param_id=20, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:09,037 - midi.sysex - DEBUG - Received response: param 20 = 1
+2025-09-29 03:30:09,037 - midi.connection - DEBUG - Parameter update: 20 = 1
+2025-09-29 03:30:09,037 - midi.connection - DEBUG - Query successful: param 20 = 1
+2025-09-29 03:30:09,440 - midi.connection - DEBUG - Sending query for parameter 21: SysEx: F0 04 17 3E 15 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:09,477 - midi.sysex - DEBUG - SysEx parse: param_id=21, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:09,477 - midi.sysex - DEBUG - Received response: param 21 = 1
+2025-09-29 03:30:09,477 - midi.connection - DEBUG - Parameter update: 21 = 1
+2025-09-29 03:30:09,477 - midi.connection - DEBUG - Query successful: param 21 = 1
+2025-09-29 03:30:09,882 - midi.connection - DEBUG - Sending query for parameter 22: SysEx: F0 04 17 3E 16 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:09,920 - midi.sysex - DEBUG - SysEx parse: param_id=22, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:09,920 - midi.sysex - DEBUG - Received response: param 22 = 1
+2025-09-29 03:30:09,920 - midi.connection - DEBUG - Parameter update: 22 = 1
+2025-09-29 03:30:09,920 - midi.connection - DEBUG - Query successful: param 22 = 1
+2025-09-29 03:30:10,325 - midi.connection - DEBUG - Sending query for parameter 23: SysEx: F0 04 17 3E 17 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:10,361 - midi.sysex - DEBUG - SysEx parse: param_id=23, value=8192, is_response=True, unit_id=1
+2025-09-29 03:30:10,361 - midi.sysex - DEBUG - Received response: param 23 = 8192
+2025-09-29 03:30:10,361 - midi.connection - DEBUG - Parameter update: 23 = 8192
+2025-09-29 03:30:10,361 - midi.connection - DEBUG - Query successful: param 23 = 8192
+2025-09-29 03:30:10,765 - midi.connection - DEBUG - Sending query for parameter 24: SysEx: F0 04 17 3E 18 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:10,802 - midi.sysex - DEBUG - SysEx parse: param_id=24, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:10,802 - midi.sysex - DEBUG - Received response: param 24 = 1
+2025-09-29 03:30:10,802 - midi.connection - DEBUG - Parameter update: 24 = 1
+2025-09-29 03:30:10,802 - midi.connection - DEBUG - Query successful: param 24 = 1
+2025-09-29 03:30:11,203 - midi.connection - DEBUG - Sending query for parameter 25: SysEx: F0 04 17 3E 19 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:11,241 - midi.sysex - DEBUG - SysEx parse: param_id=25, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:11,241 - midi.sysex - DEBUG - Received response: param 25 = 0
+2025-09-29 03:30:11,241 - midi.connection - DEBUG - Parameter update: 25 = 0
+2025-09-29 03:30:11,241 - midi.connection - DEBUG - Query successful: param 25 = 0
+2025-09-29 03:30:11,651 - midi.connection - DEBUG - Sending query for parameter 26: SysEx: F0 04 17 3E 1A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:11,696 - midi.sysex - DEBUG - SysEx parse: param_id=26, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:11,696 - midi.sysex - DEBUG - Received response: param 26 = 1
+2025-09-29 03:30:11,696 - midi.connection - DEBUG - Parameter update: 26 = 1
+2025-09-29 03:30:11,696 - midi.connection - DEBUG - Query successful: param 26 = 1
+2025-09-29 03:30:12,097 - midi.connection - DEBUG - Sending query for parameter 27: SysEx: F0 04 17 3E 1B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:12,134 - midi.sysex - DEBUG - SysEx parse: param_id=27, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:12,134 - midi.sysex - DEBUG - Received response: param 27 = 0
+2025-09-29 03:30:12,134 - midi.connection - DEBUG - Parameter update: 27 = 0
+2025-09-29 03:30:12,134 - midi.connection - DEBUG - Query successful: param 27 = 0
+2025-09-29 03:30:12,537 - midi.connection - DEBUG - Sending query for parameter 28: SysEx: F0 04 17 3E 1C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:12,572 - midi.sysex - DEBUG - SysEx parse: param_id=28, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:12,573 - midi.sysex - DEBUG - Received response: param 28 = 1
+2025-09-29 03:30:12,573 - midi.connection - DEBUG - Parameter update: 28 = 1
+2025-09-29 03:30:12,573 - midi.connection - DEBUG - Query successful: param 28 = 1
+2025-09-29 03:30:12,979 - midi.connection - DEBUG - Sending query for parameter 29: SysEx: F0 04 17 3E 1D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:13,018 - midi.sysex - DEBUG - SysEx parse: param_id=29, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:13,019 - midi.sysex - DEBUG - Received response: param 29 = 0
+2025-09-29 03:30:13,019 - midi.connection - DEBUG - Parameter update: 29 = 0
+2025-09-29 03:30:13,019 - midi.connection - DEBUG - Query successful: param 29 = 0
+2025-09-29 03:30:13,429 - midi.connection - DEBUG - Sending query for parameter 72: SysEx: F0 04 17 3E 48 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:13,469 - midi.sysex - DEBUG - SysEx parse: param_id=72, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:13,470 - midi.sysex - DEBUG - Received response: param 72 = 1
+2025-09-29 03:30:13,470 - midi.connection - DEBUG - Parameter update: 72 = 1
+2025-09-29 03:30:13,470 - midi.connection - DEBUG - Query successful: param 72 = 1
+2025-09-29 03:30:13,878 - midi.connection - DEBUG - Sending query for parameter 73: SysEx: F0 04 17 3E 49 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:13,914 - midi.sysex - DEBUG - SysEx parse: param_id=73, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:13,915 - midi.sysex - DEBUG - Received response: param 73 = 0
+2025-09-29 03:30:13,916 - midi.connection - DEBUG - Parameter update: 73 = 0
+2025-09-29 03:30:13,916 - midi.connection - DEBUG - Query successful: param 73 = 0
+2025-09-29 03:30:14,321 - midi.connection - DEBUG - Sending query for parameter 74: SysEx: F0 04 17 3E 4A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:14,359 - midi.sysex - DEBUG - SysEx parse: param_id=74, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:14,369 - midi.sysex - DEBUG - Received response: param 74 = 0
+2025-09-29 03:30:14,370 - midi.connection - DEBUG - Parameter update: 74 = 0
+2025-09-29 03:30:14,370 - midi.connection - DEBUG - Query successful: param 74 = 0
+2025-09-29 03:30:14,775 - midi.connection - DEBUG - Sending query for parameter 4: SysEx: F0 04 17 3E 04 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:14,810 - midi.sysex - DEBUG - SysEx parse: param_id=4, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:14,810 - midi.sysex - DEBUG - Received response: param 4 = 0
+2025-09-29 03:30:14,810 - midi.connection - DEBUG - Parameter update: 4 = 0
+2025-09-29 03:30:14,811 - midi.connection - DEBUG - Query successful: param 4 = 0
+2025-09-29 03:30:15,211 - midi.connection - DEBUG - Sending query for parameter 5: SysEx: F0 04 17 3E 05 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:15,250 - midi.sysex - DEBUG - SysEx parse: param_id=5, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:15,263 - midi.sysex - DEBUG - Received response: param 5 = 1
+2025-09-29 03:30:15,270 - midi.connection - DEBUG - Parameter update: 5 = 1
+2025-09-29 03:30:15,270 - midi.connection - DEBUG - Query successful: param 5 = 1
+2025-09-29 03:30:15,682 - midi.connection - DEBUG - Sending query for parameter 6: SysEx: F0 04 17 3E 06 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:15,727 - midi.sysex - DEBUG - SysEx parse: param_id=6, value=3, is_response=True, unit_id=1
+2025-09-29 03:30:15,727 - midi.sysex - DEBUG - Received response: param 6 = 3
+2025-09-29 03:30:15,727 - midi.connection - DEBUG - Parameter update: 6 = 3
+2025-09-29 03:30:15,727 - midi.connection - DEBUG - Query successful: param 6 = 3
+2025-09-29 03:30:16,131 - midi.connection - DEBUG - Sending query for parameter 7: SysEx: F0 04 17 3E 07 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:16,167 - midi.sysex - DEBUG - SysEx parse: param_id=7, value=3, is_response=True, unit_id=1
+2025-09-29 03:30:16,178 - midi.sysex - DEBUG - Received response: param 7 = 3
+2025-09-29 03:30:16,178 - midi.connection - DEBUG - Parameter update: 7 = 3
+2025-09-29 03:30:16,178 - midi.connection - DEBUG - Query successful: param 7 = 3
+2025-09-29 03:30:16,583 - midi.connection - DEBUG - Sending query for parameter 8: SysEx: F0 04 17 3E 08 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:16,619 - midi.sysex - DEBUG - SysEx parse: param_id=8, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:16,619 - midi.sysex - DEBUG - Received response: param 8 = 0
+2025-09-29 03:30:16,619 - midi.connection - DEBUG - Parameter update: 8 = 0
+2025-09-29 03:30:16,619 - midi.connection - DEBUG - Query successful: param 8 = 0
+2025-09-29 03:30:17,023 - midi.connection - DEBUG - Sending query for parameter 9: SysEx: F0 04 17 3E 09 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:17,070 - midi.sysex - DEBUG - SysEx parse: param_id=9, value=2, is_response=True, unit_id=1
+2025-09-29 03:30:17,082 - midi.sysex - DEBUG - Received response: param 9 = 2
+2025-09-29 03:30:17,082 - midi.connection - DEBUG - Parameter update: 9 = 2
+2025-09-29 03:30:17,082 - midi.connection - DEBUG - Query successful: param 9 = 2
+2025-09-29 03:30:17,486 - midi.connection - DEBUG - Sending query for parameter 10: SysEx: F0 04 17 3E 0A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:17,525 - midi.sysex - DEBUG - SysEx parse: param_id=10, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:17,525 - midi.sysex - DEBUG - Received response: param 10 = 0
+2025-09-29 03:30:17,525 - midi.connection - DEBUG - Parameter update: 10 = 0
+2025-09-29 03:30:17,525 - midi.connection - DEBUG - Query successful: param 10 = 0
+2025-09-29 03:30:17,930 - midi.connection - DEBUG - Sending query for parameter 11: SysEx: F0 04 17 3E 0B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:17,966 - midi.sysex - DEBUG - SysEx parse: param_id=11, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:17,980 - midi.sysex - DEBUG - Received response: param 11 = 0
+2025-09-29 03:30:17,986 - midi.connection - DEBUG - Parameter update: 11 = 0
+2025-09-29 03:30:17,986 - midi.connection - DEBUG - Query successful: param 11 = 0
+2025-09-29 03:30:18,390 - midi.connection - DEBUG - Sending query for parameter 12: SysEx: F0 04 17 3E 0C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:18,423 - midi.sysex - DEBUG - SysEx parse: param_id=12, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:18,423 - midi.sysex - DEBUG - Received response: param 12 = 0
+2025-09-29 03:30:18,423 - midi.connection - DEBUG - Parameter update: 12 = 0
+2025-09-29 03:30:18,423 - midi.connection - DEBUG - Query successful: param 12 = 0
+2025-09-29 03:30:18,828 - midi.connection - DEBUG - Sending query for parameter 13: SysEx: F0 04 17 3E 0D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:18,867 - midi.sysex - DEBUG - SysEx parse: param_id=13, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:18,874 - midi.sysex - DEBUG - Received response: param 13 = 1
+2025-09-29 03:30:18,881 - midi.connection - DEBUG - Parameter update: 13 = 1
+2025-09-29 03:30:18,881 - midi.connection - DEBUG - Query successful: param 13 = 1
+2025-09-29 03:30:19,290 - midi.connection - DEBUG - Sending query for parameter 14: SysEx: F0 04 17 3E 0E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:19,325 - midi.sysex - DEBUG - SysEx parse: param_id=14, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:19,325 - midi.sysex - DEBUG - Received response: param 14 = 1
+2025-09-29 03:30:19,325 - midi.connection - DEBUG - Parameter update: 14 = 1
+2025-09-29 03:30:19,325 - midi.connection - DEBUG - Query successful: param 14 = 1
+2025-09-29 03:30:19,725 - midi.connection - DEBUG - Sending query for parameter 15: SysEx: F0 04 17 3E 0F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:19,767 - midi.sysex - DEBUG - SysEx parse: param_id=15, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:19,781 - midi.sysex - DEBUG - Received response: param 15 = 0
+2025-09-29 03:30:19,793 - midi.connection - DEBUG - Parameter update: 15 = 0
+2025-09-29 03:30:19,793 - midi.connection - DEBUG - Query successful: param 15 = 0
+2025-09-29 03:30:20,196 - midi.connection - DEBUG - Sending query for parameter 16: SysEx: F0 04 17 3E 10 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:20,226 - midi.sysex - DEBUG - SysEx parse: param_id=16, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:20,226 - midi.sysex - DEBUG - Received response: param 16 = 1
+2025-09-29 03:30:20,226 - midi.connection - DEBUG - Parameter update: 16 = 1
+2025-09-29 03:30:20,226 - midi.connection - DEBUG - Query successful: param 16 = 1
+2025-09-29 03:30:20,630 - midi.connection - DEBUG - Sending query for parameter 17: SysEx: F0 04 17 3E 11 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:20,674 - midi.sysex - DEBUG - SysEx parse: param_id=17, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:20,687 - midi.sysex - DEBUG - Received response: param 17 = 0
+2025-09-29 03:30:20,693 - midi.connection - DEBUG - Parameter update: 17 = 0
+2025-09-29 03:30:20,693 - midi.connection - DEBUG - Query successful: param 17 = 0
+2025-09-29 03:30:21,102 - midi.connection - DEBUG - Sending query for parameter 18: SysEx: F0 04 17 3E 12 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:21,136 - midi.sysex - DEBUG - SysEx parse: param_id=18, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:21,136 - midi.sysex - DEBUG - Received response: param 18 = 0
+2025-09-29 03:30:21,136 - midi.connection - DEBUG - Parameter update: 18 = 0
+2025-09-29 03:30:21,136 - midi.connection - DEBUG - Query successful: param 18 = 0
+2025-09-29 03:30:21,537 - midi.connection - DEBUG - Sending query for parameter 19: SysEx: F0 04 17 3E 13 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:21,573 - midi.sysex - DEBUG - SysEx parse: param_id=19, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:21,586 - midi.sysex - DEBUG - Received response: param 19 = 1
+2025-09-29 03:30:21,600 - midi.connection - DEBUG - Parameter update: 19 = 1
+2025-09-29 03:30:21,600 - midi.connection - DEBUG - Query successful: param 19 = 1
+2025-09-29 03:30:22,015 - midi.connection - DEBUG - Sending query for parameter 30: SysEx: F0 04 17 3E 1E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:22,051 - midi.sysex - DEBUG - SysEx parse: param_id=30, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:22,063 - midi.sysex - DEBUG - Received response: param 30 = 0
+2025-09-29 03:30:22,069 - midi.connection - DEBUG - Parameter update: 30 = 0
+2025-09-29 03:30:22,069 - midi.connection - DEBUG - Query successful: param 30 = 0
+2025-09-29 03:30:22,487 - midi.connection - DEBUG - Sending query for parameter 31: SysEx: F0 04 17 3E 1F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:22,524 - midi.sysex - DEBUG - SysEx parse: param_id=31, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:22,525 - midi.sysex - DEBUG - Received response: param 31 = 0
+2025-09-29 03:30:22,525 - midi.connection - DEBUG - Parameter update: 31 = 0
+2025-09-29 03:30:22,525 - midi.connection - DEBUG - Query successful: param 31 = 0
+2025-09-29 03:30:22,930 - midi.connection - DEBUG - Sending query for parameter 32: SysEx: F0 04 17 3E 20 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:22,967 - midi.sysex - DEBUG - SysEx parse: param_id=32, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:22,973 - midi.sysex - DEBUG - Received response: param 32 = 1
+2025-09-29 03:30:22,979 - midi.connection - DEBUG - Parameter update: 32 = 1
+2025-09-29 03:30:22,980 - midi.connection - DEBUG - Query successful: param 32 = 1
+2025-09-29 03:30:23,408 - midi.connection - DEBUG - Sending query for parameter 35: SysEx: F0 04 17 3E 23 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:23,452 - midi.sysex - DEBUG - SysEx parse: param_id=35, value=12, is_response=True, unit_id=1
+2025-09-29 03:30:23,465 - midi.sysex - DEBUG - Received response: param 35 = 12
+2025-09-29 03:30:23,472 - midi.connection - DEBUG - Parameter update: 35 = 12
+2025-09-29 03:30:23,472 - midi.connection - DEBUG - Query successful: param 35 = 12
+2025-09-29 03:30:23,884 - midi.connection - DEBUG - Sending query for parameter 36: SysEx: F0 04 17 3E 24 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:23,942 - midi.sysex - DEBUG - SysEx parse: param_id=36, value=12, is_response=True, unit_id=1
+2025-09-29 03:30:23,942 - midi.sysex - DEBUG - Received response: param 36 = 12
+2025-09-29 03:30:23,942 - midi.connection - DEBUG - Parameter update: 36 = 12
+2025-09-29 03:30:23,942 - midi.connection - DEBUG - Query successful: param 36 = 12
+2025-09-29 03:30:24,351 - midi.connection - DEBUG - Sending query for parameter 67: SysEx: F0 04 17 3E 43 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:24,406 - midi.sysex - DEBUG - SysEx parse: param_id=67, value=2, is_response=True, unit_id=1
+2025-09-29 03:30:24,412 - midi.sysex - DEBUG - Received response: param 67 = 2
+2025-09-29 03:30:24,420 - midi.connection - DEBUG - Parameter update: 67 = 2
+2025-09-29 03:30:24,421 - midi.connection - DEBUG - Query successful: param 67 = 2
+2025-09-29 03:30:24,825 - midi.connection - DEBUG - Sending query for parameter 68: SysEx: F0 04 17 3E 44 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:24,873 - midi.sysex - DEBUG - SysEx parse: param_id=68, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:24,887 - midi.sysex - DEBUG - Received response: param 68 = 0
+2025-09-29 03:30:24,894 - midi.connection - DEBUG - Parameter update: 68 = 0
+2025-09-29 03:30:24,894 - midi.connection - DEBUG - Query successful: param 68 = 0
+2025-09-29 03:30:25,306 - midi.connection - DEBUG - Sending query for parameter 69: SysEx: F0 04 17 3E 45 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:25,358 - midi.sysex - DEBUG - SysEx parse: param_id=69, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:25,371 - midi.sysex - DEBUG - Received response: param 69 = 0
+2025-09-29 03:30:25,378 - midi.connection - DEBUG - Parameter update: 69 = 0
+2025-09-29 03:30:25,378 - midi.connection - DEBUG - Query successful: param 69 = 0
+2025-09-29 03:30:25,806 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:28,833 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 03:30:28,834 - midi.connection - WARNING - Query attempt 1 failed for parameter 75
+2025-09-29 03:30:29,236 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:32,242 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 03:30:32,242 - midi.connection - WARNING - Query attempt 2 failed for parameter 75
+2025-09-29 03:30:32,652 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:35,694 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 03:30:35,709 - midi.connection - WARNING - Query attempt 3 failed for parameter 75
+2025-09-29 03:30:35,731 - midi.connection - ERROR - Failed to query parameter 75 after 3 attempts
+2025-09-29 03:30:36,143 - midi.connection - DEBUG - Sending query for parameter 59: SysEx: F0 04 17 3E 3B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:36,184 - midi.sysex - DEBUG - SysEx parse: param_id=59, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:36,191 - midi.sysex - DEBUG - Received response: param 59 = 0
+2025-09-29 03:30:36,198 - midi.connection - DEBUG - Parameter update: 59 = 0
+2025-09-29 03:30:36,198 - midi.connection - DEBUG - Query successful: param 59 = 0
+2025-09-29 03:30:36,641 - midi.connection - DEBUG - Sending query for parameter 60: SysEx: F0 04 17 3E 3C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:36,683 - midi.sysex - DEBUG - SysEx parse: param_id=60, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:36,697 - midi.sysex - DEBUG - Received response: param 60 = 0
+2025-09-29 03:30:36,702 - midi.connection - DEBUG - Parameter update: 60 = 0
+2025-09-29 03:30:36,702 - midi.connection - DEBUG - Query successful: param 60 = 0
+2025-09-29 03:30:37,149 - midi.connection - DEBUG - Sending query for parameter 61: SysEx: F0 04 17 3E 3D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:37,200 - midi.sysex - DEBUG - SysEx parse: param_id=61, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:37,207 - midi.sysex - DEBUG - Received response: param 61 = 0
+2025-09-29 03:30:37,215 - midi.connection - DEBUG - Parameter update: 61 = 0
+2025-09-29 03:30:37,215 - midi.connection - DEBUG - Query successful: param 61 = 0
+2025-09-29 03:30:37,640 - midi.connection - DEBUG - Sending query for parameter 62: SysEx: F0 04 17 3E 3E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:37,688 - midi.sysex - DEBUG - SysEx parse: param_id=62, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:37,688 - midi.sysex - DEBUG - Received response: param 62 = 0
+2025-09-29 03:30:37,688 - midi.connection - DEBUG - Parameter update: 62 = 0
+2025-09-29 03:30:37,688 - midi.connection - DEBUG - Query successful: param 62 = 0
+2025-09-29 03:30:38,101 - midi.connection - DEBUG - Sending query for parameter 63: SysEx: F0 04 17 3E 3F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:38,172 - midi.sysex - DEBUG - SysEx parse: param_id=63, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:38,178 - midi.sysex - DEBUG - Received response: param 63 = 0
+2025-09-29 03:30:38,185 - midi.connection - DEBUG - Parameter update: 63 = 0
+2025-09-29 03:30:38,185 - midi.connection - DEBUG - Query successful: param 63 = 0
+2025-09-29 03:30:38,659 - midi.connection - DEBUG - Sending query for parameter 64: SysEx: F0 04 17 3E 40 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:38,714 - midi.sysex - DEBUG - SysEx parse: param_id=64, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:38,720 - midi.sysex - DEBUG - Received response: param 64 = 0
+2025-09-29 03:30:38,727 - midi.connection - DEBUG - Parameter update: 64 = 0
+2025-09-29 03:30:38,727 - midi.connection - DEBUG - Query successful: param 64 = 0
+2025-09-29 03:30:39,179 - midi.connection - DEBUG - Sending query for parameter 65: SysEx: F0 04 17 3E 41 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:39,217 - midi.sysex - DEBUG - SysEx parse: param_id=65, value=0, is_response=True, unit_id=1
+2025-09-29 03:30:39,232 - midi.sysex - DEBUG - Received response: param 65 = 0
+2025-09-29 03:30:39,239 - midi.connection - DEBUG - Parameter update: 65 = 0
+2025-09-29 03:30:39,239 - midi.connection - DEBUG - Query successful: param 65 = 0
+2025-09-29 03:30:39,656 - midi.connection - DEBUG - Sending query for parameter 66: SysEx: F0 04 17 3E 42 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:30:39,714 - midi.sysex - DEBUG - SysEx parse: param_id=66, value=1, is_response=True, unit_id=1
+2025-09-29 03:30:39,721 - midi.sysex - DEBUG - Received response: param 66 = 1
+2025-09-29 03:30:39,727 - midi.connection - DEBUG - Parameter update: 66 = 1
+2025-09-29 03:30:39,727 - midi.connection - DEBUG - Query successful: param 66 = 1
+2025-09-29 03:30:39,806 - ui.main_window - DEBUG - Parameter 0 updated to 0
+2025-09-29 03:30:39,806 - ui.main_window - DEBUG - Parameter 1 updated to 0
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 2 updated to 0
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 3 updated to 2
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 37 updated to 2
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 38 updated to 2
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 39 updated to 1
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 40 updated to 0
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 41 updated to 0
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 42 updated to 0
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 43 updated to 7
+2025-09-29 03:30:39,807 - ui.main_window - DEBUG - Parameter 44 updated to 7
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 45 updated to 7
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 46 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 47 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 48 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 49 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 50 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 51 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 52 updated to 1
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 53 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 54 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 55 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 56 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 57 updated to 1
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 58 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 70 updated to 0
+2025-09-29 03:30:39,808 - ui.main_window - DEBUG - Parameter 71 updated to 0
+2025-09-29 03:30:39,809 - ui.main_window - DEBUG - Parameter 20 updated to 1
+2025-09-29 03:30:39,809 - ui.main_window - DEBUG - Parameter 21 updated to 1
+2025-09-29 03:30:39,809 - ui.main_window - DEBUG - Parameter 22 updated to 1
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 23 updated to 8192
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 24 updated to 1
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 25 updated to 0
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 26 updated to 1
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 27 updated to 0
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 28 updated to 1
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 29 updated to 0
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 72 updated to 1
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 73 updated to 0
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 74 updated to 0
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 4 updated to 0
+2025-09-29 03:30:39,810 - ui.main_window - DEBUG - Parameter 5 updated to 1
+2025-09-29 03:30:39,811 - ui.main_window - DEBUG - Parameter 6 updated to 3
+2025-09-29 03:30:39,811 - ui.main_window - DEBUG - Parameter 7 updated to 3
+2025-09-29 03:30:39,811 - ui.main_window - DEBUG - Parameter 8 updated to 0
+2025-09-29 03:30:39,811 - ui.main_window - DEBUG - Parameter 9 updated to 2
+2025-09-29 03:30:39,811 - ui.main_window - DEBUG - Parameter 10 updated to 0
+2025-09-29 03:30:39,811 - ui.main_window - DEBUG - Parameter 11 updated to 0
+2025-09-29 03:30:39,811 - ui.main_window - DEBUG - Parameter 12 updated to 0
+2025-09-29 03:30:39,811 - ui.main_window - DEBUG - Parameter 13 updated to 1
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 14 updated to 1
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 15 updated to 0
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 16 updated to 1
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 17 updated to 0
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 18 updated to 0
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 19 updated to 1
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 30 updated to 0
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 31 updated to 0
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 32 updated to 1
+2025-09-29 03:30:39,812 - ui.main_window - DEBUG - Parameter 35 updated to 12
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 36 updated to 12
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 67 updated to 2
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 68 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 69 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 59 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 60 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 61 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 62 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 63 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 64 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 65 updated to 0
+2025-09-29 03:30:39,813 - ui.main_window - DEBUG - Parameter 66 updated to 1
+2025-09-29 03:30:58,902 - ui.main_window - DEBUG - Sent parameter 52 = 0
+2025-09-29 03:31:01,134 - ui.main_window - DEBUG - Sent parameter 52 = 1
+2025-09-29 03:31:02,201 - ui.main_window - DEBUG - Sent parameter 52 = 0
+2025-09-29 03:31:10,503 - ui.main_window - DEBUG - Sent parameter 38 = 1
+2025-09-29 03:31:25,800 - ui.main_window - DEBUG - Sent parameter 38 = 3
+2025-09-29 03:31:45,708 - ui.main_window - DEBUG - Sent parameter 27 = 1
+2025-09-29 03:31:49,192 - ui.main_window - DEBUG - Sent parameter 27 = 0
+2025-09-29 03:32:11,672 - ui.main_window - DEBUG - Sent parameter 31 = 1
+2025-09-29 03:32:17,623 - ui.main_window - DEBUG - Sent parameter 31 = 0
+2025-09-29 03:32:54,982 - ui.main_window - DEBUG - Sent parameter 60 = 1
+2025-09-29 03:32:58,669 - ui.main_window - DEBUG - Sent parameter 60 = 0
+2025-09-29 03:42:14,847 - midi.connection - DEBUG - MIDI listen thread stopped
+2025-09-29 03:42:14,850 - midi.connection - INFO - Disconnected from MIDI ports
+2025-09-29 03:42:22,464 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 03:42:22,615 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 03:42:22,901 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 03:42:22,904 - __main__ - INFO - Main window created and shown
+2025-09-29 03:42:35,089 - midi.connection - DEBUG - MIDI listen thread started
+2025-09-29 03:42:35,089 - midi.connection - INFO - Connected to MIDI ports: mioXL MATRIARCH -> mioXL MATRIARCH
+2025-09-29 03:42:35,123 - midi.connection - DEBUG - Sending query for parameter 0: SysEx: F0 04 17 3E 00 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:35,157 - midi.sysex - DEBUG - SysEx parse: param_id=0, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:35,157 - midi.sysex - DEBUG - Received response: param 0 = 0
+2025-09-29 03:42:35,157 - midi.connection - DEBUG - Parameter update: 0 = 0
+2025-09-29 03:42:35,157 - midi.connection - DEBUG - Query successful: param 0 = 0
+2025-09-29 03:42:35,158 - midi.connection - DEBUG - Sending query for parameter 0: SysEx: F0 04 17 3E 00 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:35,192 - midi.sysex - DEBUG - SysEx parse: param_id=0, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:35,192 - midi.sysex - DEBUG - Received response: param 0 = 0
+2025-09-29 03:42:35,192 - midi.connection - DEBUG - Parameter update: 0 = 0
+2025-09-29 03:42:35,192 - midi.connection - DEBUG - Query successful: param 0 = 0
+2025-09-29 03:42:35,193 - midi.connection - DEBUG - Sending query for parameter 10: SysEx: F0 04 17 3E 0A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:35,229 - midi.sysex - DEBUG - SysEx parse: param_id=10, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:35,229 - midi.sysex - DEBUG - Received response: param 10 = 0
+2025-09-29 03:42:35,229 - midi.connection - DEBUG - Parameter update: 10 = 0
+2025-09-29 03:42:35,229 - midi.connection - DEBUG - Query successful: param 10 = 0
+2025-09-29 03:42:35,230 - midi.connection - DEBUG - Sending query for parameter 37: SysEx: F0 04 17 3E 25 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:35,261 - midi.sysex - DEBUG - SysEx parse: param_id=37, value=2, is_response=True, unit_id=1
+2025-09-29 03:42:35,261 - midi.sysex - DEBUG - Received response: param 37 = 2
+2025-09-29 03:42:35,261 - midi.connection - DEBUG - Parameter update: 37 = 2
+2025-09-29 03:42:35,261 - midi.connection - DEBUG - Query successful: param 37 = 2
+2025-09-29 03:42:35,263 - midi.connection - DEBUG - MIDI listen thread stopped
+2025-09-29 03:42:35,263 - midi.connection - INFO - Disconnected from MIDI ports
+2025-09-29 03:42:45,886 - midi.connection - DEBUG - MIDI listen thread started
+2025-09-29 03:42:45,888 - midi.connection - INFO - Connected to MIDI ports: mioXL MATRIARCH -> mioXL MATRIARCH
+2025-09-29 03:42:45,901 - midi.connection - DEBUG - Sending query for parameter 0: SysEx: F0 04 17 3E 00 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:45,937 - midi.sysex - DEBUG - SysEx parse: param_id=0, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:45,937 - midi.sysex - DEBUG - Received response: param 0 = 0
+2025-09-29 03:42:45,937 - midi.connection - DEBUG - Parameter update: 0 = 0
+2025-09-29 03:42:45,944 - midi.connection - DEBUG - Query successful: param 0 = 0
+2025-09-29 03:42:46,350 - midi.connection - DEBUG - Sending query for parameter 1: SysEx: F0 04 17 3E 01 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:46,389 - midi.sysex - DEBUG - SysEx parse: param_id=1, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:46,390 - midi.sysex - DEBUG - Received response: param 1 = 0
+2025-09-29 03:42:46,390 - midi.connection - DEBUG - Parameter update: 1 = 0
+2025-09-29 03:42:46,390 - midi.connection - DEBUG - Query successful: param 1 = 0
+2025-09-29 03:42:46,802 - midi.connection - DEBUG - Sending query for parameter 2: SysEx: F0 04 17 3E 02 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:46,838 - midi.sysex - DEBUG - SysEx parse: param_id=2, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:46,838 - midi.sysex - DEBUG - Received response: param 2 = 0
+2025-09-29 03:42:46,838 - midi.connection - DEBUG - Parameter update: 2 = 0
+2025-09-29 03:42:46,838 - midi.connection - DEBUG - Query successful: param 2 = 0
+2025-09-29 03:42:47,248 - midi.connection - DEBUG - Sending query for parameter 3: SysEx: F0 04 17 3E 03 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:47,283 - midi.sysex - DEBUG - SysEx parse: param_id=3, value=2, is_response=True, unit_id=1
+2025-09-29 03:42:47,284 - midi.sysex - DEBUG - Received response: param 3 = 2
+2025-09-29 03:42:47,285 - midi.connection - DEBUG - Parameter update: 3 = 2
+2025-09-29 03:42:47,285 - midi.connection - DEBUG - Query successful: param 3 = 2
+2025-09-29 03:42:47,695 - midi.connection - DEBUG - Sending query for parameter 37: SysEx: F0 04 17 3E 25 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:47,730 - midi.sysex - DEBUG - SysEx parse: param_id=37, value=2, is_response=True, unit_id=1
+2025-09-29 03:42:47,731 - midi.sysex - DEBUG - Received response: param 37 = 2
+2025-09-29 03:42:47,731 - midi.connection - DEBUG - Parameter update: 37 = 2
+2025-09-29 03:42:47,731 - midi.connection - DEBUG - Query successful: param 37 = 2
+2025-09-29 03:42:48,136 - midi.connection - DEBUG - Sending query for parameter 38: SysEx: F0 04 17 3E 26 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:48,171 - midi.sysex - DEBUG - SysEx parse: param_id=38, value=3, is_response=True, unit_id=1
+2025-09-29 03:42:48,171 - midi.sysex - DEBUG - Received response: param 38 = 3
+2025-09-29 03:42:48,171 - midi.connection - DEBUG - Parameter update: 38 = 3
+2025-09-29 03:42:48,171 - midi.connection - DEBUG - Query successful: param 38 = 3
+2025-09-29 03:42:48,577 - midi.connection - DEBUG - Sending query for parameter 39: SysEx: F0 04 17 3E 27 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:48,622 - midi.sysex - DEBUG - SysEx parse: param_id=39, value=1, is_response=True, unit_id=1
+2025-09-29 03:42:48,623 - midi.sysex - DEBUG - Received response: param 39 = 1
+2025-09-29 03:42:48,623 - midi.connection - DEBUG - Parameter update: 39 = 1
+2025-09-29 03:42:48,623 - midi.connection - DEBUG - Query successful: param 39 = 1
+2025-09-29 03:42:49,027 - midi.connection - DEBUG - Sending query for parameter 40: SysEx: F0 04 17 3E 28 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:49,064 - midi.sysex - DEBUG - SysEx parse: param_id=40, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:49,064 - midi.sysex - DEBUG - Received response: param 40 = 0
+2025-09-29 03:42:49,064 - midi.connection - DEBUG - Parameter update: 40 = 0
+2025-09-29 03:42:49,064 - midi.connection - DEBUG - Query successful: param 40 = 0
+2025-09-29 03:42:49,469 - midi.connection - DEBUG - Sending query for parameter 41: SysEx: F0 04 17 3E 29 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:49,505 - midi.sysex - DEBUG - SysEx parse: param_id=41, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:49,506 - midi.sysex - DEBUG - Received response: param 41 = 0
+2025-09-29 03:42:49,506 - midi.connection - DEBUG - Parameter update: 41 = 0
+2025-09-29 03:42:49,506 - midi.connection - DEBUG - Query successful: param 41 = 0
+2025-09-29 03:42:49,909 - midi.connection - DEBUG - Sending query for parameter 42: SysEx: F0 04 17 3E 2A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:49,948 - midi.sysex - DEBUG - SysEx parse: param_id=42, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:49,948 - midi.sysex - DEBUG - Received response: param 42 = 0
+2025-09-29 03:42:49,948 - midi.connection - DEBUG - Parameter update: 42 = 0
+2025-09-29 03:42:49,948 - midi.connection - DEBUG - Query successful: param 42 = 0
+2025-09-29 03:42:50,353 - midi.connection - DEBUG - Sending query for parameter 43: SysEx: F0 04 17 3E 2B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:50,387 - midi.sysex - DEBUG - SysEx parse: param_id=43, value=7, is_response=True, unit_id=1
+2025-09-29 03:42:50,388 - midi.sysex - DEBUG - Received response: param 43 = 7
+2025-09-29 03:42:50,388 - midi.connection - DEBUG - Parameter update: 43 = 7
+2025-09-29 03:42:50,388 - midi.connection - DEBUG - Query successful: param 43 = 7
+2025-09-29 03:42:50,793 - midi.connection - DEBUG - Sending query for parameter 44: SysEx: F0 04 17 3E 2C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:50,830 - midi.sysex - DEBUG - SysEx parse: param_id=44, value=7, is_response=True, unit_id=1
+2025-09-29 03:42:50,830 - midi.sysex - DEBUG - Received response: param 44 = 7
+2025-09-29 03:42:50,830 - midi.connection - DEBUG - Parameter update: 44 = 7
+2025-09-29 03:42:50,830 - midi.connection - DEBUG - Query successful: param 44 = 7
+2025-09-29 03:42:51,235 - midi.connection - DEBUG - Sending query for parameter 45: SysEx: F0 04 17 3E 2D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:51,270 - midi.sysex - DEBUG - SysEx parse: param_id=45, value=7, is_response=True, unit_id=1
+2025-09-29 03:42:51,270 - midi.sysex - DEBUG - Received response: param 45 = 7
+2025-09-29 03:42:51,271 - midi.connection - DEBUG - Parameter update: 45 = 7
+2025-09-29 03:42:51,271 - midi.connection - DEBUG - Query successful: param 45 = 7
+2025-09-29 03:42:51,675 - midi.connection - DEBUG - Sending query for parameter 46: SysEx: F0 04 17 3E 2E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:51,709 - midi.sysex - DEBUG - SysEx parse: param_id=46, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:51,709 - midi.sysex - DEBUG - Received response: param 46 = 0
+2025-09-29 03:42:51,709 - midi.connection - DEBUG - Parameter update: 46 = 0
+2025-09-29 03:42:51,709 - midi.connection - DEBUG - Query successful: param 46 = 0
+2025-09-29 03:42:52,110 - midi.connection - DEBUG - Sending query for parameter 47: SysEx: F0 04 17 3E 2F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:52,146 - midi.sysex - DEBUG - SysEx parse: param_id=47, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:52,147 - midi.sysex - DEBUG - Received response: param 47 = 0
+2025-09-29 03:42:52,147 - midi.connection - DEBUG - Parameter update: 47 = 0
+2025-09-29 03:42:52,147 - midi.connection - DEBUG - Query successful: param 47 = 0
+2025-09-29 03:42:52,551 - midi.connection - DEBUG - Sending query for parameter 48: SysEx: F0 04 17 3E 30 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:52,589 - midi.sysex - DEBUG - SysEx parse: param_id=48, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:52,589 - midi.sysex - DEBUG - Received response: param 48 = 0
+2025-09-29 03:42:52,589 - midi.connection - DEBUG - Parameter update: 48 = 0
+2025-09-29 03:42:52,589 - midi.connection - DEBUG - Query successful: param 48 = 0
+2025-09-29 03:42:52,993 - midi.connection - DEBUG - Sending query for parameter 49: SysEx: F0 04 17 3E 31 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:53,026 - midi.sysex - DEBUG - SysEx parse: param_id=49, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:53,026 - midi.sysex - DEBUG - Received response: param 49 = 0
+2025-09-29 03:42:53,026 - midi.connection - DEBUG - Parameter update: 49 = 0
+2025-09-29 03:42:53,026 - midi.connection - DEBUG - Query successful: param 49 = 0
+2025-09-29 03:42:53,430 - midi.connection - DEBUG - Sending query for parameter 50: SysEx: F0 04 17 3E 32 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:53,464 - midi.sysex - DEBUG - SysEx parse: param_id=50, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:53,464 - midi.sysex - DEBUG - Received response: param 50 = 0
+2025-09-29 03:42:53,464 - midi.connection - DEBUG - Parameter update: 50 = 0
+2025-09-29 03:42:53,464 - midi.connection - DEBUG - Query successful: param 50 = 0
+2025-09-29 03:42:53,870 - midi.connection - DEBUG - Sending query for parameter 51: SysEx: F0 04 17 3E 33 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:53,903 - midi.sysex - DEBUG - SysEx parse: param_id=51, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:53,903 - midi.sysex - DEBUG - Received response: param 51 = 0
+2025-09-29 03:42:53,903 - midi.connection - DEBUG - Parameter update: 51 = 0
+2025-09-29 03:42:53,904 - midi.connection - DEBUG - Query successful: param 51 = 0
+2025-09-29 03:42:54,309 - midi.connection - DEBUG - Sending query for parameter 52: SysEx: F0 04 17 3E 34 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:54,345 - midi.sysex - DEBUG - SysEx parse: param_id=52, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:54,345 - midi.sysex - DEBUG - Received response: param 52 = 0
+2025-09-29 03:42:54,345 - midi.connection - DEBUG - Parameter update: 52 = 0
+2025-09-29 03:42:54,345 - midi.connection - DEBUG - Query successful: param 52 = 0
+2025-09-29 03:42:54,929 - midi.connection - DEBUG - Sending query for parameter 53: SysEx: F0 04 17 3E 35 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:54,963 - midi.sysex - DEBUG - SysEx parse: param_id=53, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:54,963 - midi.sysex - DEBUG - Received response: param 53 = 0
+2025-09-29 03:42:54,963 - midi.connection - DEBUG - Parameter update: 53 = 0
+2025-09-29 03:42:54,963 - midi.connection - DEBUG - Query successful: param 53 = 0
+2025-09-29 03:42:55,365 - midi.connection - DEBUG - Sending query for parameter 54: SysEx: F0 04 17 3E 36 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:55,402 - midi.sysex - DEBUG - SysEx parse: param_id=54, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:55,402 - midi.sysex - DEBUG - Received response: param 54 = 0
+2025-09-29 03:42:55,402 - midi.connection - DEBUG - Parameter update: 54 = 0
+2025-09-29 03:42:55,402 - midi.connection - DEBUG - Query successful: param 54 = 0
+2025-09-29 03:42:55,809 - midi.connection - DEBUG - Sending query for parameter 55: SysEx: F0 04 17 3E 37 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:55,845 - midi.sysex - DEBUG - SysEx parse: param_id=55, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:55,846 - midi.sysex - DEBUG - Received response: param 55 = 0
+2025-09-29 03:42:55,846 - midi.connection - DEBUG - Parameter update: 55 = 0
+2025-09-29 03:42:55,846 - midi.connection - DEBUG - Query successful: param 55 = 0
+2025-09-29 03:42:56,252 - midi.connection - DEBUG - Sending query for parameter 56: SysEx: F0 04 17 3E 38 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:56,288 - midi.sysex - DEBUG - SysEx parse: param_id=56, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:56,289 - midi.sysex - DEBUG - Received response: param 56 = 0
+2025-09-29 03:42:56,289 - midi.connection - DEBUG - Parameter update: 56 = 0
+2025-09-29 03:42:56,290 - midi.connection - DEBUG - Query successful: param 56 = 0
+2025-09-29 03:42:56,694 - midi.connection - DEBUG - Sending query for parameter 57: SysEx: F0 04 17 3E 39 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:56,728 - midi.sysex - DEBUG - SysEx parse: param_id=57, value=1, is_response=True, unit_id=1
+2025-09-29 03:42:56,728 - midi.sysex - DEBUG - Received response: param 57 = 1
+2025-09-29 03:42:56,728 - midi.connection - DEBUG - Parameter update: 57 = 1
+2025-09-29 03:42:56,728 - midi.connection - DEBUG - Query successful: param 57 = 1
+2025-09-29 03:42:57,133 - midi.connection - DEBUG - Sending query for parameter 58: SysEx: F0 04 17 3E 3A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:57,170 - midi.sysex - DEBUG - SysEx parse: param_id=58, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:57,171 - midi.sysex - DEBUG - Received response: param 58 = 0
+2025-09-29 03:42:57,171 - midi.connection - DEBUG - Parameter update: 58 = 0
+2025-09-29 03:42:57,171 - midi.connection - DEBUG - Query successful: param 58 = 0
+2025-09-29 03:42:57,572 - midi.connection - DEBUG - Sending query for parameter 70: SysEx: F0 04 17 3E 46 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:57,608 - midi.sysex - DEBUG - SysEx parse: param_id=70, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:57,609 - midi.sysex - DEBUG - Received response: param 70 = 0
+2025-09-29 03:42:57,610 - midi.connection - DEBUG - Parameter update: 70 = 0
+2025-09-29 03:42:57,610 - midi.connection - DEBUG - Query successful: param 70 = 0
+2025-09-29 03:42:58,016 - midi.connection - DEBUG - Sending query for parameter 71: SysEx: F0 04 17 3E 47 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:58,055 - midi.sysex - DEBUG - SysEx parse: param_id=71, value=0, is_response=True, unit_id=1
+2025-09-29 03:42:58,062 - midi.sysex - DEBUG - Received response: param 71 = 0
+2025-09-29 03:42:58,062 - midi.connection - DEBUG - Parameter update: 71 = 0
+2025-09-29 03:42:58,062 - midi.connection - DEBUG - Query successful: param 71 = 0
+2025-09-29 03:42:58,464 - midi.connection - DEBUG - Sending query for parameter 20: SysEx: F0 04 17 3E 14 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:58,498 - midi.sysex - DEBUG - SysEx parse: param_id=20, value=1, is_response=True, unit_id=1
+2025-09-29 03:42:58,498 - midi.sysex - DEBUG - Received response: param 20 = 1
+2025-09-29 03:42:58,498 - midi.connection - DEBUG - Parameter update: 20 = 1
+2025-09-29 03:42:58,498 - midi.connection - DEBUG - Query successful: param 20 = 1
+2025-09-29 03:42:58,903 - midi.connection - DEBUG - Sending query for parameter 21: SysEx: F0 04 17 3E 15 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:58,937 - midi.sysex - DEBUG - SysEx parse: param_id=21, value=1, is_response=True, unit_id=1
+2025-09-29 03:42:58,937 - midi.sysex - DEBUG - Received response: param 21 = 1
+2025-09-29 03:42:58,938 - midi.connection - DEBUG - Parameter update: 21 = 1
+2025-09-29 03:42:58,938 - midi.connection - DEBUG - Query successful: param 21 = 1
+2025-09-29 03:42:59,344 - midi.connection - DEBUG - Sending query for parameter 22: SysEx: F0 04 17 3E 16 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:59,380 - midi.sysex - DEBUG - SysEx parse: param_id=22, value=1, is_response=True, unit_id=1
+2025-09-29 03:42:59,380 - midi.sysex - DEBUG - Received response: param 22 = 1
+2025-09-29 03:42:59,380 - midi.connection - DEBUG - Parameter update: 22 = 1
+2025-09-29 03:42:59,380 - midi.connection - DEBUG - Query successful: param 22 = 1
+2025-09-29 03:42:59,784 - midi.connection - DEBUG - Sending query for parameter 23: SysEx: F0 04 17 3E 17 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:42:59,821 - midi.sysex - DEBUG - SysEx parse: param_id=23, value=8192, is_response=True, unit_id=1
+2025-09-29 03:42:59,822 - midi.sysex - DEBUG - Received response: param 23 = 8192
+2025-09-29 03:42:59,822 - midi.connection - DEBUG - Parameter update: 23 = 8192
+2025-09-29 03:42:59,822 - midi.connection - DEBUG - Query successful: param 23 = 8192
+2025-09-29 03:43:00,227 - midi.connection - DEBUG - Sending query for parameter 24: SysEx: F0 04 17 3E 18 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:00,272 - midi.sysex - DEBUG - SysEx parse: param_id=24, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:00,273 - midi.sysex - DEBUG - Received response: param 24 = 1
+2025-09-29 03:43:00,273 - midi.connection - DEBUG - Parameter update: 24 = 1
+2025-09-29 03:43:00,273 - midi.connection - DEBUG - Query successful: param 24 = 1
+2025-09-29 03:43:00,675 - midi.connection - DEBUG - Sending query for parameter 25: SysEx: F0 04 17 3E 19 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:00,710 - midi.sysex - DEBUG - SysEx parse: param_id=25, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:00,711 - midi.sysex - DEBUG - Received response: param 25 = 0
+2025-09-29 03:43:00,711 - midi.connection - DEBUG - Parameter update: 25 = 0
+2025-09-29 03:43:00,711 - midi.connection - DEBUG - Query successful: param 25 = 0
+2025-09-29 03:43:01,116 - midi.connection - DEBUG - Sending query for parameter 26: SysEx: F0 04 17 3E 1A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:01,153 - midi.sysex - DEBUG - SysEx parse: param_id=26, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:01,160 - midi.sysex - DEBUG - Received response: param 26 = 1
+2025-09-29 03:43:01,167 - midi.connection - DEBUG - Parameter update: 26 = 1
+2025-09-29 03:43:01,167 - midi.connection - DEBUG - Query successful: param 26 = 1
+2025-09-29 03:43:01,573 - midi.connection - DEBUG - Sending query for parameter 27: SysEx: F0 04 17 3E 1B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:01,606 - midi.sysex - DEBUG - SysEx parse: param_id=27, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:01,606 - midi.sysex - DEBUG - Received response: param 27 = 0
+2025-09-29 03:43:01,606 - midi.connection - DEBUG - Parameter update: 27 = 0
+2025-09-29 03:43:01,606 - midi.connection - DEBUG - Query successful: param 27 = 0
+2025-09-29 03:43:02,010 - midi.connection - DEBUG - Sending query for parameter 28: SysEx: F0 04 17 3E 1C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:02,046 - midi.sysex - DEBUG - SysEx parse: param_id=28, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:02,046 - midi.sysex - DEBUG - Received response: param 28 = 1
+2025-09-29 03:43:02,046 - midi.connection - DEBUG - Parameter update: 28 = 1
+2025-09-29 03:43:02,046 - midi.connection - DEBUG - Query successful: param 28 = 1
+2025-09-29 03:43:02,456 - midi.connection - DEBUG - Sending query for parameter 29: SysEx: F0 04 17 3E 1D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:02,511 - midi.sysex - DEBUG - SysEx parse: param_id=29, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:02,511 - midi.sysex - DEBUG - Received response: param 29 = 0
+2025-09-29 03:43:02,511 - midi.connection - DEBUG - Parameter update: 29 = 0
+2025-09-29 03:43:02,511 - midi.connection - DEBUG - Query successful: param 29 = 0
+2025-09-29 03:43:02,916 - midi.connection - DEBUG - Sending query for parameter 72: SysEx: F0 04 17 3E 48 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:02,956 - midi.sysex - DEBUG - SysEx parse: param_id=72, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:02,963 - midi.sysex - DEBUG - Received response: param 72 = 1
+2025-09-29 03:43:02,970 - midi.connection - DEBUG - Parameter update: 72 = 1
+2025-09-29 03:43:02,970 - midi.connection - DEBUG - Query successful: param 72 = 1
+2025-09-29 03:43:03,382 - midi.connection - DEBUG - Sending query for parameter 73: SysEx: F0 04 17 3E 49 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:03,416 - midi.sysex - DEBUG - SysEx parse: param_id=73, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:03,417 - midi.sysex - DEBUG - Received response: param 73 = 0
+2025-09-29 03:43:03,417 - midi.connection - DEBUG - Parameter update: 73 = 0
+2025-09-29 03:43:03,417 - midi.connection - DEBUG - Query successful: param 73 = 0
+2025-09-29 03:43:03,822 - midi.connection - DEBUG - Sending query for parameter 74: SysEx: F0 04 17 3E 4A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:03,878 - midi.sysex - DEBUG - SysEx parse: param_id=74, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:03,878 - midi.sysex - DEBUG - Received response: param 74 = 0
+2025-09-29 03:43:03,878 - midi.connection - DEBUG - Parameter update: 74 = 0
+2025-09-29 03:43:03,878 - midi.connection - DEBUG - Query successful: param 74 = 0
+2025-09-29 03:43:04,283 - midi.connection - DEBUG - Sending query for parameter 4: SysEx: F0 04 17 3E 04 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:04,319 - midi.sysex - DEBUG - SysEx parse: param_id=4, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:04,319 - midi.sysex - DEBUG - Received response: param 4 = 0
+2025-09-29 03:43:04,319 - midi.connection - DEBUG - Parameter update: 4 = 0
+2025-09-29 03:43:04,319 - midi.connection - DEBUG - Query successful: param 4 = 0
+2025-09-29 03:43:04,723 - midi.connection - DEBUG - Sending query for parameter 5: SysEx: F0 04 17 3E 05 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:04,764 - midi.sysex - DEBUG - SysEx parse: param_id=5, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:04,777 - midi.sysex - DEBUG - Received response: param 5 = 1
+2025-09-29 03:43:04,781 - midi.connection - DEBUG - Parameter update: 5 = 1
+2025-09-29 03:43:04,781 - midi.connection - DEBUG - Query successful: param 5 = 1
+2025-09-29 03:43:05,186 - midi.connection - DEBUG - Sending query for parameter 6: SysEx: F0 04 17 3E 06 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:05,222 - midi.sysex - DEBUG - SysEx parse: param_id=6, value=3, is_response=True, unit_id=1
+2025-09-29 03:43:05,222 - midi.sysex - DEBUG - Received response: param 6 = 3
+2025-09-29 03:43:05,222 - midi.connection - DEBUG - Parameter update: 6 = 3
+2025-09-29 03:43:05,222 - midi.connection - DEBUG - Query successful: param 6 = 3
+2025-09-29 03:43:05,627 - midi.connection - DEBUG - Sending query for parameter 7: SysEx: F0 04 17 3E 07 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:05,664 - midi.sysex - DEBUG - SysEx parse: param_id=7, value=3, is_response=True, unit_id=1
+2025-09-29 03:43:05,676 - midi.sysex - DEBUG - Received response: param 7 = 3
+2025-09-29 03:43:05,683 - midi.connection - DEBUG - Parameter update: 7 = 3
+2025-09-29 03:43:05,683 - midi.connection - DEBUG - Query successful: param 7 = 3
+2025-09-29 03:43:06,087 - midi.connection - DEBUG - Sending query for parameter 8: SysEx: F0 04 17 3E 08 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:06,121 - midi.sysex - DEBUG - SysEx parse: param_id=8, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:06,121 - midi.sysex - DEBUG - Received response: param 8 = 0
+2025-09-29 03:43:06,121 - midi.connection - DEBUG - Parameter update: 8 = 0
+2025-09-29 03:43:06,121 - midi.connection - DEBUG - Query successful: param 8 = 0
+2025-09-29 03:43:06,526 - midi.connection - DEBUG - Sending query for parameter 9: SysEx: F0 04 17 3E 09 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:06,563 - midi.sysex - DEBUG - SysEx parse: param_id=9, value=2, is_response=True, unit_id=1
+2025-09-29 03:43:06,569 - midi.sysex - DEBUG - Received response: param 9 = 2
+2025-09-29 03:43:06,577 - midi.connection - DEBUG - Parameter update: 9 = 2
+2025-09-29 03:43:06,577 - midi.connection - DEBUG - Query successful: param 9 = 2
+2025-09-29 03:43:06,992 - midi.connection - DEBUG - Sending query for parameter 10: SysEx: F0 04 17 3E 0A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:07,026 - midi.sysex - DEBUG - SysEx parse: param_id=10, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:07,026 - midi.sysex - DEBUG - Received response: param 10 = 0
+2025-09-29 03:43:07,026 - midi.connection - DEBUG - Parameter update: 10 = 0
+2025-09-29 03:43:07,026 - midi.connection - DEBUG - Query successful: param 10 = 0
+2025-09-29 03:43:07,432 - midi.connection - DEBUG - Sending query for parameter 11: SysEx: F0 04 17 3E 0B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:07,479 - midi.sysex - DEBUG - SysEx parse: param_id=11, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:07,491 - midi.sysex - DEBUG - Received response: param 11 = 0
+2025-09-29 03:43:07,491 - midi.connection - DEBUG - Parameter update: 11 = 0
+2025-09-29 03:43:07,491 - midi.connection - DEBUG - Query successful: param 11 = 0
+2025-09-29 03:43:07,893 - midi.connection - DEBUG - Sending query for parameter 12: SysEx: F0 04 17 3E 0C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:07,924 - midi.sysex - DEBUG - SysEx parse: param_id=12, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:07,924 - midi.sysex - DEBUG - Received response: param 12 = 0
+2025-09-29 03:43:07,924 - midi.connection - DEBUG - Parameter update: 12 = 0
+2025-09-29 03:43:07,924 - midi.connection - DEBUG - Query successful: param 12 = 0
+2025-09-29 03:43:08,325 - midi.connection - DEBUG - Sending query for parameter 13: SysEx: F0 04 17 3E 0D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:08,370 - midi.sysex - DEBUG - SysEx parse: param_id=13, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:08,376 - midi.sysex - DEBUG - Received response: param 13 = 1
+2025-09-29 03:43:08,382 - midi.connection - DEBUG - Parameter update: 13 = 1
+2025-09-29 03:43:08,391 - midi.connection - DEBUG - Query successful: param 13 = 1
+2025-09-29 03:43:08,800 - midi.connection - DEBUG - Sending query for parameter 14: SysEx: F0 04 17 3E 0E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:08,834 - midi.sysex - DEBUG - SysEx parse: param_id=14, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:08,834 - midi.sysex - DEBUG - Received response: param 14 = 1
+2025-09-29 03:43:08,834 - midi.connection - DEBUG - Parameter update: 14 = 1
+2025-09-29 03:43:08,834 - midi.connection - DEBUG - Query successful: param 14 = 1
+2025-09-29 03:43:09,239 - midi.connection - DEBUG - Sending query for parameter 15: SysEx: F0 04 17 3E 0F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:09,286 - midi.sysex - DEBUG - SysEx parse: param_id=15, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:09,294 - midi.sysex - DEBUG - Received response: param 15 = 0
+2025-09-29 03:43:09,298 - midi.connection - DEBUG - Parameter update: 15 = 0
+2025-09-29 03:43:09,298 - midi.connection - DEBUG - Query successful: param 15 = 0
+2025-09-29 03:43:09,702 - midi.connection - DEBUG - Sending query for parameter 16: SysEx: F0 04 17 3E 10 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:09,731 - midi.sysex - DEBUG - SysEx parse: param_id=16, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:09,731 - midi.sysex - DEBUG - Received response: param 16 = 1
+2025-09-29 03:43:09,731 - midi.connection - DEBUG - Parameter update: 16 = 1
+2025-09-29 03:43:09,731 - midi.connection - DEBUG - Query successful: param 16 = 1
+2025-09-29 03:43:10,132 - midi.connection - DEBUG - Sending query for parameter 17: SysEx: F0 04 17 3E 11 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:10,170 - midi.sysex - DEBUG - SysEx parse: param_id=17, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:10,177 - midi.sysex - DEBUG - Received response: param 17 = 0
+2025-09-29 03:43:10,184 - midi.connection - DEBUG - Parameter update: 17 = 0
+2025-09-29 03:43:10,184 - midi.connection - DEBUG - Query successful: param 17 = 0
+2025-09-29 03:43:10,608 - midi.connection - DEBUG - Sending query for parameter 18: SysEx: F0 04 17 3E 12 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:10,641 - midi.sysex - DEBUG - SysEx parse: param_id=18, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:10,641 - midi.sysex - DEBUG - Received response: param 18 = 0
+2025-09-29 03:43:10,641 - midi.connection - DEBUG - Parameter update: 18 = 0
+2025-09-29 03:43:10,641 - midi.connection - DEBUG - Query successful: param 18 = 0
+2025-09-29 03:43:11,046 - midi.connection - DEBUG - Sending query for parameter 19: SysEx: F0 04 17 3E 13 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:11,087 - midi.sysex - DEBUG - SysEx parse: param_id=19, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:11,093 - midi.sysex - DEBUG - Received response: param 19 = 1
+2025-09-29 03:43:11,100 - midi.connection - DEBUG - Parameter update: 19 = 1
+2025-09-29 03:43:11,100 - midi.connection - DEBUG - Query successful: param 19 = 1
+2025-09-29 03:43:11,508 - midi.connection - DEBUG - Sending query for parameter 30: SysEx: F0 04 17 3E 1E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:11,540 - midi.sysex - DEBUG - SysEx parse: param_id=30, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:11,541 - midi.sysex - DEBUG - Received response: param 30 = 0
+2025-09-29 03:43:11,541 - midi.connection - DEBUG - Parameter update: 30 = 0
+2025-09-29 03:43:11,541 - midi.connection - DEBUG - Query successful: param 30 = 0
+2025-09-29 03:43:11,946 - midi.connection - DEBUG - Sending query for parameter 31: SysEx: F0 04 17 3E 1F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:11,993 - midi.sysex - DEBUG - SysEx parse: param_id=31, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:12,007 - midi.sysex - DEBUG - Received response: param 31 = 0
+2025-09-29 03:43:12,013 - midi.connection - DEBUG - Parameter update: 31 = 0
+2025-09-29 03:43:12,013 - midi.connection - DEBUG - Query successful: param 31 = 0
+2025-09-29 03:43:12,418 - midi.connection - DEBUG - Sending query for parameter 32: SysEx: F0 04 17 3E 20 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:12,457 - midi.sysex - DEBUG - SysEx parse: param_id=32, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:12,464 - midi.sysex - DEBUG - Received response: param 32 = 1
+2025-09-29 03:43:12,470 - midi.connection - DEBUG - Parameter update: 32 = 1
+2025-09-29 03:43:12,470 - midi.connection - DEBUG - Query successful: param 32 = 1
+2025-09-29 03:43:12,908 - midi.connection - DEBUG - Sending query for parameter 35: SysEx: F0 04 17 3E 23 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:12,954 - midi.sysex - DEBUG - SysEx parse: param_id=35, value=12, is_response=True, unit_id=1
+2025-09-29 03:43:12,968 - midi.sysex - DEBUG - Received response: param 35 = 12
+2025-09-29 03:43:12,974 - midi.connection - DEBUG - Parameter update: 35 = 12
+2025-09-29 03:43:12,974 - midi.connection - DEBUG - Query successful: param 35 = 12
+2025-09-29 03:43:13,399 - midi.connection - DEBUG - Sending query for parameter 36: SysEx: F0 04 17 3E 24 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:13,461 - midi.sysex - DEBUG - SysEx parse: param_id=36, value=12, is_response=True, unit_id=1
+2025-09-29 03:43:13,468 - midi.sysex - DEBUG - Received response: param 36 = 12
+2025-09-29 03:43:13,474 - midi.connection - DEBUG - Parameter update: 36 = 12
+2025-09-29 03:43:13,474 - midi.connection - DEBUG - Query successful: param 36 = 12
+2025-09-29 03:43:13,912 - midi.connection - DEBUG - Sending query for parameter 67: SysEx: F0 04 17 3E 43 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:13,961 - midi.sysex - DEBUG - SysEx parse: param_id=67, value=2, is_response=True, unit_id=1
+2025-09-29 03:43:13,975 - midi.sysex - DEBUG - Received response: param 67 = 2
+2025-09-29 03:43:13,982 - midi.connection - DEBUG - Parameter update: 67 = 2
+2025-09-29 03:43:13,982 - midi.connection - DEBUG - Query successful: param 67 = 2
+2025-09-29 03:43:14,426 - midi.connection - DEBUG - Sending query for parameter 68: SysEx: F0 04 17 3E 44 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:14,470 - midi.sysex - DEBUG - SysEx parse: param_id=68, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:14,477 - midi.sysex - DEBUG - Received response: param 68 = 0
+2025-09-29 03:43:14,484 - midi.connection - DEBUG - Parameter update: 68 = 0
+2025-09-29 03:43:14,484 - midi.connection - DEBUG - Query successful: param 68 = 0
+2025-09-29 03:43:14,919 - midi.connection - DEBUG - Sending query for parameter 69: SysEx: F0 04 17 3E 45 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:14,977 - midi.sysex - DEBUG - SysEx parse: param_id=69, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:14,992 - midi.sysex - DEBUG - Received response: param 69 = 0
+2025-09-29 03:43:14,998 - midi.connection - DEBUG - Parameter update: 69 = 0
+2025-09-29 03:43:14,999 - midi.connection - DEBUG - Query successful: param 69 = 0
+2025-09-29 03:43:15,433 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:18,438 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 03:43:18,439 - midi.connection - WARNING - Query attempt 1 failed for parameter 75
+2025-09-29 03:43:18,843 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:21,861 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 03:43:21,875 - midi.connection - WARNING - Query attempt 2 failed for parameter 75
+2025-09-29 03:43:22,287 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:25,311 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 03:43:25,326 - midi.connection - WARNING - Query attempt 3 failed for parameter 75
+2025-09-29 03:43:25,333 - midi.connection - ERROR - Failed to query parameter 75 after 3 attempts
+2025-09-29 03:43:25,743 - midi.connection - DEBUG - Sending query for parameter 59: SysEx: F0 04 17 3E 3B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:25,794 - midi.sysex - DEBUG - SysEx parse: param_id=59, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:25,807 - midi.sysex - DEBUG - Received response: param 59 = 0
+2025-09-29 03:43:25,814 - midi.connection - DEBUG - Parameter update: 59 = 0
+2025-09-29 03:43:25,814 - midi.connection - DEBUG - Query successful: param 59 = 0
+2025-09-29 03:43:26,242 - midi.connection - DEBUG - Sending query for parameter 60: SysEx: F0 04 17 3E 3C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:26,279 - midi.sysex - DEBUG - SysEx parse: param_id=60, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:26,286 - midi.sysex - DEBUG - Received response: param 60 = 0
+2025-09-29 03:43:26,292 - midi.connection - DEBUG - Parameter update: 60 = 0
+2025-09-29 03:43:26,292 - midi.connection - DEBUG - Query successful: param 60 = 0
+2025-09-29 03:43:26,727 - midi.connection - DEBUG - Sending query for parameter 61: SysEx: F0 04 17 3E 3D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:26,782 - midi.sysex - DEBUG - SysEx parse: param_id=61, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:26,796 - midi.sysex - DEBUG - Received response: param 61 = 0
+2025-09-29 03:43:26,804 - midi.connection - DEBUG - Parameter update: 61 = 0
+2025-09-29 03:43:26,804 - midi.connection - DEBUG - Query successful: param 61 = 0
+2025-09-29 03:43:27,230 - midi.connection - DEBUG - Sending query for parameter 62: SysEx: F0 04 17 3E 3E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:27,279 - midi.sysex - DEBUG - SysEx parse: param_id=62, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:27,285 - midi.sysex - DEBUG - Received response: param 62 = 0
+2025-09-29 03:43:27,285 - midi.connection - DEBUG - Parameter update: 62 = 0
+2025-09-29 03:43:27,285 - midi.connection - DEBUG - Query successful: param 62 = 0
+2025-09-29 03:43:27,698 - midi.connection - DEBUG - Sending query for parameter 63: SysEx: F0 04 17 3E 3F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:27,751 - midi.sysex - DEBUG - SysEx parse: param_id=63, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:27,764 - midi.sysex - DEBUG - Received response: param 63 = 0
+2025-09-29 03:43:27,770 - midi.connection - DEBUG - Parameter update: 63 = 0
+2025-09-29 03:43:27,777 - midi.connection - DEBUG - Query successful: param 63 = 0
+2025-09-29 03:43:28,211 - midi.connection - DEBUG - Sending query for parameter 64: SysEx: F0 04 17 3E 40 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:28,273 - midi.sysex - DEBUG - SysEx parse: param_id=64, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:28,280 - midi.sysex - DEBUG - Received response: param 64 = 0
+2025-09-29 03:43:28,288 - midi.connection - DEBUG - Parameter update: 64 = 0
+2025-09-29 03:43:28,288 - midi.connection - DEBUG - Query successful: param 64 = 0
+2025-09-29 03:43:28,706 - midi.connection - DEBUG - Sending query for parameter 65: SysEx: F0 04 17 3E 41 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:28,762 - midi.sysex - DEBUG - SysEx parse: param_id=65, value=0, is_response=True, unit_id=1
+2025-09-29 03:43:28,777 - midi.sysex - DEBUG - Received response: param 65 = 0
+2025-09-29 03:43:28,784 - midi.connection - DEBUG - Parameter update: 65 = 0
+2025-09-29 03:43:28,784 - midi.connection - DEBUG - Query successful: param 65 = 0
+2025-09-29 03:43:29,213 - midi.connection - DEBUG - Sending query for parameter 66: SysEx: F0 04 17 3E 42 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 03:43:29,270 - midi.sysex - DEBUG - SysEx parse: param_id=66, value=1, is_response=True, unit_id=1
+2025-09-29 03:43:29,276 - midi.sysex - DEBUG - Received response: param 66 = 1
+2025-09-29 03:43:29,281 - midi.connection - DEBUG - Parameter update: 66 = 1
+2025-09-29 03:43:29,281 - midi.connection - DEBUG - Query successful: param 66 = 1
+2025-09-29 03:43:29,410 - ui.main_window - DEBUG - Parameter 0 updated to 0
+2025-09-29 03:43:29,410 - ui.main_window - DEBUG - Parameter 1 updated to 0
+2025-09-29 03:43:29,411 - ui.main_window - DEBUG - Parameter 2 updated to 0
+2025-09-29 03:43:29,411 - ui.main_window - DEBUG - Parameter 3 updated to 2
+2025-09-29 03:43:29,411 - ui.main_window - DEBUG - Parameter 37 updated to 2
+2025-09-29 03:43:29,411 - ui.main_window - DEBUG - Parameter 38 updated to 3
+2025-09-29 03:43:29,411 - ui.main_window - DEBUG - Parameter 39 updated to 1
+2025-09-29 03:43:29,411 - ui.main_window - DEBUG - Parameter 40 updated to 0
+2025-09-29 03:43:29,411 - ui.main_window - DEBUG - Parameter 41 updated to 0
+2025-09-29 03:43:29,411 - ui.main_window - DEBUG - Parameter 42 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 43 updated to 7
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 44 updated to 7
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 45 updated to 7
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 46 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 47 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 48 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 49 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 50 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 51 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 52 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 53 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 54 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 55 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 56 updated to 0
+2025-09-29 03:43:29,412 - ui.main_window - DEBUG - Parameter 57 updated to 1
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 58 updated to 0
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 70 updated to 0
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 71 updated to 0
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 20 updated to 1
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 21 updated to 1
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 22 updated to 1
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 23 updated to 8192
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 24 updated to 1
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 25 updated to 0
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 26 updated to 1
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 27 updated to 0
+2025-09-29 03:43:29,413 - ui.main_window - DEBUG - Parameter 28 updated to 1
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 29 updated to 0
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 72 updated to 1
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 73 updated to 0
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 74 updated to 0
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 4 updated to 0
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 5 updated to 1
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 6 updated to 3
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 7 updated to 3
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 8 updated to 0
+2025-09-29 03:43:29,414 - ui.main_window - DEBUG - Parameter 9 updated to 2
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 10 updated to 0
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 11 updated to 0
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 12 updated to 0
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 13 updated to 1
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 14 updated to 1
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 15 updated to 0
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 16 updated to 1
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 17 updated to 0
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 18 updated to 0
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 19 updated to 1
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 30 updated to 0
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 31 updated to 0
+2025-09-29 03:43:29,415 - ui.main_window - DEBUG - Parameter 32 updated to 1
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 35 updated to 12
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 36 updated to 12
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 67 updated to 2
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 68 updated to 0
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 69 updated to 0
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 59 updated to 0
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 60 updated to 0
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 61 updated to 0
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 62 updated to 0
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 63 updated to 0
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 64 updated to 0
+2025-09-29 03:43:29,416 - ui.main_window - DEBUG - Parameter 65 updated to 0
+2025-09-29 03:43:29,417 - ui.main_window - DEBUG - Parameter 66 updated to 1
+2025-09-29 03:43:50,255 - ui.main_window - DEBUG - Sent parameter 38 = 2
+2025-09-29 03:43:51,839 - ui.main_window - DEBUG - Sent parameter 38 = 3
+2025-09-29 03:45:56,262 - midi.connection - DEBUG - MIDI listen thread stopped
+2025-09-29 03:45:56,265 - midi.connection - INFO - Disconnected from MIDI ports
+2025-09-29 03:52:54,586 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 03:52:54,764 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 03:52:55,207 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 03:52:55,207 - __main__ - ERROR - Unexpected error in main application
+Traceback (most recent call last):
+  File "/Users/mini4/matriarch_controller/main.py", line 126, in main
+    main_window.midi_manager = midi_manager
+                               ^^^^^^^^^^^^
+NameError: name 'midi_manager' is not defined
+2025-09-29 04:01:59,405 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 04:01:59,560 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 04:01:59,875 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 04:01:59,880 - __main__ - INFO - Main window created and shown
+2025-09-29 04:02:08,977 - midi.connection - DEBUG - MIDI listen thread started
+2025-09-29 04:02:08,977 - midi.connection - INFO - Connected to MIDI ports: mioXL MATRIARCH -> mioXL MATRIARCH
+2025-09-29 04:02:08,983 - midi.connection - DEBUG - Sending query for parameter 0: SysEx: F0 04 17 3E 00 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:09,017 - midi.sysex - DEBUG - SysEx parse: param_id=0, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:09,017 - midi.sysex - DEBUG - Received response: param 0 = 0
+2025-09-29 04:02:09,017 - midi.connection - DEBUG - Parameter update: 0 = 0
+2025-09-29 04:02:09,017 - midi.connection - DEBUG - Query successful: param 0 = 0
+2025-09-29 04:02:09,422 - midi.connection - DEBUG - Sending query for parameter 1: SysEx: F0 04 17 3E 01 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:09,457 - midi.sysex - DEBUG - SysEx parse: param_id=1, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:09,457 - midi.sysex - DEBUG - Received response: param 1 = 0
+2025-09-29 04:02:09,457 - midi.connection - DEBUG - Parameter update: 1 = 0
+2025-09-29 04:02:09,457 - midi.connection - DEBUG - Query successful: param 1 = 0
+2025-09-29 04:02:09,866 - midi.connection - DEBUG - Sending query for parameter 2: SysEx: F0 04 17 3E 02 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:09,904 - midi.sysex - DEBUG - SysEx parse: param_id=2, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:09,904 - midi.sysex - DEBUG - Received response: param 2 = 0
+2025-09-29 04:02:09,904 - midi.connection - DEBUG - Parameter update: 2 = 0
+2025-09-29 04:02:09,904 - midi.connection - DEBUG - Query successful: param 2 = 0
+2025-09-29 04:02:10,309 - midi.connection - DEBUG - Sending query for parameter 3: SysEx: F0 04 17 3E 03 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:10,348 - midi.sysex - DEBUG - SysEx parse: param_id=3, value=2, is_response=True, unit_id=1
+2025-09-29 04:02:10,348 - midi.sysex - DEBUG - Received response: param 3 = 2
+2025-09-29 04:02:10,349 - midi.connection - DEBUG - Parameter update: 3 = 2
+2025-09-29 04:02:10,349 - midi.connection - DEBUG - Query successful: param 3 = 2
+2025-09-29 04:02:10,753 - midi.connection - DEBUG - Sending query for parameter 37: SysEx: F0 04 17 3E 25 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:10,788 - midi.sysex - DEBUG - SysEx parse: param_id=37, value=2, is_response=True, unit_id=1
+2025-09-29 04:02:10,788 - midi.sysex - DEBUG - Received response: param 37 = 2
+2025-09-29 04:02:10,788 - midi.connection - DEBUG - Parameter update: 37 = 2
+2025-09-29 04:02:10,788 - midi.connection - DEBUG - Query successful: param 37 = 2
+2025-09-29 04:02:11,192 - midi.connection - DEBUG - Sending query for parameter 38: SysEx: F0 04 17 3E 26 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:11,228 - midi.sysex - DEBUG - SysEx parse: param_id=38, value=3, is_response=True, unit_id=1
+2025-09-29 04:02:11,228 - midi.sysex - DEBUG - Received response: param 38 = 3
+2025-09-29 04:02:11,228 - midi.connection - DEBUG - Parameter update: 38 = 3
+2025-09-29 04:02:11,228 - midi.connection - DEBUG - Query successful: param 38 = 3
+2025-09-29 04:02:11,633 - midi.connection - DEBUG - Sending query for parameter 39: SysEx: F0 04 17 3E 27 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:11,668 - midi.sysex - DEBUG - SysEx parse: param_id=39, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:11,669 - midi.sysex - DEBUG - Received response: param 39 = 1
+2025-09-29 04:02:11,669 - midi.connection - DEBUG - Parameter update: 39 = 1
+2025-09-29 04:02:11,669 - midi.connection - DEBUG - Query successful: param 39 = 1
+2025-09-29 04:02:12,074 - midi.connection - DEBUG - Sending query for parameter 40: SysEx: F0 04 17 3E 28 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:12,106 - midi.sysex - DEBUG - SysEx parse: param_id=40, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:12,106 - midi.sysex - DEBUG - Received response: param 40 = 0
+2025-09-29 04:02:12,107 - midi.connection - DEBUG - Parameter update: 40 = 0
+2025-09-29 04:02:12,107 - midi.connection - DEBUG - Query successful: param 40 = 0
+2025-09-29 04:02:12,508 - midi.connection - DEBUG - Sending query for parameter 41: SysEx: F0 04 17 3E 29 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:12,540 - midi.sysex - DEBUG - SysEx parse: param_id=41, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:12,541 - midi.sysex - DEBUG - Received response: param 41 = 0
+2025-09-29 04:02:12,541 - midi.connection - DEBUG - Parameter update: 41 = 0
+2025-09-29 04:02:12,541 - midi.connection - DEBUG - Query successful: param 41 = 0
+2025-09-29 04:02:12,946 - midi.connection - DEBUG - Sending query for parameter 42: SysEx: F0 04 17 3E 2A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:12,981 - midi.sysex - DEBUG - SysEx parse: param_id=42, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:12,981 - midi.sysex - DEBUG - Received response: param 42 = 0
+2025-09-29 04:02:12,981 - midi.connection - DEBUG - Parameter update: 42 = 0
+2025-09-29 04:02:12,981 - midi.connection - DEBUG - Query successful: param 42 = 0
+2025-09-29 04:02:13,386 - midi.connection - DEBUG - Sending query for parameter 43: SysEx: F0 04 17 3E 2B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:13,421 - midi.sysex - DEBUG - SysEx parse: param_id=43, value=7, is_response=True, unit_id=1
+2025-09-29 04:02:13,421 - midi.sysex - DEBUG - Received response: param 43 = 7
+2025-09-29 04:02:13,421 - midi.connection - DEBUG - Parameter update: 43 = 7
+2025-09-29 04:02:13,422 - midi.connection - DEBUG - Query successful: param 43 = 7
+2025-09-29 04:02:13,827 - midi.connection - DEBUG - Sending query for parameter 44: SysEx: F0 04 17 3E 2C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:13,859 - midi.sysex - DEBUG - SysEx parse: param_id=44, value=7, is_response=True, unit_id=1
+2025-09-29 04:02:13,860 - midi.sysex - DEBUG - Received response: param 44 = 7
+2025-09-29 04:02:13,860 - midi.connection - DEBUG - Parameter update: 44 = 7
+2025-09-29 04:02:13,860 - midi.connection - DEBUG - Query successful: param 44 = 7
+2025-09-29 04:02:14,265 - midi.connection - DEBUG - Sending query for parameter 45: SysEx: F0 04 17 3E 2D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:14,304 - midi.sysex - DEBUG - SysEx parse: param_id=45, value=7, is_response=True, unit_id=1
+2025-09-29 04:02:14,305 - midi.sysex - DEBUG - Received response: param 45 = 7
+2025-09-29 04:02:14,305 - midi.connection - DEBUG - Parameter update: 45 = 7
+2025-09-29 04:02:14,305 - midi.connection - DEBUG - Query successful: param 45 = 7
+2025-09-29 04:02:14,710 - midi.connection - DEBUG - Sending query for parameter 46: SysEx: F0 04 17 3E 2E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:14,746 - midi.sysex - DEBUG - SysEx parse: param_id=46, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:14,747 - midi.sysex - DEBUG - Received response: param 46 = 0
+2025-09-29 04:02:14,747 - midi.connection - DEBUG - Parameter update: 46 = 0
+2025-09-29 04:02:14,747 - midi.connection - DEBUG - Query successful: param 46 = 0
+2025-09-29 04:02:15,152 - midi.connection - DEBUG - Sending query for parameter 47: SysEx: F0 04 17 3E 2F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:15,186 - midi.sysex - DEBUG - SysEx parse: param_id=47, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:15,187 - midi.sysex - DEBUG - Received response: param 47 = 0
+2025-09-29 04:02:15,187 - midi.connection - DEBUG - Parameter update: 47 = 0
+2025-09-29 04:02:15,187 - midi.connection - DEBUG - Query successful: param 47 = 0
+2025-09-29 04:02:15,590 - midi.connection - DEBUG - Sending query for parameter 48: SysEx: F0 04 17 3E 30 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:15,626 - midi.sysex - DEBUG - SysEx parse: param_id=48, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:15,627 - midi.sysex - DEBUG - Received response: param 48 = 0
+2025-09-29 04:02:15,627 - midi.connection - DEBUG - Parameter update: 48 = 0
+2025-09-29 04:02:15,627 - midi.connection - DEBUG - Query successful: param 48 = 0
+2025-09-29 04:02:16,032 - midi.connection - DEBUG - Sending query for parameter 49: SysEx: F0 04 17 3E 31 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:16,069 - midi.sysex - DEBUG - SysEx parse: param_id=49, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:16,069 - midi.sysex - DEBUG - Received response: param 49 = 0
+2025-09-29 04:02:16,070 - midi.connection - DEBUG - Parameter update: 49 = 0
+2025-09-29 04:02:16,070 - midi.connection - DEBUG - Query successful: param 49 = 0
+2025-09-29 04:02:16,474 - midi.connection - DEBUG - Sending query for parameter 50: SysEx: F0 04 17 3E 32 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:16,509 - midi.sysex - DEBUG - SysEx parse: param_id=50, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:16,509 - midi.sysex - DEBUG - Received response: param 50 = 0
+2025-09-29 04:02:16,509 - midi.connection - DEBUG - Parameter update: 50 = 0
+2025-09-29 04:02:16,510 - midi.connection - DEBUG - Query successful: param 50 = 0
+2025-09-29 04:02:16,916 - midi.connection - DEBUG - Sending query for parameter 51: SysEx: F0 04 17 3E 33 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:16,949 - midi.sysex - DEBUG - SysEx parse: param_id=51, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:16,950 - midi.sysex - DEBUG - Received response: param 51 = 0
+2025-09-29 04:02:16,950 - midi.connection - DEBUG - Parameter update: 51 = 0
+2025-09-29 04:02:16,950 - midi.connection - DEBUG - Query successful: param 51 = 0
+2025-09-29 04:02:17,355 - midi.connection - DEBUG - Sending query for parameter 52: SysEx: F0 04 17 3E 34 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:17,390 - midi.sysex - DEBUG - SysEx parse: param_id=52, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:17,391 - midi.sysex - DEBUG - Received response: param 52 = 0
+2025-09-29 04:02:17,391 - midi.connection - DEBUG - Parameter update: 52 = 0
+2025-09-29 04:02:17,391 - midi.connection - DEBUG - Query successful: param 52 = 0
+2025-09-29 04:02:17,799 - midi.connection - DEBUG - Sending query for parameter 53: SysEx: F0 04 17 3E 35 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:17,841 - midi.sysex - DEBUG - SysEx parse: param_id=53, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:17,841 - midi.sysex - DEBUG - Received response: param 53 = 0
+2025-09-29 04:02:17,841 - midi.connection - DEBUG - Parameter update: 53 = 0
+2025-09-29 04:02:17,841 - midi.connection - DEBUG - Query successful: param 53 = 0
+2025-09-29 04:02:18,246 - midi.connection - DEBUG - Sending query for parameter 54: SysEx: F0 04 17 3E 36 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:18,283 - midi.sysex - DEBUG - SysEx parse: param_id=54, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:18,283 - midi.sysex - DEBUG - Received response: param 54 = 0
+2025-09-29 04:02:18,283 - midi.connection - DEBUG - Parameter update: 54 = 0
+2025-09-29 04:02:18,283 - midi.connection - DEBUG - Query successful: param 54 = 0
+2025-09-29 04:02:18,689 - midi.connection - DEBUG - Sending query for parameter 55: SysEx: F0 04 17 3E 37 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:18,725 - midi.sysex - DEBUG - SysEx parse: param_id=55, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:18,725 - midi.sysex - DEBUG - Received response: param 55 = 0
+2025-09-29 04:02:18,725 - midi.connection - DEBUG - Parameter update: 55 = 0
+2025-09-29 04:02:18,725 - midi.connection - DEBUG - Query successful: param 55 = 0
+2025-09-29 04:02:19,132 - midi.connection - DEBUG - Sending query for parameter 56: SysEx: F0 04 17 3E 38 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:19,169 - midi.sysex - DEBUG - SysEx parse: param_id=56, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:19,169 - midi.sysex - DEBUG - Received response: param 56 = 0
+2025-09-29 04:02:19,169 - midi.connection - DEBUG - Parameter update: 56 = 0
+2025-09-29 04:02:19,169 - midi.connection - DEBUG - Query successful: param 56 = 0
+2025-09-29 04:02:19,572 - midi.connection - DEBUG - Sending query for parameter 57: SysEx: F0 04 17 3E 39 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:19,606 - midi.sysex - DEBUG - SysEx parse: param_id=57, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:19,607 - midi.sysex - DEBUG - Received response: param 57 = 1
+2025-09-29 04:02:19,607 - midi.connection - DEBUG - Parameter update: 57 = 1
+2025-09-29 04:02:19,607 - midi.connection - DEBUG - Query successful: param 57 = 1
+2025-09-29 04:02:20,015 - midi.connection - DEBUG - Sending query for parameter 58: SysEx: F0 04 17 3E 3A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:20,050 - midi.sysex - DEBUG - SysEx parse: param_id=58, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:20,051 - midi.sysex - DEBUG - Received response: param 58 = 0
+2025-09-29 04:02:20,051 - midi.connection - DEBUG - Parameter update: 58 = 0
+2025-09-29 04:02:20,051 - midi.connection - DEBUG - Query successful: param 58 = 0
+2025-09-29 04:02:20,456 - midi.connection - DEBUG - Sending query for parameter 70: SysEx: F0 04 17 3E 46 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:20,490 - midi.sysex - DEBUG - SysEx parse: param_id=70, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:20,491 - midi.sysex - DEBUG - Received response: param 70 = 0
+2025-09-29 04:02:20,491 - midi.connection - DEBUG - Parameter update: 70 = 0
+2025-09-29 04:02:20,491 - midi.connection - DEBUG - Query successful: param 70 = 0
+2025-09-29 04:02:20,898 - midi.connection - DEBUG - Sending query for parameter 71: SysEx: F0 04 17 3E 47 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:20,937 - midi.sysex - DEBUG - SysEx parse: param_id=71, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:20,937 - midi.sysex - DEBUG - Received response: param 71 = 0
+2025-09-29 04:02:20,937 - midi.connection - DEBUG - Parameter update: 71 = 0
+2025-09-29 04:02:20,937 - midi.connection - DEBUG - Query successful: param 71 = 0
+2025-09-29 04:02:21,342 - midi.connection - DEBUG - Sending query for parameter 20: SysEx: F0 04 17 3E 14 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:21,379 - midi.sysex - DEBUG - SysEx parse: param_id=20, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:21,379 - midi.sysex - DEBUG - Received response: param 20 = 1
+2025-09-29 04:02:21,380 - midi.connection - DEBUG - Parameter update: 20 = 1
+2025-09-29 04:02:21,380 - midi.connection - DEBUG - Query successful: param 20 = 1
+2025-09-29 04:02:21,785 - midi.connection - DEBUG - Sending query for parameter 21: SysEx: F0 04 17 3E 15 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:21,824 - midi.sysex - DEBUG - SysEx parse: param_id=21, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:21,824 - midi.sysex - DEBUG - Received response: param 21 = 1
+2025-09-29 04:02:21,824 - midi.connection - DEBUG - Parameter update: 21 = 1
+2025-09-29 04:02:21,824 - midi.connection - DEBUG - Query successful: param 21 = 1
+2025-09-29 04:02:22,232 - midi.connection - DEBUG - Sending query for parameter 22: SysEx: F0 04 17 3E 16 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:22,267 - midi.sysex - DEBUG - SysEx parse: param_id=22, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:22,267 - midi.sysex - DEBUG - Received response: param 22 = 1
+2025-09-29 04:02:22,267 - midi.connection - DEBUG - Parameter update: 22 = 1
+2025-09-29 04:02:22,267 - midi.connection - DEBUG - Query successful: param 22 = 1
+2025-09-29 04:02:22,673 - midi.connection - DEBUG - Sending query for parameter 23: SysEx: F0 04 17 3E 17 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:22,711 - midi.sysex - DEBUG - SysEx parse: param_id=23, value=8192, is_response=True, unit_id=1
+2025-09-29 04:02:22,711 - midi.sysex - DEBUG - Received response: param 23 = 8192
+2025-09-29 04:02:22,711 - midi.connection - DEBUG - Parameter update: 23 = 8192
+2025-09-29 04:02:22,711 - midi.connection - DEBUG - Query successful: param 23 = 8192
+2025-09-29 04:02:23,118 - midi.connection - DEBUG - Sending query for parameter 24: SysEx: F0 04 17 3E 18 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:23,153 - midi.sysex - DEBUG - SysEx parse: param_id=24, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:23,156 - midi.sysex - DEBUG - Received response: param 24 = 1
+2025-09-29 04:02:23,156 - midi.connection - DEBUG - Parameter update: 24 = 1
+2025-09-29 04:02:23,156 - midi.connection - DEBUG - Query successful: param 24 = 1
+2025-09-29 04:02:23,558 - midi.connection - DEBUG - Sending query for parameter 25: SysEx: F0 04 17 3E 19 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:23,588 - midi.sysex - DEBUG - SysEx parse: param_id=25, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:23,588 - midi.sysex - DEBUG - Received response: param 25 = 0
+2025-09-29 04:02:23,589 - midi.connection - DEBUG - Parameter update: 25 = 0
+2025-09-29 04:02:23,589 - midi.connection - DEBUG - Query successful: param 25 = 0
+2025-09-29 04:02:23,994 - midi.connection - DEBUG - Sending query for parameter 26: SysEx: F0 04 17 3E 1A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:24,032 - midi.sysex - DEBUG - SysEx parse: param_id=26, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:24,032 - midi.sysex - DEBUG - Received response: param 26 = 1
+2025-09-29 04:02:24,032 - midi.connection - DEBUG - Parameter update: 26 = 1
+2025-09-29 04:02:24,032 - midi.connection - DEBUG - Query successful: param 26 = 1
+2025-09-29 04:02:24,438 - midi.connection - DEBUG - Sending query for parameter 27: SysEx: F0 04 17 3E 1B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:24,476 - midi.sysex - DEBUG - SysEx parse: param_id=27, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:24,476 - midi.sysex - DEBUG - Received response: param 27 = 0
+2025-09-29 04:02:24,476 - midi.connection - DEBUG - Parameter update: 27 = 0
+2025-09-29 04:02:24,476 - midi.connection - DEBUG - Query successful: param 27 = 0
+2025-09-29 04:02:24,883 - midi.connection - DEBUG - Sending query for parameter 28: SysEx: F0 04 17 3E 1C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:24,917 - midi.sysex - DEBUG - SysEx parse: param_id=28, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:24,917 - midi.sysex - DEBUG - Received response: param 28 = 1
+2025-09-29 04:02:24,917 - midi.connection - DEBUG - Parameter update: 28 = 1
+2025-09-29 04:02:24,917 - midi.connection - DEBUG - Query successful: param 28 = 1
+2025-09-29 04:02:25,323 - midi.connection - DEBUG - Sending query for parameter 29: SysEx: F0 04 17 3E 1D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:25,362 - midi.sysex - DEBUG - SysEx parse: param_id=29, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:25,362 - midi.sysex - DEBUG - Received response: param 29 = 0
+2025-09-29 04:02:25,362 - midi.connection - DEBUG - Parameter update: 29 = 0
+2025-09-29 04:02:25,362 - midi.connection - DEBUG - Query successful: param 29 = 0
+2025-09-29 04:02:25,767 - midi.connection - DEBUG - Sending query for parameter 72: SysEx: F0 04 17 3E 48 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:25,804 - midi.sysex - DEBUG - SysEx parse: param_id=72, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:25,804 - midi.sysex - DEBUG - Received response: param 72 = 1
+2025-09-29 04:02:25,804 - midi.connection - DEBUG - Parameter update: 72 = 1
+2025-09-29 04:02:25,804 - midi.connection - DEBUG - Query successful: param 72 = 1
+2025-09-29 04:02:26,209 - midi.connection - DEBUG - Sending query for parameter 73: SysEx: F0 04 17 3E 49 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:26,243 - midi.sysex - DEBUG - SysEx parse: param_id=73, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:26,244 - midi.sysex - DEBUG - Received response: param 73 = 0
+2025-09-29 04:02:26,244 - midi.connection - DEBUG - Parameter update: 73 = 0
+2025-09-29 04:02:26,244 - midi.connection - DEBUG - Query successful: param 73 = 0
+2025-09-29 04:02:26,649 - midi.connection - DEBUG - Sending query for parameter 74: SysEx: F0 04 17 3E 4A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:26,685 - midi.sysex - DEBUG - SysEx parse: param_id=74, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:26,686 - midi.sysex - DEBUG - Received response: param 74 = 0
+2025-09-29 04:02:26,686 - midi.connection - DEBUG - Parameter update: 74 = 0
+2025-09-29 04:02:26,686 - midi.connection - DEBUG - Query successful: param 74 = 0
+2025-09-29 04:02:27,090 - midi.connection - DEBUG - Sending query for parameter 4: SysEx: F0 04 17 3E 04 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:27,124 - midi.sysex - DEBUG - SysEx parse: param_id=4, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:27,125 - midi.sysex - DEBUG - Received response: param 4 = 0
+2025-09-29 04:02:27,125 - midi.connection - DEBUG - Parameter update: 4 = 0
+2025-09-29 04:02:27,125 - midi.connection - DEBUG - Query successful: param 4 = 0
+2025-09-29 04:02:27,527 - midi.connection - DEBUG - Sending query for parameter 5: SysEx: F0 04 17 3E 05 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:27,561 - midi.sysex - DEBUG - SysEx parse: param_id=5, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:27,561 - midi.sysex - DEBUG - Received response: param 5 = 1
+2025-09-29 04:02:27,561 - midi.connection - DEBUG - Parameter update: 5 = 1
+2025-09-29 04:02:27,562 - midi.connection - DEBUG - Query successful: param 5 = 1
+2025-09-29 04:02:27,964 - midi.connection - DEBUG - Sending query for parameter 6: SysEx: F0 04 17 3E 06 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:27,997 - midi.sysex - DEBUG - SysEx parse: param_id=6, value=3, is_response=True, unit_id=1
+2025-09-29 04:02:27,997 - midi.sysex - DEBUG - Received response: param 6 = 3
+2025-09-29 04:02:27,997 - midi.connection - DEBUG - Parameter update: 6 = 3
+2025-09-29 04:02:27,997 - midi.connection - DEBUG - Query successful: param 6 = 3
+2025-09-29 04:02:28,402 - midi.connection - DEBUG - Sending query for parameter 7: SysEx: F0 04 17 3E 07 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:28,439 - midi.sysex - DEBUG - SysEx parse: param_id=7, value=3, is_response=True, unit_id=1
+2025-09-29 04:02:28,439 - midi.sysex - DEBUG - Received response: param 7 = 3
+2025-09-29 04:02:28,439 - midi.connection - DEBUG - Parameter update: 7 = 3
+2025-09-29 04:02:28,439 - midi.connection - DEBUG - Query successful: param 7 = 3
+2025-09-29 04:02:28,845 - midi.connection - DEBUG - Sending query for parameter 8: SysEx: F0 04 17 3E 08 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:28,880 - midi.sysex - DEBUG - SysEx parse: param_id=8, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:28,881 - midi.sysex - DEBUG - Received response: param 8 = 0
+2025-09-29 04:02:28,881 - midi.connection - DEBUG - Parameter update: 8 = 0
+2025-09-29 04:02:28,881 - midi.connection - DEBUG - Query successful: param 8 = 0
+2025-09-29 04:02:29,287 - midi.connection - DEBUG - Sending query for parameter 9: SysEx: F0 04 17 3E 09 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:29,325 - midi.sysex - DEBUG - SysEx parse: param_id=9, value=2, is_response=True, unit_id=1
+2025-09-29 04:02:29,325 - midi.sysex - DEBUG - Received response: param 9 = 2
+2025-09-29 04:02:29,325 - midi.connection - DEBUG - Parameter update: 9 = 2
+2025-09-29 04:02:29,325 - midi.connection - DEBUG - Query successful: param 9 = 2
+2025-09-29 04:02:29,729 - midi.connection - DEBUG - Sending query for parameter 10: SysEx: F0 04 17 3E 0A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:29,765 - midi.sysex - DEBUG - SysEx parse: param_id=10, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:29,765 - midi.sysex - DEBUG - Received response: param 10 = 0
+2025-09-29 04:02:29,765 - midi.connection - DEBUG - Parameter update: 10 = 0
+2025-09-29 04:02:29,766 - midi.connection - DEBUG - Query successful: param 10 = 0
+2025-09-29 04:02:30,171 - midi.connection - DEBUG - Sending query for parameter 11: SysEx: F0 04 17 3E 0B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:30,203 - midi.sysex - DEBUG - SysEx parse: param_id=11, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:30,204 - midi.sysex - DEBUG - Received response: param 11 = 0
+2025-09-29 04:02:30,204 - midi.connection - DEBUG - Parameter update: 11 = 0
+2025-09-29 04:02:30,204 - midi.connection - DEBUG - Query successful: param 11 = 0
+2025-09-29 04:02:30,605 - midi.connection - DEBUG - Sending query for parameter 12: SysEx: F0 04 17 3E 0C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:30,641 - midi.sysex - DEBUG - SysEx parse: param_id=12, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:30,641 - midi.sysex - DEBUG - Received response: param 12 = 0
+2025-09-29 04:02:30,641 - midi.connection - DEBUG - Parameter update: 12 = 0
+2025-09-29 04:02:30,641 - midi.connection - DEBUG - Query successful: param 12 = 0
+2025-09-29 04:02:31,046 - midi.connection - DEBUG - Sending query for parameter 13: SysEx: F0 04 17 3E 0D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:31,081 - midi.sysex - DEBUG - SysEx parse: param_id=13, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:31,082 - midi.sysex - DEBUG - Received response: param 13 = 1
+2025-09-29 04:02:31,082 - midi.connection - DEBUG - Parameter update: 13 = 1
+2025-09-29 04:02:31,082 - midi.connection - DEBUG - Query successful: param 13 = 1
+2025-09-29 04:02:31,488 - midi.connection - DEBUG - Sending query for parameter 14: SysEx: F0 04 17 3E 0E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:31,525 - midi.sysex - DEBUG - SysEx parse: param_id=14, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:31,526 - midi.sysex - DEBUG - Received response: param 14 = 1
+2025-09-29 04:02:31,526 - midi.connection - DEBUG - Parameter update: 14 = 1
+2025-09-29 04:02:31,526 - midi.connection - DEBUG - Query successful: param 14 = 1
+2025-09-29 04:02:31,934 - midi.connection - DEBUG - Sending query for parameter 15: SysEx: F0 04 17 3E 0F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:31,966 - midi.sysex - DEBUG - SysEx parse: param_id=15, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:31,967 - midi.sysex - DEBUG - Received response: param 15 = 0
+2025-09-29 04:02:31,967 - midi.connection - DEBUG - Parameter update: 15 = 0
+2025-09-29 04:02:31,967 - midi.connection - DEBUG - Query successful: param 15 = 0
+2025-09-29 04:02:32,372 - midi.connection - DEBUG - Sending query for parameter 16: SysEx: F0 04 17 3E 10 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:32,406 - midi.sysex - DEBUG - SysEx parse: param_id=16, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:32,406 - midi.sysex - DEBUG - Received response: param 16 = 1
+2025-09-29 04:02:32,406 - midi.connection - DEBUG - Parameter update: 16 = 1
+2025-09-29 04:02:32,406 - midi.connection - DEBUG - Query successful: param 16 = 1
+2025-09-29 04:02:32,809 - midi.connection - DEBUG - Sending query for parameter 17: SysEx: F0 04 17 3E 11 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:32,844 - midi.sysex - DEBUG - SysEx parse: param_id=17, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:32,845 - midi.sysex - DEBUG - Received response: param 17 = 0
+2025-09-29 04:02:32,845 - midi.connection - DEBUG - Parameter update: 17 = 0
+2025-09-29 04:02:32,845 - midi.connection - DEBUG - Query successful: param 17 = 0
+2025-09-29 04:02:33,251 - midi.connection - DEBUG - Sending query for parameter 18: SysEx: F0 04 17 3E 12 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:33,286 - midi.sysex - DEBUG - SysEx parse: param_id=18, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:33,286 - midi.sysex - DEBUG - Received response: param 18 = 0
+2025-09-29 04:02:33,286 - midi.connection - DEBUG - Parameter update: 18 = 0
+2025-09-29 04:02:33,286 - midi.connection - DEBUG - Query successful: param 18 = 0
+2025-09-29 04:02:33,690 - midi.connection - DEBUG - Sending query for parameter 19: SysEx: F0 04 17 3E 13 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:33,723 - midi.sysex - DEBUG - SysEx parse: param_id=19, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:33,724 - midi.sysex - DEBUG - Received response: param 19 = 1
+2025-09-29 04:02:33,724 - midi.connection - DEBUG - Parameter update: 19 = 1
+2025-09-29 04:02:33,724 - midi.connection - DEBUG - Query successful: param 19 = 1
+2025-09-29 04:02:34,129 - midi.connection - DEBUG - Sending query for parameter 30: SysEx: F0 04 17 3E 1E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:34,165 - midi.sysex - DEBUG - SysEx parse: param_id=30, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:34,165 - midi.sysex - DEBUG - Received response: param 30 = 0
+2025-09-29 04:02:34,165 - midi.connection - DEBUG - Parameter update: 30 = 0
+2025-09-29 04:02:34,165 - midi.connection - DEBUG - Query successful: param 30 = 0
+2025-09-29 04:02:34,570 - midi.connection - DEBUG - Sending query for parameter 31: SysEx: F0 04 17 3E 1F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:34,605 - midi.sysex - DEBUG - SysEx parse: param_id=31, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:34,605 - midi.sysex - DEBUG - Received response: param 31 = 0
+2025-09-29 04:02:34,605 - midi.connection - DEBUG - Parameter update: 31 = 0
+2025-09-29 04:02:34,605 - midi.connection - DEBUG - Query successful: param 31 = 0
+2025-09-29 04:02:35,010 - midi.connection - DEBUG - Sending query for parameter 32: SysEx: F0 04 17 3E 20 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:35,047 - midi.sysex - DEBUG - SysEx parse: param_id=32, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:35,047 - midi.sysex - DEBUG - Received response: param 32 = 1
+2025-09-29 04:02:35,047 - midi.connection - DEBUG - Parameter update: 32 = 1
+2025-09-29 04:02:35,047 - midi.connection - DEBUG - Query successful: param 32 = 1
+2025-09-29 04:02:35,452 - midi.connection - DEBUG - Sending query for parameter 35: SysEx: F0 04 17 3E 23 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:35,489 - midi.sysex - DEBUG - SysEx parse: param_id=35, value=12, is_response=True, unit_id=1
+2025-09-29 04:02:35,489 - midi.sysex - DEBUG - Received response: param 35 = 12
+2025-09-29 04:02:35,489 - midi.connection - DEBUG - Parameter update: 35 = 12
+2025-09-29 04:02:35,489 - midi.connection - DEBUG - Query successful: param 35 = 12
+2025-09-29 04:02:35,895 - midi.connection - DEBUG - Sending query for parameter 36: SysEx: F0 04 17 3E 24 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:35,930 - midi.sysex - DEBUG - SysEx parse: param_id=36, value=12, is_response=True, unit_id=1
+2025-09-29 04:02:35,930 - midi.sysex - DEBUG - Received response: param 36 = 12
+2025-09-29 04:02:35,930 - midi.connection - DEBUG - Parameter update: 36 = 12
+2025-09-29 04:02:35,930 - midi.connection - DEBUG - Query successful: param 36 = 12
+2025-09-29 04:02:36,336 - midi.connection - DEBUG - Sending query for parameter 67: SysEx: F0 04 17 3E 43 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:36,366 - midi.sysex - DEBUG - SysEx parse: param_id=67, value=2, is_response=True, unit_id=1
+2025-09-29 04:02:36,367 - midi.sysex - DEBUG - Received response: param 67 = 2
+2025-09-29 04:02:36,367 - midi.connection - DEBUG - Parameter update: 67 = 2
+2025-09-29 04:02:36,367 - midi.connection - DEBUG - Query successful: param 67 = 2
+2025-09-29 04:02:36,769 - midi.connection - DEBUG - Sending query for parameter 68: SysEx: F0 04 17 3E 44 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:36,802 - midi.sysex - DEBUG - SysEx parse: param_id=68, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:36,802 - midi.sysex - DEBUG - Received response: param 68 = 0
+2025-09-29 04:02:36,802 - midi.connection - DEBUG - Parameter update: 68 = 0
+2025-09-29 04:02:36,802 - midi.connection - DEBUG - Query successful: param 68 = 0
+2025-09-29 04:02:37,208 - midi.connection - DEBUG - Sending query for parameter 69: SysEx: F0 04 17 3E 45 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:37,243 - midi.sysex - DEBUG - SysEx parse: param_id=69, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:37,243 - midi.sysex - DEBUG - Received response: param 69 = 0
+2025-09-29 04:02:37,243 - midi.connection - DEBUG - Parameter update: 69 = 0
+2025-09-29 04:02:37,244 - midi.connection - DEBUG - Query successful: param 69 = 0
+2025-09-29 04:02:37,650 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:40,656 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 04:02:40,657 - midi.connection - WARNING - Query attempt 1 failed for parameter 75
+2025-09-29 04:02:41,062 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:44,067 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 04:02:44,068 - midi.connection - WARNING - Query attempt 2 failed for parameter 75
+2025-09-29 04:02:44,473 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:47,477 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 04:02:47,477 - midi.connection - WARNING - Query attempt 3 failed for parameter 75
+2025-09-29 04:02:47,478 - midi.connection - ERROR - Failed to query parameter 75 after 3 attempts
+2025-09-29 04:02:47,887 - midi.connection - DEBUG - Sending query for parameter 59: SysEx: F0 04 17 3E 3B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:47,923 - midi.sysex - DEBUG - SysEx parse: param_id=59, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:47,923 - midi.sysex - DEBUG - Received response: param 59 = 0
+2025-09-29 04:02:47,923 - midi.connection - DEBUG - Parameter update: 59 = 0
+2025-09-29 04:02:47,924 - midi.connection - DEBUG - Query successful: param 59 = 0
+2025-09-29 04:02:48,339 - midi.connection - DEBUG - Sending query for parameter 60: SysEx: F0 04 17 3E 3C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:48,376 - midi.sysex - DEBUG - SysEx parse: param_id=60, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:48,377 - midi.sysex - DEBUG - Received response: param 60 = 0
+2025-09-29 04:02:48,377 - midi.connection - DEBUG - Parameter update: 60 = 0
+2025-09-29 04:02:48,379 - midi.connection - DEBUG - Query successful: param 60 = 0
+2025-09-29 04:02:48,787 - midi.connection - DEBUG - Sending query for parameter 61: SysEx: F0 04 17 3E 3D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:48,827 - midi.sysex - DEBUG - SysEx parse: param_id=61, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:48,828 - midi.sysex - DEBUG - Received response: param 61 = 0
+2025-09-29 04:02:48,828 - midi.connection - DEBUG - Parameter update: 61 = 0
+2025-09-29 04:02:48,828 - midi.connection - DEBUG - Query successful: param 61 = 0
+2025-09-29 04:02:49,232 - midi.connection - DEBUG - Sending query for parameter 62: SysEx: F0 04 17 3E 3E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:49,271 - midi.sysex - DEBUG - SysEx parse: param_id=62, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:49,271 - midi.sysex - DEBUG - Received response: param 62 = 0
+2025-09-29 04:02:49,271 - midi.connection - DEBUG - Parameter update: 62 = 0
+2025-09-29 04:02:49,271 - midi.connection - DEBUG - Query successful: param 62 = 0
+2025-09-29 04:02:49,674 - midi.connection - DEBUG - Sending query for parameter 63: SysEx: F0 04 17 3E 3F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:49,711 - midi.sysex - DEBUG - SysEx parse: param_id=63, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:49,711 - midi.sysex - DEBUG - Received response: param 63 = 0
+2025-09-29 04:02:49,711 - midi.connection - DEBUG - Parameter update: 63 = 0
+2025-09-29 04:02:49,711 - midi.connection - DEBUG - Query successful: param 63 = 0
+2025-09-29 04:02:50,113 - midi.connection - DEBUG - Sending query for parameter 64: SysEx: F0 04 17 3E 40 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:50,148 - midi.sysex - DEBUG - SysEx parse: param_id=64, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:50,149 - midi.sysex - DEBUG - Received response: param 64 = 0
+2025-09-29 04:02:50,149 - midi.connection - DEBUG - Parameter update: 64 = 0
+2025-09-29 04:02:50,149 - midi.connection - DEBUG - Query successful: param 64 = 0
+2025-09-29 04:02:50,554 - midi.connection - DEBUG - Sending query for parameter 65: SysEx: F0 04 17 3E 41 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:50,591 - midi.sysex - DEBUG - SysEx parse: param_id=65, value=0, is_response=True, unit_id=1
+2025-09-29 04:02:50,592 - midi.sysex - DEBUG - Received response: param 65 = 0
+2025-09-29 04:02:50,592 - midi.connection - DEBUG - Parameter update: 65 = 0
+2025-09-29 04:02:50,592 - midi.connection - DEBUG - Query successful: param 65 = 0
+2025-09-29 04:02:50,997 - midi.connection - DEBUG - Sending query for parameter 66: SysEx: F0 04 17 3E 42 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:02:51,033 - midi.sysex - DEBUG - SysEx parse: param_id=66, value=1, is_response=True, unit_id=1
+2025-09-29 04:02:51,033 - midi.sysex - DEBUG - Received response: param 66 = 1
+2025-09-29 04:02:51,033 - midi.connection - DEBUG - Parameter update: 66 = 1
+2025-09-29 04:02:51,034 - midi.connection - DEBUG - Query successful: param 66 = 1
+2025-09-29 04:02:51,037 - ui.main_window - DEBUG - Parameter 0 updated to 0
+2025-09-29 04:02:51,037 - ui.main_window - DEBUG - Parameter 1 updated to 0
+2025-09-29 04:02:51,038 - ui.main_window - DEBUG - Parameter 2 updated to 0
+2025-09-29 04:02:51,038 - ui.main_window - DEBUG - Parameter 3 updated to 2
+2025-09-29 04:02:51,038 - ui.main_window - DEBUG - Parameter 37 updated to 2
+2025-09-29 04:02:51,039 - ui.main_window - DEBUG - Parameter 38 updated to 3
+2025-09-29 04:02:51,039 - ui.main_window - DEBUG - Parameter 39 updated to 1
+2025-09-29 04:02:51,040 - ui.main_window - DEBUG - Parameter 40 updated to 0
+2025-09-29 04:02:51,040 - ui.main_window - DEBUG - Parameter 41 updated to 0
+2025-09-29 04:02:51,040 - ui.main_window - DEBUG - Parameter 42 updated to 0
+2025-09-29 04:02:51,040 - ui.main_window - DEBUG - Parameter 43 updated to 7
+2025-09-29 04:02:51,040 - ui.main_window - DEBUG - Parameter 44 updated to 7
+2025-09-29 04:02:51,041 - ui.main_window - DEBUG - Parameter 45 updated to 7
+2025-09-29 04:02:51,041 - ui.main_window - DEBUG - Parameter 46 updated to 0
+2025-09-29 04:02:51,042 - ui.main_window - DEBUG - Parameter 47 updated to 0
+2025-09-29 04:02:51,042 - ui.main_window - DEBUG - Parameter 48 updated to 0
+2025-09-29 04:02:51,042 - ui.main_window - DEBUG - Parameter 49 updated to 0
+2025-09-29 04:02:51,042 - ui.main_window - DEBUG - Parameter 50 updated to 0
+2025-09-29 04:02:51,042 - ui.main_window - DEBUG - Parameter 51 updated to 0
+2025-09-29 04:02:51,043 - ui.main_window - DEBUG - Parameter 52 updated to 0
+2025-09-29 04:02:51,043 - ui.main_window - DEBUG - Parameter 53 updated to 0
+2025-09-29 04:02:51,043 - ui.main_window - DEBUG - Parameter 54 updated to 0
+2025-09-29 04:02:51,044 - ui.main_window - DEBUG - Parameter 55 updated to 0
+2025-09-29 04:02:51,044 - ui.main_window - DEBUG - Parameter 56 updated to 0
+2025-09-29 04:02:51,044 - ui.main_window - DEBUG - Parameter 57 updated to 1
+2025-09-29 04:02:51,044 - ui.main_window - DEBUG - Parameter 58 updated to 0
+2025-09-29 04:02:51,044 - ui.main_window - DEBUG - Parameter 70 updated to 0
+2025-09-29 04:02:51,045 - ui.main_window - DEBUG - Parameter 71 updated to 0
+2025-09-29 04:02:51,045 - ui.main_window - DEBUG - Parameter 20 updated to 1
+2025-09-29 04:02:51,045 - ui.main_window - DEBUG - Parameter 21 updated to 1
+2025-09-29 04:02:51,045 - ui.main_window - DEBUG - Parameter 22 updated to 1
+2025-09-29 04:02:51,046 - ui.main_window - DEBUG - Parameter 23 updated to 8192
+2025-09-29 04:02:51,046 - ui.main_window - DEBUG - Parameter 24 updated to 1
+2025-09-29 04:02:51,046 - ui.main_window - DEBUG - Parameter 25 updated to 0
+2025-09-29 04:02:51,046 - ui.main_window - DEBUG - Parameter 26 updated to 1
+2025-09-29 04:02:51,046 - ui.main_window - DEBUG - Parameter 27 updated to 0
+2025-09-29 04:02:51,047 - ui.main_window - DEBUG - Parameter 28 updated to 1
+2025-09-29 04:02:51,047 - ui.main_window - DEBUG - Parameter 29 updated to 0
+2025-09-29 04:02:51,047 - ui.main_window - DEBUG - Parameter 72 updated to 1
+2025-09-29 04:02:51,047 - ui.main_window - DEBUG - Parameter 73 updated to 0
+2025-09-29 04:02:51,047 - ui.main_window - DEBUG - Parameter 74 updated to 0
+2025-09-29 04:02:51,047 - ui.main_window - DEBUG - Parameter 4 updated to 0
+2025-09-29 04:02:51,047 - ui.main_window - DEBUG - Parameter 5 updated to 1
+2025-09-29 04:02:51,048 - ui.main_window - DEBUG - Parameter 6 updated to 3
+2025-09-29 04:02:51,048 - ui.main_window - DEBUG - Parameter 7 updated to 3
+2025-09-29 04:02:51,048 - ui.main_window - DEBUG - Parameter 8 updated to 0
+2025-09-29 04:02:51,048 - ui.main_window - DEBUG - Parameter 9 updated to 2
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 10 updated to 0
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 11 updated to 0
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 12 updated to 0
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 13 updated to 1
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 14 updated to 1
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 15 updated to 0
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 16 updated to 1
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 17 updated to 0
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 18 updated to 0
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 19 updated to 1
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 30 updated to 0
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 31 updated to 0
+2025-09-29 04:02:51,049 - ui.main_window - DEBUG - Parameter 32 updated to 1
+2025-09-29 04:02:51,050 - ui.main_window - DEBUG - Parameter 35 updated to 12
+2025-09-29 04:02:51,050 - ui.main_window - DEBUG - Parameter 36 updated to 12
+2025-09-29 04:02:51,050 - ui.main_window - DEBUG - Parameter 67 updated to 2
+2025-09-29 04:02:51,050 - ui.main_window - DEBUG - Parameter 68 updated to 0
+2025-09-29 04:02:51,050 - ui.main_window - DEBUG - Parameter 69 updated to 0
+2025-09-29 04:02:51,050 - ui.main_window - DEBUG - Parameter 59 updated to 0
+2025-09-29 04:02:51,050 - ui.main_window - DEBUG - Parameter 60 updated to 0
+2025-09-29 04:02:51,051 - ui.main_window - DEBUG - Parameter 61 updated to 0
+2025-09-29 04:02:51,051 - ui.main_window - DEBUG - Parameter 62 updated to 0
+2025-09-29 04:02:51,051 - ui.main_window - DEBUG - Parameter 63 updated to 0
+2025-09-29 04:02:51,051 - ui.main_window - DEBUG - Parameter 64 updated to 0
+2025-09-29 04:02:51,051 - ui.main_window - DEBUG - Parameter 65 updated to 0
+2025-09-29 04:02:51,051 - ui.main_window - DEBUG - Parameter 66 updated to 1
+2025-09-29 04:03:38,479 - ui.main_window - DEBUG - Sent parameter 50 = 1
+2025-09-29 04:03:41,164 - ui.main_window - DEBUG - Sent parameter 50 = 0
+2025-09-29 04:05:42,786 - ui.main_window - DEBUG - Sent parameter 50 = 1
+2025-09-29 04:05:44,984 - ui.main_window - DEBUG - Sent parameter 50 = 0
+2025-09-29 04:08:50,404 - ui.main_window - DEBUG - Sent parameter 5 = 0
+2025-09-29 04:08:52,404 - ui.main_window - DEBUG - Sent parameter 5 = 1
+2025-09-29 04:09:16,107 - ui.main_window - DEBUG - Sent parameter 46 = 1
+2025-09-29 04:09:17,475 - ui.main_window - DEBUG - Sent parameter 46 = 0
+2025-09-29 04:09:29,167 - ui.main_window - DEBUG - Sent parameter 46 = 1
+2025-09-29 04:09:29,819 - ui.main_window - DEBUG - Sent parameter 46 = 0
+2025-09-29 04:09:53,739 - ui.main_window - DEBUG - Sent parameter 38 = 4
+2025-09-29 04:09:56,748 - ui.main_window - DEBUG - Sent parameter 38 = 4
+2025-09-29 04:10:17,059 - ui.main_window - DEBUG - Sent parameter 38 = 1
+2025-09-29 04:10:32,770 - ui.main_window - DEBUG - Sent parameter 38 = 2
+2025-09-29 04:11:02,045 - ui.main_window - DEBUG - Sent parameter 51 = 1
+2025-09-29 04:11:03,378 - ui.main_window - DEBUG - Sent parameter 51 = 0
+2025-09-29 04:11:48,215 - ui.main_window - DEBUG - Sent parameter 47 = 1
+2025-09-29 04:11:52,202 - ui.main_window - DEBUG - Sent parameter 47 = 0
+2025-09-29 04:11:55,287 - ui.main_window - DEBUG - Sent parameter 48 = 1
+2025-09-29 04:11:55,805 - ui.main_window - DEBUG - Sent parameter 48 = 0
+2025-09-29 04:12:00,408 - ui.main_window - DEBUG - Sent parameter 49 = 1
+2025-09-29 04:12:01,192 - ui.main_window - DEBUG - Sent parameter 49 = 0
+2025-09-29 04:13:16,087 - ui.main_window - DEBUG - Sent parameter 46 = 1
+2025-09-29 04:13:17,174 - ui.main_window - DEBUG - Sent parameter 46 = 0
+2025-09-29 04:13:26,596 - ui.main_window - DEBUG - Sent parameter 57 = 0
+2025-09-29 04:13:30,769 - ui.main_window - DEBUG - Sent parameter 57 = 1
+2025-09-29 04:20:11,813 - midi.connection - DEBUG - Sending query for parameter 0: SysEx: F0 04 17 3E 00 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:11,863 - midi.sysex - DEBUG - SysEx parse: param_id=0, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:11,863 - midi.sysex - DEBUG - Received response: param 0 = 0
+2025-09-29 04:20:11,863 - midi.connection - DEBUG - Parameter update: 0 = 0
+2025-09-29 04:20:11,863 - midi.connection - DEBUG - Query successful: param 0 = 0
+2025-09-29 04:20:12,268 - midi.connection - DEBUG - Sending query for parameter 1: SysEx: F0 04 17 3E 01 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:12,300 - midi.sysex - DEBUG - SysEx parse: param_id=1, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:12,300 - midi.sysex - DEBUG - Received response: param 1 = 0
+2025-09-29 04:20:12,301 - midi.connection - DEBUG - Parameter update: 1 = 0
+2025-09-29 04:20:12,301 - midi.connection - DEBUG - Query successful: param 1 = 0
+2025-09-29 04:20:12,701 - midi.connection - DEBUG - Sending query for parameter 2: SysEx: F0 04 17 3E 02 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:12,733 - midi.sysex - DEBUG - SysEx parse: param_id=2, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:12,733 - midi.sysex - DEBUG - Received response: param 2 = 0
+2025-09-29 04:20:12,733 - midi.connection - DEBUG - Parameter update: 2 = 0
+2025-09-29 04:20:12,733 - midi.connection - DEBUG - Query successful: param 2 = 0
+2025-09-29 04:20:13,142 - midi.connection - DEBUG - Sending query for parameter 3: SysEx: F0 04 17 3E 03 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:13,191 - midi.sysex - DEBUG - SysEx parse: param_id=3, value=2, is_response=True, unit_id=1
+2025-09-29 04:20:13,191 - midi.sysex - DEBUG - Received response: param 3 = 2
+2025-09-29 04:20:13,191 - midi.connection - DEBUG - Parameter update: 3 = 2
+2025-09-29 04:20:13,191 - midi.connection - DEBUG - Query successful: param 3 = 2
+2025-09-29 04:20:13,592 - midi.connection - DEBUG - Sending query for parameter 37: SysEx: F0 04 17 3E 25 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:13,627 - midi.sysex - DEBUG - SysEx parse: param_id=37, value=2, is_response=True, unit_id=1
+2025-09-29 04:20:13,627 - midi.sysex - DEBUG - Received response: param 37 = 2
+2025-09-29 04:20:13,627 - midi.connection - DEBUG - Parameter update: 37 = 2
+2025-09-29 04:20:13,627 - midi.connection - DEBUG - Query successful: param 37 = 2
+2025-09-29 04:20:14,028 - midi.connection - DEBUG - Sending query for parameter 38: SysEx: F0 04 17 3E 26 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:14,063 - midi.sysex - DEBUG - SysEx parse: param_id=38, value=2, is_response=True, unit_id=1
+2025-09-29 04:20:14,063 - midi.sysex - DEBUG - Received response: param 38 = 2
+2025-09-29 04:20:14,063 - midi.connection - DEBUG - Parameter update: 38 = 2
+2025-09-29 04:20:14,063 - midi.connection - DEBUG - Query successful: param 38 = 2
+2025-09-29 04:20:14,467 - midi.connection - DEBUG - Sending query for parameter 39: SysEx: F0 04 17 3E 27 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:14,506 - midi.sysex - DEBUG - SysEx parse: param_id=39, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:14,506 - midi.sysex - DEBUG - Received response: param 39 = 1
+2025-09-29 04:20:14,506 - midi.connection - DEBUG - Parameter update: 39 = 1
+2025-09-29 04:20:14,506 - midi.connection - DEBUG - Query successful: param 39 = 1
+2025-09-29 04:20:14,911 - midi.connection - DEBUG - Sending query for parameter 40: SysEx: F0 04 17 3E 28 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:14,951 - midi.sysex - DEBUG - SysEx parse: param_id=40, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:14,958 - midi.sysex - DEBUG - Received response: param 40 = 0
+2025-09-29 04:20:14,964 - midi.connection - DEBUG - Parameter update: 40 = 0
+2025-09-29 04:20:14,972 - midi.connection - DEBUG - Query successful: param 40 = 0
+2025-09-29 04:20:15,377 - midi.connection - DEBUG - Sending query for parameter 41: SysEx: F0 04 17 3E 29 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:15,412 - midi.sysex - DEBUG - SysEx parse: param_id=41, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:15,412 - midi.sysex - DEBUG - Received response: param 41 = 0
+2025-09-29 04:20:15,412 - midi.connection - DEBUG - Parameter update: 41 = 0
+2025-09-29 04:20:15,412 - midi.connection - DEBUG - Query successful: param 41 = 0
+2025-09-29 04:20:15,817 - midi.connection - DEBUG - Sending query for parameter 42: SysEx: F0 04 17 3E 2A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:15,859 - midi.sysex - DEBUG - SysEx parse: param_id=42, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:15,866 - midi.sysex - DEBUG - Received response: param 42 = 0
+2025-09-29 04:20:15,873 - midi.connection - DEBUG - Parameter update: 42 = 0
+2025-09-29 04:20:15,873 - midi.connection - DEBUG - Query successful: param 42 = 0
+2025-09-29 04:20:16,280 - midi.connection - DEBUG - Sending query for parameter 43: SysEx: F0 04 17 3E 2B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:16,314 - midi.sysex - DEBUG - SysEx parse: param_id=43, value=7, is_response=True, unit_id=1
+2025-09-29 04:20:16,314 - midi.sysex - DEBUG - Received response: param 43 = 7
+2025-09-29 04:20:16,314 - midi.connection - DEBUG - Parameter update: 43 = 7
+2025-09-29 04:20:16,314 - midi.connection - DEBUG - Query successful: param 43 = 7
+2025-09-29 04:20:16,719 - midi.connection - DEBUG - Sending query for parameter 44: SysEx: F0 04 17 3E 2C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:16,767 - midi.sysex - DEBUG - SysEx parse: param_id=44, value=7, is_response=True, unit_id=1
+2025-09-29 04:20:16,774 - midi.sysex - DEBUG - Received response: param 44 = 7
+2025-09-29 04:20:16,778 - midi.connection - DEBUG - Parameter update: 44 = 7
+2025-09-29 04:20:16,778 - midi.connection - DEBUG - Query successful: param 44 = 7
+2025-09-29 04:20:17,183 - midi.connection - DEBUG - Sending query for parameter 45: SysEx: F0 04 17 3E 2D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:17,222 - midi.sysex - DEBUG - SysEx parse: param_id=45, value=7, is_response=True, unit_id=1
+2025-09-29 04:20:17,222 - midi.sysex - DEBUG - Received response: param 45 = 7
+2025-09-29 04:20:17,222 - midi.connection - DEBUG - Parameter update: 45 = 7
+2025-09-29 04:20:17,222 - midi.connection - DEBUG - Query successful: param 45 = 7
+2025-09-29 04:20:17,627 - midi.connection - DEBUG - Sending query for parameter 46: SysEx: F0 04 17 3E 2E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:17,675 - midi.sysex - DEBUG - SysEx parse: param_id=46, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:17,681 - midi.sysex - DEBUG - Received response: param 46 = 0
+2025-09-29 04:20:17,681 - midi.connection - DEBUG - Parameter update: 46 = 0
+2025-09-29 04:20:17,681 - midi.connection - DEBUG - Query successful: param 46 = 0
+2025-09-29 04:20:18,082 - midi.connection - DEBUG - Sending query for parameter 47: SysEx: F0 04 17 3E 2F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:18,118 - midi.sysex - DEBUG - SysEx parse: param_id=47, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:18,118 - midi.sysex - DEBUG - Received response: param 47 = 0
+2025-09-29 04:20:18,118 - midi.connection - DEBUG - Parameter update: 47 = 0
+2025-09-29 04:20:18,118 - midi.connection - DEBUG - Query successful: param 47 = 0
+2025-09-29 04:20:18,523 - midi.connection - DEBUG - Sending query for parameter 48: SysEx: F0 04 17 3E 30 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:18,559 - midi.sysex - DEBUG - SysEx parse: param_id=48, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:18,573 - midi.sysex - DEBUG - Received response: param 48 = 0
+2025-09-29 04:20:18,579 - midi.connection - DEBUG - Parameter update: 48 = 0
+2025-09-29 04:20:18,579 - midi.connection - DEBUG - Query successful: param 48 = 0
+2025-09-29 04:20:18,988 - midi.connection - DEBUG - Sending query for parameter 49: SysEx: F0 04 17 3E 31 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:19,023 - midi.sysex - DEBUG - SysEx parse: param_id=49, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:19,024 - midi.sysex - DEBUG - Received response: param 49 = 0
+2025-09-29 04:20:19,024 - midi.connection - DEBUG - Parameter update: 49 = 0
+2025-09-29 04:20:19,024 - midi.connection - DEBUG - Query successful: param 49 = 0
+2025-09-29 04:20:19,429 - midi.connection - DEBUG - Sending query for parameter 50: SysEx: F0 04 17 3E 32 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:19,467 - midi.sysex - DEBUG - SysEx parse: param_id=50, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:19,475 - midi.sysex - DEBUG - Received response: param 50 = 1
+2025-09-29 04:20:19,482 - midi.connection - DEBUG - Parameter update: 50 = 1
+2025-09-29 04:20:19,482 - midi.connection - DEBUG - Query successful: param 50 = 1
+2025-09-29 04:20:19,894 - midi.connection - DEBUG - Sending query for parameter 51: SysEx: F0 04 17 3E 33 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:19,929 - midi.sysex - DEBUG - SysEx parse: param_id=51, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:19,929 - midi.sysex - DEBUG - Received response: param 51 = 0
+2025-09-29 04:20:19,929 - midi.connection - DEBUG - Parameter update: 51 = 0
+2025-09-29 04:20:19,929 - midi.connection - DEBUG - Query successful: param 51 = 0
+2025-09-29 04:20:20,330 - midi.connection - DEBUG - Sending query for parameter 52: SysEx: F0 04 17 3E 34 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:20,367 - midi.sysex - DEBUG - SysEx parse: param_id=52, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:20,381 - midi.sysex - DEBUG - Received response: param 52 = 0
+2025-09-29 04:20:20,389 - midi.connection - DEBUG - Parameter update: 52 = 0
+2025-09-29 04:20:20,394 - midi.connection - DEBUG - Query successful: param 52 = 0
+2025-09-29 04:20:20,796 - midi.connection - DEBUG - Sending query for parameter 53: SysEx: F0 04 17 3E 35 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:20,833 - midi.sysex - DEBUG - SysEx parse: param_id=53, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:20,833 - midi.sysex - DEBUG - Received response: param 53 = 0
+2025-09-29 04:20:20,833 - midi.connection - DEBUG - Parameter update: 53 = 0
+2025-09-29 04:20:20,833 - midi.connection - DEBUG - Query successful: param 53 = 0
+2025-09-29 04:20:21,234 - midi.connection - DEBUG - Sending query for parameter 54: SysEx: F0 04 17 3E 36 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:21,284 - midi.sysex - DEBUG - SysEx parse: param_id=54, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:21,290 - midi.sysex - DEBUG - Received response: param 54 = 0
+2025-09-29 04:20:21,297 - midi.connection - DEBUG - Parameter update: 54 = 0
+2025-09-29 04:20:21,297 - midi.connection - DEBUG - Query successful: param 54 = 0
+2025-09-29 04:20:21,702 - midi.connection - DEBUG - Sending query for parameter 55: SysEx: F0 04 17 3E 37 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:21,743 - midi.sysex - DEBUG - SysEx parse: param_id=55, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:21,756 - midi.sysex - DEBUG - Received response: param 55 = 0
+2025-09-29 04:20:21,763 - midi.connection - DEBUG - Parameter update: 55 = 0
+2025-09-29 04:20:21,763 - midi.connection - DEBUG - Query successful: param 55 = 0
+2025-09-29 04:20:22,189 - midi.connection - DEBUG - Sending query for parameter 56: SysEx: F0 04 17 3E 38 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:22,243 - midi.sysex - DEBUG - SysEx parse: param_id=56, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:22,257 - midi.sysex - DEBUG - Received response: param 56 = 0
+2025-09-29 04:20:22,264 - midi.connection - DEBUG - Parameter update: 56 = 0
+2025-09-29 04:20:22,264 - midi.connection - DEBUG - Query successful: param 56 = 0
+2025-09-29 04:20:22,693 - midi.connection - DEBUG - Sending query for parameter 57: SysEx: F0 04 17 3E 39 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:22,742 - midi.sysex - DEBUG - SysEx parse: param_id=57, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:22,748 - midi.sysex - DEBUG - Received response: param 57 = 1
+2025-09-29 04:20:22,754 - midi.connection - DEBUG - Parameter update: 57 = 1
+2025-09-29 04:20:22,754 - midi.connection - DEBUG - Query successful: param 57 = 1
+2025-09-29 04:20:23,182 - midi.connection - DEBUG - Sending query for parameter 58: SysEx: F0 04 17 3E 3A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:23,251 - midi.sysex - DEBUG - SysEx parse: param_id=58, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:23,264 - midi.sysex - DEBUG - Received response: param 58 = 0
+2025-09-29 04:20:23,271 - midi.connection - DEBUG - Parameter update: 58 = 0
+2025-09-29 04:20:23,278 - midi.connection - DEBUG - Query successful: param 58 = 0
+2025-09-29 04:20:23,710 - midi.connection - DEBUG - Sending query for parameter 70: SysEx: F0 04 17 3E 46 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:23,751 - midi.sysex - DEBUG - SysEx parse: param_id=70, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:23,764 - midi.sysex - DEBUG - Received response: param 70 = 0
+2025-09-29 04:20:23,778 - midi.connection - DEBUG - Parameter update: 70 = 0
+2025-09-29 04:20:23,785 - midi.connection - DEBUG - Query successful: param 70 = 0
+2025-09-29 04:20:24,212 - midi.connection - DEBUG - Sending query for parameter 71: SysEx: F0 04 17 3E 47 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:24,265 - midi.sysex - DEBUG - SysEx parse: param_id=71, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:24,272 - midi.sysex - DEBUG - Received response: param 71 = 0
+2025-09-29 04:20:24,279 - midi.connection - DEBUG - Parameter update: 71 = 0
+2025-09-29 04:20:24,279 - midi.connection - DEBUG - Query successful: param 71 = 0
+2025-09-29 04:20:24,717 - midi.connection - DEBUG - Sending query for parameter 20: SysEx: F0 04 17 3E 14 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:24,765 - midi.sysex - DEBUG - SysEx parse: param_id=20, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:24,771 - midi.sysex - DEBUG - Received response: param 20 = 1
+2025-09-29 04:20:24,779 - midi.connection - DEBUG - Parameter update: 20 = 1
+2025-09-29 04:20:24,787 - midi.connection - DEBUG - Query successful: param 20 = 1
+2025-09-29 04:20:25,204 - midi.connection - DEBUG - Sending query for parameter 21: SysEx: F0 04 17 3E 15 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:25,266 - midi.sysex - DEBUG - SysEx parse: param_id=21, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:25,279 - midi.sysex - DEBUG - Received response: param 21 = 1
+2025-09-29 04:20:25,286 - midi.connection - DEBUG - Parameter update: 21 = 1
+2025-09-29 04:20:25,286 - midi.connection - DEBUG - Query successful: param 21 = 1
+2025-09-29 04:20:25,708 - midi.connection - DEBUG - Sending query for parameter 22: SysEx: F0 04 17 3E 16 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:25,772 - midi.sysex - DEBUG - SysEx parse: param_id=22, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:25,786 - midi.sysex - DEBUG - Received response: param 22 = 1
+2025-09-29 04:20:25,793 - midi.connection - DEBUG - Parameter update: 22 = 1
+2025-09-29 04:20:25,802 - midi.connection - DEBUG - Query successful: param 22 = 1
+2025-09-29 04:20:26,231 - midi.connection - DEBUG - Sending query for parameter 23: SysEx: F0 04 17 3E 17 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:26,267 - midi.sysex - DEBUG - SysEx parse: param_id=23, value=8192, is_response=True, unit_id=1
+2025-09-29 04:20:26,273 - midi.sysex - DEBUG - Received response: param 23 = 8192
+2025-09-29 04:20:26,281 - midi.connection - DEBUG - Parameter update: 23 = 8192
+2025-09-29 04:20:26,281 - midi.connection - DEBUG - Query successful: param 23 = 8192
+2025-09-29 04:20:26,721 - midi.connection - DEBUG - Sending query for parameter 24: SysEx: F0 04 17 3E 18 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:26,766 - midi.sysex - DEBUG - SysEx parse: param_id=24, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:26,772 - midi.sysex - DEBUG - Received response: param 24 = 1
+2025-09-29 04:20:26,779 - midi.connection - DEBUG - Parameter update: 24 = 1
+2025-09-29 04:20:26,786 - midi.connection - DEBUG - Query successful: param 24 = 1
+2025-09-29 04:20:27,217 - midi.connection - DEBUG - Sending query for parameter 25: SysEx: F0 04 17 3E 19 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:27,286 - midi.sysex - DEBUG - SysEx parse: param_id=25, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:27,299 - midi.sysex - DEBUG - Received response: param 25 = 0
+2025-09-29 04:20:27,305 - midi.connection - DEBUG - Parameter update: 25 = 0
+2025-09-29 04:20:27,313 - midi.connection - DEBUG - Query successful: param 25 = 0
+2025-09-29 04:20:27,749 - midi.connection - DEBUG - Sending query for parameter 26: SysEx: F0 04 17 3E 1A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:27,809 - midi.sysex - DEBUG - SysEx parse: param_id=26, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:27,816 - midi.sysex - DEBUG - Received response: param 26 = 1
+2025-09-29 04:20:27,823 - midi.connection - DEBUG - Parameter update: 26 = 1
+2025-09-29 04:20:27,823 - midi.connection - DEBUG - Query successful: param 26 = 1
+2025-09-29 04:20:28,253 - midi.connection - DEBUG - Sending query for parameter 27: SysEx: F0 04 17 3E 1B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:28,320 - midi.sysex - DEBUG - SysEx parse: param_id=27, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:28,328 - midi.sysex - DEBUG - Received response: param 27 = 0
+2025-09-29 04:20:28,336 - midi.connection - DEBUG - Parameter update: 27 = 0
+2025-09-29 04:20:28,336 - midi.connection - DEBUG - Query successful: param 27 = 0
+2025-09-29 04:20:28,750 - midi.connection - DEBUG - Sending query for parameter 28: SysEx: F0 04 17 3E 1C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:28,813 - midi.sysex - DEBUG - SysEx parse: param_id=28, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:28,820 - midi.sysex - DEBUG - Received response: param 28 = 1
+2025-09-29 04:20:28,828 - midi.connection - DEBUG - Parameter update: 28 = 1
+2025-09-29 04:20:28,836 - midi.connection - DEBUG - Query successful: param 28 = 1
+2025-09-29 04:20:29,276 - midi.connection - DEBUG - Sending query for parameter 29: SysEx: F0 04 17 3E 1D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:29,310 - midi.sysex - DEBUG - SysEx parse: param_id=29, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:29,316 - midi.sysex - DEBUG - Received response: param 29 = 0
+2025-09-29 04:20:29,323 - midi.connection - DEBUG - Parameter update: 29 = 0
+2025-09-29 04:20:29,323 - midi.connection - DEBUG - Query successful: param 29 = 0
+2025-09-29 04:20:29,754 - midi.connection - DEBUG - Sending query for parameter 72: SysEx: F0 04 17 3E 48 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:29,805 - midi.sysex - DEBUG - SysEx parse: param_id=72, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:29,819 - midi.sysex - DEBUG - Received response: param 72 = 1
+2025-09-29 04:20:29,825 - midi.connection - DEBUG - Parameter update: 72 = 1
+2025-09-29 04:20:29,825 - midi.connection - DEBUG - Query successful: param 72 = 1
+2025-09-29 04:20:30,254 - midi.connection - DEBUG - Sending query for parameter 73: SysEx: F0 04 17 3E 49 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:30,311 - midi.sysex - DEBUG - SysEx parse: param_id=73, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:30,318 - midi.sysex - DEBUG - Received response: param 73 = 0
+2025-09-29 04:20:30,324 - midi.connection - DEBUG - Parameter update: 73 = 0
+2025-09-29 04:20:30,324 - midi.connection - DEBUG - Query successful: param 73 = 0
+2025-09-29 04:20:30,754 - midi.connection - DEBUG - Sending query for parameter 74: SysEx: F0 04 17 3E 4A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:30,813 - midi.sysex - DEBUG - SysEx parse: param_id=74, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:30,813 - midi.sysex - DEBUG - Received response: param 74 = 0
+2025-09-29 04:20:30,813 - midi.connection - DEBUG - Parameter update: 74 = 0
+2025-09-29 04:20:30,813 - midi.connection - DEBUG - Query successful: param 74 = 0
+2025-09-29 04:20:31,227 - midi.connection - DEBUG - Sending query for parameter 4: SysEx: F0 04 17 3E 04 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:31,266 - midi.sysex - DEBUG - SysEx parse: param_id=4, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:31,273 - midi.sysex - DEBUG - Received response: param 4 = 0
+2025-09-29 04:20:31,280 - midi.connection - DEBUG - Parameter update: 4 = 0
+2025-09-29 04:20:31,280 - midi.connection - DEBUG - Query successful: param 4 = 0
+2025-09-29 04:20:31,707 - midi.connection - DEBUG - Sending query for parameter 5: SysEx: F0 04 17 3E 05 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:31,790 - midi.sysex - DEBUG - SysEx parse: param_id=5, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:31,790 - midi.sysex - DEBUG - Received response: param 5 = 1
+2025-09-29 04:20:31,790 - midi.connection - DEBUG - Parameter update: 5 = 1
+2025-09-29 04:20:31,790 - midi.connection - DEBUG - Query successful: param 5 = 1
+2025-09-29 04:20:32,199 - midi.connection - DEBUG - Sending query for parameter 6: SysEx: F0 04 17 3E 06 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:32,246 - midi.sysex - DEBUG - SysEx parse: param_id=6, value=3, is_response=True, unit_id=1
+2025-09-29 04:20:32,253 - midi.sysex - DEBUG - Received response: param 6 = 3
+2025-09-29 04:20:32,259 - midi.connection - DEBUG - Parameter update: 6 = 3
+2025-09-29 04:20:32,259 - midi.connection - DEBUG - Query successful: param 6 = 3
+2025-09-29 04:20:32,691 - midi.connection - DEBUG - Sending query for parameter 7: SysEx: F0 04 17 3E 07 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:32,726 - midi.sysex - DEBUG - SysEx parse: param_id=7, value=3, is_response=True, unit_id=1
+2025-09-29 04:20:32,738 - midi.sysex - DEBUG - Received response: param 7 = 3
+2025-09-29 04:20:32,745 - midi.connection - DEBUG - Parameter update: 7 = 3
+2025-09-29 04:20:32,745 - midi.connection - DEBUG - Query successful: param 7 = 3
+2025-09-29 04:20:33,176 - midi.connection - DEBUG - Sending query for parameter 8: SysEx: F0 04 17 3E 08 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:33,237 - midi.sysex - DEBUG - SysEx parse: param_id=8, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:33,243 - midi.sysex - DEBUG - Received response: param 8 = 0
+2025-09-29 04:20:33,250 - midi.connection - DEBUG - Parameter update: 8 = 0
+2025-09-29 04:20:33,250 - midi.connection - DEBUG - Query successful: param 8 = 0
+2025-09-29 04:20:33,671 - midi.connection - DEBUG - Sending query for parameter 9: SysEx: F0 04 17 3E 09 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:33,730 - midi.sysex - DEBUG - SysEx parse: param_id=9, value=2, is_response=True, unit_id=1
+2025-09-29 04:20:33,735 - midi.sysex - DEBUG - Received response: param 9 = 2
+2025-09-29 04:20:33,735 - midi.connection - DEBUG - Parameter update: 9 = 2
+2025-09-29 04:20:33,735 - midi.connection - DEBUG - Query successful: param 9 = 2
+2025-09-29 04:20:34,140 - midi.connection - DEBUG - Sending query for parameter 10: SysEx: F0 04 17 3E 0A 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:34,201 - midi.sysex - DEBUG - SysEx parse: param_id=10, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:34,215 - midi.sysex - DEBUG - Received response: param 10 = 0
+2025-09-29 04:20:34,222 - midi.connection - DEBUG - Parameter update: 10 = 0
+2025-09-29 04:20:34,222 - midi.connection - DEBUG - Query successful: param 10 = 0
+2025-09-29 04:20:34,655 - midi.connection - DEBUG - Sending query for parameter 11: SysEx: F0 04 17 3E 0B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:34,702 - midi.sysex - DEBUG - SysEx parse: param_id=11, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:34,717 - midi.sysex - DEBUG - Received response: param 11 = 0
+2025-09-29 04:20:34,723 - midi.connection - DEBUG - Parameter update: 11 = 0
+2025-09-29 04:20:34,723 - midi.connection - DEBUG - Query successful: param 11 = 0
+2025-09-29 04:20:35,132 - midi.connection - DEBUG - Sending query for parameter 12: SysEx: F0 04 17 3E 0C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:35,198 - midi.sysex - DEBUG - SysEx parse: param_id=12, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:35,213 - midi.sysex - DEBUG - Received response: param 12 = 0
+2025-09-29 04:20:35,219 - midi.connection - DEBUG - Parameter update: 12 = 0
+2025-09-29 04:20:35,219 - midi.connection - DEBUG - Query successful: param 12 = 0
+2025-09-29 04:20:35,655 - midi.connection - DEBUG - Sending query for parameter 13: SysEx: F0 04 17 3E 0D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:35,712 - midi.sysex - DEBUG - SysEx parse: param_id=13, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:35,726 - midi.sysex - DEBUG - Received response: param 13 = 1
+2025-09-29 04:20:35,734 - midi.connection - DEBUG - Parameter update: 13 = 1
+2025-09-29 04:20:35,734 - midi.connection - DEBUG - Query successful: param 13 = 1
+2025-09-29 04:20:36,180 - midi.connection - DEBUG - Sending query for parameter 14: SysEx: F0 04 17 3E 0E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:36,229 - midi.sysex - DEBUG - SysEx parse: param_id=14, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:36,229 - midi.sysex - DEBUG - Received response: param 14 = 1
+2025-09-29 04:20:36,229 - midi.connection - DEBUG - Parameter update: 14 = 1
+2025-09-29 04:20:36,229 - midi.connection - DEBUG - Query successful: param 14 = 1
+2025-09-29 04:20:36,653 - midi.connection - DEBUG - Sending query for parameter 15: SysEx: F0 04 17 3E 0F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:36,700 - midi.sysex - DEBUG - SysEx parse: param_id=15, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:36,707 - midi.sysex - DEBUG - Received response: param 15 = 0
+2025-09-29 04:20:36,715 - midi.connection - DEBUG - Parameter update: 15 = 0
+2025-09-29 04:20:36,715 - midi.connection - DEBUG - Query successful: param 15 = 0
+2025-09-29 04:20:37,137 - midi.connection - DEBUG - Sending query for parameter 16: SysEx: F0 04 17 3E 10 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:37,185 - midi.sysex - DEBUG - SysEx parse: param_id=16, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:37,200 - midi.sysex - DEBUG - Received response: param 16 = 1
+2025-09-29 04:20:37,200 - midi.connection - DEBUG - Parameter update: 16 = 1
+2025-09-29 04:20:37,200 - midi.connection - DEBUG - Query successful: param 16 = 1
+2025-09-29 04:20:37,607 - midi.connection - DEBUG - Sending query for parameter 17: SysEx: F0 04 17 3E 11 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:37,655 - midi.sysex - DEBUG - SysEx parse: param_id=17, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:37,661 - midi.sysex - DEBUG - Received response: param 17 = 0
+2025-09-29 04:20:37,668 - midi.connection - DEBUG - Parameter update: 17 = 0
+2025-09-29 04:20:37,668 - midi.connection - DEBUG - Query successful: param 17 = 0
+2025-09-29 04:20:38,120 - midi.connection - DEBUG - Sending query for parameter 18: SysEx: F0 04 17 3E 12 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:38,186 - midi.sysex - DEBUG - SysEx parse: param_id=18, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:38,194 - midi.sysex - DEBUG - Received response: param 18 = 0
+2025-09-29 04:20:38,212 - midi.connection - DEBUG - Parameter update: 18 = 0
+2025-09-29 04:20:38,212 - midi.connection - DEBUG - Query successful: param 18 = 0
+2025-09-29 04:20:38,644 - midi.connection - DEBUG - Sending query for parameter 19: SysEx: F0 04 17 3E 13 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:38,696 - midi.sysex - DEBUG - SysEx parse: param_id=19, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:38,709 - midi.sysex - DEBUG - Received response: param 19 = 1
+2025-09-29 04:20:38,716 - midi.connection - DEBUG - Parameter update: 19 = 1
+2025-09-29 04:20:38,716 - midi.connection - DEBUG - Query successful: param 19 = 1
+2025-09-29 04:20:39,136 - midi.connection - DEBUG - Sending query for parameter 30: SysEx: F0 04 17 3E 1E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:39,191 - midi.sysex - DEBUG - SysEx parse: param_id=30, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:39,197 - midi.sysex - DEBUG - Received response: param 30 = 0
+2025-09-29 04:20:39,212 - midi.connection - DEBUG - Parameter update: 30 = 0
+2025-09-29 04:20:39,212 - midi.connection - DEBUG - Query successful: param 30 = 0
+2025-09-29 04:20:39,652 - midi.connection - DEBUG - Sending query for parameter 31: SysEx: F0 04 17 3E 1F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:39,717 - midi.sysex - DEBUG - SysEx parse: param_id=31, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:39,724 - midi.sysex - DEBUG - Received response: param 31 = 0
+2025-09-29 04:20:39,731 - midi.connection - DEBUG - Parameter update: 31 = 0
+2025-09-29 04:20:39,731 - midi.connection - DEBUG - Query successful: param 31 = 0
+2025-09-29 04:20:40,159 - midi.connection - DEBUG - Sending query for parameter 32: SysEx: F0 04 17 3E 20 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:40,221 - midi.sysex - DEBUG - SysEx parse: param_id=32, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:40,230 - midi.sysex - DEBUG - Received response: param 32 = 1
+2025-09-29 04:20:40,247 - midi.connection - DEBUG - Parameter update: 32 = 1
+2025-09-29 04:20:40,247 - midi.connection - DEBUG - Query successful: param 32 = 1
+2025-09-29 04:20:40,684 - midi.connection - DEBUG - Sending query for parameter 35: SysEx: F0 04 17 3E 23 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:40,734 - midi.sysex - DEBUG - SysEx parse: param_id=35, value=12, is_response=True, unit_id=1
+2025-09-29 04:20:40,743 - midi.sysex - DEBUG - Received response: param 35 = 12
+2025-09-29 04:20:40,749 - midi.connection - DEBUG - Parameter update: 35 = 12
+2025-09-29 04:20:40,749 - midi.connection - DEBUG - Query successful: param 35 = 12
+2025-09-29 04:20:41,157 - midi.connection - DEBUG - Sending query for parameter 36: SysEx: F0 04 17 3E 24 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:41,207 - midi.sysex - DEBUG - SysEx parse: param_id=36, value=12, is_response=True, unit_id=1
+2025-09-29 04:20:41,213 - midi.sysex - DEBUG - Received response: param 36 = 12
+2025-09-29 04:20:41,220 - midi.connection - DEBUG - Parameter update: 36 = 12
+2025-09-29 04:20:41,220 - midi.connection - DEBUG - Query successful: param 36 = 12
+2025-09-29 04:20:41,672 - midi.connection - DEBUG - Sending query for parameter 67: SysEx: F0 04 17 3E 43 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:41,738 - midi.sysex - DEBUG - SysEx parse: param_id=67, value=2, is_response=True, unit_id=1
+2025-09-29 04:20:41,744 - midi.sysex - DEBUG - Received response: param 67 = 2
+2025-09-29 04:20:41,744 - midi.connection - DEBUG - Parameter update: 67 = 2
+2025-09-29 04:20:41,744 - midi.connection - DEBUG - Query successful: param 67 = 2
+2025-09-29 04:20:42,154 - midi.connection - DEBUG - Sending query for parameter 68: SysEx: F0 04 17 3E 44 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:42,224 - midi.sysex - DEBUG - SysEx parse: param_id=68, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:42,237 - midi.sysex - DEBUG - Received response: param 68 = 0
+2025-09-29 04:20:42,243 - midi.connection - DEBUG - Parameter update: 68 = 0
+2025-09-29 04:20:42,250 - midi.connection - DEBUG - Query successful: param 68 = 0
+2025-09-29 04:20:42,676 - midi.connection - DEBUG - Sending query for parameter 69: SysEx: F0 04 17 3E 45 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:42,748 - midi.sysex - DEBUG - SysEx parse: param_id=69, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:42,757 - midi.sysex - DEBUG - Received response: param 69 = 0
+2025-09-29 04:20:42,767 - midi.connection - DEBUG - Parameter update: 69 = 0
+2025-09-29 04:20:42,776 - midi.connection - DEBUG - Query successful: param 69 = 0
+2025-09-29 04:20:43,205 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:46,220 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 04:20:46,237 - midi.connection - WARNING - Query attempt 1 failed for parameter 75
+2025-09-29 04:20:46,683 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:49,722 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 04:20:49,730 - midi.connection - WARNING - Query attempt 2 failed for parameter 75
+2025-09-29 04:20:50,147 - midi.connection - DEBUG - Sending query for parameter 75: SysEx: F0 04 17 3E 4B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:53,166 - midi.connection - WARNING - Timeout querying parameter 75
+2025-09-29 04:20:53,181 - midi.connection - WARNING - Query attempt 3 failed for parameter 75
+2025-09-29 04:20:53,198 - midi.connection - ERROR - Failed to query parameter 75 after 3 attempts
+2025-09-29 04:20:53,615 - midi.connection - DEBUG - Sending query for parameter 59: SysEx: F0 04 17 3E 3B 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:53,688 - midi.sysex - DEBUG - SysEx parse: param_id=59, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:53,701 - midi.sysex - DEBUG - Received response: param 59 = 0
+2025-09-29 04:20:53,709 - midi.connection - DEBUG - Parameter update: 59 = 0
+2025-09-29 04:20:53,709 - midi.connection - DEBUG - Query successful: param 59 = 0
+2025-09-29 04:20:54,152 - midi.connection - DEBUG - Sending query for parameter 60: SysEx: F0 04 17 3E 3C 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:54,206 - midi.sysex - DEBUG - SysEx parse: param_id=60, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:54,213 - midi.sysex - DEBUG - Received response: param 60 = 0
+2025-09-29 04:20:54,221 - midi.connection - DEBUG - Parameter update: 60 = 0
+2025-09-29 04:20:54,221 - midi.connection - DEBUG - Query successful: param 60 = 0
+2025-09-29 04:20:54,642 - midi.connection - DEBUG - Sending query for parameter 61: SysEx: F0 04 17 3E 3D 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:54,703 - midi.sysex - DEBUG - SysEx parse: param_id=61, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:54,703 - midi.sysex - DEBUG - Received response: param 61 = 0
+2025-09-29 04:20:54,703 - midi.connection - DEBUG - Parameter update: 61 = 0
+2025-09-29 04:20:54,703 - midi.connection - DEBUG - Query successful: param 61 = 0
+2025-09-29 04:20:55,110 - midi.connection - DEBUG - Sending query for parameter 62: SysEx: F0 04 17 3E 3E 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:55,164 - midi.sysex - DEBUG - SysEx parse: param_id=62, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:55,172 - midi.sysex - DEBUG - Received response: param 62 = 0
+2025-09-29 04:20:55,180 - midi.connection - DEBUG - Parameter update: 62 = 0
+2025-09-29 04:20:55,180 - midi.connection - DEBUG - Query successful: param 62 = 0
+2025-09-29 04:20:55,617 - midi.connection - DEBUG - Sending query for parameter 63: SysEx: F0 04 17 3E 3F 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:55,665 - midi.sysex - DEBUG - SysEx parse: param_id=63, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:55,672 - midi.sysex - DEBUG - Received response: param 63 = 0
+2025-09-29 04:20:55,679 - midi.connection - DEBUG - Parameter update: 63 = 0
+2025-09-29 04:20:55,686 - midi.connection - DEBUG - Query successful: param 63 = 0
+2025-09-29 04:20:56,104 - midi.connection - DEBUG - Sending query for parameter 64: SysEx: F0 04 17 3E 40 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:56,164 - midi.sysex - DEBUG - SysEx parse: param_id=64, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:56,173 - midi.sysex - DEBUG - Received response: param 64 = 0
+2025-09-29 04:20:56,182 - midi.connection - DEBUG - Parameter update: 64 = 0
+2025-09-29 04:20:56,182 - midi.connection - DEBUG - Query successful: param 64 = 0
+2025-09-29 04:20:56,607 - midi.connection - DEBUG - Sending query for parameter 65: SysEx: F0 04 17 3E 41 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:56,669 - midi.sysex - DEBUG - SysEx parse: param_id=65, value=0, is_response=True, unit_id=1
+2025-09-29 04:20:56,677 - midi.sysex - DEBUG - Received response: param 65 = 0
+2025-09-29 04:20:56,685 - midi.connection - DEBUG - Parameter update: 65 = 0
+2025-09-29 04:20:56,685 - midi.connection - DEBUG - Query successful: param 65 = 0
+2025-09-29 04:20:57,124 - midi.connection - DEBUG - Sending query for parameter 66: SysEx: F0 04 17 3E 42 00 00 00 00 00 00 00 00 00 00 00 F7
+2025-09-29 04:20:57,193 - midi.sysex - DEBUG - SysEx parse: param_id=66, value=1, is_response=True, unit_id=1
+2025-09-29 04:20:57,200 - midi.sysex - DEBUG - Received response: param 66 = 1
+2025-09-29 04:20:57,207 - midi.connection - DEBUG - Parameter update: 66 = 1
+2025-09-29 04:20:57,207 - midi.connection - DEBUG - Query successful: param 66 = 1
+2025-09-29 04:20:57,213 - ui.main_window - DEBUG - Parameter 0 updated to 0
+2025-09-29 04:20:57,214 - ui.main_window - DEBUG - Parameter 1 updated to 0
+2025-09-29 04:20:57,214 - ui.main_window - DEBUG - Parameter 2 updated to 0
+2025-09-29 04:20:57,214 - ui.main_window - DEBUG - Parameter 3 updated to 2
+2025-09-29 04:20:57,214 - ui.main_window - DEBUG - Parameter 37 updated to 2
+2025-09-29 04:20:57,214 - ui.main_window - DEBUG - Parameter 38 updated to 2
+2025-09-29 04:20:57,214 - ui.main_window - DEBUG - Parameter 39 updated to 1
+2025-09-29 04:20:57,214 - ui.main_window - DEBUG - Parameter 40 updated to 0
+2025-09-29 04:20:57,214 - ui.main_window - DEBUG - Parameter 41 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 42 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 43 updated to 7
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 44 updated to 7
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 45 updated to 7
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 46 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 47 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 48 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 49 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 50 updated to 1
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 51 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 52 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 53 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 54 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 55 updated to 0
+2025-09-29 04:20:57,215 - ui.main_window - DEBUG - Parameter 56 updated to 0
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 57 updated to 1
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 58 updated to 0
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 70 updated to 0
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 71 updated to 0
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 20 updated to 1
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 21 updated to 1
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 22 updated to 1
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 23 updated to 8192
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 24 updated to 1
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 25 updated to 0
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 26 updated to 1
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 27 updated to 0
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 28 updated to 1
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 29 updated to 0
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 72 updated to 1
+2025-09-29 04:20:57,216 - ui.main_window - DEBUG - Parameter 73 updated to 0
+2025-09-29 04:20:57,217 - ui.main_window - DEBUG - Parameter 74 updated to 0
+2025-09-29 04:20:57,217 - ui.main_window - DEBUG - Parameter 4 updated to 0
+2025-09-29 04:20:57,217 - ui.main_window - DEBUG - Parameter 5 updated to 1
+2025-09-29 04:20:57,217 - ui.main_window - DEBUG - Parameter 6 updated to 3
+2025-09-29 04:20:57,217 - ui.main_window - DEBUG - Parameter 7 updated to 3
+2025-09-29 04:20:57,217 - ui.main_window - DEBUG - Parameter 8 updated to 0
+2025-09-29 04:20:57,217 - ui.main_window - DEBUG - Parameter 9 updated to 2
+2025-09-29 04:20:57,217 - ui.main_window - DEBUG - Parameter 10 updated to 0
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 11 updated to 0
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 12 updated to 0
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 13 updated to 1
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 14 updated to 1
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 15 updated to 0
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 16 updated to 1
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 17 updated to 0
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 18 updated to 0
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 19 updated to 1
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 30 updated to 0
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 31 updated to 0
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 32 updated to 1
+2025-09-29 04:20:57,218 - ui.main_window - DEBUG - Parameter 35 updated to 12
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 36 updated to 12
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 67 updated to 2
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 68 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 69 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 59 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 60 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 61 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 62 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 63 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 64 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 65 updated to 0
+2025-09-29 04:20:57,219 - ui.main_window - DEBUG - Parameter 66 updated to 1
+2025-09-29 04:22:25,209 - ui.main_window - DEBUG - Sent parameter 50 = 0

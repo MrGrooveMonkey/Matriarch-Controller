@@ -123,6 +123,7 @@ def main():
             from ui.main_window import MatriarchMainWindow
             
             main_window = MatriarchMainWindow()
+            #main_window.midi_manager = midi_manager
             main_window.show()
             
             logger.info("Main window created and shown")

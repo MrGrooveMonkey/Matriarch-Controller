@@ -839,10 +839,13 @@ class MatriarchMainWindow(QMainWindow):
             support_browser = QTextBrowser()
             support_browser.setOpenExternalLinks(True)
         
-            # Get current MIDI port settings
-            settings = QSettings('MoogMusic', 'MatriarchController')
-            midi_input = settings.value('midi_input_port', 'Not configured')
-            midi_output = settings.value('midi_output_port', 'Not configured')
+            # Get current MIDI port settings from the manager
+            if self.midi_manager:
+                midi_input = self.midi_manager.input_port_name if self.midi_manager.input_port_name else 'Not configured'
+                midi_output = self.midi_manager.output_port_name if self.midi_manager.output_port_name else 'Not configured'
+            else:
+                midi_input = 'Not configured'
+                midi_output = 'Not configured'
         
             # Build system information HTML
             support_html = f"""
