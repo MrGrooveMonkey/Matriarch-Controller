@@ -69,7 +69,18 @@ class ParameterWidget(QWidget):
     def update_enabled_state(self):
         """Update the enabled state of the widget"""
         self.setEnabled(self.is_enabled_by_dependency)
-
+    
+    def get_display_name(self) -> str:
+        """Get the display name for the parameter, adding (CC) suffix for CC-only parameters"""
+        display_name = self.parameter.name
+    
+        # Add (CC) suffix for CC-only parameters (101-205) and Program Change parameters (300-311)
+        if (101 <= self.parameter.param_id <= 205 or 300 <= self.parameter.param_id <= 311):
+            if not display_name.endswith("(CC)"):
+                display_name = f"{display_name} (CC)"
+    
+        return display_name
+    
     def setToolTip(self, tooltip_text: str):
         #if hasattr(self, 'parameter') and self.parameter.param_id == 23:
             #print(f"setToolTip called for Swing: {tooltip_text}")
@@ -97,7 +108,7 @@ class ToggleParameterWidget(ParameterWidget):
         layout.setContentsMargins(5, 2, 5, 2)
         
         # Parameter name
-        self.name_label = QLabel(self.parameter.name)
+        self.name_label = QLabel(self.get_display_name())
         self.name_label.setMinimumWidth(200)
         layout.addWidget(self.name_label)
         
@@ -161,7 +172,7 @@ class ButtonGroupParameterWidget(ParameterWidget):
         layout.setContentsMargins(5, 2, 5, 2)
         
         # Parameter name
-        self.name_label = QLabel(self.parameter.name)
+        self.name_label = QLabel(self.get_display_name())
         self.name_label.setMinimumWidth(200)
         layout.addWidget(self.name_label)
         
@@ -270,7 +281,7 @@ class ChoiceParameterWidget(ParameterWidget):
         layout.setContentsMargins(5, 2, 5, 2)
         
         # Parameter name
-        self.name_label = QLabel(self.parameter.name)
+        self.name_label = QLabel(self.get_display_name())
         self.name_label.setMinimumWidth(200)
         layout.addWidget(self.name_label)
         
@@ -348,7 +359,7 @@ class RangeParameterWidget(ParameterWidget):
         # Top row: name and current value
         top_layout = QHBoxLayout()
         
-        self.name_label = QLabel(self.parameter.name)
+        self.name_label = QLabel(self.get_display_name())
         self.name_label.setMinimumWidth(200)
         top_layout.addWidget(self.name_label)
         
@@ -485,7 +496,7 @@ class MIDIChannelParameterWidget(ParameterWidget):
         layout.setContentsMargins(5, 2, 5, 2)
         
         # Parameter name
-        self.name_label = QLabel(self.parameter.name)
+        self.name_label = QLabel(self.get_display_name())
         self.name_label.setMinimumWidth(200)
         layout.addWidget(self.name_label)
         
@@ -560,7 +571,7 @@ class SwingParameterWidget(ParameterWidget):
         # Top row: name and current value
         top_layout = QHBoxLayout()
         
-        self.name_label = QLabel(self.parameter.name)
+        self.name_label = QLabel(self.get_display_name())
         self.name_label.setMinimumWidth(200)
         top_layout.addWidget(self.name_label)
         

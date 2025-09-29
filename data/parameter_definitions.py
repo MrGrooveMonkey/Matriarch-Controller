@@ -37,7 +37,8 @@ class Parameter:
                  choices: Optional[Dict[int, str]] = None,
                  human_readable_func: Optional[callable] = None,
                  dependencies: Optional[List[str]] = None,
-                 tooltip: Optional[str] = None):
+                 tooltip: Optional[str] = None,
+                 cc: Optional[Dict[str, Any]] = None):
         
         self.param_id = param_id
         self.name = name
@@ -54,6 +55,7 @@ class Parameter:
         self.human_readable_func = human_readable_func
         self.dependencies = dependencies or []
         self.tooltip = tooltip or description
+        self.cc = cc
         
     def validate_value(self, value: int) -> int:
         """Validate and clamp value to acceptable range"""
@@ -221,7 +223,8 @@ PARAMETERS = {
         choices={0: "Linear Constant Rate", 1: "Linear Constant Time", 2: "Exponential"},
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="How glide transitions between notes"
+        tooltip="How glide transitions between notes",
+        cc={'number': 85, 'type': '7bit'} 
     ),
     41: Parameter(
         param_id=41,
@@ -230,7 +233,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=1,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Glide only while keys are held"
+        tooltip="Glide only while keys are held",
+        cc={'number': 86, 'type': '7bit'}
     ),
     42: Parameter(
         param_id=42,
@@ -239,7 +243,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=1,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Glide only between overlapping notes"
+        tooltip="Glide only between overlapping notes",
+         cc={'number': 87, 'type': '7bit'} 
     ),
     43: Parameter(
         param_id=43,
@@ -281,7 +286,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Enable hard sync for oscillators"
+        tooltip="Enable hard sync for oscillators",
+        cc={'number': 80, 'type': '7bit'}
     ),
     47: Parameter(
         param_id=47,
@@ -290,7 +296,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Hard sync Oscillator 2 to Oscillator 1"
+        tooltip="Hard sync Oscillator 2 to Oscillator 1",
+        cc={'number': 81, 'type': '7bit'}
     ),
     48: Parameter(
         param_id=48,
@@ -299,7 +306,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Hard sync Oscillator 3 to Oscillator 2"
+        tooltip="Hard sync Oscillator 3 to Oscillator 2",
+        cc={'number': 82, 'type': '7bit'}
     ),
     49: Parameter(
         param_id=49,
@@ -308,7 +316,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Hard sync Oscillator 4 to Oscillator 3"
+        tooltip="Hard sync Oscillator 4 to Oscillator 3",
+        cc={'number': 83, 'type': '7bit'} 
     ),
     50: Parameter(
         param_id=50,
@@ -317,7 +326,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Enable ping pong delay effect"
+        tooltip="Enable ping pong delay effect",
+        cc={'number': 88, 'type': '7bit'}
     ),
     51: Parameter(
         param_id=51,
@@ -326,7 +336,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Sync delay to tempo"
+        tooltip="Sync delay to tempo",
+        cc={'number': 89, 'type': '7bit'}
     ),
     52: Parameter(
         param_id=52,
@@ -364,7 +375,8 @@ PARAMETERS = {
         choices={0: "Mono", 1: "Duo", 2: "Quad"},
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Number of voices available"
+        tooltip="Number of voices available",
+        cc={'number': 94, 'type': '7bit'}
     ),
     56: Parameter(
         param_id=56,
@@ -382,7 +394,8 @@ PARAMETERS = {
         param_type=ParameterType.TOGGLE,
         default_value=0,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Retrigger envelopes on each new note"
+        tooltip="Retrigger envelopes on each new note",
+        cc={'number': 95, 'type': '7bit'}
     ),
     58: Parameter(
         param_id=58,
@@ -403,7 +416,8 @@ PARAMETERS = {
         choices={0: "Unipolar", 1: "Bipolar"},
         default_value=1,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="Modulation oscillator square wave output type"
+        tooltip="Modulation oscillator square wave output type",
+        cc={'number': 90, 'type': '7bit'}
     ),
     71: Parameter(
         param_id=71,
@@ -414,7 +428,8 @@ PARAMETERS = {
         max_value=16383,
         default_value=16383,
         category=ParameterCategory.PERFORMANCE,
-        tooltip="High-pass filter cutoff for noise generator"
+        tooltip="High-pass filter cutoff for noise generator",
+        cc={'msb': 9, 'lsb': 41, 'type': '14bit'}
     ),
 
     # Arp/Seq Tab
@@ -859,6 +874,433 @@ PARAMETERS = {
         default_value=0,
         category=ParameterCategory.CV,
         tooltip="Arpeggiator/Sequencer gate output voltage level"
+    ),
+    # ============================================================================
+    # CC-CONTROLLABLE PARAMETERS (NO SYSEX QUERY AVAILABLE)
+    # These parameters control front-panel hardware but cannot be queried via SysEx
+    # Parameter IDs: 101-205 (100 + CC number)
+    # ============================================================================
+
+    101: Parameter(
+        param_id=101,
+        name="Mod Wheel",
+        description="Modulation wheel position",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=0,
+        category=ParameterCategory.ADVANCED,
+        tooltip="Modulation wheel position (CC 1)",
+        cc={'msb': 1, 'lsb': 33, 'type': '14bit'}
+    ),
+
+    103: Parameter(
+        param_id=103,
+        name="Mod Rate",
+        description="Modulation oscillator rate",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Modulation oscillator rate (CC 3)",
+        cc={'msb': 3, 'lsb': 35, 'type': '14bit'}
+    ),
+
+    105: Parameter(
+        param_id=105,
+        name="Glide Time",
+        description="Glide time between notes",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Glide time between notes (CC 5)",
+        cc={'msb': 5, 'lsb': 37, 'type': '14bit'}
+    ),
+
+    108: Parameter(
+        param_id=108,
+        name="Arp Rate",
+        description="Arpeggiator/Sequencer rate (tempo)",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Arpeggiator/Sequencer rate (CC 8)",
+        cc={'msb': 8, 'lsb': 40, 'type': '14bit'}
+    ),
+
+#    109: Parameter(
+#        param_id=109,
+#        name="Noise Filter Cutoff (CC)",
+#        description="Noise filter cutoff (CC control)",
+#        param_type=ParameterType.RANGE,
+#        min_value=0,
+#        max_value=16383,
+#        default_value=16383,
+#        category=ParameterCategory.PERFORMANCE,
+#        tooltip="Noise high-pass filter cutoff (CC 9)",
+#        cc={'msb': 9, 'lsb': 41, 'type': '14bit'}
+#    ),
+#
+    112: Parameter(
+        param_id=112,
+        name="Delay Time",
+        description="Delay time",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Delay time (CC 12)",
+        cc={'msb': 12, 'lsb': 44, 'type': '14bit'}
+    ),
+
+    113: Parameter(
+        param_id=113,
+        name="Delay Spacing",
+        description="Delay spacing between left and right channels",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Delay spacing (CC 13)",
+        cc={'msb': 13, 'lsb': 45, 'type': '14bit'}
+    ),
+
+    114: Parameter(
+        param_id=114,
+        name="Arp Swing (CC)",
+        description="Arpeggiator/Sequencer swing amount",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Arpeggiator swing 22-78% (CC 14)",
+        cc={'msb': 14, 'lsb': 46, 'type': '14bit'}
+    ),
+
+    115: Parameter(
+        param_id=115,
+        name="Arp Gate Length",
+        description="Arpeggiator/Sequencer gate length",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Arpeggiator gate length (CC 15)",
+        cc={'msb': 15, 'lsb': 47, 'type': '14bit'}
+    ),
+
+    116: Parameter(
+        param_id=116,
+        name="Osc 2 Frequency",
+        description="Oscillator 2 frequency/detune",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Oscillator 2 frequency 0-24 semitones (CC 16)",
+        cc={'msb': 16, 'lsb': 48, 'type': '14bit'}
+    ),
+
+    117: Parameter(
+        param_id=117,
+        name="Osc 3 Frequency",
+        description="Oscillator 3 frequency/detune",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Oscillator 3 frequency 0-24 semitones (CC 17)",
+        cc={'msb': 17, 'lsb': 49, 'type': '14bit'}
+    ),
+
+    118: Parameter(
+        param_id=118,
+        name="Osc 4 Frequency",
+        description="Oscillator 4 frequency/detune",
+        param_type=ParameterType.RANGE,
+        min_value=0,
+        max_value=16383,
+        default_value=8192,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Oscillator 4 frequency 0-24 semitones (CC 18)",
+        cc={'msb': 18, 'lsb': 50, 'type': '14bit'}
+    ),
+
+    165: Parameter(
+        param_id=165,
+        name="Glide On",
+        description="Enable/disable glide",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Enable/disable glide (CC 65)",
+        cc={'number': 65, 'type': '7bit'}
+    ),
+
+    169: Parameter(
+        param_id=169,
+        name="Arp Latch",
+        description="Arpeggiator latch (hold)",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Arpeggiator latch/hold (CC 69)",
+        cc={'number': 69, 'type': '7bit'}
+    ),
+
+    173: Parameter(
+        param_id=173,
+        name="Arp Play",
+        description="Arpeggiator/Sequencer play/stop",
+        param_type=ParameterType.TOGGLE,
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Arpeggiator play/stop (CC 73)",
+        cc={'number': 73, 'type': '7bit'}
+    ),
+
+    174: Parameter(
+        param_id=174,
+        name="Osc 1 Octave",
+        description="Oscillator 1 octave range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "16'", 32: "8'", 64: "4'", 96: "2'"},
+        default_value=32,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Oscillator 1 octave: 16'/8'/4'/2' (CC 74)",
+        cc={'number': 74, 'type': '7bit'}
+    ),
+
+    175: Parameter(
+        param_id=175,
+        name="Osc 2 Octave",
+        description="Oscillator 2 octave range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "16'", 32: "8'", 64: "4'", 96: "2'"},
+        default_value=32,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Oscillator 2 octave: 16'/8'/4'/2' (CC 75)",
+        cc={'number': 75, 'type': '7bit'}
+    ),
+
+    176: Parameter(
+        param_id=176,
+        name="Osc 3 Octave",
+        description="Oscillator 3 octave range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "16'", 32: "8'", 64: "4'", 96: "2'"},
+        default_value=32,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Oscillator 3 octave: 16'/8'/4'/2' (CC 76)",
+        cc={'number': 76, 'type': '7bit'}
+    ),
+
+    177: Parameter(
+        param_id=177,
+        name="Osc 4 Octave",
+        description="Oscillator 4 octave range",
+        param_type=ParameterType.CHOICE,
+        choices={0: "16'", 32: "8'", 64: "4'", 96: "2'"},
+        default_value=32,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Oscillator 4 octave: 16'/8'/4'/2' (CC 77)",
+        cc={'number': 77, 'type': '7bit'}
+    ),
+
+    191: Parameter(
+        param_id=191,
+        name="Arp Mode",
+        description="Arpeggiator mode (ARP/SEQ/REC)",
+        param_type=ParameterType.CHOICE,
+        choices={0: "ARP", 43: "SEQ", 85: "REC"},
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Arpeggiator mode: ARP/SEQ/REC (CC 91)",
+        cc={'number': 91, 'type': '7bit'}
+    ),
+
+    192: Parameter(
+        param_id=192,
+        name="Arp Pattern",
+        description="Arpeggiator pattern direction",
+        param_type=ParameterType.CHOICE,
+        choices={0: "ORDER", 43: "FW/BW", 85: "RANDOM"},
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Pattern: ORDER/FW-BW/RANDOM (CC 92)",
+        cc={'number': 92, 'type': '7bit'}
+    ),
+
+    193: Parameter(
+        param_id=193,
+        name="Arp Range/Bank",
+        description="Arpeggiator octave range or Sequencer bank",
+        param_type=ParameterType.CHOICE,
+        choices={0: "1", 43: "2", 85: "3"},
+        default_value=0,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="Arp octave range (1-3) or Seq bank (1-3) (CC 93)",
+        cc={'number': 93, 'type': '7bit'}
+    ),
+
+#    205: Parameter(
+#        param_id=205,
+#        name="KB Octave",
+#        description="Keyboard octave transpose",
+#        param_type=ParameterType.CHOICE,
+#        choices={0: "-2", 26: "-1", 51: "0", 77: "+1", 102: "+2"},
+#        default_value=51,
+#        category=ParameterCategory.PERFORMANCE,
+#        tooltip="Keyboard transpose: -2 to +2 octaves (CC 105)",
+#        cc={'number': 105, 'type': '7bit'}
+#    ),
+#    # ============================================================================
+    # PROGRAM CHANGE PARAMETERS (SEQUENCE SELECTION)
+    # These use MIDI Program Change messages, not CC
+    # Parameter IDs: 300-311
+    # ============================================================================
+
+    300: Parameter(
+        param_id=300,
+        name="Sequence 1 (Bank 1)",
+        description="Select sequence 1 in bank 1",
+        param_type=ParameterType.CHOICE,
+        choices={1: "Seq 1-1"},
+        default_value=1,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 1"
+    ),
+
+    301: Parameter(
+        param_id=301,
+        name="Sequence 2 (Bank 1)",
+        description="Select sequence 2 in bank 1",
+        param_type=ParameterType.CHOICE,
+        choices={2: "Seq 1-2"},
+        default_value=2,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 2"
+    ),
+
+    302: Parameter(
+        param_id=302,
+        name="Sequence 3 (Bank 1)",
+        description="Select sequence 3 in bank 1",
+        param_type=ParameterType.CHOICE,
+        choices={3: "Seq 1-3"},
+        default_value=3,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 3"
+    ),
+
+    303: Parameter(
+        param_id=303,
+        name="Sequence 4 (Bank 1)",
+        description="Select sequence 4 in bank 1",
+        param_type=ParameterType.CHOICE,
+        choices={4: "Seq 1-4"},
+        default_value=4,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 4"
+    ),
+
+    304: Parameter(
+        param_id=304,
+        name="Sequence 1 (Bank 2)",
+        description="Select sequence 1 in bank 2",
+        param_type=ParameterType.CHOICE,
+        choices={5: "Seq 2-1"},
+        default_value=5,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 5"
+    ),
+
+    305: Parameter(
+        param_id=305,
+        name="Sequence 2 (Bank 2)",
+        description="Select sequence 2 in bank 2",
+        param_type=ParameterType.CHOICE,
+        choices={6: "Seq 2-2"},
+        default_value=6,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 6"
+    ),
+
+    306: Parameter(
+        param_id=306,
+        name="Sequence 3 (Bank 2)",
+        description="Select sequence 3 in bank 2",
+        param_type=ParameterType.CHOICE,
+        choices={7: "Seq 2-3"},
+        default_value=7,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 7"
+    ),
+
+    307: Parameter(
+        param_id=307,
+        name="Sequence 4 (Bank 2)",
+        description="Select sequence 4 in bank 2",
+        param_type=ParameterType.CHOICE,
+        choices={8: "Seq 2-4"},
+        default_value=8,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 8"
+    ),
+
+    308: Parameter(
+        param_id=308,
+        name="Sequence 1 (Bank 3)",
+        description="Select sequence 1 in bank 3",
+        param_type=ParameterType.CHOICE,
+        choices={9: "Seq 3-1"},
+        default_value=9,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 9"
+    ),
+
+    309: Parameter(
+        param_id=309,
+        name="Sequence 2 (Bank 3)",
+        description="Select sequence 2 in bank 3",
+        param_type=ParameterType.CHOICE,
+        choices={10: "Seq 3-2"},
+        default_value=10,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 10"
+    ),
+
+    310: Parameter(
+        param_id=310,
+        name="Sequence 3 (Bank 3)",
+        description="Select sequence 3 in bank 3",
+        param_type=ParameterType.CHOICE,
+        choices={11: "Seq 3-3"},
+        default_value=11,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 11"
+    ),
+
+    311: Parameter(
+        param_id=311,
+        name="Sequence 4 (Bank 3)",
+        description="Select sequence 4 in bank 3",
+        param_type=ParameterType.CHOICE,
+        choices={12: "Seq 3-4"},
+        default_value=12,
+        category=ParameterCategory.PERFORMANCE,
+        tooltip="MIDI Program Change 12"
     ),
 }
 

@@ -81,7 +81,7 @@ class MatriarchMainWindow(QMainWindow):
         self.current_values: Dict[int, int] = {}
         self.settings = QSettings()
         
-        # UI Components
+        # UI Components 
         self.central_widget: Optional[QWidget] = None
         self.tab_widget: Optional[QTabWidget] = None
         self.status_bar: Optional[QStatusBar] = None
@@ -519,17 +519,20 @@ class MatriarchMainWindow(QMainWindow):
             QMessageBox.warning(self, "Not Connected", 
                               "Please connect to Matriarch first.")
             return
-        
-        # Get all parameter IDs
+    
+        # Get all parameter IDs - only query Global Settings (0-76)
+        # Skip CC-only parameters (101-205) and Program Change parameters (300-311)
+        # as they cannot be queried via SysEx
         from data.parameter_definitions import PARAMETERS
-        parameter_ids = [pid for pid in PARAMETERS.keys() if pid != 76]
-        
+        parameter_ids = [pid for pid in PARAMETERS.keys() 
+                         if 0 <= pid <= 76 and pid != 76]  # Exclude Load Default Settings (76)
+    
         # Show progress
         self.progress_bar.setVisible(True)
         self.progress_bar.setRange(0, len(parameter_ids))
         self.progress_bar.setValue(0)
         self.status_bar.showMessage("Querying parameters...")
-        
+    
         # Start worker thread
         self.query_worker = ParameterQueryWorker(self.midi_manager, parameter_ids)
         self.query_worker.progress_updated.connect(self.on_query_progress)
@@ -909,6 +912,13 @@ class MatriarchMainWindow(QMainWindow):
     # Settings Management
     def load_settings(self):
         """Load application settings"""
+        
+        
+        # TEMPORARY: Force MIDI channel to 0 (channel 1)
+        midi_channel = 0
+        self.settings.setValue('midi/midi_channel', 0)  # Save it too
+        
+        
         # Window geometry
         geometry = self.settings.value('window/geometry')
         if geometry:
