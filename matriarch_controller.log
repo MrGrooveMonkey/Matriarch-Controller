@@ -5724,3 +5724,127 @@ AttributeError: 'str' object has no attribute 'value'
 2025-09-27 01:51:10,523 - ui.main_window - WARNING - Failed to send parameter 23 = 8174
 2025-09-27 01:51:10,623 - midi.connection - WARNING - Cannot send message: not connected
 2025-09-27 01:51:10,623 - ui.main_window - WARNING - Failed to send parameter 23 = 8192
+2025-09-28 21:59:04,782 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 21:59:04,788 - ui.main_window - WARNING - Failed to send parameter 40 = 2
+2025-09-28 21:59:11,553 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 21:59:11,554 - ui.main_window - WARNING - Failed to send parameter 40 = 0
+2025-09-28 22:03:53,321 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:53,322 - ui.main_window - WARNING - Failed to send parameter 44 = 6
+2025-09-28 22:03:53,356 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:53,356 - ui.main_window - WARNING - Failed to send parameter 44 = 5
+2025-09-28 22:03:53,387 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:53,387 - ui.main_window - WARNING - Failed to send parameter 44 = 4
+2025-09-28 22:03:53,404 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:53,404 - ui.main_window - WARNING - Failed to send parameter 44 = 3
+2025-09-28 22:03:53,433 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:53,433 - ui.main_window - WARNING - Failed to send parameter 44 = 2
+2025-09-28 22:03:53,484 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:53,484 - ui.main_window - WARNING - Failed to send parameter 44 = 1
+2025-09-28 22:03:53,584 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:53,584 - ui.main_window - WARNING - Failed to send parameter 44 = 0
+2025-09-28 22:03:55,702 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:55,702 - ui.main_window - WARNING - Failed to send parameter 44 = 1
+2025-09-28 22:03:55,968 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:55,968 - ui.main_window - WARNING - Failed to send parameter 44 = 2
+2025-09-28 22:03:56,235 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:56,235 - ui.main_window - WARNING - Failed to send parameter 44 = 3
+2025-09-28 22:03:56,535 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:56,536 - ui.main_window - WARNING - Failed to send parameter 44 = 4
+2025-09-28 22:03:56,819 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:56,819 - ui.main_window - WARNING - Failed to send parameter 44 = 5
+2025-09-28 22:03:57,603 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:57,603 - ui.main_window - WARNING - Failed to send parameter 44 = 6
+2025-09-28 22:03:57,952 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-28 22:03:57,953 - ui.main_window - WARNING - Failed to send parameter 44 = 7
+2025-09-29 01:15:38,977 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 01:15:39,148 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 01:15:39,480 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 01:15:39,486 - __main__ - INFO - Main window created and shown
+2025-09-29 01:16:01,228 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 01:16:01,229 - ui.main_window - WARNING - Failed to send parameter 43 = 4
+2025-09-29 01:16:01,241 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 01:16:01,241 - ui.main_window - WARNING - Failed to send parameter 43 = 0
+2025-09-29 01:16:29,598 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 01:16:29,599 - ui.main_window - WARNING - Failed to send parameter 60 = 1
+2025-09-29 01:16:32,800 - midi.connection - WARNING - Cannot send message: not connected
+2025-09-29 01:16:32,800 - ui.main_window - WARNING - Failed to send parameter 60 = 0
+2025-09-29 01:31:41,699 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 01:31:41,855 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 01:31:42,193 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 01:31:42,198 - __main__ - INFO - Main window created and shown
+2025-09-29 01:48:57,816 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 01:48:57,951 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 01:48:58,092 - __main__ - ERROR - Unexpected error in main application
+Traceback (most recent call last):
+  File "/Users/mini4/matriarch_controller/main.py", line 123, in main
+    from ui.main_window import MatriarchMainWindow
+  File "/Users/mini4/matriarch_controller/ui/__init__.py", line 7, in <module>
+    from .main_window import MatriarchMainWindow
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 233
+    license_text.setPlainText(
+                             ^
+SyntaxError: '(' was never closed
+2025-09-29 01:49:33,574 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 01:49:33,712 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 01:49:33,916 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 01:49:33,922 - __main__ - INFO - Main window created and shown
+2025-09-29 02:36:12,706 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:36:12,845 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:36:13,040 - __main__ - ERROR - Unexpected error in main application
+Traceback (most recent call last):
+  File "/Users/mini4/matriarch_controller/main.py", line 123, in main
+    from ui.main_window import MatriarchMainWindow
+  File "/Users/mini4/matriarch_controller/ui/__init__.py", line 7, in <module>
+    from .main_window import MatriarchMainWindow
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 791
+    def show_license_dialog(self):
+                                  ^
+IndentationError: unindent does not match any outer indentation level
+2025-09-29 02:38:42,303 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:38:42,439 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:38:42,682 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:38:42,687 - __main__ - INFO - Main window created and shown
+2025-09-29 02:41:05,357 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:41:05,507 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:41:05,732 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:41:05,739 - __main__ - INFO - Main window created and shown
+2025-09-29 02:43:30,178 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:43:30,306 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:43:30,472 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:43:30,476 - __main__ - INFO - Main window created and shown
+2025-09-29 02:46:02,279 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:46:02,486 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:46:02,733 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:46:02,742 - __main__ - INFO - Main window created and shown
+2025-09-29 02:50:05,029 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:50:05,191 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:50:05,515 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:50:05,524 - __main__ - INFO - Main window created and shown
+2025-09-29 02:52:52,117 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:52:52,274 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:52:52,519 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:52:52,524 - __main__ - INFO - Main window created and shown
+2025-09-29 02:54:08,315 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:54:08,449 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:54:08,689 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:54:08,693 - __main__ - INFO - Main window created and shown
+2025-09-29 02:55:05,249 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:55:05,376 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:55:05,574 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:55:05,579 - __main__ - INFO - Main window created and shown
+2025-09-29 02:59:04,346 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:59:04,482 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:59:04,678 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:59:04,681 - __main__ - INFO - Main window created and shown
+2025-09-29 02:59:54,630 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 02:59:54,749 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 02:59:54,899 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 02:59:54,902 - __main__ - INFO - Main window created and shown
+2025-09-29 03:04:49,614 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 03:04:49,736 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 03:04:49,909 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 03:04:49,913 - __main__ - INFO - Main window created and shown
+2025-09-29 03:06:33,931 - __main__ - INFO - Starting Matriarch Controller...
+2025-09-29 03:06:34,050 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-09-29 03:06:34,214 - ui.main_window - DEBUG - Auto-reconnect disabled
+2025-09-29 03:06:34,217 - __main__ - INFO - Main window created and shown

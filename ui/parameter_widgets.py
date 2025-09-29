@@ -153,6 +153,115 @@ class ToggleParameterWidget(ParameterWidget):
         if hasattr(self, 'checkbox'):
             self.checkbox.setToolTip(tooltip_text)
 
+class ButtonGroupParameterWidget(ParameterWidget):
+    """Widget for choice parameters with 3-5 options displayed as button group"""
+    
+    def init_ui(self):
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(5, 2, 5, 2)
+        
+        # Parameter name
+        self.name_label = QLabel(self.parameter.name)
+        self.name_label.setMinimumWidth(200)
+        layout.addWidget(self.name_label)
+        
+        # Button group container
+        button_layout = QHBoxLayout()
+        button_layout.setSpacing(2)
+        
+        # Create buttons for each choice
+        self.buttons = {}
+        self.button_group = []
+        
+        for value, text in sorted(self.parameter.choices.items()):
+            button = QPushButton(text)
+            button.setCheckable(True)
+            button.setMinimumHeight(30)
+            button.clicked.connect(lambda checked, v=value: self.on_button_clicked(v))
+            
+            self.buttons[value] = button
+            self.button_group.append(button)
+            button_layout.addWidget(button)
+        
+        layout.addLayout(button_layout)
+        
+        # Default indicator
+        default_text = self.parameter.choices.get(self.parameter.default_value, "Unknown")
+        self.default_label = QLabel(f"(Default: {default_text})")
+        self.default_label.setStyleSheet("color: #888888; font-size: 10px;")
+        layout.addWidget(self.default_label)
+        
+        self.setToolTip(self.parameter.tooltip)
+        
+        # Set initial state
+        self.update_display()
+    
+    def update_display(self):
+        """Update button group selection"""
+        # Update which button is checked
+        for value, button in self.buttons.items():
+            button.blockSignals(True)
+            button.setChecked(value == self.current_value)
+            button.blockSignals(False)
+        
+        # Highlight if different from default
+        is_default = self.current_value == self.parameter.default_value
+        
+        for value, button in self.buttons.items():
+            if button.isChecked():
+                if not is_default:
+                    button.setStyleSheet("""
+                        QPushButton {
+                            background-color: #ff6b35;
+                            border: 2px solid #ff6b35;
+                            color: #ffffff;
+                            font-weight: bold;
+                        }
+                        QPushButton:hover {
+                            background-color: #ff8c5a;
+                        }
+                    """)
+                else:
+                    button.setStyleSheet("""
+                        QPushButton {
+                            background-color: #5a5a5a;
+                            border: 2px solid #777777;
+                            color: #ffffff;
+                            font-weight: bold;
+                        }
+                        QPushButton:hover {
+                            background-color: #6a6a6a;
+                        }
+                    """)
+            else:
+                button.setStyleSheet("""
+                    QPushButton {
+                        background-color: #4a4a4a;
+                        border: 1px solid #666666;
+                        color: #aaaaaa;
+                    }
+                    QPushButton:hover {
+                        background-color: #5a5a5a;
+                        border-color: #777777;
+                        color: #ffffff;
+                    }
+                """)
+    
+    def on_button_clicked(self, value: int):
+        """Handle button click"""
+        # Uncheck all other buttons (radio behavior)
+        for v, button in self.buttons.items():
+            button.blockSignals(True)
+            button.setChecked(v == value)
+            button.blockSignals(False)
+        
+        self.emit_value_changed(value)
+    
+    def _set_child_tooltips(self, tooltip_text: str):
+        """Set tooltips on all buttons"""
+        for button in self.buttons.values():
+            button.setToolTip(tooltip_text)
+
 class ChoiceParameterWidget(ParameterWidget):
     """Widget for multiple choice parameters"""
     
@@ -647,10 +756,27 @@ class ParameterWidgetFactory:
         # Special case for ARP/SEQ Swing parameter
         if parameter.param_id == 23:  # ARP/SEQ Swing
             return SwingParameterWidget(parameter)
+    
+        # Keep MIDI Channel parameters as special widgets
+        elif parameter.param_id in [10, 11]:  # MIDI Input/Output Channel
+            return MIDIChannelParameterWidget(parameter)
+    
+        # Keep PPQN parameters as combo boxes
+        elif parameter.param_id in [35, 36]:  # Clock Input/Output PPQN
+            return ChoiceParameterWidget(parameter)
+    
+        # Handle toggle parameters (true on/off)
         elif parameter.param_type == ParameterType.TOGGLE:
             return ToggleParameterWidget(parameter)
+    
+        # Convert choice parameters based on number of choices
         elif parameter.param_type == ParameterType.CHOICE:
-            return ChoiceParameterWidget(parameter)
+            num_choices = len(parameter.choices)
+            if num_choices <= 5:
+                return ButtonGroupParameterWidget(parameter)
+            else:
+                return ChoiceParameterWidget(parameter)  # Fallback for 6+
+    
         elif parameter.param_type == ParameterType.RANGE:
             return RangeParameterWidget(parameter)
         elif parameter.param_type == ParameterType.MIDI_CHANNEL:

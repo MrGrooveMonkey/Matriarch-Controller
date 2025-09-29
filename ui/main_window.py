@@ -9,11 +9,10 @@ from PyQt5.QtWidgets import (
     QMainWindow, QWidget, QTabWidget, QVBoxLayout, QHBoxLayout, 
     QMenuBar, QMenu, QAction, QStatusBar, QMessageBox, QProgressBar,
     QLabel, QDialog, QDialogButtonBox, QComboBox, QSpinBox, QGroupBox,
-    QApplication, QPushButton, QTextEdit
+    QApplication, QPushButton, QTextEdit, QTextBrowser
 )
-from PyQt5.QtCore import Qt, QTimer, QThread, pyqtSignal, QSettings
+from PyQt5.QtCore import Qt, QTimer, QThread, pyqtSignal, QSettings, PYQT_VERSION_STR
 from PyQt5.QtGui import QIcon, QFont
-
 from midi.connection import MIDIConnectionManager
 from data.parameter_definitions import (
     ParameterCategory, get_parameters_by_category, get_parameter_by_id,
@@ -22,6 +21,27 @@ from data.parameter_definitions import (
 from ui.parameter_widgets import ParameterWidget, ParameterWidgetFactory
 from ui.midi_settings_dialog import MIDISettingsDialog
 from ui.midi_log_window import MIDILogWindow
+import platform
+
+# Import version info
+try:
+    import mido
+    MIDO_VERSION = getattr(mido, '__version__', 'Installed (version unknown)')
+except ImportError:
+    MIDO_VERSION = "Not installed"
+except Exception as e:
+    MIDO_VERSION = f"Error loading: {str(e)}"
+
+try:
+    import rtmidi
+    RTMIDI_VERSION = getattr(rtmidi, '__version__', 'Installed (version unknown)')
+except ImportError:
+    RTMIDI_VERSION = "Not installed"
+except Exception as e:
+    RTMIDI_VERSION = f"Error loading: {str(e)}"
+
+# Application version
+APP_VERSION = "0.5.0"
 
 logger = logging.getLogger(__name__)
 
@@ -86,7 +106,7 @@ class MatriarchMainWindow(QMainWindow):
         
     def init_ui(self):
         """Initialize the user interface"""
-        self.setWindowTitle("Matriarch Controller v1.0")
+        self.setWindowTitle(f"Matriarch Controller v{APP_VERSION}")
         self.setMinimumSize(1000, 700)
         self.resize(1200, 800)
         
@@ -181,12 +201,24 @@ class MatriarchMainWindow(QMainWindow):
         midi_log_action.triggered.connect(self.show_midi_log)
         view_menu.addAction(midi_log_action)
         
-        # Help menu
-        help_menu = menubar.addMenu('&Help')
+        # About Menu
+        about_menu = menubar.addMenu("About")
         
-        about_action = QAction('&About', self)
-        about_action.triggered.connect(self.show_about)
-        help_menu.addAction(about_action)
+        version_action = about_menu.addAction("Version")
+        version_action.triggered.connect(self.show_version_dialog)
+        
+        license_action = about_menu.addAction("License")
+        license_action.triggered.connect(self.show_license_dialog)
+        
+        support_action = about_menu.addAction("App Home Page/Support")
+        support_action.triggered.connect(self.show_support_dialog)
+        
+        # Help menu
+        #help_menu = menubar.addMenu('&Help')
+        
+        #about_action = QAction('&About', self)
+        #about_action.triggered.connect(self.show_about)
+        #help_menu.addAction(about_action)
         
     def create_parameter_tabs(self):
         """Create tabs for each parameter category"""
@@ -725,13 +757,140 @@ class MatriarchMainWindow(QMainWindow):
         self.midi_log_window.raise_()
         self.midi_log_window.activateWindow()
     
-    def show_about(self):
-        """Show about dialog"""
-        QMessageBox.about(self, "About Matriarch Controller",
-                         "Matriarch Controller v1.0\n\n"
-                         "Real-time MIDI controller for Moog Matriarch synthesizer\n\n"
-                         "Built with Python and PyQt5\n"
-                         "© 2024 Matriarch Controller Project")
+    def show_version_dialog(self):
+            """Show the version information dialog."""
+            dialog = QDialog(self)
+            dialog.setWindowTitle("Version Information")
+            dialog.setMinimumWidth(350)
+        
+            layout = QVBoxLayout()
+        
+            # Application name
+            app_name = QLabel("Matriarch Controller")
+            app_name.setFont(QFont("Arial", 16, QFont.Weight.Bold))
+            app_name.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            layout.addWidget(app_name)
+        
+            # Version info
+            version_label = QLabel(f"Version: {APP_VERSION}")
+            version_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            version_label.setFont(QFont("Arial", 11))
+            layout.addWidget(version_label)
+        
+            # Additional info
+            info_label = QLabel("A Python application for controlling\nthe Moog Matriarch synthesizer")
+            info_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            layout.addWidget(info_label)
+        
+            layout.addSpacing(10)
+        
+            # Close button
+            close_button = QPushButton("Close")
+            close_button.clicked.connect(dialog.accept)
+            layout.addWidget(close_button)
+        
+            dialog.setLayout(layout)
+            dialog.exec()
+    
+    def show_license_dialog(self):
+            """Show the license information dialog."""
+            dialog = QDialog(self)
+            dialog.setWindowTitle("License Information")
+            dialog.setMinimumSize(600, 450)
+        
+            layout = QVBoxLayout()
+        
+            # License text browser
+            license_browser = QTextBrowser()
+            license_text = """LICENSE INFORMATION
+
+    Matriarch Controller - A Python application for controlling the Moog Matriarch synthesizer
+
+    MIT License
+
+    Copyright (c) 2025 Michael Schwartz
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,  and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    """
+            license_browser.setPlainText(license_text)
+            layout.addWidget(license_browser)
+        
+            # Close button
+            close_button = QPushButton("Close")
+            close_button.clicked.connect(dialog.accept)
+            layout.addWidget(close_button)
+        
+            dialog.setLayout(layout)
+            dialog.exec()
+    
+    def show_support_dialog(self):
+            """Show the support and home page dialog with system information."""
+            dialog = QDialog(self)
+            dialog.setWindowTitle("Support & System Information")
+            dialog.setMinimumSize(600, 500)
+        
+            layout = QVBoxLayout()
+        
+            # Support info browser
+            support_browser = QTextBrowser()
+            support_browser.setOpenExternalLinks(True)
+        
+            # Get current MIDI port settings
+            settings = QSettings('MoogMusic', 'MatriarchController')
+            midi_input = settings.value('midi_input_port', 'Not configured')
+            midi_output = settings.value('midi_output_port', 'Not configured')
+        
+            # Build system information HTML
+            support_html = f"""
+            <h2>Support & Home Page</h2>
+        
+            <p><strong>Support is on a Best Reasonable Effort basis. Submit issues via the GitHub page below.</strong></p>
+        
+            <p>Home Page: <a href="https://github.com/MrGrooveMonkey/Matriarch-Controller">
+            https://github.com/MrGrooveMonkey/Matriarch-Controller</a></p>
+        
+            <p>For support, please:</p>
+            <ul>
+                <li>Check the documentation at the project home page</li>
+                <li>Report issues on GitHub</li>
+            </ul>
+        
+            <hr>
+        
+            <h3>System Information</h3>
+        
+            <p><strong>Application Version:</strong> {APP_VERSION}</p>
+        
+            <p><strong>Operating System:</strong><br>
+            {platform.system()} {platform.release()} ({platform.machine()})<br>
+            Platform: {platform.platform()}</p>
+        
+            <p><strong>Python Version:</strong> {sys.version}</p>
+        
+            <p><strong>Library Versions:</strong><br>
+            PyQt5: {PYQT_VERSION_STR}<br>
+            mido: {MIDO_VERSION}<br>
+            python-rtmidi: {RTMIDI_VERSION}</p>
+        
+            <p><strong>Current MIDI Configuration:</strong><br>
+            Input Port: {midi_input}<br>
+            Output Port: {midi_output}</p>
+            """
+        
+            support_browser.setHtml(support_html)
+            layout.addWidget(support_browser)
+        
+            # Close button
+            close_button = QPushButton("Close")
+            close_button.clicked.connect(dialog.accept)
+            layout.addWidget(close_button)
+        
+            dialog.setLayout(layout)
+            dialog.exec()
     
     def update_connection_status(self):
         """Update connection status display"""
