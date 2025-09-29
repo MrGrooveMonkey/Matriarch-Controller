@@ -250,52 +250,63 @@ class MIDIConnectionManager:
     
     def set_parameter(self, parameter_id: int, value: int) -> bool:
         """Set a parameter value on Matriarch"""
-    
-    
+
+        import traceback
+        logger.info(f"set_parameter called from:\n{''.join(traceback.format_stack()[-3:-1])}")
+        logger.info(f"ENTRY: self.midi_channel = {self.midi_channel}")
+
         logger.info(f"set_parameter called: param_id={parameter_id}, value={value}")
         logger.info(f"Current MIDI channel: {self.midi_channel}")
-    
+
         # Get parameter info
         param = get_parameter_by_id(parameter_id)
         if not param:
             logger.warning(f"Unknown parameter ID: {parameter_id}")
             return False
-    
+
         # Validate the value
         if not self.sysex_handler.validate_parameter_value(parameter_id, value):
             logger.warning(f"Invalid parameter value: {parameter_id} = {value}")
             return False
-    
+
         # Check if this is a Program Change parameter (300-311)
         if 300 <= parameter_id <= 311:
             program_number = value - 1  # MIDI Program Change is 0-indexed
             msg = mido.Message('program_change', program=program_number)
             logger.info(f"Sending Program Change: {program_number}")
             return self.send_message(msg)
-    
+
         # Check if parameter has CC mapping
         if hasattr(param, 'cc') and param.cc:
             cc_info = param.cc
             logger.info(f"Parameter {parameter_id} has CC mapping: {cc_info}")
         
+            # Convert toggle values for CC (0/1 -> 0/127)
+            # MIDI CC toggles expect 0-63=OFF, 64-127=ON
+            from data.parameter_definitions import ParameterType
+            cc_value = value
+            if param.param_type == ParameterType.TOGGLE and value == 1:
+                cc_value = 127
+                logger.info(f"Converted toggle value from 1 to 127 for CC")
+    
             if cc_info.get('type') == '14bit':
                 # Send 14-bit CC (MSB and LSB)
-                msb = (value >> 7) & 0x7F
-                lsb = value & 0x7F
-            
+                msb = (cc_value >> 7) & 0x7F
+                lsb = cc_value & 0x7F
+        
                 msb_msg = mido.Message('control_change', channel=self.midi_channel, control=cc_info['msb'], value=msb)
                 lsb_msg = mido.Message('control_change', channel=self.midi_channel, control=cc_info['lsb'], value=lsb)
-            
+        
                 logger.info(f"Sending 14-bit CC: channel={self.midi_channel}, MSB CC={cc_info['msb']}={msb}, LSB CC={cc_info['lsb']}={lsb}")
                 logger.info(f"MSB message: {msb_msg}, bytes: {msb_msg.bytes()}")
                 logger.info(f"LSB message: {lsb_msg}, bytes: {lsb_msg.bytes()}")
-            
+        
                 self.send_message(msb_msg)
                 return self.send_message(lsb_msg)
             else:
                 # Send 7-bit CC
-                msg = mido.Message('control_change', channel=self.midi_channel, control=cc_info['number'], value=value)
-                logger.info(f"Sending 7-bit CC: channel={self.midi_channel}, CC={cc_info['number']}, value={value}")
+                msg = mido.Message('control_change', channel=self.midi_channel, control=cc_info['number'], value=cc_value)
+                logger.info(f"Sending 7-bit CC: channel={self.midi_channel}, CC={cc_info['number']}, value={cc_value}")
                 logger.info(f"CC message: {msg}, bytes: {msg.bytes()}")
                 result = self.send_message(msg)
                 logger.info(f"send_message returned: {result}")

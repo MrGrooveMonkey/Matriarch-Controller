@@ -465,11 +465,17 @@ class MatriarchMainWindow(QMainWindow):
         param = get_parameter_by_id(param_id)
         if param:
             validated_value = param.validate_value(value)
-            
+    
             # Send to Matriarch
             if self.midi_manager.set_parameter(param_id, validated_value):
                 self.current_values[param_id] = validated_value
                 logger.debug(f"Sent parameter {param_id} = {validated_value}")
+        
+                # Update widget display to reflect the sent value
+                widget = self.parameter_widgets.get(param_id)
+                if widget:
+                    widget.set_value_silently(validated_value)
+            
             else:
                 logger.warning(f"Failed to send parameter {param_id} = {validated_value}")
                 # Revert widget to previous value
@@ -934,6 +940,9 @@ class MatriarchMainWindow(QMainWindow):
         midi_channel = self.settings.value('midi/midi_channel', 0, type=int)
         
         self.midi_manager.update_settings(unit_id, midi_channel)
+        
+        logger.info(f"After load_settings: midi_manager.midi_channel = {self.midi_manager.midi_channel}")
+        
     
     def save_settings(self):
         """Save application settings"""
