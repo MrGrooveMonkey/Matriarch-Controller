@@ -385,6 +385,7 @@ class RangeParameterWidget(ParameterWidget):
         self.slider.setMinimum(self.parameter.min_value or 0)
         self.slider.setMaximum(self.parameter.max_value or 127)
         self.slider.valueChanged.connect(self.on_slider_changed)
+        self.slider.mouseDoubleClickEvent = self.on_slider_double_click
         bottom_layout.addWidget(self.slider, stretch=3)
         
         # Spinbox for precise control
@@ -478,6 +479,11 @@ class RangeParameterWidget(ParameterWidget):
         self.slider.blockSignals(False)
         
         self.emit_value_changed(value)
+        
+    def on_slider_double_click(self, event):
+        """Handle double-click on slider to reset to default"""
+        self.emit_value_changed(self.parameter.default_value)
+        event.accept()
         
     def _set_child_tooltips(self, tooltip_text: str):
         """Set tooltips on slider and spinbox"""
@@ -597,6 +603,7 @@ class SwingParameterWidget(ParameterWidget):
         self.slider.setMinimum(self.parameter.min_value or 0)
         self.slider.setMaximum(self.parameter.max_value or 16383)
         self.slider.valueChanged.connect(self.on_slider_changed)
+        self.slider.mouseDoubleClickEvent = self.on_slider_double_click
         middle_layout.addWidget(self.slider, stretch=3)
         
         # Spinbox for precise control
@@ -734,6 +741,11 @@ class SwingParameterWidget(ParameterWidget):
         self.value_label.setText(human_readable)
         self.raw_value_label.setText(f"({value})")
     
+    def on_slider_double_click(self, event):
+        """Handle double-click on slider to reset to default"""
+        self.emit_value_changed(self.parameter.default_value)
+        event.accept()
+    
         # Update triplet button highlighting - turn off if not at 66%
         current_percent = 22 + (value / 16383.0) * (78 - 22)
         if abs(current_percent - 66) < 1:
@@ -756,6 +768,20 @@ class SwingParameterWidget(ParameterWidget):
         self.slider.blockSignals(False)
         
         self.emit_value_changed(value)
+    
+    def on_spinbox_changed(self, value: int):
+        """Handle spinbox value change"""
+        # Update slider to match
+        self.slider.blockSignals(True)
+        self.slider.setValue(value)
+        self.slider.blockSignals(False)
+    
+        self.emit_value_changed(value)
+
+    def on_slider_double_click(self, event):
+        """Handle double-click on slider to reset to default"""
+        self.emit_value_changed(self.parameter.default_value)
+        event.accept()
     
 
 class ParameterWidgetFactory:

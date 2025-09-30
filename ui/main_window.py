@@ -273,6 +273,15 @@ class MatriarchMainWindow(QMainWindow):
             tab_layout = QVBoxLayout(tab_widget)
             tab_layout.addWidget(scroll)
     
+    
+    # Add TEST tab at the end
+        from ui.performance_tab import PerformanceTabWidget
+        test_tab = PerformanceTabWidget()
+        test_tab.parameter_changed.connect(self.on_parameter_changed)
+        self.tab_widget.addTab(test_tab, "TEST")
+    
+    
+    
     def create_status_bar(self):
         """Create status bar with connection info and progress"""
         self.status_bar = QStatusBar()

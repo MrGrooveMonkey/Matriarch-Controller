@@ -410,7 +410,7 @@ PARAMETERS = {
     ),
     70: Parameter(
         param_id=70,
-        name="Mod Oscillator Square Wave Polarity",
+        name="Square LFO Polarity", #renamed from Mod Oscillator Square Wave Polarity
         description="Modulation oscillator square wave output type",
         param_type=ParameterType.CHOICE,
         choices={0: "Unipolar", 1: "Bipolar"},
@@ -469,9 +469,10 @@ PARAMETERS = {
         min_value=0,
         max_value=16383,
         default_value=8192,
-        category=ParameterCategory.ARP_SEQ,
+        category=ParameterCategory.PERFORMANCE,
         tooltip="Swing amount for arpeggiator and sequencer",
-        human_readable_func=lambda value: f"{22 + (value / 16383.0) * 56:.1f}%"
+        human_readable_func=lambda value: f"{22 + (value / 16383.0) * 56:.1f}%",
+        cc={'msb': 14, 'lsb': 46, 'type': '14bit'}
     ),
     24: Parameter(
         param_id=24,
@@ -972,18 +973,18 @@ PARAMETERS = {
         cc={'msb': 13, 'lsb': 45, 'type': '14bit'}
     ),
 
-    114: Parameter(
-        param_id=114,
-        name="Arp Swing (CC)",
-        description="Arpeggiator/Sequencer swing amount",
-        param_type=ParameterType.RANGE,
-        min_value=0,
-        max_value=16383,
-        default_value=8192,
-        category=ParameterCategory.PERFORMANCE,
-        tooltip="Arpeggiator swing 22-78% (CC 14)",
-        cc={'msb': 14, 'lsb': 46, 'type': '14bit'}
-    ),
+#    114: Parameter( #commented out as its a duplicate of paramter 23
+#        param_id=114,
+#        name="Arp Swing (CC)",
+#        description="Arpeggiator/Sequencer swing amount",
+#        param_type=ParameterType.RANGE,
+#        min_value=0,
+#        max_value=16383,
+#        default_value=8192,
+#        category=ParameterCategory.PERFORMANCE,
+#        tooltip="Arpeggiator swing 22-78% (CC 14)",
+#        cc={'msb': 14, 'lsb': 46, 'type': '14bit'}
+#    ),
 
     115: Parameter(
         param_id=115,
