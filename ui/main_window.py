@@ -98,6 +98,7 @@ class MatriarchMainWindow(QMainWindow):
         
         # Setup
         self.init_ui()
+        self.restore_window_settings()
         self.setup_midi_callbacks()
         self.load_settings()
         # Auto-reconnect if enabled and ports are available
@@ -135,6 +136,33 @@ class MatriarchMainWindow(QMainWindow):
         # Apply dark theme
         self.apply_dark_theme()
         
+    def restore_window_settings(self):
+        """Restore window size and position from settings"""
+        settings = QSettings("MoogMusic", "MatriarchController")
+    
+        # Restore window geometry if it exists
+        geometry = settings.value("geometry")
+        if geometry:
+            self.restoreGeometry(geometry)
+        else:
+            # Default size if no saved settings
+            self.resize(1400, 900)
+    
+        # Restore window state (maximized, etc.)
+        window_state = settings.value("windowState")
+        if window_state:
+            self.restoreState(window_state)
+
+    def closeEvent(self, event):
+        """Save window settings before closing"""
+        settings = QSettings("MoogMusic", "MatriarchController")
+        settings.setValue("geometry", self.saveGeometry())
+        settings.setValue("windowState", self.saveState())
+    
+        # Call the parent closeEvent to ensure proper cleanup
+        super().closeEvent(event)
+        event.accept()
+    
     def create_menu_bar(self):
         """Create application menu bar"""
         menubar = self.menuBar()
@@ -277,6 +305,8 @@ class MatriarchMainWindow(QMainWindow):
     # Add TEST tab at the end
         from ui.performance_tab import PerformanceTabWidget
         test_tab = PerformanceTabWidget()
+        # Connect performance tab parameter changes to MIDI
+        test_tab.parameter_changed.connect(self.on_performance_parameter_changed)
         test_tab.parameter_changed.connect(self.on_parameter_changed)
         self.tab_widget.addTab(test_tab, "TEST")
     
@@ -975,3 +1005,26 @@ class MatriarchMainWindow(QMainWindow):
             self.query_worker.wait(1000)
         
         event.accept()
+        
+    def on_performance_parameter_changed(self, param_id: int, value: int):
+        """Handle parameter changes from performance tab"""
+        logger.info(f"Performance parameter changed: {param_id} = {value}")
+    
+        # Get the parameter definition
+        from data.parameter_definitions import get_parameter_by_id
+        param = get_parameter_by_id(param_id)
+    
+        if not param:
+            logger.error(f"Unknown parameter ID: {param_id}")
+            return
+    
+        # Send the MIDI CC message
+        if self.midi_handler:
+            try:
+                self.midi_handler.send_parameter_change(param, value)
+                logger.debug(f"Sent MIDI CC for param {param_id}: {value}")
+            except Exception as e:
+                logger.error(f"Failed to send MIDI CC: {e}")
+        else:
+            logger.warning("No MIDI handler available")
+            
