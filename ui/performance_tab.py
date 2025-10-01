@@ -1730,7 +1730,7 @@ class PerformanceTabWidget(QWidget):
     def on_lfo_polarity_clicked(self, buttons, index: int):
         """Handle LFO polarity button click - Unipolar=0, Bipolar=1"""
         self.select_exclusive_button(buttons, index)
-        self.parameter_changed.emit(70, index)
+        self.parameter_changed.emit(70, index)ls -la
 
 class ArpRateWidget(ParameterWidget):
     """Custom widget for Arp Rate with BPM display"""
@@ -2182,7 +2182,3 @@ class ParameterButtonGroupWidget(ParameterWidget):
                             other_button.setChecked(False)
                     self.emit_value_changed(value)
                 break
-                
-                
-                
-                
