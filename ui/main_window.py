@@ -306,7 +306,7 @@ class MatriarchMainWindow(QMainWindow):
         from ui.performance_tab import PerformanceTabWidget
         test_tab = PerformanceTabWidget()
         # Connect performance tab parameter changes to MIDI
-        test_tab.parameter_changed.connect(self.on_performance_parameter_changed)
+        #test_tab.parameter_changed.connect(self.on_performance_parameter_changed)
         test_tab.parameter_changed.connect(self.on_parameter_changed)
         self.tab_widget.addTab(test_tab, "TEST")
     
@@ -489,32 +489,38 @@ class MatriarchMainWindow(QMainWindow):
                 QMessageBox.Yes | QMessageBox.No,
                 QMessageBox.No
             )
-            
+        
             if reply == QMessageBox.Yes:
                 # Trigger the factory reset
                 self.load_factory_defaults()
-            
+        
             # Always reset the toggle back to off
             widget = self.parameter_widgets.get(param_id)
             if widget:
                 widget.set_value_silently(0)
             return
-        
+    
         # Regular parameter handling
         param = get_parameter_by_id(param_id)
         if param:
-            validated_value = param.validate_value(value)
-    
+            # Skip validation for CC values from Performance tab that need full 0-127 range
+            # These parameters have choices for SysEx but need raw CC values
+            skip_validation_params = []  # Empty for now
+            if param_id in skip_validation_params:
+                validated_value = value  # Use raw value for CC
+            else:
+                validated_value = param.validate_value(value)
+        
             # Send to Matriarch
             if self.midi_manager.set_parameter(param_id, validated_value):
                 self.current_values[param_id] = validated_value
                 logger.debug(f"Sent parameter {param_id} = {validated_value}")
-        
+    
                 # Update widget display to reflect the sent value
                 widget = self.parameter_widgets.get(param_id)
                 if widget:
                     widget.set_value_silently(validated_value)
-            
+        
             else:
                 logger.warning(f"Failed to send parameter {param_id} = {validated_value}")
                 # Revert widget to previous value
@@ -1005,26 +1011,3 @@ class MatriarchMainWindow(QMainWindow):
             self.query_worker.wait(1000)
         
         event.accept()
-        
-    def on_performance_parameter_changed(self, param_id: int, value: int):
-        """Handle parameter changes from performance tab"""
-        logger.info(f"Performance parameter changed: {param_id} = {value}")
-    
-        # Get the parameter definition
-        from data.parameter_definitions import get_parameter_by_id
-        param = get_parameter_by_id(param_id)
-    
-        if not param:
-            logger.error(f"Unknown parameter ID: {param_id}")
-            return
-    
-        # Send the MIDI CC message
-        if self.midi_handler:
-            try:
-                self.midi_handler.send_parameter_change(param, value)
-                logger.debug(f"Sent MIDI CC for param {param_id}: {value}")
-            except Exception as e:
-                logger.error(f"Failed to send MIDI CC: {e}")
-        else:
-            logger.warning("No MIDI handler available")
-            

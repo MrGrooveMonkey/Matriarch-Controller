@@ -6,7 +6,8 @@ import logging
 from typing import Dict, Optional
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, 
-    QGroupBox, QLabel, QSlider, QPushButton, QComboBox, QDial
+    QGroupBox, QLabel, QSlider, QPushButton, QComboBox, QDial, 
+    QMainWindow
 )
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtGui import QFont
@@ -358,6 +359,12 @@ class PerformanceTabWidget(QWidget):
             }
         """)
         
+        def on_play_changed():
+            value = 1 if play_btn.isChecked() else 0
+            self.parameter_changed.emit(173, value)  # Parameter 173 = Arp Play (CC 73)
+
+        play_btn.clicked.connect(on_play_changed)
+        
         hold_btn = QPushButton("Hold")
         hold_btn.setCheckable(True)
         hold_btn.setMinimumHeight(35)
@@ -377,6 +384,12 @@ class PerformanceTabWidget(QWidget):
         play_hold_layout.addWidget(play_btn)
         play_hold_layout.addWidget(hold_btn)
         layout.addLayout(play_hold_layout, 7, 0, 1, 4)
+        
+        def on_hold_changed():
+            value = 1 if hold_btn.isChecked() else 0
+            self.parameter_changed.emit(169, value)  # Parameter 169 = Arp Latch (CC 69)
+
+        hold_btn.clicked.connect(on_hold_changed)
         
         return group
     
@@ -896,7 +909,7 @@ class PerformanceTabWidget(QWidget):
 
         para_mode_param = get_parameter_by_id(55)
         if para_mode_param:
-            # Value map: button text "1"→0, "2"→1, "4"→2
+            # Value map: button text "1"→21, "2"→63, "4"→106
             # Create buttons manually since we need custom text
             mode_buttons_layout = QHBoxLayout()
             mode_buttons_layout.setSpacing(5)
@@ -925,7 +938,7 @@ class PerformanceTabWidget(QWidget):
                         background-color: #2a9d2a;
                     }
                 """)
-                if value == 0:  # Default to "1" (mono)
+                if value == 21:  # Default to "1" (mono)
                     btn.setChecked(True)
                 mode_buttons.append((btn, value))
                 mode_buttons_layout.addWidget(btn)
@@ -940,8 +953,28 @@ class PerformanceTabWidget(QWidget):
                         btn.setChecked(False)
                 self.parameter_changed.emit(55, clicked_value)
     
-            for btn, value in mode_buttons:
-                btn.clicked.connect(lambda checked, b=btn, v=value: on_para_mode_clicked(b, v))
+            # Connect each button explicitly to avoid closure issues
+            btn1, val1 = mode_buttons[0]
+            btn2, val2 = mode_buttons[1]
+            btn3, val3 = mode_buttons[2]
+
+            logger.info(f"Paraphony button setup: btn1={val1}, btn2={val2}, btn3={val3}")
+
+            def handler1(checked):
+                logger.info(f"Button 1 clicked, sending value {val1}")
+                on_para_mode_clicked(btn1, val1)
+
+            def handler2(checked):
+                logger.info(f"Button 2 clicked, sending value {val2}")
+                on_para_mode_clicked(btn2, val2)
+
+            def handler3(checked):
+                logger.info(f"Button 3 clicked, sending value {val3}")
+                on_para_mode_clicked(btn3, val3)
+
+            btn1.clicked.connect(handler1)
+            btn2.clicked.connect(handler2)
+            btn3.clicked.connect(handler3)
     
             mode_buttons_layout.addStretch()
             mode_layout.addLayout(mode_buttons_layout)
@@ -1675,12 +1708,21 @@ class PerformanceTabWidget(QWidget):
 
     def send_program_change(self, bank: int, sequence: int):
         """Send MIDI Program Change for sequence selection"""
-        # Program number: (bank - 1) * 4 + sequence
-        # Bank 1-3, Sequence 1-4 → Programs 1-12
         program = (bank - 1) * 4 + sequence
-        # Emit signal or call MIDI handler
-        # TODO: Connect to actual MIDI output
         logger.info(f"Send Program Change: {program} (Bank {bank}, Seq {sequence})")
+    
+        # Program Change uses parameter IDs 300-311 (for programs 1-12)
+        # Parameter ID = 299 + program number
+        param_id = 299 + program
+    
+        # Get the main window's MIDI manager
+        main_window = self.window()
+        while main_window and not isinstance(main_window, QMainWindow):
+            main_window = main_window.parent()
+    
+        if main_window and hasattr(main_window, 'midi_manager'):
+            # Value should be the program number (the connection.py code will handle conversion)
+            main_window.midi_manager.set_parameter(param_id, program)
         
     def on_sequence_selected(self, seq_index: int):
         """Handle sequence button selection"""
@@ -1730,7 +1772,7 @@ class PerformanceTabWidget(QWidget):
     def on_lfo_polarity_clicked(self, buttons, index: int):
         """Handle LFO polarity button click - Unipolar=0, Bipolar=1"""
         self.select_exclusive_button(buttons, index)
-        self.parameter_changed.emit(70, index)ls -la
+        self.parameter_changed.emit(70, index)
 
 class ArpRateWidget(ParameterWidget):
     """Custom widget for Arp Rate with BPM display"""
