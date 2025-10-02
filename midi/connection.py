@@ -275,7 +275,7 @@ class MIDIConnectionManager:
             return self.send_message(msg)
     
         # Force SysEx for parameters that don't respond to CC properly
-        force_sysex_params = [55]  # Paraphony Mode doesn't respond to CC 94
+        force_sysex_params = [22, 55]  # 22=FW/BW Repeat (no CC), 55=Paraphony Mode (CC 94 requires FW 1.3.0)
     
         # Check if parameter has CC mapping and not forced to use SysEx
         if parameter_id not in force_sysex_params and hasattr(param, 'cc') and param.cc:

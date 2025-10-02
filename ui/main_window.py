@@ -146,22 +146,12 @@ class MatriarchMainWindow(QMainWindow):
             self.restoreGeometry(geometry)
         else:
             # Default size if no saved settings
-            self.resize(1400, 900)
+            self.resize(1600, 1100)
     
         # Restore window state (maximized, etc.)
         window_state = settings.value("windowState")
         if window_state:
             self.restoreState(window_state)
-
-    def closeEvent(self, event):
-        """Save window settings before closing"""
-        settings = QSettings("MoogMusic", "MatriarchController")
-        settings.setValue("geometry", self.saveGeometry())
-        settings.setValue("windowState", self.saveState())
-    
-        # Call the parent closeEvent to ensure proper cleanup
-        super().closeEvent(event)
-        event.accept()
     
     def create_menu_bar(self):
         """Create application menu bar"""
@@ -991,23 +981,27 @@ class MatriarchMainWindow(QMainWindow):
     
     def save_settings(self):
         """Save application settings"""
-        # Window geometry and state
-        self.settings.setValue('window/geometry', self.saveGeometry())
-        self.settings.setValue('window/state', self.saveState())
-        
+        # Window geometry and state now saved in closeEvent
         # MIDI settings are saved by the dialog
+        pass
     
     def closeEvent(self, event):
         """Handle application close"""
+        # Save window geometry and state
+        settings = QSettings("MoogMusic", "MatriarchController")
+        settings.setValue("geometry", self.saveGeometry())
+        settings.setValue("windowState", self.saveState())
+    
+        # Save other application settings
         self.save_settings()
-        
+    
         # Disconnect MIDI
         if self.midi_manager.is_connected:
             self.midi_manager.disconnect()
-        
+    
         # Close worker thread
         if self.query_worker and self.query_worker.isRunning():
             self.query_worker.terminate()
             self.query_worker.wait(1000)
-        
+    
         event.accept()

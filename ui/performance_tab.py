@@ -253,9 +253,19 @@ class PerformanceTabWidget(QWidget):
             pattern_buttons.append(btn)
             pattern_layout.addWidget(btn)
 
-        # Make mutually exclusive
+        # Make mutually exclusive and emit parameter changes
         for idx, btn in enumerate(pattern_buttons):
-            btn.clicked.connect(lambda checked, i=idx: self.select_exclusive_button(pattern_buttons, i))
+            btn.clicked.connect(lambda checked, i=idx, buttons=pattern_buttons: self.on_pattern_clicked(buttons, i))
+        
+        def on_pattern_clicked(self, buttons, pattern_index: int):
+            """Handle pattern button click"""
+            # Make buttons mutually exclusive
+            self.select_exclusive_button(buttons, pattern_index)
+    
+            # Emit parameter change for parameter 92 (Arp Pattern)
+            # Value map: 0=ORDER (0-42), 1=FW/BW (43-84), 2=RANDOM (85-127)
+            value_map = [21, 63, 106]  # Mid-point of each range
+            self.parameter_changed.emit(92, value_map[pattern_index])
 
         layout.addLayout(pattern_layout, 3, 1, 1, 3)
         
@@ -1747,11 +1757,22 @@ class PerformanceTabWidget(QWidget):
         
     def on_mode_clicked(self, buttons, mode_index: int):
         """Handle mode button click - track MODE selection"""
-        # Make buttons mutually exclusive
         self.select_exclusive_button(buttons, mode_index)
-    
-        # Update current mode (0=ARP, 1=SEQ, 2=REC)
         self.current_mode = mode_index
+    
+        # Emit parameter change for parameter 91 (Arp Mode)
+        # Value map: 0=ARP (0-42), 1=SEQ (43-84), 2=REC (85-127)
+        value_map = [21, 63, 106]
+        self.parameter_changed.emit(91, value_map[mode_index])
+        
+    def on_pattern_clicked(self, buttons, pattern_index: int):
+        """Handle pattern button click"""
+        self.select_exclusive_button(buttons, pattern_index)
+    
+        # Emit parameter change for parameter 192 (Arp Pattern)
+        # Value map: 0=ORDER (0-42), 1=FW/BW (43-84), 2=RANDOM (85-127)
+        value_map = [21, 63, 106]
+        self.parameter_changed.emit(192, value_map[pattern_index])
         
     def on_kot_clicked(self, buttons, index: int):
         """Handle keyboard octave transpose button click"""
