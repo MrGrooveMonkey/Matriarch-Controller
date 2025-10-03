@@ -150530,3 +150530,377 @@ NameError: name 'event' is not defined. Did you mean: 'self.event'?
 2025-10-03 12:47:08,480 - midi.connection - INFO - Sending Program Change: 3
 2025-10-03 12:50:06,393 - midi.connection - DEBUG - MIDI listen thread stopped
 2025-10-03 12:50:06,394 - midi.connection - INFO - Disconnected from MIDI ports
+2025-10-03 12:55:58,693 - __main__ - INFO - Starting Matriarch Controller...
+2025-10-03 12:55:58,866 - __main__ - INFO - MIDI system OK: 23 inputs, 23 outputs
+2025-10-03 12:55:59,165 - ui.performance_tab - INFO - Paraphony button setup: btn1=0, btn2=1, btn3=2
+2025-10-03 12:55:59,191 - ui.main_window - INFO - After load_settings: midi_manager.midi_channel = 0
+2025-10-03 12:55:59,223 - ui.main_window - INFO - Attempting auto-reconnect to mioXL MATRIARCH ↔ mioXL MATRIARCH
+2025-10-03 12:55:59,226 - midi.connection - DEBUG - MIDI listen thread started
+2025-10-03 12:55:59,226 - midi.connection - INFO - Connected to MIDI ports: mioXL MATRIARCH -> mioXL MATRIARCH
+2025-10-03 12:55:59,248 - __main__ - INFO - Main window created and shown
+2025-10-03 12:56:07,163 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,163 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,163 - midi.connection - INFO - set_parameter called: param_id=108, value=8156
+2025-10-03 12:56:07,163 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,163 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,163 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=63, LSB CC=40=92
+2025-10-03 12:56:07,163 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=63 time=0, bytes: [176, 8, 63]
+2025-10-03 12:56:07,163 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=92 time=0, bytes: [176, 40, 92]
+2025-10-03 12:56:07,164 - ui.main_window - DEBUG - Sent parameter 108 = 8156
+2025-10-03 12:56:07,255 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,255 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,256 - midi.connection - INFO - set_parameter called: param_id=108, value=8168
+2025-10-03 12:56:07,256 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,256 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,256 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=63, LSB CC=40=104
+2025-10-03 12:56:07,256 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=63 time=0, bytes: [176, 8, 63]
+2025-10-03 12:56:07,256 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=104 time=0, bytes: [176, 40, 104]
+2025-10-03 12:56:07,256 - ui.main_window - DEBUG - Sent parameter 108 = 8168
+2025-10-03 12:56:07,272 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,272 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,272 - midi.connection - INFO - set_parameter called: param_id=108, value=8180
+2025-10-03 12:56:07,272 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,272 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,272 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=63, LSB CC=40=116
+2025-10-03 12:56:07,272 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=63 time=0, bytes: [176, 8, 63]
+2025-10-03 12:56:07,272 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=116 time=0, bytes: [176, 40, 116]
+2025-10-03 12:56:07,272 - ui.main_window - DEBUG - Sent parameter 108 = 8180
+2025-10-03 12:56:07,289 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,289 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,289 - midi.connection - INFO - set_parameter called: param_id=108, value=8239
+2025-10-03 12:56:07,289 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,289 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,289 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=64, LSB CC=40=47
+2025-10-03 12:56:07,289 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=64 time=0, bytes: [176, 8, 64]
+2025-10-03 12:56:07,289 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=47 time=0, bytes: [176, 40, 47]
+2025-10-03 12:56:07,289 - ui.main_window - DEBUG - Sent parameter 108 = 8239
+2025-10-03 12:56:07,305 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,305 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,306 - midi.connection - INFO - set_parameter called: param_id=108, value=8380
+2025-10-03 12:56:07,306 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,306 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,306 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=65, LSB CC=40=60
+2025-10-03 12:56:07,306 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=65 time=0, bytes: [176, 8, 65]
+2025-10-03 12:56:07,306 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=60 time=0, bytes: [176, 40, 60]
+2025-10-03 12:56:07,306 - ui.main_window - DEBUG - Sent parameter 108 = 8380
+2025-10-03 12:56:07,322 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,322 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,322 - midi.connection - INFO - set_parameter called: param_id=108, value=8568
+2025-10-03 12:56:07,322 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,322 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,322 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=66, LSB CC=40=120
+2025-10-03 12:56:07,322 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=66 time=0, bytes: [176, 8, 66]
+2025-10-03 12:56:07,322 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=120 time=0, bytes: [176, 40, 120]
+2025-10-03 12:56:07,323 - ui.main_window - DEBUG - Sent parameter 108 = 8568
+2025-10-03 12:56:07,339 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,339 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,339 - midi.connection - INFO - set_parameter called: param_id=108, value=8826
+2025-10-03 12:56:07,339 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,339 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,339 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=68, LSB CC=40=122
+2025-10-03 12:56:07,339 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=68 time=0, bytes: [176, 8, 68]
+2025-10-03 12:56:07,339 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=122 time=0, bytes: [176, 40, 122]
+2025-10-03 12:56:07,339 - ui.main_window - DEBUG - Sent parameter 108 = 8826
+2025-10-03 12:56:07,356 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,356 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,356 - midi.connection - INFO - set_parameter called: param_id=108, value=9143
+2025-10-03 12:56:07,356 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,356 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,356 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=71, LSB CC=40=55
+2025-10-03 12:56:07,356 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=71 time=0, bytes: [176, 8, 71]
+2025-10-03 12:56:07,356 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=55 time=0, bytes: [176, 40, 55]
+2025-10-03 12:56:07,356 - ui.main_window - DEBUG - Sent parameter 108 = 9143
+2025-10-03 12:56:07,372 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,372 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,372 - midi.connection - INFO - set_parameter called: param_id=108, value=9496
+2025-10-03 12:56:07,372 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,372 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,372 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=74, LSB CC=40=24
+2025-10-03 12:56:07,372 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=74 time=0, bytes: [176, 8, 74]
+2025-10-03 12:56:07,372 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=24 time=0, bytes: [176, 40, 24]
+2025-10-03 12:56:07,372 - ui.main_window - DEBUG - Sent parameter 108 = 9496
+2025-10-03 12:56:07,389 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,389 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,389 - midi.connection - INFO - set_parameter called: param_id=108, value=9755
+2025-10-03 12:56:07,389 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,389 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,389 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=76, LSB CC=40=27
+2025-10-03 12:56:07,389 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=76 time=0, bytes: [176, 8, 76]
+2025-10-03 12:56:07,389 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=27 time=0, bytes: [176, 40, 27]
+2025-10-03 12:56:07,389 - ui.main_window - DEBUG - Sent parameter 108 = 9755
+2025-10-03 12:56:07,406 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,406 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,406 - midi.connection - INFO - set_parameter called: param_id=108, value=9943
+2025-10-03 12:56:07,406 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,406 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,406 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=77, LSB CC=40=87
+2025-10-03 12:56:07,406 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=77 time=0, bytes: [176, 8, 77]
+2025-10-03 12:56:07,406 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=87 time=0, bytes: [176, 40, 87]
+2025-10-03 12:56:07,406 - ui.main_window - DEBUG - Sent parameter 108 = 9943
+2025-10-03 12:56:07,422 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,422 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,422 - midi.connection - INFO - set_parameter called: param_id=108, value=10107
+2025-10-03 12:56:07,422 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,422 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,422 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=78, LSB CC=40=123
+2025-10-03 12:56:07,422 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=78 time=0, bytes: [176, 8, 78]
+2025-10-03 12:56:07,422 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=123 time=0, bytes: [176, 40, 123]
+2025-10-03 12:56:07,422 - ui.main_window - DEBUG - Sent parameter 108 = 10107
+2025-10-03 12:56:07,439 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,439 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,439 - midi.connection - INFO - set_parameter called: param_id=108, value=10248
+2025-10-03 12:56:07,439 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,439 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,439 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=80, LSB CC=40=8
+2025-10-03 12:56:07,439 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=80 time=0, bytes: [176, 8, 80]
+2025-10-03 12:56:07,439 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=8 time=0, bytes: [176, 40, 8]
+2025-10-03 12:56:07,439 - ui.main_window - DEBUG - Sent parameter 108 = 10248
+2025-10-03 12:56:07,455 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,455 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,456 - midi.connection - INFO - set_parameter called: param_id=108, value=10342
+2025-10-03 12:56:07,456 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,456 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,456 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=80, LSB CC=40=102
+2025-10-03 12:56:07,456 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=80 time=0, bytes: [176, 8, 80]
+2025-10-03 12:56:07,456 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=102 time=0, bytes: [176, 40, 102]
+2025-10-03 12:56:07,456 - ui.main_window - DEBUG - Sent parameter 108 = 10342
+2025-10-03 12:56:07,472 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,472 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,472 - midi.connection - INFO - set_parameter called: param_id=108, value=10413
+2025-10-03 12:56:07,472 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,472 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,473 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=81, LSB CC=40=45
+2025-10-03 12:56:07,473 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=81 time=0, bytes: [176, 8, 81]
+2025-10-03 12:56:07,473 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=45 time=0, bytes: [176, 40, 45]
+2025-10-03 12:56:07,473 - ui.main_window - DEBUG - Sent parameter 108 = 10413
+2025-10-03 12:56:07,489 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,489 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,489 - midi.connection - INFO - set_parameter called: param_id=108, value=10436
+2025-10-03 12:56:07,489 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,489 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,489 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=81, LSB CC=40=68
+2025-10-03 12:56:07,489 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=81 time=0, bytes: [176, 8, 81]
+2025-10-03 12:56:07,489 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=68 time=0, bytes: [176, 40, 68]
+2025-10-03 12:56:07,489 - ui.main_window - DEBUG - Sent parameter 108 = 10436
+2025-10-03 12:56:07,506 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:07,506 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:07,506 - midi.connection - INFO - set_parameter called: param_id=108, value=10448
+2025-10-03 12:56:07,506 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:07,506 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:07,506 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=81, LSB CC=40=80
+2025-10-03 12:56:07,506 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=81 time=0, bytes: [176, 8, 81]
+2025-10-03 12:56:07,506 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=80 time=0, bytes: [176, 40, 80]
+2025-10-03 12:56:07,506 - ui.main_window - DEBUG - Sent parameter 108 = 10448
+2025-10-03 12:56:08,440 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:08,441 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:08,441 - midi.connection - INFO - set_parameter called: param_id=108, value=8321
+2025-10-03 12:56:08,441 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:08,441 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:08,441 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=65, LSB CC=40=1
+2025-10-03 12:56:08,441 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=65 time=0, bytes: [176, 8, 65]
+2025-10-03 12:56:08,441 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=1 time=0, bytes: [176, 40, 1]
+2025-10-03 12:56:08,441 - ui.main_window - DEBUG - Sent parameter 108 = 8321
+2025-10-03 12:56:08,591 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:08,591 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:08,591 - midi.connection - INFO - set_parameter called: param_id=108, value=8192
+2025-10-03 12:56:08,591 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:08,591 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:08,592 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=64, LSB CC=40=0
+2025-10-03 12:56:08,592 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=64 time=0, bytes: [176, 8, 64]
+2025-10-03 12:56:08,592 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=0 time=0, bytes: [176, 40, 0]
+2025-10-03 12:56:08,592 - ui.main_window - DEBUG - Sent parameter 108 = 8192
+2025-10-03 12:56:09,575 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:09,576 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:09,576 - midi.connection - INFO - set_parameter called: param_id=108, value=10402
+2025-10-03 12:56:09,576 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:09,576 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:09,576 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=81, LSB CC=40=34
+2025-10-03 12:56:09,576 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=81 time=0, bytes: [176, 8, 81]
+2025-10-03 12:56:09,576 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=34 time=0, bytes: [176, 40, 34]
+2025-10-03 12:56:09,576 - ui.main_window - DEBUG - Sent parameter 108 = 10402
+2025-10-03 12:56:09,579 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:09,579 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:09,579 - midi.connection - INFO - set_parameter called: param_id=108, value=10401
+2025-10-03 12:56:09,579 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:09,579 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:09,579 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=81, LSB CC=40=33
+2025-10-03 12:56:09,579 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=81 time=0, bytes: [176, 8, 81]
+2025-10-03 12:56:09,579 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=33 time=0, bytes: [176, 40, 33]
+2025-10-03 12:56:09,579 - ui.main_window - DEBUG - Sent parameter 108 = 10401
+2025-10-03 12:56:10,193 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:10,193 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:10,193 - midi.connection - INFO - set_parameter called: param_id=108, value=11870
+2025-10-03 12:56:10,193 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:10,193 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:10,193 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=92, LSB CC=40=94
+2025-10-03 12:56:10,193 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=92 time=0, bytes: [176, 8, 92]
+2025-10-03 12:56:10,193 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=94 time=0, bytes: [176, 40, 94]
+2025-10-03 12:56:10,194 - ui.main_window - DEBUG - Sent parameter 108 = 11870
+2025-10-03 12:56:10,793 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:10,793 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:10,793 - midi.connection - INFO - set_parameter called: param_id=108, value=9002
+2025-10-03 12:56:10,793 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:10,794 - midi.connection - INFO - Parameter 108 has CC mapping: {'msb': 8, 'lsb': 40, 'type': '14bit'}
+2025-10-03 12:56:10,794 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=8=70, LSB CC=40=42
+2025-10-03 12:56:10,794 - midi.connection - INFO - MSB message: control_change channel=0 control=8 value=70 time=0, bytes: [176, 8, 70]
+2025-10-03 12:56:10,794 - midi.connection - INFO - LSB message: control_change channel=0 control=40 value=42 time=0, bytes: [176, 40, 42]
+2025-10-03 12:56:10,794 - ui.main_window - DEBUG - Sent parameter 108 = 9002
+2025-10-03 12:56:13,229 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:13,229 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:13,229 - midi.connection - INFO - set_parameter called: param_id=23, value=12872
+2025-10-03 12:56:13,229 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:13,229 - midi.connection - INFO - Parameter 23 has CC mapping: {'msb': 14, 'lsb': 46, 'type': '14bit'}
+2025-10-03 12:56:13,229 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=14=100, LSB CC=46=72
+2025-10-03 12:56:13,229 - midi.connection - INFO - MSB message: control_change channel=0 control=14 value=100 time=0, bytes: [176, 14, 100]
+2025-10-03 12:56:13,229 - midi.connection - INFO - LSB message: control_change channel=0 control=46 value=72 time=0, bytes: [176, 46, 72]
+2025-10-03 12:56:13,230 - ui.main_window - DEBUG - Sent parameter 23 = 12872
+2025-10-03 12:56:14,016 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:14,016 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:14,016 - midi.connection - INFO - set_parameter called: param_id=23, value=12872
+2025-10-03 12:56:14,016 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:14,016 - midi.connection - INFO - Parameter 23 has CC mapping: {'msb': 14, 'lsb': 46, 'type': '14bit'}
+2025-10-03 12:56:14,016 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=14=100, LSB CC=46=72
+2025-10-03 12:56:14,016 - midi.connection - INFO - MSB message: control_change channel=0 control=14 value=100 time=0, bytes: [176, 14, 100]
+2025-10-03 12:56:14,016 - midi.connection - INFO - LSB message: control_change channel=0 control=46 value=72 time=0, bytes: [176, 46, 72]
+2025-10-03 12:56:14,016 - ui.main_window - DEBUG - Sent parameter 23 = 12872
+2025-10-03 12:56:15,748 - midi.connection - INFO - set_parameter called from:
+  File "/Users/mini4/matriarch_controller/ui/parameter_widgets.py", line 57, in emit_value_changed
+    self.value_changed.emit(self.parameter.param_id, value)
+  File "/Users/mini4/matriarch_controller/ui/main_window.py", line 505, in on_parameter_changed
+    if self.midi_manager.set_parameter(param_id, validated_value):
+
+2025-10-03 12:56:15,748 - midi.connection - INFO - ENTRY: self.midi_channel = 0
+2025-10-03 12:56:15,748 - midi.connection - INFO - set_parameter called: param_id=23, value=8650
+2025-10-03 12:56:15,748 - midi.connection - INFO - Current MIDI channel: 0
+2025-10-03 12:56:15,748 - midi.connection - INFO - Parameter 23 has CC mapping: {'msb': 14, 'lsb': 46, 'type': '14bit'}
+2025-10-03 12:56:15,748 - midi.connection - INFO - Sending 14-bit CC: channel=0, MSB CC=14=67, LSB CC=46=74
+2025-10-03 12:56:15,748 - midi.connection - INFO - MSB message: control_change channel=0 control=14 value=67 time=0, bytes: [176, 14, 67]
+2025-10-03 12:56:15,748 - midi.connection - INFO - LSB message: control_change channel=0 control=46 value=74 time=0, bytes: [176, 46, 74]
+2025-10-03 12:56:15,749 - ui.main_window - DEBUG - Sent parameter 23 = 8650
+2025-10-03 13:13:26,017 - midi.connection - DEBUG - MIDI listen thread stopped
+2025-10-03 13:13:26,022 - midi.connection - INFO - Disconnected from MIDI ports
