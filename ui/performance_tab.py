@@ -223,6 +223,24 @@ class PerformanceTabWidget(QWidget):
 
         layout.addLayout(mode_layout, 2, 1, 1, 3)
         
+        # Disable MODE buttons - hardware switch only, no MIDI control
+        for btn in mode_buttons:
+            btn.setEnabled(False)
+            btn.setToolTip("Hardware switch only - MIDI control not supported by firmware")
+            btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #666666;
+                    border: 1px solid #444444;
+                    color: #999999;
+                }
+                QPushButton:checked {
+                    background-color: #4a4a4a;
+                    border: 2px solid #333333;
+                    color: #888888;
+                    font-weight: bold;
+                }
+            """)
+        
         # Row 3: Pattern selector (parameter 192 - Arp Pattern)
         pattern_label = QLabel("Pattern")
         pattern_label.setStyleSheet("font-weight: normal; color: #4a4a2a;")
@@ -256,18 +274,26 @@ class PerformanceTabWidget(QWidget):
         # Make mutually exclusive and emit parameter changes
         for idx, btn in enumerate(pattern_buttons):
             btn.clicked.connect(lambda checked, i=idx, buttons=pattern_buttons: self.on_pattern_clicked(buttons, i))
-        
-        def on_pattern_clicked(self, buttons, pattern_index: int):
-            """Handle pattern button click"""
-            # Make buttons mutually exclusive
-            self.select_exclusive_button(buttons, pattern_index)
-    
-            # Emit parameter change for parameter 92 (Arp Pattern)
-            # Value map: 0=ORDER (0-42), 1=FW/BW (43-84), 2=RANDOM (85-127)
-            value_map = [21, 63, 106]  # Mid-point of each range
-            self.parameter_changed.emit(92, value_map[pattern_index])
 
         layout.addLayout(pattern_layout, 3, 1, 1, 3)
+        
+        # Disable Pattern buttons - requires hardware MODE switch in ARP position
+        for btn in pattern_buttons:
+            btn.setEnabled(False)
+            btn.setToolTip("Requires hardware MODE switch in ARP - MIDI control unreliable")
+            btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #666666;
+                    border: 1px solid #444444;
+                    color: #999999;
+                }
+                QPushButton:checked {
+                    background-color: #4a4a4a;
+                    border: 2px solid #333333;
+                    color: #888888;
+                    font-weight: bold;
+                }
+            """)
         
         # Row 4: FW/BW Repeat (parameter 22)
         repeat_param = get_parameter_by_id(22)
@@ -275,7 +301,17 @@ class PerformanceTabWidget(QWidget):
             repeat_widget = ToggleButton(repeat_param)
             repeat_widget.value_changed.connect(self.on_widget_value_changed)
             self.parameter_widgets[22] = repeat_widget
-            layout.addWidget(repeat_widget, 4, 1, 1, 3)  # Changed from (4, 0, 1, 4) to (4, 1, 1, 3)
+            repeat_widget.setEnabled(False)
+            repeat_widget.setToolTip("MIDI control not supported by firmware")
+            # Override styling to show disabled state
+            repeat_widget.button.setStyleSheet("""
+                QPushButton {
+                    background-color: #666666;
+                    border: 1px solid #444444;
+                    color: #999999;
+                }
+            """)
+            layout.addWidget(repeat_widget, 4, 1, 1, 3)
         
         # Row 5: Oct/Bank (parameter 193)
         octbank_label = QLabel("Oct/Bank")
@@ -1746,33 +1782,25 @@ class PerformanceTabWidget(QWidget):
         if self.current_mode == 1:
             self.send_program_change(self.current_bank, self.current_sequence)
     
-    def on_bank_clicked(self, buttons, bank_index: int):
-        """Handle bank button click - make mutually exclusive and track selection"""
-        # Make buttons mutually exclusive
-        self.select_exclusive_button(buttons, bank_index)
-    
-        # Update current bank (1-based)
-        self.current_bank = bank_index + 1
-        # Note: We don't send program change here, only when sequence changes
-        
     def on_mode_clicked(self, buttons, mode_index: int):
-        """Handle mode button click - track MODE selection"""
+        """Handle mode button click"""
         self.select_exclusive_button(buttons, mode_index)
         self.current_mode = mode_index
-    
-        # Emit parameter change for parameter 91 (Arp Mode)
-        # Value map: 0=ARP (0-42), 1=SEQ (43-84), 2=REC (85-127)
-        value_map = [21, 63, 106]
-        self.parameter_changed.emit(91, value_map[mode_index])
-        
+        value_map = [21, 63, 106]  # CC ranges for ARP/SEQ/REC
+        self.parameter_changed.emit(191, value_map[mode_index])  # Changed from 91 to 191
+
     def on_pattern_clicked(self, buttons, pattern_index: int):
         """Handle pattern button click"""
         self.select_exclusive_button(buttons, pattern_index)
-    
-        # Emit parameter change for parameter 192 (Arp Pattern)
-        # Value map: 0=ORDER (0-42), 1=FW/BW (43-84), 2=RANDOM (85-127)
-        value_map = [21, 63, 106]
-        self.parameter_changed.emit(192, value_map[pattern_index])
+        value_map = [21, 63, 106]  # CC ranges for ORDER/FW-BW/RANDOM
+        self.parameter_changed.emit(192, value_map[pattern_index])  # Changed from 92 to 192
+
+    def on_bank_clicked(self, buttons, bank_index: int):
+        """Handle bank button click"""
+        self.select_exclusive_button(buttons, bank_index)
+        self.current_bank = bank_index + 1
+        value_map = [21, 63, 106]  # CC ranges for banks 1/2/3
+        self.parameter_changed.emit(193, value_map[bank_index])  # Changed from 93 to 193
         
     def on_kot_clicked(self, buttons, index: int):
         """Handle keyboard octave transpose button click"""
