@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import (
     QGroupBox, QLabel, QSlider, QPushButton, QComboBox, QDial, 
     QMainWindow
 )
-from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtCore import Qt, pyqtSignal, QTimer
 from PyQt5.QtGui import QFont
 
 from data.parameter_definitions import get_parameter_by_id, Parameter
@@ -84,10 +84,6 @@ class PerformanceTabWidget(QWidget):
     
         left_layout.addLayout(arp_gate_layout)
         left_layout.addLayout(swing_layout)
-        
-
-        left_layout.addLayout(arp_gate_layout)
-        left_layout.addLayout(swing_layout)
     
         # Center - Triplet button
         triplet_button = QPushButton("Triplet (66%)")
@@ -95,20 +91,61 @@ class PerformanceTabWidget(QWidget):
         triplet_button.setFixedSize(120, 60)
         triplet_button.setStyleSheet("""
             QPushButton {
-                background-color: #2a2a2a;
+                background-color: #4a4a4a;
+                border: 2px solid #666666;
                 color: white;
-                border: 2px solid #444;
-                border-radius: 5px;
                 font-weight: bold;
+                border-radius: 5px;
             }
             QPushButton:checked {
-                background-color: #4a4a4a;
-                border: 2px solid #666;
+                background-color: #228B22;
+                border: 2px solid #1a6b1a;
             }
             QPushButton:hover {
-                background-color: #3a3a3a;
+                background-color: #5a5a5a;
+            }
+            QPushButton:checked:hover {
+                background-color: #2a9d2a;
             }
         """)
+    
+        def on_triplet_clicked(checked):
+            if checked:
+                triplet_value = int((44.0 / 56.0) * 16383)
+        
+                # Update slider
+                if 23 in self.parameter_widgets:
+                    widget = self.parameter_widgets[23]
+                    if hasattr(widget, 'slider'):
+                        widget.slider.blockSignals(True)
+                        widget.slider.setValue(triplet_value)
+                        widget.current_value = triplet_value
+                        widget.update_display()
+                        widget.slider.blockSignals(False)
+        
+                # Send 3 times with delays to ensure Matriarch receives it
+                self.parameter_changed.emit(23, triplet_value)
+                QTimer.singleShot(20, lambda: self.parameter_changed.emit(23, triplet_value))
+                QTimer.singleShot(40, lambda: self.parameter_changed.emit(23, triplet_value))
+            else:
+                center_value = int((28.0 / 56.0) * 16383)
+        
+                if 23 in self.parameter_widgets:
+                    widget = self.parameter_widgets[23]
+                    if hasattr(widget, 'slider'):
+                        widget.slider.blockSignals(True)
+                        widget.slider.setValue(center_value)
+                        widget.current_value = center_value
+                        widget.update_display()
+                        widget.slider.blockSignals(False)
+        
+                # Send 3 times
+                self.parameter_changed.emit(23, center_value)
+                QTimer.singleShot(20, lambda: self.parameter_changed.emit(23, center_value))
+                QTimer.singleShot(40, lambda: self.parameter_changed.emit(23, center_value))
+        
+        triplet_button.clicked.connect(on_triplet_clicked)
+        self.triplet_button = triplet_button
     
         # Assemble top row - just left group and triplet button
         top_row_layout.addWidget(left_group, 1)
@@ -657,6 +694,14 @@ class PerformanceTabWidget(QWidget):
                     self.parameter_changed.emit(pid, value)
         
                 sync_btn.clicked.connect(on_sync_changed)
+                
+                # Store button references for updates
+                if param_id == 47:
+                    self.osc2_sync_btn = sync_btn
+                elif param_id == 48:
+                    self.osc3_sync_btn = sync_btn
+                elif param_id == 49:
+                    self.osc4_sync_btn = sync_btn
     
             sync_row_layout.addWidget(sync_btn)
 
@@ -686,14 +731,15 @@ class PerformanceTabWidget(QWidget):
                 color: black;
             }
         """)
+        #group.setMinimumHeight(350) #DONT THINK WE NEED THIS
     
         layout = QVBoxLayout(group)
-        layout.setSpacing(10)
-        layout.setContentsMargins(10, 20, 10, 10)
+        layout.setSpacing(5)
+        layout.setContentsMargins(10, 20, 10, 5)
     
         # Row 1: Dropdown controls
         dropdowns_layout = QVBoxLayout()
-        dropdowns_layout.setSpacing(8)
+        dropdowns_layout.setSpacing(5) # Changed from 8 to 5
     
         # Delay Filter Brightness (parameter 52)
         brightness_layout = QHBoxLayout()
@@ -775,6 +821,7 @@ class PerformanceTabWidget(QWidget):
                 self.parameter_changed.emit(53, value)
     
             syncbend_btn.clicked.connect(on_syncbend_changed)
+            self.syncbend_btn = syncbend_btn  # Store reference for updates
             syncbend_layout.addWidget(syncbend_btn)
 
         dropdowns_layout.addLayout(syncbend_layout)
@@ -783,7 +830,7 @@ class PerformanceTabWidget(QWidget):
     
         # Row 2: Knobs
         knobs_layout = QHBoxLayout()
-        knobs_layout.setSpacing(15)
+        knobs_layout.setSpacing(10)  # Changed from 15 to 10
     
         # Delay Spacing knob (parameter 13)
         spacing_param = get_parameter_by_id(113)
@@ -808,7 +855,7 @@ class PerformanceTabWidget(QWidget):
         buttons_layout.setSpacing(10)
     
         # Delay Sync button (parameter 89)
-        sync_param = get_parameter_by_id(89)
+        sync_param = get_parameter_by_id(51)
         if sync_param:
             sync_btn = QPushButton("Delay Sync")
             sync_btn.setCheckable(True)
@@ -835,13 +882,14 @@ class PerformanceTabWidget(QWidget):
     
             def on_delay_sync_changed():
                 value = 1 if sync_btn.isChecked() else 0
-                self.parameter_changed.emit(89, value)
+                self.parameter_changed.emit(51, value)
     
             sync_btn.clicked.connect(on_delay_sync_changed)
+            self.delay_sync_btn = sync_btn
             buttons_layout.addWidget(sync_btn)
 
         # Delay Ping Pong button (parameter 88)
-        pingpong_param = get_parameter_by_id(88)
+        pingpong_param = get_parameter_by_id(50)
         if pingpong_param:
             pingpong_btn = QPushButton("Delay Ping Pong")
             pingpong_btn.setCheckable(True)
@@ -868,9 +916,10 @@ class PerformanceTabWidget(QWidget):
     
             def on_pingpong_changed():
                 value = 1 if pingpong_btn.isChecked() else 0
-                self.parameter_changed.emit(88, value)
+                self.parameter_changed.emit(50, value)
     
             pingpong_btn.clicked.connect(on_pingpong_changed)
+            self.delay_pingpong_btn = pingpong_btn
             buttons_layout.addWidget(pingpong_btn)
     
         layout.addLayout(buttons_layout)
@@ -940,6 +989,7 @@ class PerformanceTabWidget(QWidget):
                 self.parameter_changed.emit(56, value)
     
             unison_btn.clicked.connect(on_unison_changed)
+            self.unison_btn = unison_btn  # Store reference for updates
             unison_layout.addWidget(unison_btn)
 
         layout.addLayout(unison_layout)
@@ -1059,6 +1109,7 @@ class PerformanceTabWidget(QWidget):
                 self.parameter_changed.emit(57, value)
     
             multitrig_btn.clicked.connect(on_multitrig_changed)
+            self.multitrig_btn = multitrig_btn  # Store reference for updates
             layout.addWidget(multitrig_btn)
     
         layout.addStretch()
@@ -1146,6 +1197,7 @@ class PerformanceTabWidget(QWidget):
             self.parameter_changed.emit(39, 1 if checked else 0)
 
         dkos_btn.toggled.connect(on_dkos_changed)
+        self.dkos_btn = dkos_btn
     
         dkos_label = QLabel("Delayed Keyboard Octave Shift")
         dkos_label.setStyleSheet("color: white; font-weight: bold; font-size: 9px;")
@@ -1187,9 +1239,24 @@ class PerformanceTabWidget(QWidget):
         """)
         def on_glide_changed(checked):
             glide_btn.setText("On" if checked else "Off")
+            if checked:
+                # Glide turned ON - send current Glide Time value
+                current_glide_time = self.gt_slider.value() if hasattr(self, 'gt_slider') else 0
+                self.parameter_changed.emit(105, current_glide_time)
+            else:
+                # Glide turned OFF - set slider to 0 and send Glide Time = 0
+                if hasattr(self, 'gt_slider'):
+                    self.gt_slider.blockSignals(True)
+                    self.gt_slider.setValue(0)
+                    self.gt_value_label.setText("0")
+                    self.gt_slider.blockSignals(False)
+                self.parameter_changed.emit(105, 0)
+            
+            # Also send the Glide On/Off CC
             self.parameter_changed.emit(65, 1 if checked else 0)
 
         glide_btn.toggled.connect(on_glide_changed)
+        self.glide_btn = glide_btn
         col2_layout.addWidget(glide_btn)
     
         # Glide Type radio buttons
@@ -1227,6 +1294,8 @@ class PerformanceTabWidget(QWidget):
         # Make mutually exclusive and wire to parameter 40
         for i, btn in enumerate(glide_type_buttons):
             btn.clicked.connect(lambda checked, idx=i, buttons=glide_type_buttons: self.on_glide_type_clicked(buttons, idx))
+            
+        self.glide_type_buttons = glide_type_buttons
     
         # Gated Glide toggle
         gated_glide_label = QLabel("Gated Glide")
@@ -1259,6 +1328,7 @@ class PerformanceTabWidget(QWidget):
             self.parameter_changed.emit(41, 1 if checked else 0)
 
         gated_glide_btn.toggled.connect(on_gated_glide_changed)
+        self.gated_glide_btn = gated_glide_btn
         col2_layout.addWidget(gated_glide_btn)
     
         # Legato Glide toggle
@@ -1291,6 +1361,7 @@ class PerformanceTabWidget(QWidget):
             self.parameter_changed.emit(42, 1 if checked else 0)
 
         legato_glide_btn.toggled.connect(on_legato_glide_changed)
+        self.legato_glide_btn = legato_glide_btn
         col2_layout.addWidget(legato_glide_btn)
     
         col2_layout.addStretch()
@@ -1334,6 +1405,9 @@ class PerformanceTabWidget(QWidget):
             self.parameter_changed.emit(37, v)
 
         pbr_slider.valueChanged.connect(on_pbr_changed)
+        self.install_slider_double_click_reset(pbr_slider, 2)
+        self.pbr_slider = pbr_slider  
+        self.pbr_value_label = pbr_value  
         pbr_container.addWidget(pbr_slider)
         pbr_container.addWidget(pbr_value)
         col3_layout.addLayout(pbr_container)
@@ -1372,6 +1446,9 @@ class PerformanceTabWidget(QWidget):
             self.parameter_changed.emit(58, v * 10)
 
         pv_slider.valueChanged.connect(on_pv_changed)
+        self.install_slider_double_click_reset(pv_slider, 0)
+        self.pv_slider = pv_slider
+        self.pv_value_label = pv_value
         pv_container.addWidget(pv_slider)
         pv_container.addWidget(pv_value)
         col3_layout.addLayout(pv_container)
@@ -1409,9 +1486,55 @@ class PerformanceTabWidget(QWidget):
             self.parameter_changed.emit(71, v)
 
         nfc_slider.valueChanged.connect(on_nfc_changed)
+        self.install_slider_double_click_reset(nfc_slider, 16383)
+        self.nfc_slider = nfc_slider
+        self.nfc_value_label = nfc_value
         nfc_container.addWidget(nfc_slider)
         nfc_container.addWidget(nfc_value)
         col3_layout.addLayout(nfc_container)
+    
+        # Glide Time
+        gt_label = QLabel("Glide Time")
+        gt_label.setStyleSheet("color: white; font-weight: bold; font-size: 10px;")
+        col3_layout.addWidget(gt_label)
+    
+        gt_container = QHBoxLayout()
+        gt_slider = QSlider(Qt.Horizontal)
+        gt_slider.setMinimum(0)
+        gt_slider.setMaximum(16383)
+        gt_slider.setValue(0)
+        gt_slider.setStyleSheet("""
+            QSlider::groove:horizontal {
+                background: #2a2a2a;
+                height: 6px;
+                border-radius: 3px;
+            }
+            QSlider::handle:horizontal {
+                background: #666;
+                width: 14px;
+                margin: -4px 0;
+                border-radius: 7px;
+            }
+            QSlider::handle:horizontal:hover {
+                background: #888;
+            }
+        """)
+        gt_value = QLabel("0")
+        gt_value.setStyleSheet("color: white; min-width: 50px;")
+        
+        def on_gt_changed(v):
+            gt_value.setText(str(v))
+            # Always send parameter change when slider moves
+            # The coordination with Glide On/Off happens at the button level
+            self.parameter_changed.emit(105, v)
+
+        gt_slider.valueChanged.connect(on_gt_changed)
+        self.install_slider_double_click_reset(gt_slider, 0)
+        self.gt_slider = gt_slider  # Store reference
+        self.gt_value_label = gt_value  # Store reference
+        gt_container.addWidget(gt_slider)
+        gt_container.addWidget(gt_value)
+        col3_layout.addLayout(gt_container)
     
         col3_layout.addStretch()
         main_layout.addWidget(col3)
@@ -1459,7 +1582,9 @@ class PerformanceTabWidget(QWidget):
         for i, btn in enumerate(np_buttons):
             btn.clicked.connect(lambda checked, idx=i, buttons=np_buttons, val=value_map[i]: 
                                self.on_np_clicked(buttons, idx, val))
-    
+        self.np_buttons = np_buttons  
+        self.np_value_map = value_map  
+        
         # LFO Polarity radio buttons
         lfo_label = QLabel("LFO Polarity")
         lfo_label.setStyleSheet("color: white; font-weight: bold; font-size: 10px;")
@@ -1496,6 +1621,8 @@ class PerformanceTabWidget(QWidget):
         for i, btn in enumerate(lfo_buttons):
             btn.clicked.connect(lambda checked, idx=i, buttons=lfo_buttons: 
                                self.on_lfo_polarity_clicked(buttons, idx))
+                               
+        self.lfo_buttons = lfo_buttons
     
         # Tap-Tempo Clock Division Persistence toggle
         ttcdp_label = QLabel("Tap-Tempo Clock Division Persistence")
@@ -1526,6 +1653,7 @@ class PerformanceTabWidget(QWidget):
             self.parameter_changed.emit(54, 1 if checked else 0)
 
         ttcdp_btn.toggled.connect(on_ttcdp_changed)
+        self.ttcdp_btn = ttcdp_btn 
         col4_layout.addWidget(ttcdp_btn)
     
         col4_layout.addStretch()
@@ -1706,6 +1834,15 @@ class PerformanceTabWidget(QWidget):
     
     def on_widget_value_changed(self, param_id: int, value: int):
         """Forward parameter changes from widgets"""
+        logger.info(f"on_widget_value_changed called: param_id={param_id}, value={value}")
+        # Special handling for Arp/Seq Swing (param 23) - turn off Triplet button if manually adjusted
+        if param_id == 23 and hasattr(self, 'triplet_button') and self.triplet_button.isChecked():
+            triplet_value = int((44.0 / 56.0) * 16383)  # 12873
+            if abs(value - triplet_value) > 50:  # Tolerance for rounding
+                self.triplet_button.blockSignals(True)
+                self.triplet_button.setChecked(False)
+                self.triplet_button.blockSignals(False)
+        
         self.parameter_changed.emit(param_id, value)
     
     def set_parameter_value(self, param_id: int, value: int):
@@ -1823,6 +1960,192 @@ class PerformanceTabWidget(QWidget):
         self.select_exclusive_button(buttons, index)
         self.parameter_changed.emit(70, index)
 
+    def install_slider_double_click_reset(self, slider, default_value):
+        """Install event filter on slider to reset to default on double-click"""
+        from PyQt5.QtCore import QObject, QEvent
+        
+        class SliderEventFilter(QObject):
+            def __init__(self, slider_widget, default_val, parent=None):
+                super().__init__(parent)
+                self.slider_widget = slider_widget
+                self.default_val = default_val
+            
+            def eventFilter(self, obj, event):
+                if obj == self.slider_widget and event.type() == QEvent.MouseButtonDblClick:
+                    self.slider_widget.setValue(self.default_val)
+                    return True
+                return False
+        
+        filter_obj = SliderEventFilter(slider, default_value, self)
+        slider.installEventFilter(filter_obj)
+        
+        # Store reference so it doesn't get garbage collected
+        if not hasattr(self, '_slider_filters'):
+            self._slider_filters = []
+        self._slider_filters.append(filter_obj)
+
+    def get_parameter_widgets(self) -> Dict[int, 'ParameterWidget']:
+        """Return the dictionary of parameter widgets for external access"""
+        return self.parameter_widgets
+
+    def update_parameter_value(self, param_id: int, value: int):
+        """Update a parameter's UI widget with a new value"""
+        # Handle widgets that use the standard ParameterWidget interface
+        if param_id in self.parameter_widgets:
+            widget = self.parameter_widgets[param_id]
+            if hasattr(widget, 'set_value_silently'):
+                widget.set_value_silently(value)
+                return
+        
+        # Handle special widgets created directly without ParameterWidget wrapper
+        
+        # Multi Trig (param 57)
+        if param_id == 57 and hasattr(self, 'multitrig_btn'):
+            self.multitrig_btn.blockSignals(True)
+            self.multitrig_btn.setChecked(bool(value))
+            self.multitrig_btn.blockSignals(False)
+        
+        # Hard Sync Enable (param 46)
+        elif param_id == 46 and hasattr(self, 'sync_enable_btn'):
+            self.sync_enable_btn.blockSignals(True)
+            self.sync_enable_btn.setChecked(bool(value))
+            self.sync_enable_btn.blockSignals(False)
+        
+        # Delay CV Sync-Bend (param 53)
+        elif param_id == 53 and hasattr(self, 'syncbend_btn'):
+            self.syncbend_btn.blockSignals(True)
+            self.syncbend_btn.setChecked(bool(value))
+            self.syncbend_btn.setText("On" if value else "Off")
+            self.syncbend_btn.blockSignals(False)
+        
+        # Paraphonic Unison (param 56)
+        elif param_id == 56 and hasattr(self, 'unison_btn'):
+            self.unison_btn.blockSignals(True)
+            self.unison_btn.setChecked(bool(value))
+            self.unison_btn.setText("On" if value else "Off")
+            self.unison_btn.blockSignals(False)
+        
+        # Delay Sync (param 51)
+        elif param_id == 51 and hasattr(self, 'delay_sync_btn'):
+            self.delay_sync_btn.blockSignals(True)
+            self.delay_sync_btn.setChecked(bool(value))
+            self.delay_sync_btn.blockSignals(False)
+        
+        # Delay Ping Pong (param 50)
+        elif param_id == 50 and hasattr(self, 'delay_pingpong_btn'):
+            self.delay_pingpong_btn.blockSignals(True)
+            self.delay_pingpong_btn.setChecked(bool(value))
+            self.delay_pingpong_btn.blockSignals(False)
+        
+        # Osc 2 Sync (param 47)
+        elif param_id == 47 and hasattr(self, 'osc2_sync_btn'):
+            self.osc2_sync_btn.blockSignals(True)
+            self.osc2_sync_btn.setChecked(bool(value))
+            self.osc2_sync_btn.blockSignals(False)
+        
+        # Osc 3 Sync (param 48)
+        elif param_id == 48 and hasattr(self, 'osc3_sync_btn'):
+            self.osc3_sync_btn.blockSignals(True)
+            self.osc3_sync_btn.setChecked(bool(value))
+            self.osc3_sync_btn.blockSignals(False)
+        
+        # Osc 4 Sync (param 49)
+        elif param_id == 49 and hasattr(self, 'osc4_sync_btn'):
+            self.osc4_sync_btn.blockSignals(True)
+            self.osc4_sync_btn.setChecked(bool(value))
+            self.osc4_sync_btn.blockSignals(False)
+        
+        # Delayed KB Octave Shift (param 39)
+        elif param_id == 39 and hasattr(self, 'dkos_btn'):
+            self.dkos_btn.blockSignals(True)
+            self.dkos_btn.setChecked(bool(value))
+            self.dkos_btn.setText("On" if value else "Off")
+            self.dkos_btn.blockSignals(False)
+        
+        # Gated Glide (param 41)
+        elif param_id == 41 and hasattr(self, 'gated_glide_btn'):
+            self.gated_glide_btn.blockSignals(True)
+            self.gated_glide_btn.setChecked(bool(value))
+            self.gated_glide_btn.setText("On" if value else "Off")
+            self.gated_glide_btn.blockSignals(False)
+        
+        # Legato Glide (param 42)
+        elif param_id == 42 and hasattr(self, 'legato_glide_btn'):
+            self.legato_glide_btn.blockSignals(True)
+            self.legato_glide_btn.setChecked(bool(value))
+            self.legato_glide_btn.setText("On" if value else "Off")
+            self.legato_glide_btn.blockSignals(False)
+        
+        # Tap-Tempo Clock Division Persistence (param 54)
+        elif param_id == 54 and hasattr(self, 'ttcdp_btn'):
+            self.ttcdp_btn.blockSignals(True)
+            self.ttcdp_btn.setChecked(bool(value))
+            self.ttcdp_btn.setText("On" if value else "Off")
+            self.ttcdp_btn.blockSignals(False)
+        
+        # Glide Type (param 40)
+        elif param_id == 40 and hasattr(self, 'glide_type_buttons'):
+            for i, btn in enumerate(self.glide_type_buttons):
+                btn.blockSignals(True)
+                btn.setChecked(i == value)
+                btn.blockSignals(False)
+        
+        # Note Priority (param 3)
+        elif param_id == 3 and hasattr(self, 'np_buttons'):
+            # Reverse lookup: find button index from value
+            try:
+                idx = self.np_value_map.index(value)
+                for i, btn in enumerate(self.np_buttons):
+                    btn.blockSignals(True)
+                    btn.setChecked(i == idx)
+                    btn.blockSignals(False)
+            except (ValueError, AttributeError):
+                pass
+        
+        # LFO Polarity (param 70)
+        elif param_id == 70 and hasattr(self, 'lfo_buttons'):
+            for i, btn in enumerate(self.lfo_buttons):
+                btn.blockSignals(True)
+                btn.setChecked(i == value)
+                btn.blockSignals(False)
+        
+        # Pitch Bend Range (param 37)
+        elif param_id == 37 and hasattr(self, 'pbr_slider'):
+            self.pbr_slider.blockSignals(True)
+            self.pbr_slider.setValue(value)
+            self.pbr_value_label.setText(str(value))
+            self.pbr_slider.blockSignals(False)
+        
+        # Pitch Variance (param 58)
+        elif param_id == 58 and hasattr(self, 'pv_slider'):
+            # Value comes in as 0-400, slider is 0-40
+            slider_value = value // 10
+            self.pv_slider.blockSignals(True)
+            self.pv_slider.setValue(slider_value)
+            self.pv_value_label.setText(f"{slider_value} cents")
+            self.pv_slider.blockSignals(False)
+        
+        # Noise Filter Cutoff (param 71)
+        elif param_id == 71 and hasattr(self, 'nfc_slider'):
+            self.nfc_slider.blockSignals(True)
+            self.nfc_slider.setValue(value)
+            self.nfc_value_label.setText(str(value))
+            self.nfc_slider.blockSignals(False)
+
+        # Glide Time (param 105)
+        elif param_id == 105 and hasattr(self, 'gt_slider'):
+            self.gt_slider.blockSignals(True)
+            self.gt_slider.setValue(value)
+            self.gt_value_label.setText(str(value))
+            self.gt_slider.blockSignals(False)
+            
+            # If value is 0, turn off Glide button
+            if value == 0 and hasattr(self, 'glide_btn'):
+                self.glide_btn.blockSignals(True)
+                self.glide_btn.setChecked(False)
+                self.glide_btn.setText("Off")
+                self.glide_btn.blockSignals(False)
+
 class ArpRateWidget(ParameterWidget):
     """Custom widget for Arp Rate with BPM display"""
     
@@ -1917,6 +2240,8 @@ class ArpRateKnobWidget(ParameterWidget):
 class SmoothDial(QDial):
     """QDial subclass with smooth drag behavior (no jumping)"""
     
+    double_clicked = pyqtSignal()
+    
     def __init__(self, parent=None):
         super().__init__(parent)
         self.last_mouse_y = 0
@@ -1958,6 +2283,11 @@ class SmoothDial(QDial):
         new_value = self.value() + (step if delta > 0 else -step)
         new_value = max(self.minimum(), min(self.maximum(), new_value))
         self.setValue(new_value)
+        event.accept()
+        
+    def mouseDoubleClickEvent(self, event):
+        """Handle double-click to reset to default"""
+        self.double_clicked.emit()
         event.accept()
 
 class CustomButtonGroup(ParameterWidget):
@@ -2098,6 +2428,7 @@ class ParameterSliderWidget(ParameterWidget):
             }
         """)
         self.slider.valueChanged.connect(self.on_slider_changed)
+        self.slider.installEventFilter(self)
         
         # Create value label
         self.value_label = QLabel()
@@ -2123,6 +2454,24 @@ class ParameterSliderWidget(ParameterWidget):
         self.current_value = value
         self.update_display()
 
+    def eventFilter(self, obj, event):
+        """Event filter to catch double-clicks on slider"""
+        if obj == self.slider and event.type() == event.MouseButtonDblClick:
+            self.reset_to_default()
+            return True
+        return super().eventFilter(obj, event)
+    
+    def reset_to_default(self):
+        """Reset slider to parameter's default value"""
+        default_value = self.parameter.default_value
+        # Don't call setValue - it triggers valueChanged
+        # Instead, set directly and emit once
+        self.slider.blockSignals(True)
+        self.slider.setValue(default_value)
+        self.slider.blockSignals(False)
+        self.current_value = default_value
+        self.update_display()
+        self.emit_value_changed(default_value)
 
 class ParameterDialWidget(ParameterWidget):
     """Dial/knob widget for parameters with optional value conversion"""
@@ -2158,6 +2507,7 @@ class ParameterDialWidget(ParameterWidget):
             }
         """)
         self.dial.valueChanged.connect(self.on_dial_changed)
+        self.dial.double_clicked.connect(self.reset_to_default)
         layout.addWidget(self.dial, alignment=Qt.AlignCenter)
         
         # Value display
@@ -2181,7 +2531,14 @@ class ParameterDialWidget(ParameterWidget):
         self.emit_value_changed(value)
         self.current_value = value
         self.update_display()
-
+    
+    def reset_to_default(self):
+        """Reset dial to parameter's default value"""
+        default_value = self.parameter.default_value
+        self.dial.setValue(default_value)
+        self.current_value = default_value
+        self.emit_value_changed(default_value)
+        self.update_display()
 
 class ParameterToggleWidget(ParameterWidget):
     """Toggle button for on/off parameters"""

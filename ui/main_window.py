@@ -219,6 +219,10 @@ class MatriarchMainWindow(QMainWindow):
         midi_log_action.triggered.connect(self.show_midi_log)
         view_menu.addAction(midi_log_action)
         
+        default_settings_action = QAction('&Default Parameter Settings...', self)
+        default_settings_action.triggered.connect(self.show_default_settings)
+        view_menu.addAction(default_settings_action)
+        
         # About Menu
         about_menu = menubar.addMenu("About")
         
@@ -242,8 +246,28 @@ class MatriarchMainWindow(QMainWindow):
         """Create tabs for each parameter category"""
         categories = get_parameters_by_category()
         widget_factory = ParameterWidgetFactory()
+        # Add Performance tab FIRST (custom layout from PerformanceTabWidget)
+        from ui.performance_tab import PerformanceTabWidget
+        performance_tab = PerformanceTabWidget()
+        performance_tab.parameter_changed.connect(self.on_parameter_changed)
+        self.tab_widget.addTab(performance_tab, "Performance")
+    
+        # Store reference to performance tab for custom updates
+        self.performance_tab = performance_tab
+    
+        # Register Performance tab's parameter widgets for updates
+        perf_widgets = performance_tab.get_parameter_widgets()
+        self.parameter_widgets.update(perf_widgets)
+        
+        # Register Performance tab's parameter widgets for updates
+        perf_widgets = performance_tab.get_parameter_widgets()
+        self.parameter_widgets.update(perf_widgets)
         
         for category, parameters in categories.items():
+            # Skip PERFORMANCE category - it's handled by custom PerformanceTabWidget above
+            if category == ParameterCategory.PERFORMANCE:
+                continue
+                
             # Create tab
             tab_widget = QWidget()
             self.tab_widget.addTab(tab_widget, category.value)
@@ -292,13 +316,13 @@ class MatriarchMainWindow(QMainWindow):
             tab_layout.addWidget(scroll)
     
     
-    # Add TEST tab at the end
-        from ui.performance_tab import PerformanceTabWidget
-        test_tab = PerformanceTabWidget()
-        # Connect performance tab parameter changes to MIDI
-        #test_tab.parameter_changed.connect(self.on_performance_parameter_changed)
-        test_tab.parameter_changed.connect(self.on_parameter_changed)
-        self.tab_widget.addTab(test_tab, "TEST")
+    ## Add TEST tab at the end
+    #    from ui.performance_tab import PerformanceTabWidget
+    #    test_tab = PerformanceTabWidget()
+    #    # Connect performance tab parameter changes to MIDI
+    #    #test_tab.parameter_changed.connect(self.on_performance_parameter_changed)
+    #    test_tab.parameter_changed.connect(self.on_parameter_changed)
+    #    self.tab_widget.addTab(test_tab, "TEST")
     
     
     
@@ -460,11 +484,16 @@ class MatriarchMainWindow(QMainWindow):
         """Handle parameter updates from Matriarch"""
         self.current_values[param_id] = value
         
+        # Try to update via performance tab first (handles special widgets)
+        if hasattr(self, 'performance_tab'):
+            self.performance_tab.update_parameter_value(param_id, value)
+        
+        # Also update via standard parameter widgets
         if param_id in self.parameter_widgets:
-            # Update widget without triggering change signal
             widget = self.parameter_widgets[param_id]
-            widget.set_value_silently(value)
-            
+            if hasattr(widget, 'set_value_silently'):
+                widget.set_value_silently(value)
+                
         logger.debug(f"Parameter {param_id} updated to {value}")
     
     def on_parameter_changed(self, param_id: int, value: int):
@@ -800,6 +829,12 @@ class MatriarchMainWindow(QMainWindow):
         
         self.midi_log_window.raise_()
         self.midi_log_window.activateWindow()
+    
+    def show_default_settings(self):
+        """Show default parameter settings dialog"""
+        from ui.default_settings_dialog import DefaultSettingsDialog
+        dialog = DefaultSettingsDialog(self)
+        dialog.exec_()
     
     def show_version_dialog(self):
             """Show the version information dialog."""
