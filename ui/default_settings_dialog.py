@@ -163,3 +163,4 @@ class DefaultSettingsDialog(QDialog):
                 background-color: #ff6b35;
             }
         """)
+        
