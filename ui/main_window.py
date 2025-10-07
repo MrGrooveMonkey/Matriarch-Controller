@@ -22,6 +22,10 @@ from ui.parameter_widgets import ParameterWidget, ParameterWidgetFactory
 from ui.midi_settings_dialog import MIDISettingsDialog
 from ui.midi_log_window import MIDILogWindow
 import platform
+from data.settings import AppSettings
+from data.preset_manager import PresetManager
+from ui.save_preset_dialog import SavePresetDialog
+from ui.load_preset_dialog import LoadPresetDialog
 
 # Import version info
 try:
@@ -77,8 +81,13 @@ class MatriarchMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.midi_manager = MIDIConnectionManager()
+        # Initialize settings and preset manager
+        self.app_settings = AppSettings()
+        self.preset_manager = PresetManager(APP_VERSION)
         self.parameter_widgets: Dict[int, ParameterWidget] = {}
-        self.current_values: Dict[int, int] = {}
+        # Initialize current_values with all parameter defaults
+        from data.parameter_definitions import get_all_parameter_defaults
+        self.current_values: Dict[int, int] = get_all_parameter_defaults()
         self.settings = QSettings()
         
         # UI Components 
@@ -176,15 +185,13 @@ class MatriarchMainWindow(QMainWindow):
         # Preset submenu
         preset_menu = file_menu.addMenu('&Presets')
         
-        save_preset_action = QAction('&Save Preset...', self)
-        save_preset_action.setShortcut('Ctrl+S')
-        save_preset_action.triggered.connect(self.save_preset)
-        preset_menu.addAction(save_preset_action)
+        self.save_preset_action = QAction('Save Preset As...', self)
+        self.save_preset_action.triggered.connect(self.save_preset_as)
+        preset_menu.addAction(self.save_preset_action)
         
-        load_preset_action = QAction('&Load Preset...', self)
-        load_preset_action.setShortcut('Ctrl+L')
-        load_preset_action.triggered.connect(self.load_preset)
-        preset_menu.addAction(load_preset_action)
+        self.load_preset_action = QAction('Load Preset...', self)
+        self.load_preset_action.triggered.connect(self.load_preset_new)
+        preset_menu.addAction(self.load_preset_action)
         
         file_menu.addSeparator()
         
@@ -324,7 +331,20 @@ class MatriarchMainWindow(QMainWindow):
     #    test_tab.parameter_changed.connect(self.on_parameter_changed)
     #    self.tab_widget.addTab(test_tab, "TEST")
     
+    # DEBUG: Check which parameters have widgets
+        logger.info(f"Total parameter widgets created: {len(self.parameter_widgets)}")
     
+        from data.parameter_definitions import PARAMETERS
+        params_0_75 = [p for p in PARAMETERS.keys() if 0 <= p <= 75 and p != 76]
+        registered = [p for p in params_0_75 if p in self.parameter_widgets]
+        missing = [p for p in params_0_75 if p not in self.parameter_widgets]
+    
+        logger.info(f"Widgets registered for 0-75 range: {len(registered)}/74")
+        if missing:
+            logger.warning(f"Missing widgets for parameters: {sorted(missing)}")
+            for pid in sorted(missing)[:10]:  # Show first 10
+                param = PARAMETERS[pid]
+                logger.warning(f"  - {pid}: {param.name} (category: {param.category})")
     
     def create_status_bar(self):
         """Create status bar with connection info and progress"""
@@ -757,17 +777,97 @@ class MatriarchMainWindow(QMainWindow):
         QMessageBox.critical(self, "Query Error", 
                            f"Failed to query parameters:\n{error_message}")
     
-    def save_preset(self):
-        """Save current settings as preset"""
-        # TODO: Implement preset saving
-        QMessageBox.information(self, "Coming Soon", 
-                              "Preset saving will be implemented in Phase 4")
+    def save_preset_as(self):
+        """Handle Save Preset As action"""
+        # Disable preset menu items during operation
+        self.save_preset_action.setEnabled(False)
+        self.load_preset_action.setEnabled(False)
+        
+        try:
+            # Get current UI parameter values
+            current_params = self._get_current_ui_parameters()
+            
+            # Show save dialog
+            save_dialog = SavePresetDialog(
+                self,
+                self.preset_manager,
+                self.midi_manager,
+                self.preset_manager.get_presets_directory()
+            )
+            
+            success, filepath = save_dialog.show(current_parameters=current_params)
+            
+            if success and filepath:
+                # Add to recent presets
+                self.app_settings.add_recent_preset(filepath)
+                
+        finally:
+            # Re-enable preset menu items
+            self.save_preset_action.setEnabled(True)
+            self.load_preset_action.setEnabled(True)
     
-    def load_preset(self):
-        """Load preset"""
-        # TODO: Implement preset loading
-        QMessageBox.information(self, "Coming Soon", 
-                              "Preset loading will be implemented in Phase 4")
+    def load_preset_new(self):
+        """Handle Load Preset action"""
+        # Disable preset menu items during operation
+        self.save_preset_action.setEnabled(False)
+        self.load_preset_action.setEnabled(False)
+        
+        try:
+            # Show load dialog
+            load_dialog = LoadPresetDialog(
+                self,
+                self.preset_manager,
+                self.midi_manager,
+                self.app_settings,
+                self.preset_manager.get_presets_directory()
+            )
+            
+            success, filepath, parameters = load_dialog.show()
+            
+            if success and parameters:
+                # Update UI to reflect loaded parameters
+                self._update_ui_from_parameters(parameters)
+                
+        finally:
+            # Re-enable preset menu items
+            self.save_preset_action.setEnabled(True)
+            self.load_preset_action.setEnabled(True)
+    
+    def _get_current_ui_parameters(self):
+        """
+        Get current parameter values from tracked values
+        
+        Returns:
+            Dictionary of parameter_id: value (0-75, excluding 76)
+        """
+        parameters = {}
+        
+        # Use self.current_values which is updated whenever parameters change
+        # This includes both UI changes and MIDI updates
+        for param_id, value in self.current_values.items():
+            # Only include parameters in the 0-75 range, excluding 76
+            if 0 <= param_id <= 75 and param_id != 76:
+                parameters[param_id] = value
+        
+        logger.info(f"Collected {len(parameters)} parameter values from current_values")
+        return parameters
+    
+    def _update_ui_from_parameters(self, parameters: dict):
+        """
+        Update UI widgets to reflect loaded parameter values
+        
+        Args:
+            parameters: Dictionary of parameter_id: value
+        """
+        logger.info(f"Updating UI from {len(parameters)} loaded parameters")
+        
+        # Update all parameter widgets from the registry
+        for param_id, value in parameters.items():
+            # Use the same method that handles MIDI parameter updates
+            # This ensures all widgets (including custom Performance tab widgets) get updated
+            self.on_parameter_received(param_id, value)
+        
+        logger.info("UI update complete")
     
     def reset_to_defaults(self):
         """Reset all parameters to default values"""

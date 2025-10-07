@@ -373,6 +373,116 @@ class MIDIConnectionManager:
         
         return results
     
+    def query_parameters_for_save(self, progress_callback=None) -> Dict[int, int]:
+        """
+        Query parameters 0-75 (excluding 76) for saving to preset.
+        
+        Args:
+            progress_callback: Optional callback function(current, total) for progress updates
+            
+        Returns:
+            Dictionary of parameter_id: value
+        """
+        if not self.is_connected:
+            return {}
+        
+        # Parameters to query (0-75, excluding 76)
+        params_to_query = [p for p in range(76) if p != 76]
+        
+        # Use existing query_all_parameters method with retry logic
+        results = self.query_all_parameters(
+            parameter_ids=params_to_query,
+            progress_callback=progress_callback,
+            retry_count=3
+        )
+        
+        # Filter out None values (failed queries)
+        valid_results = {
+            param_id: value 
+            for param_id, value in results.items() 
+            if value is not None
+        }
+        
+        return valid_results
+    
+    def load_preset_parameters(self, parameters: Dict[int, int], progress_callback=None) -> List[int]:
+        """
+        Send preset parameters to Matriarch with delays between messages.
+        
+        Args:
+            parameters: Dictionary of parameter_id: value
+            progress_callback: Optional callback function(current, total) for progress updates
+            
+        Returns:
+            List of parameter IDs that were sent
+        """
+        if not self.is_connected:
+            return []
+        
+        sent_params = []
+        param_list = sorted(parameters.items())
+        total_params = len(param_list)
+        
+        for i, (param_id, value) in enumerate(param_list):
+            self.set_parameter(param_id, value)
+            sent_params.append(param_id)
+            
+            # 20ms delay between messages
+            time.sleep(0.02)
+            
+            # Update progress
+            if progress_callback:
+                progress_callback(i + 1, total_params)
+        
+        return sent_params
+    
+    def verify_preset_loaded(self, expected_parameters: Dict[int, int], progress_callback=None) -> Dict:
+        """
+        Verify that preset parameters were correctly loaded into Matriarch.
+        
+        Args:
+            expected_parameters: Dictionary of parameter_id: expected_value
+            progress_callback: Optional callback function(current, total) for progress updates
+            
+        Returns:
+            Dictionary with 'success', 'failed_params' (list of param_ids), 
+            'failures' (dict of param_id: {'expected': val, 'actual': val})
+        """
+        if not self.is_connected:
+            return {
+                "success": False,
+                "failed_params": [],
+                "failures": {}
+            }
+        
+        param_list = sorted(expected_parameters.keys())
+        
+        # Use existing query_all_parameters method
+        actual_values = self.query_all_parameters(
+            parameter_ids=param_list,
+            progress_callback=progress_callback,
+            retry_count=3
+        )
+        
+        # Compare expected vs actual
+        failed_params = []
+        failures = {}
+        
+        for param_id, expected_value in expected_parameters.items():
+            actual_value = actual_values.get(param_id)
+            if actual_value is None or actual_value != expected_value:
+                failed_params.append(param_id)
+                failures[param_id] = {
+                    "expected": expected_value,
+                    "actual": actual_value
+                }
+        
+        return {
+            "success": len(failed_params) == 0,
+            "failed_params": failed_params,
+            "failures": failures
+        }
+    
     def query_parameter_sync(self, parameter_id: int) -> Optional[int]:
         """
         Synchronous parameter query with response caching
