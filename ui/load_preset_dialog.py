@@ -169,20 +169,35 @@ class LoadPresetDialog:
             return False, None, None
         
         parameters = preset_data["parameters"]
+        parameter_types = preset_data.get("parameter_types", {})
         
         # Validate parameters
-        validation = self.preset_manager.validate_preset_parameters(parameters)
+        validation = self.preset_manager.validate_preset_parameters(parameters, parameter_types)
         
-        if validation["missing"]:
-            missing_names = [PARAMETERS[pid].name for pid in validation["missing"] if pid in PARAMETERS]
+        # Handle missing SysEx parameters (critical)
+        if validation["missing_sysex"]:
+            missing_names = [PARAMETERS[pid].name for pid in validation["missing_sysex"] if pid in PARAMETERS]
+            # Build warning message
+            warning_parts = []
+            warning_parts.append(f"This preset is missing {len(validation['missing_sysex'])} SysEx parameters:\n")
+            warning_parts.append(f"{', '.join(missing_names[:5])}")
+            if len(missing_names) > 5:
+                warning_parts.append("...")
+            
+            # Add CC parameter info if missing
+            if validation["missing_cc"]:
+                missing_cc_names = [PARAMETERS[pid].name for pid in validation["missing_cc"][:3] if pid in PARAMETERS]
+                warning_parts.append(f"\n\nAlso missing {len(validation['missing_cc'])} CC parameters:")
+                warning_parts.append(f"{', '.join(missing_cc_names)}")
+                if len(validation["missing_cc"]) > 3:
+                    warning_parts.append(f"... and {len(validation['missing_cc']) - 3} more")
+                warning_parts.append("\n(CC parameters are optional)")
+            
             response = QMessageBox.warning(
                 self.parent,
                 "Incomplete Preset",
-                f"This preset is missing {len(validation['missing'])} parameters:\n\n"
-                f"{', '.join(missing_names[:5])}"
-                f"{'...' if len(missing_names) > 5 else ''}\n\n"
-                f"Do you want to load the preset anyway?\n"
-                f"Missing parameters will not be changed.",
+                "".join(warning_parts) + "\n\nDo you want to load the preset anyway?\n"
+                "Missing parameters will not be changed.",
                 QMessageBox.Yes | QMessageBox.No,
                 QMessageBox.No
             )
@@ -190,14 +205,21 @@ class LoadPresetDialog:
             if response != QMessageBox.Yes:
                 return False, None, None
         
+        # Separate parameters by type for sending
+        # Don't send cc_inactive parameters
+        params_to_send = {
+            pid: value for pid, value in parameters.items()
+            if parameter_types.get(pid) != 'cc_inactive'
+        }
+        
         # Send parameters to Matriarch
-        success = self._send_parameters(parameters)
+        success = self._send_parameters(params_to_send)
         
         if not success:
             return False, None, None
         
         # Verify parameters
-        verify_success = self._verify_parameters(parameters)
+        verify_success = self._verify_parameters(parameters, parameter_types)
         
         if verify_success:
             # Add to recent presets
@@ -261,7 +283,7 @@ class LoadPresetDialog:
             )
             return False
     
-    def _verify_parameters(self, parameters: Dict[int, int]) -> bool:
+    def _verify_parameters(self, parameters: Dict[int, int], parameter_types: Dict[int, str] = None) -> bool:
         """
         Verify parameters were loaded correctly, with retry option
         
@@ -288,10 +310,11 @@ class LoadPresetDialog:
             progress.setValue(current)
             progress.setLabelText(f"Verifying preset...\n{current} of {total} parameters")
         
-        # Verify parameters
+        # Verify parameters (only SysEx params, CC params can't be verified)
         try:
             result = self.midi_handler.verify_preset_loaded(
                 parameters,
+                parameter_types=parameter_types,
                 progress_callback=update_progress
             )
             
@@ -329,7 +352,7 @@ class LoadPresetDialog:
                         pid: parameters[pid] 
                         for pid in result["failed_params"]
                     }
-                    return self._retry_failed_parameters(failed_params)
+                    return self._retry_failed_parameters(failed_params, parameter_types)
                 else:
                     return False
             
@@ -342,7 +365,7 @@ class LoadPresetDialog:
             )
             return False
     
-    def _retry_failed_parameters(self, failed_params: Dict[int, int]) -> bool:
+    def _retry_failed_parameters(self, failed_params: Dict[int, int], parameter_types: Dict[int, str] = None) -> bool:
         """
         Retry sending failed parameters
         
@@ -372,8 +395,10 @@ class LoadPresetDialog:
             progress.setValue(current)
         
         try:
+            # Only verify SysEx params in retry
             result = self.midi_handler.verify_preset_loaded(
                 failed_params,
+                parameter_types=parameter_types,
                 progress_callback=update_progress
             )
             

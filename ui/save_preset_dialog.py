@@ -93,7 +93,7 @@ class SavePresetDialog:
         should_query = query_checkbox.isChecked()
         
         if should_query:
-            parameters = self._query_parameters()
+            parameters = self._query_parameters(current_parameters)
             if parameters is None:
                 return False, None
         else:
@@ -135,7 +135,7 @@ class SavePresetDialog:
             )
             return False, None
     
-    def _query_parameters(self):
+    def _query_parameters(self, current_parameters: dict = None):
         """
         Query parameters from Matriarch with progress dialog
         
@@ -159,11 +159,21 @@ class SavePresetDialog:
             progress.setValue(current)
             progress.setLabelText(f"Querying parameters from Matriarch...\n{current} of {total}")
         
-        # Query parameters
+        # Query SysEx parameters (CC parameters can't be queried)
         try:
-            parameters = self.midi_handler.query_parameters_for_save(
+            sysex_parameters = self.midi_handler.query_parameters_for_save(
                 progress_callback=update_progress
             )
+            
+            # Merge queried SysEx parameters with current CC parameter values
+            parameters = dict(sysex_parameters)  # Start with queried SysEx params
+            
+            # Add CC parameters from current UI values (can't be queried via SysEx)
+            if current_parameters:
+                for param_id, value in current_parameters.items():
+                    # Add CC parameters (101-205) that weren't queried
+                    if 101 <= param_id <= 205:
+                        parameters[param_id] = value
             
             progress.close()
             

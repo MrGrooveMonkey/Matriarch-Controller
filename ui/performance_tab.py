@@ -426,10 +426,10 @@ class PerformanceTabWidget(QWidget):
         play_hold_layout = QHBoxLayout()
         play_hold_layout.setSpacing(5)
         
-        play_btn = QPushButton("Play")
-        play_btn.setCheckable(True)
-        play_btn.setMinimumHeight(35)
-        play_btn.setStyleSheet("""
+        self.play_btn = QPushButton("Play")
+        self.play_btn.setCheckable(True)
+        self.play_btn.setMinimumHeight(35)
+        self.play_btn.setStyleSheet("""
             QPushButton {
                 background-color: #4a4a4a;
                 border: 2px solid #666666;
@@ -443,15 +443,15 @@ class PerformanceTabWidget(QWidget):
         """)
         
         def on_play_changed():
-            value = 1 if play_btn.isChecked() else 0
+            value = 1 if self.play_btn.isChecked() else 0
             self.parameter_changed.emit(173, value)  # Parameter 173 = Arp Play (CC 73)
 
-        play_btn.clicked.connect(on_play_changed)
+        self.play_btn.clicked.connect(on_play_changed)
         
-        hold_btn = QPushButton("Hold")
-        hold_btn.setCheckable(True)
-        hold_btn.setMinimumHeight(35)
-        hold_btn.setStyleSheet("""
+        self.hold_btn = QPushButton("Hold")
+        self.hold_btn.setCheckable(True)
+        self.hold_btn.setMinimumHeight(35)
+        self.hold_btn.setStyleSheet("""
             QPushButton {
                 background-color: #4a4a4a;
                 border: 2px solid #666666;
@@ -464,15 +464,15 @@ class PerformanceTabWidget(QWidget):
             }
         """)
         
-        play_hold_layout.addWidget(play_btn)
-        play_hold_layout.addWidget(hold_btn)
+        play_hold_layout.addWidget(self.play_btn)
+        play_hold_layout.addWidget(self.hold_btn)
         layout.addLayout(play_hold_layout, 7, 0, 1, 4)
         
         def on_hold_changed():
-            value = 1 if hold_btn.isChecked() else 0
+            value = 1 if self.hold_btn.isChecked() else 0
             self.parameter_changed.emit(169, value)  # Parameter 169 = Arp Latch (CC 69)
 
-        hold_btn.clicked.connect(on_hold_changed)
+        self.hold_btn.clicked.connect(on_hold_changed)
         
         return group
     
@@ -2145,6 +2145,16 @@ class PerformanceTabWidget(QWidget):
                 self.glide_btn.setChecked(False)
                 self.glide_btn.setText("Off")
                 self.glide_btn.blockSignals(False)
+
+        # Arp/Seq Controls
+        elif param_id == 173:  # Arp Play
+            self.play_btn.blockSignals(True)
+            self.play_btn.setChecked(bool(value))
+            self.play_btn.blockSignals(False)
+        elif param_id == 169:  # Arp Latch (Hold)
+            self.hold_btn.blockSignals(True)
+            self.hold_btn.setChecked(bool(value))
+            self.hold_btn.blockSignals(False)
 
 class ArpRateWidget(ParameterWidget):
     """Custom widget for Arp Rate with BPM display"""

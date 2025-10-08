@@ -1,0 +1,378 @@
+{
+  "metadata": {
+    "saved_date": "2025-10-07T19:55:46.816265",
+    "app_version": "0.5.0"
+  },
+  "parameters": {
+    "0": {
+      "name": "Unit ID",
+      "value": 0,
+      "type": "sysex"
+    },
+    "1": {
+      "name": "Tuning Scale",
+      "value": 0,
+      "type": "sysex"
+    },
+    "2": {
+      "name": "Knob Mode",
+      "value": 2,
+      "type": "sysex"
+    },
+    "3": {
+      "name": "Note Priority",
+      "value": 2,
+      "type": "sysex"
+    },
+    "37": {
+      "name": "Pitch Bend Range",
+      "value": 2,
+      "type": "sysex"
+    },
+    "38": {
+      "name": "Keyboard Octave Transpose",
+      "value": 2,
+      "type": "sysex"
+    },
+    "39": {
+      "name": "Delayed Keyboard Octave Shift",
+      "value": 1,
+      "type": "sysex"
+    },
+    "40": {
+      "name": "Glide Type",
+      "value": 0,
+      "type": "sysex"
+    },
+    "41": {
+      "name": "Gated Glide",
+      "value": 1,
+      "type": "sysex"
+    },
+    "42": {
+      "name": "Legato Glide",
+      "value": 1,
+      "type": "sysex"
+    },
+    "43": {
+      "name": "Osc 2 Freq Knob Range",
+      "value": 7,
+      "type": "sysex"
+    },
+    "44": {
+      "name": "Osc 3 Freq Knob Range",
+      "value": 7,
+      "type": "sysex"
+    },
+    "45": {
+      "name": "Osc 4 Freq Knob Range",
+      "value": 7,
+      "type": "sysex"
+    },
+    "46": {
+      "name": "Hard Sync Enable",
+      "value": 0,
+      "type": "sysex"
+    },
+    "47": {
+      "name": "Osc 2 Hard Sync",
+      "value": 0,
+      "type": "sysex"
+    },
+    "48": {
+      "name": "Osc 3 Hard Sync",
+      "value": 0,
+      "type": "sysex"
+    },
+    "49": {
+      "name": "Osc 4 Hard Sync",
+      "value": 0,
+      "type": "sysex"
+    },
+    "50": {
+      "name": "Delay Ping Pong",
+      "value": 0,
+      "type": "sysex"
+    },
+    "51": {
+      "name": "Delay Sync",
+      "value": 0,
+      "type": "sysex"
+    },
+    "52": {
+      "name": "Delay Filter Brightness",
+      "value": 1,
+      "type": "sysex"
+    },
+    "53": {
+      "name": "Delay CV Sync-Bend",
+      "value": 0,
+      "type": "sysex"
+    },
+    "54": {
+      "name": "Tap-Tempo Clock Division Persistence",
+      "value": 0,
+      "type": "sysex"
+    },
+    "55": {
+      "name": "Paraphony Mode",
+      "value": 0,
+      "type": "sysex"
+    },
+    "56": {
+      "name": "Paraphonic Unison",
+      "value": 0,
+      "type": "sysex"
+    },
+    "57": {
+      "name": "Multi Trig",
+      "value": 0,
+      "type": "sysex"
+    },
+    "58": {
+      "name": "Pitch Variance",
+      "value": 0,
+      "type": "sysex"
+    },
+    "70": {
+      "name": "Square LFO Polarity",
+      "value": 1,
+      "type": "sysex"
+    },
+    "71": {
+      "name": "Noise Filter Cutoff",
+      "value": 16383,
+      "type": "sysex"
+    },
+    "20": {
+      "name": "Sequence Transpose Mode",
+      "value": 0,
+      "type": "sysex"
+    },
+    "21": {
+      "name": "Arp/Seq Keyed Timing Reset",
+      "value": 0,
+      "type": "sysex"
+    },
+    "22": {
+      "name": "Arp FW/BW Repeats",
+      "value": 1,
+      "type": "sysex"
+    },
+    "23": {
+      "name": "Arp/Seq Swing",
+      "value": 8192,
+      "type": "sysex"
+    },
+    "24": {
+      "name": "Sequence Keyboard Control",
+      "value": 1,
+      "type": "sysex"
+    },
+    "25": {
+      "name": "Delay Sequence Change",
+      "value": 0,
+      "type": "sysex"
+    },
+    "26": {
+      "name": "Sequence Keyed Restart",
+      "value": 0,
+      "type": "sysex"
+    },
+    "27": {
+      "name": "Arp/Seq Clock Input Mode",
+      "value": 0,
+      "type": "sysex"
+    },
+    "28": {
+      "name": "Arp/Seq Clock Output",
+      "value": 1,
+      "type": "sysex"
+    },
+    "29": {
+      "name": "Arp MIDI Output",
+      "value": 1,
+      "type": "sysex"
+    },
+    "72": {
+      "name": "Arp/Seq Random Repeats",
+      "value": 1,
+      "type": "sysex"
+    },
+    "73": {
+      "name": "ARP/SEQ CV OUT Mirrors KB CV",
+      "value": 0,
+      "type": "sysex"
+    },
+    "74": {
+      "name": "KB CV OUT Mirrors ARP/SEQ CV",
+      "value": 0,
+      "type": "sysex"
+    },
+    "4": {
+      "name": "Send Program Change",
+      "value": 0,
+      "type": "sysex"
+    },
+    "5": {
+      "name": "Receive Program Change",
+      "value": 1,
+      "type": "sysex"
+    },
+    "6": {
+      "name": "MIDI Input Ports",
+      "value": 3,
+      "type": "sysex"
+    },
+    "7": {
+      "name": "MIDI Output Ports",
+      "value": 3,
+      "type": "sysex"
+    },
+    "8": {
+      "name": "MIDI Echo USB In",
+      "value": 0,
+      "type": "sysex"
+    },
+    "9": {
+      "name": "MIDI Echo DIN In",
+      "value": 0,
+      "type": "sysex"
+    },
+    "10": {
+      "name": "MIDI Input Channel",
+      "value": 0,
+      "type": "sysex"
+    },
+    "11": {
+      "name": "MIDI Output Channel",
+      "value": 0,
+      "type": "sysex"
+    },
+    "12": {
+      "name": "MIDI Out Filter - Keys",
+      "value": 1,
+      "type": "sysex"
+    },
+    "13": {
+      "name": "MIDI Out Filter - Wheels",
+      "value": 1,
+      "type": "sysex"
+    },
+    "14": {
+      "name": "MIDI Out Filter - Panel",
+      "value": 1,
+      "type": "sysex"
+    },
+    "15": {
+      "name": "Output 14-bit MIDI CCs",
+      "value": 0,
+      "type": "sysex"
+    },
+    "16": {
+      "name": "Local Control: Keys",
+      "value": 1,
+      "type": "sysex"
+    },
+    "17": {
+      "name": "Local Control: Wheels",
+      "value": 1,
+      "type": "sysex"
+    },
+    "18": {
+      "name": "Local Control: Panel",
+      "value": 1,
+      "type": "sysex"
+    },
+    "19": {
+      "name": "Local Control: Arp/Seq",
+      "value": 1,
+      "type": "sysex"
+    },
+    "30": {
+      "name": "MIDI Clock Input",
+      "value": 0,
+      "type": "sysex"
+    },
+    "31": {
+      "name": "MIDI Clock Output",
+      "value": 0,
+      "type": "sysex"
+    },
+    "32": {
+      "name": "Follow Song Position Pointer",
+      "value": 1,
+      "type": "sysex"
+    },
+    "35": {
+      "name": "Clock Input PPQN",
+      "value": 3,
+      "type": "sysex"
+    },
+    "36": {
+      "name": "Clock Output PPQN",
+      "value": 3,
+      "type": "sysex"
+    },
+    "67": {
+      "name": "Round-Robin Mode",
+      "value": 1,
+      "type": "sysex"
+    },
+    "68": {
+      "name": "Restore Stolen Voices",
+      "value": 0,
+      "type": "sysex"
+    },
+    "69": {
+      "name": "Update Unison on Note-Off",
+      "value": 0,
+      "type": "sysex"
+    },
+    "75": {
+      "name": "MIDI Velocity Curves",
+      "value": 0,
+      "type": "sysex"
+    },
+    "59": {
+      "name": "KB CV OUT Range",
+      "value": 0,
+      "type": "sysex"
+    },
+    "60": {
+      "name": "Arp/Seq CV OUT Range",
+      "value": 0,
+      "type": "sysex"
+    },
+    "61": {
+      "name": "KB VEL OUT Range",
+      "value": 0,
+      "type": "sysex"
+    },
+    "62": {
+      "name": "Arp/Seq VEL OUT Range",
+      "value": 0,
+      "type": "sysex"
+    },
+    "63": {
+      "name": "KB AT OUT Range",
+      "value": 0,
+      "type": "sysex"
+    },
+    "64": {
+      "name": "MOD WHL OUT Range",
+      "value": 0,
+      "type": "sysex"
+    },
+    "65": {
+      "name": "KB GATE OUT Range",
+      "value": 0,
+      "type": "sysex"
+    },
+    "66": {
+      "name": "Arp/Seq GATE OUT Range",
+      "value": 0,
+      "type": "sysex"
+    }
+  }
+}

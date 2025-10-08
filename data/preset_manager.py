@@ -7,8 +7,46 @@ import json
 import os
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Optional, List
+from typing import Dict, Optional, List, Set
 
+def get_preset_parameter_ids() -> Dict[str, set]:
+    """
+    Get parameter IDs that should be included in presets, categorized by type.
+    
+    Returns:
+        Dict with 'sysex', 'cc_active', 'cc_inactive' keys containing sets of param IDs
+    """
+    from data.parameter_definitions import PARAMETERS
+    
+    # Parameters to exclude completely
+    EXCLUDED = {76}  # Load Default Settings
+    
+    # CC parameters that are defined but currently inactive in UI
+    INACTIVE_CC = {103, 191, 192, 193}  # Mod Rate, Arp Mode, Pattern, Range/Bank
+    
+    sysex_params = set()
+    cc_active = set()
+    cc_inactive = set()
+    
+    for param_id in PARAMETERS.keys():
+        if param_id in EXCLUDED:
+            continue
+            
+        # SysEx parameters (0-75)
+        if 0 <= param_id <= 75:
+            sysex_params.add(param_id)
+        # CC parameters (101+, below 300 to exclude Program Change)
+        elif 101 <= param_id < 300:
+            if param_id in INACTIVE_CC:
+                cc_inactive.add(param_id)
+            else:
+                cc_active.add(param_id)
+    
+    return {
+        'sysex': sysex_params,
+        'cc_active': cc_active,
+        'cc_inactive': cc_inactive
+    }
 
 class PresetManager:
     """Manages preset file operations and directory structure"""
@@ -68,14 +106,29 @@ class PresetManager:
         try:
             from data.parameter_definitions import PARAMETERS
             
-            # Filter out excluded parameters (76 and 100+) and add parameter names
+            # Get categorized parameter IDs
+            param_categories = get_preset_parameter_ids()
+            
+            # Build parameters dict with names and types
             filtered_params = {}
+            
             for param_id, value in parameters.items():
-                if param_id not in self.EXCLUDED_PARAMS and param_id < 100:
+                # Determine parameter type
+                param_type = None
+                if param_id in param_categories['sysex']:
+                    param_type = 'sysex'
+                elif param_id in param_categories['cc_active']:
+                    param_type = 'cc'
+                elif param_id in param_categories['cc_inactive']:
+                    param_type = 'cc_inactive'
+                
+                # Only include if it's a valid preset parameter
+                if param_type:
                     param_name = PARAMETERS[param_id].name if param_id in PARAMETERS else f"Parameter {param_id}"
                     filtered_params[str(param_id)] = {
                         "name": param_name,
-                        "value": value
+                        "value": value,
+                        "type": param_type
                     }
             
             # Create preset structure
@@ -109,7 +162,7 @@ class PresetManager:
             filepath: Full path to preset file
             
         Returns:
-            Dictionary with 'parameters' and 'metadata', or None if error
+            Dictionary with 'parameters', 'metadata', and 'parameter_types', or None if error
         """
         try:
             with open(filepath, 'r') as f:
@@ -122,25 +175,34 @@ class PresetManager:
             if "parameters" not in preset_data:
                 raise ValueError("Invalid preset format: missing 'parameters'")
             
-            # Convert parameter IDs back to integers
+            # Convert parameter IDs back to integers and extract types
             parameters = {}
+            parameter_types = {}
+            
             for param_id_str, param_data in preset_data["parameters"].items():
                 try:
                     param_id = int(param_id_str)
-                    # Handle both old format (direct value) and new format (dict with name and value)
+                    
+                    # Handle both old format (direct value) and new format (dict with name, value, type)
                     if isinstance(param_data, dict):
                         value = param_data.get("value")
+                        param_type = param_data.get("type", "sysex")  # Default to sysex for old presets
                     else:
-                        value = param_data  # Old format compatibility
+                        # Old format compatibility
+                        value = param_data
+                        param_type = "sysex" if param_id <= 75 else "cc"
                     
                     if value is not None:
                         parameters[param_id] = value
+                        parameter_types[param_id] = param_type
+                        
                 except (ValueError, TypeError) as e:
                     print(f"Warning: Invalid parameter data for ID '{param_id_str}': {e}")
             
             return {
                 "parameters": parameters,
-                "metadata": preset_data.get("metadata", {})
+                "metadata": preset_data.get("metadata", {}),
+                "parameter_types": parameter_types
             }
             
         except (IOError, OSError) as e:
@@ -150,25 +212,37 @@ class PresetManager:
             print(f"Error parsing preset: {e}")
             return None
     
-    def validate_preset_parameters(self, parameters: Dict[int, int]) -> Dict:
+    def validate_preset_parameters(self, parameters: Dict[int, int], parameter_types: Dict[int, str] = None) -> Dict:
         """
-        Validate preset parameters against expected range (0-75, excluding 76)
+        Validate preset parameters against expected parameters.
         
         Args:
             parameters: Dictionary of parameter_id: value from preset
+            parameter_types: Dictionary of parameter_id: type (optional)
             
         Returns:
-            Dictionary with 'valid', 'missing', 'extra' keys
+            Dictionary with 'valid', 'missing_sysex', 'missing_cc', 'extra' keys
         """
-        expected_params = set(range(76)) - set(self.EXCLUDED_PARAMS)
+        param_categories = get_preset_parameter_ids()
+        
+        # All expected parameters (SysEx + CC active + CC inactive)
+        all_expected = param_categories['sysex'] | param_categories['cc_active'] | param_categories['cc_inactive']
         loaded_params = set(parameters.keys())
         
-        missing = expected_params - loaded_params
-        extra = loaded_params - expected_params - set(range(100, 200))  # Exclude 100+ range
+        # Separate missing parameters by type
+        missing_sysex = param_categories['sysex'] - loaded_params
+        missing_cc = (param_categories['cc_active'] | param_categories['cc_inactive']) - loaded_params
+        
+        # Extra parameters (not in our expected list)
+        extra = loaded_params - all_expected
+        
+        # Valid parameters
+        valid = loaded_params & all_expected
         
         return {
-            "valid": loaded_params & expected_params,
-            "missing": sorted(missing),
+            "valid": valid,
+            "missing_sysex": sorted(missing_sysex),
+            "missing_cc": sorted(missing_cc),
             "extra": sorted(extra)
         }
     

@@ -436,12 +436,14 @@ class MIDIConnectionManager:
         
         return sent_params
     
-    def verify_preset_loaded(self, expected_parameters: Dict[int, int], progress_callback=None) -> Dict:
+    def verify_preset_loaded(self, expected_parameters: Dict[int, int], parameter_types: Dict[int, str] = None, progress_callback=None) -> Dict:
         """
         Verify that preset parameters were correctly loaded into Matriarch.
+        Only verifies SysEx parameters (CC parameters cannot be queried).
         
         Args:
             expected_parameters: Dictionary of parameter_id: expected_value
+            parameter_types: Dictionary of parameter_id: type ('sysex', 'cc', 'cc_inactive')
             progress_callback: Optional callback function(current, total) for progress updates
             
         Returns:
@@ -455,7 +457,24 @@ class MIDIConnectionManager:
                 "failures": {}
             }
         
-        param_list = sorted(expected_parameters.keys())
+        # Only verify SysEx parameters (0-75, excluding 76)
+        # CC parameters cannot be queried via SysEx
+        sysex_params = {}
+        for param_id, expected_value in expected_parameters.items():
+            param_type = parameter_types.get(param_id, 'sysex') if parameter_types else 'sysex'
+            # Only include SysEx parameters for verification
+            if param_type == 'sysex' and 0 <= param_id <= 75 and param_id != 76:
+                sysex_params[param_id] = expected_value
+        
+        if not sysex_params:
+            # No SysEx parameters to verify
+            return {
+                "success": True,
+                "failed_params": [],
+                "failures": {}
+            }
+        
+        param_list = sorted(sysex_params.keys())
         
         # Use existing query_all_parameters method
         actual_values = self.query_all_parameters(
@@ -468,7 +487,7 @@ class MIDIConnectionManager:
         failed_params = []
         failures = {}
         
-        for param_id, expected_value in expected_parameters.items():
+        for param_id, expected_value in sysex_params.items():
             actual_value = actual_values.get(param_id)
             if actual_value is None or actual_value != expected_value:
                 failed_params.append(param_id)

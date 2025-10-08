@@ -838,18 +838,24 @@ class MatriarchMainWindow(QMainWindow):
         Get current parameter values from tracked values
         
         Returns:
-            Dictionary of parameter_id: value (0-75, excluding 76)
+            Dictionary of parameter_id: value (0-75 excluding 76, and 101-205 CC params)
         """
         parameters = {}
         
         # Use self.current_values which is updated whenever parameters change
         # This includes both UI changes and MIDI updates
         for param_id, value in self.current_values.items():
-            # Only include parameters in the 0-75 range, excluding 76
-            if 0 <= param_id <= 75 and param_id != 76:
+            # Include SysEx parameters (0-75 excluding 76) and CC parameters (101-205)
+            if (0 <= param_id <= 75 and param_id != 76) or (101 <= param_id <= 205):
                 parameters[param_id] = value
         
         logger.info(f"Collected {len(parameters)} parameter values from current_values")
+        
+        # DEBUG: Show CC parameters
+        cc_params = {pid: value for pid, value in parameters.items() if pid >= 101}
+        logger.info(f"CC parameters collected: {len(cc_params)}")
+        logger.info(f"CC param IDs: {sorted(cc_params.keys())}")
+        
         return parameters
     
     def _update_ui_from_parameters(self, parameters: dict):
