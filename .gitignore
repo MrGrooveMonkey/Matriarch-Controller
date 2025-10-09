@@ -1,0 +1,9 @@
+#Ignore presets
+/Users/mini4/matriarch_controller/presets
+
+#Ignore specific files
+/Users/mini4/matriarch_controller/test_midi_connection.py
+/Users/mini4/matriarch_controller/test_parameter_widgets.py
+/Users/mini4/matriarch_controller/cc_param_check.py
+/Users/mini4/matriarch_controller/matriarch-controller-backup-20251003-135425.tar.gz
+/Users/mini4/matriarch_controller/matriarch-controller-backup-20251003-135445.tar.gz

@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "saved_date": "2025-10-06T23:34:43.561760",
+    "app_version": "0.5.0"
+  },
+  "parameters": {
+    "0": {
+      "name": "Unit ID",
+      "value": 0
+    },
+    "1": {
+      "name": "Tuning Scale",
+      "value": 0
+    },
+    "2": {
+      "name": "Knob Mode",
+      "value": 2
+    },
+    "3": {
+      "name": "Note Priority",
+      "value": 2
+    },
+    "37": {
+      "name": "Pitch Bend Range",
+      "value": 7
+    },
+    "38": {
+      "name": "Keyboard Octave Transpose",
+      "value": 2
+    },
+    "39": {
+      "name": "Delayed Keyboard Octave Shift",
+      "value": 1
+    },
+    "40": {
+      "name": "Glide Type",
+      "value": 0
+    },
+    "41": {
+      "name": "Gated Glide",
+      "value": 1
+    },
+    "42": {
+      "name": "Legato Glide",
+      "value": 1
+    },
+    "43": {
+      "name": "Osc 2 Freq Knob Range",
+      "value": 7
+    },
+    "44": {
+      "name": "Osc 3 Freq Knob Range",
+      "value": 7
+    },
+    "45": {
+      "name": "Osc 4 Freq Knob Range",
+      "value": 7
+    },
+    "46": {
+      "name": "Hard Sync Enable",
+      "value": 1
+    },
+    "47": {
+      "name": "Osc 2 Hard Sync",
+      "value": 1
+    },
+    "48": {
+      "name": "Osc 3 Hard Sync",
+      "value": 1
+    },
+    "49": {
+      "name": "Osc 4 Hard Sync",
+      "value": 1
+    },
+    "50": {
+      "name": "Delay Ping Pong",
+      "value": 1
+    },
+    "51": {
+      "name": "Delay Sync",
+      "value": 1
+    },
+    "52": {
+      "name": "Delay Filter Brightness",
+      "value": 1
+    },
+    "53": {
+      "name": "Delay CV Sync-Bend",
+      "value": 0
+    },
+    "54": {
+      "name": "Tap-Tempo Clock Division Persistence",
+      "value": 0
+    },
+    "55": {
+      "name": "Paraphony Mode",
+      "value": 0
+    },
+    "56": {
+      "name": "Paraphonic Unison",
+      "value": 0
+    },
+    "57": {
+      "name": "Multi Trig",
+      "value": 1
+    },
+    "58": {
+      "name": "Pitch Variance",
+      "value": 110
+    },
+    "70": {
+      "name": "Square LFO Polarity",
+      "value": 1
+    },
+    "71": {
+      "name": "Noise Filter Cutoff",
+      "value": 10042
+    },
+    "20": {
+      "name": "Sequence Transpose Mode",
+      "value": 0
+    },
+    "21": {
+      "name": "Arp/Seq Keyed Timing Reset",
+      "value": 0
+    },
+    "22": {
+      "name": "Arp FW/BW Repeats",
+      "value": 1
+    },
+    "23": {
+      "name": "Arp/Seq Swing",
+      "value": 13039
+    },
+    "24": {
+      "name": "Sequence Keyboard Control",
+      "value": 1
+    },
+    "25": {
+      "name": "Delay Sequence Change",
+      "value": 0
+    },
+    "26": {
+      "name": "Sequence Keyed Restart",
+      "value": 0
+    },
+    "27": {
+      "name": "Arp/Seq Clock Input Mode",
+      "value": 0
+    },
+    "28": {
+      "name": "Arp/Seq Clock Output",
+      "value": 1
+    },
+    "29": {
+      "name": "Arp MIDI Output",
+      "value": 1
+    },
+    "72": {
+      "name": "Arp/Seq Random Repeats",
+      "value": 1
+    },
+    "73": {
+      "name": "ARP/SEQ CV OUT Mirrors KB CV",
+      "value": 0
+    },
+    "74": {
+      "name": "KB CV OUT Mirrors ARP/SEQ CV",
+      "value": 0
+    },
+    "4": {
+      "name": "Send Program Change",
+      "value": 0
+    },
+    "5": {
+      "name": "Receive Program Change",
+      "value": 1
+    },
+    "6": {
+      "name": "MIDI Input Ports",
+      "value": 3
+    },
+    "7": {
+      "name": "MIDI Output Ports",
+      "value": 3
+    },
+    "8": {
+      "name": "MIDI Echo USB In",
+      "value": 0
+    },
+    "9": {
+      "name": "MIDI Echo DIN In",
+      "value": 0
+    },
+    "10": {
+      "name": "MIDI Input Channel",
+      "value": 0
+    },
+    "11": {
+      "name": "MIDI Output Channel",
+      "value": 0
+    },
+    "12": {
+      "name": "MIDI Out Filter - Keys",
+      "value": 1
+    },
+    "13": {
+      "name": "MIDI Out Filter - Wheels",
+      "value": 1
+    },
+    "14": {
+      "name": "MIDI Out Filter - Panel",
+      "value": 1
+    },
+    "15": {
+      "name": "Output 14-bit MIDI CCs",
+      "value": 0
+    },
+    "16": {
+      "name": "Local Control: Keys",
+      "value": 1
+    },
+    "17": {
+      "name": "Local Control: Wheels",
+      "value": 1
+    },
+    "18": {
+      "name": "Local Control: Panel",
+      "value": 1
+    },
+    "19": {
+      "name": "Local Control: Arp/Seq",
+      "value": 1
+    },
+    "30": {
+      "name": "MIDI Clock Input",
+      "value": 0
+    },
+    "31": {
+      "name": "MIDI Clock Output",
+      "value": 0
+    },
+    "32": {
+      "name": "Follow Song Position Pointer",
+      "value": 1
+    },
+    "35": {
+      "name": "Clock Input PPQN",
+      "value": 3
+    },
+    "36": {
+      "name": "Clock Output PPQN",
+      "value": 3
+    },
+    "67": {
+      "name": "Round-Robin Mode",
+      "value": 1
+    },
+    "68": {
+      "name": "Restore Stolen Voices",
+      "value": 0
+    },
+    "69": {
+      "name": "Update Unison on Note-Off",
+      "value": 0
+    },
+    "75": {
+      "name": "MIDI Velocity Curves",
+      "value": 0
+    },
+    "59": {
+      "name": "KB CV OUT Range",
+      "value": 0
+    },
+    "60": {
+      "name": "Arp/Seq CV OUT Range",
+      "value": 0
+    },
+    "61": {
+      "name": "KB VEL OUT Range",
+      "value": 0
+    },
+    "62": {
+      "name": "Arp/Seq VEL OUT Range",
+      "value": 0
+    },
+    "63": {
+      "name": "KB AT OUT Range",
+      "value": 0
+    },
+    "64": {
+      "name": "MOD WHL OUT Range",
+      "value": 0
+    },
+    "65": {
+      "name": "KB GATE OUT Range",
+      "value": 0
+    },
+    "66": {
+      "name": "Arp/Seq GATE OUT Range",
+      "value": 0
+    }
+  }
+}
