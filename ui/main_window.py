@@ -1101,15 +1101,8 @@ class MatriarchMainWindow(QMainWindow):
         self.settings.setValue('midi/midi_channel', 0)  # Save it too
         
         
-        # Window geometry
-        geometry = self.settings.value('window/geometry')
-        if geometry:
-            self.restoreGeometry(geometry)
-        
-        # Window state
-        state = self.settings.value('window/state')
-        if state:
-            self.restoreState(state)
+        # Window geometry and state are loaded in restore_window_settings()
+        # which is called before load_settings(), so don't load them again here
         
         # MIDI settings
         unit_id = self.settings.value('midi/unit_id', 0, type=int)
